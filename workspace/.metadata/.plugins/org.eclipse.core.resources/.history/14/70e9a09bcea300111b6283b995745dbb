@@ -1,0 +1,25 @@
+package jipplugin;
+
+import com.jchapman.jipsnapman.models.ISnapshotPathModel;
+
+public class
+Model 
+implements ISnapshotPathModel
+{
+	String path = new String("");
+	
+	@Override
+	public String
+	getSnapshotPath() 
+	{
+		return null;
+	}
+
+	@Override
+	public void 
+	setSnapshotPath
+	(String path) 
+	{
+		
+	}
+}

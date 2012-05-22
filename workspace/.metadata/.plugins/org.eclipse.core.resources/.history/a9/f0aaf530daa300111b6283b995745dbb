@@ -1,0 +1,34 @@
+21 May 2012:
+
+I have completed almost all of the GUI elements. Now I need to port over the system
+functionality. I have copied over the models, because those I should be able to work
+with wholesale. The next part is to add the connection between the GUI and the
+model itself, with as little new code as possible.
+
+Once the port is done perhaps I can refactor.
+
+Stay calm and carry on: I will start by porting the BrowsePathAction class.
+
+Miniature MVC for starters: setting the snapshot data:
+	1) controller gets a reference to a view; this is used whenever the
+	controller is notified of a change in a model
+	2) controller obtains a reference to a model; this is used to change
+	something when the view indicates
+	3) controller registers itself as a listener on the model's state
+	
+In the case of the ConfigurationDialog, we have the dialog as the view;
+the action as the controller, and some model as the model.
+
+20 May 2012:
+
+I want to both get things done and learn new techniques. Once I have figured out
+how to do something, I need to immediately look up how to do it better.
+
+Later on I may try out the SWTXML project on Google code.
+
+Today, since I have laid out the primary design of the user interface, I will now
+refactor. I may need to refactor once more once the MVC is decided on.
+
+One of the things I will need to learn is how to use resources, so that the 
+contents and the layout of the GUI can be separated. 
+

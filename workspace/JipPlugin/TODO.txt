@@ -1,3 +1,27 @@
+21 May 2012:
+
+I have completed almost all of the GUI elements. Now I need to port over the system
+functionality. I have copied over the models, because those I should be able to work
+with wholesale. The next part is to add the connection between the GUI and the
+model itself, with as little new code as possible.
+
+Once the port is done perhaps I can refactor.
+
+Stay calm and carry on: I will start by porting the BrowsePathAction class.
+
+Miniature MVC for starters: setting the snapshot data:
+	1) controller gets a reference to a view; this is used whenever the
+	controller is notified of a change in a model
+	2) controller obtains a reference to a model; this is used to change
+	something when the view indicates
+	3) controller registers itself as a listener on the model's state
+	
+In the case of the ConfigurationDialog, we have the dialog as the view;
+the action as the controller, and some model as the model. I know this is
+different from the design of the original implementation, but it should be
+straightforward and can be carried out. Later on I will need to change to the
+"command" approach.
+
 20 May 2012:
 
 I want to both get things done and learn new techniques. Once I have figured out

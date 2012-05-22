@@ -12,3 +12,10 @@
 1337628952634	Move compilation unit
 1337628957264	Move compilation unit
 1337628961666	Delete element
+1337658743478	Rename type 'LogsModel'
+1337658761400	Rename type 'SnapshotInfoModel'
+1337658781973	Rename type 'SnapshotPathModel'
+1337658796234	Rename type 'SnapshotsTakenModel'
+1337662838989	Rename type 'SnapshotEventListener'
+1337663118287	Delete element
+1337663122529	Delete elements

@@ -1,0 +1,22 @@
+21 May 2012:
+
+I have completed almost all of the GUI elements. Now I need to port over the system
+functionality. I have copied over the models, because those I should be able to work
+with wholesale. The next part is to add the connection between the GUI and the
+model itself, with as little new code as possible.
+
+Once the port is done perhaps I can refactor.
+
+20 May 2012:
+
+I want to both get things done and learn new techniques. Once I have figured out
+how to do something, I need to immediately look up how to do it better.
+
+Later on I may try out the SWTXML project on Google code.
+
+Today, since I have laid out the primary design of the user interface, I will now
+refactor. I may need to refactor once more once the MVC is decided on.
+
+One of the things I will need to learn is how to use resources, so that the 
+contents and the layout of the GUI can be separated. 
+

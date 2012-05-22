@@ -4,6 +4,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import com.jchapman.jipsnapman.models.ISnapshotPathModel;
+
 public class 
 Activator 
 extends AbstractUIPlugin
@@ -12,6 +14,8 @@ extends AbstractUIPlugin
 		= "JipPlugin"; 
 
 	private static Activator plugin;
+	
+	Model model;
 	
 	public 
 	Activator() 
@@ -24,6 +28,7 @@ extends AbstractUIPlugin
 	{
 		super.start(context);
 		plugin = this;
+		this.model = new Model();
 	}
 
 	public void 
@@ -47,5 +52,11 @@ extends AbstractUIPlugin
 	(String path) 
 	{
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+
+	public ISnapshotPathModel 
+	getModel() 
+	{
+		return this.model;
 	}
 }

@@ -1,0 +1,21 @@
+package jipplugin;
+
+import com.jchapman.jipsnapman.models.ISnapshotPathModel;
+
+public class
+Model 
+implements ISnapshotPathModel
+{
+	@Override
+	public String getSnapshotPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSnapshotPath(String path) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

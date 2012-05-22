@@ -94,7 +94,7 @@ implements ISizeProvider
 	initializeToolbar
 	(IToolBarManager toolBar) 
 	{
-		IAction details	= new ConfigureAction(this);
+		IAction details	= new ConfigureAction();
 		IAction finish	= new FinishAction();
 		IAction start	= new StartAction();
 		IAction launch	= new LaunchViewerAction();

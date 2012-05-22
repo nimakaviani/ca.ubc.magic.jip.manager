@@ -1,0 +1,32 @@
+package jipplugin;
+
+import java.beans.PropertyChangeSupport;
+
+import org.eclipse.core.runtime.PlatformObject;
+
+import com.jchapman.jipsnapman.models.ISnapshotPathModel;
+
+public class
+Model 
+implements ISnapshotPathModel
+{
+	String path = new String("");
+	
+	protected transient PropertyChangeSupport listeners 
+ 		= new PropertyChangeSupport(this);
+	
+	@Override
+	public String
+	getSnapshotPath() 
+	{
+		return this.path;
+	}
+
+	@Override
+	public void 
+	setSnapshotPath
+	(String path) 
+	{
+		this.path = path;
+	}
+}

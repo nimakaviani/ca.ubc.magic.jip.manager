@@ -19,6 +19,8 @@ public class
 DetailsDialog 
 extends Dialog
 {
+	Text 				path_text;
+	
 	public 
 	DetailsDialog
 	(Shell parentShell) 
@@ -36,17 +38,19 @@ extends Dialog
 		
 		initializeGridLayout(container);
 		initializeRows(container);
+		this.path_text.setText(this.getPreviousPath());
 		
 		return parent;
 	}
 	
+	@SuppressWarnings("unused")
 	private void 
 	initializeRows
 	(Composite container) 
 	{
 		Label path_label 
 			= createLabel( container, "Path: " );
-		Text path_text 
+		this.path_text 
 			= createPath( container, 1 );
 		
 		Button browse_button 
@@ -56,11 +60,15 @@ extends Dialog
 			public void widgetSelected( SelectionEvent event ){
 				FileDialog file_dialog 
 					= new FileDialog( 
-						PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), SWT.OPEN
+						PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), 
+						SWT.OPEN
 					);
 				file_dialog.setText("Select File");
-				file_dialog.setFilterPath("C:/");
+				file_dialog.setFilterPath( path_text.getText() );
 				String selected = file_dialog.open();
+				if(selected != null){
+					path_text.setText(selected);
+				}
 			}
 		});
 		
@@ -106,13 +114,27 @@ extends Dialog
 		return local_text;
 	}
 
+	private String 
+	getPreviousPath() 
+	{
+		String prevPath = null;
+		
+		prevPath = Activator.getDefault().getModel().getSnapshotPath();
+		if (prevPath == null || prevPath.length() == 0) {
+			prevPath = "C:/";
+		}
+		
+		return prevPath;		
+	}
+
 	private Label 
 	createLabel
 	(Composite container, String label_text) 
 	{
 		Label local_label 
 			= new Label(container, SWT.LEFT);
-		GridData grid_data = new GridData(SWT.BEGINNING, SWT.FILL, false, false);
+		GridData grid_data 
+			= new GridData(SWT.BEGINNING, SWT.FILL, false, false);
 		local_label.setLayoutData(grid_data);
 		local_label.setText(label_text);
 		
@@ -125,5 +147,15 @@ extends Dialog
 	isResizable()
 	{
 		return true;
+	}
+	
+	@Override
+	protected void
+	okPressed()
+	{
+		Activator.getDefault().getModel().setSnapshotPath(
+			this.path_text.getText()
+		);
+		super.okPressed();
 	}
 }
