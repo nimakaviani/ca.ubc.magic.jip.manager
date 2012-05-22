@@ -1,0 +1,11 @@
+package Actions;
+
+import org.eclipse.jface.action.Action;
+
+
+public class 
+StartAction 
+extends Action 
+{
+
+}

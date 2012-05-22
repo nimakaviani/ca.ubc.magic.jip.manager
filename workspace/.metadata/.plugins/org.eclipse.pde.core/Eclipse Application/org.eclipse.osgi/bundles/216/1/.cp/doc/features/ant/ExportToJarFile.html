@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.exportToJarFile</b></font></h1>
+      <p><b><font size="4">(replaced in Eclipse 3.x / Ant 1.6.2 by
+      <a href="Ant162/JAR.html">Jar</a>)</font></b></p>
+      <p>(old task name &quot;ExportToJarFile&quot;)</p>
+      <p>Exports project resources to a specified jar file.&nbsp; Each line in 
+      the &lt;Resources&gt; section defines a project resource or group of resources 
+      to be exported, where all paths are relative to the workspace root.&nbsp; 
+      If the resource specified is a folder, then recursively all files and 
+      folders in that folder will included in the export.&nbsp;&nbsp; Valid 
+      attributes include:<ul>
+        <li>manifestVersion (optional - default &quot;1.0&quot;)</li>
+        <li>exportClassFiles (optional - default true)</li>
+        <li>exportJavaFiles (optional - default false)</li>
+        <li>jarLocation (required)</li>
+        <li>overwrite (optional - default false)</li>
+        <li>compress (optional - default true)</li>
+        <li>descriptionLocation (optional)</li>
+        <li>generateManifest (optional - default true)</li>
+        <li>manifestLocation (optional)</li>
+        <li>sealJar (optional - default false)</li>
+        <li>mainClass (optional)<br>
+&nbsp;&nbsp;&nbsp; specify full eclipse resource path relative to the eclipse 
+        workspace root<br>
+&nbsp;&nbsp;&nbsp; (e.g. mainClass=&quot;/WSAssistTest/src/com/instantiations/jrf/demo/MainClass.java&quot;)</li>
+        <li>downloadExtensionsPath (optional)</li>
+        <li>exportErrors (optional - default true)</li>
+        <li>exportWarnings (optional - default true)</li>
+      </ul>
+      <p>Valid attributes not exposed in the UI:</p>
+    <ul>
+        <li>logErrors (optional - default true)</li>
+        <li>logWarnings (optional - default true)</li>
+        <li>haltOnError (optional - default true)</li>
+        <li>haltOnWarning (optional - default true)</li>
+        <li>excludes (option - default &quot;&quot;)<p>The excludes attribute is a comma 
+        delimited list of files and directories that are to be excluded.&nbsp; 
+        If the name of a directory is specified, then all files and 
+        sub-directories in that directory are omitted from the resulting jar 
+        file.&nbsp; The &quot;*&quot; wildcard can be used as the first character or the 
+        last character of a name to represent zero or more characters.</li>
+      </ul>
+      <p>Example:</p>
+      <blockquote>
+        <pre>&lt;codepro.exportToJarFile jarLocation=&quot;G:/export-out/export.jar&quot;&gt;
+	&lt;Resources&gt;
+		/CodeProStudioDemo
+	&lt;/Resources&gt;
+&lt;/codepro.exportToJarFile&gt;</pre>
+      </blockquote>
+      <p>In this example, the CodeProStudioDemo project's classfiles are 
+      exported to the specified jar file.</p>
+      <p><b>Note:</b> to avoid potential <b>OperationCanceledException</b>
+      errors during execution, make sure to turn on the overwrite option. If
+      that option is turned off and the jar file already exists, you will get an
+      exception.</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Ant
+    Enhancements
+            </b></font></h1>
+    <p>CodePro adds several new Ant task types which are utilized by the CodePro ExportSet 
+    wizard, but can also be used individually in any Ant script.&nbsp; Only some 
+    of these new task types can be run in an <a href="headless.html">Eclipse headless Ant environment</a>, 
+    while others require UI components and thus cannot.</p><table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+      <tr>
+        <th width="20">&nbsp;</th>
+        <th>Task</th>
+        <th width="20">&nbsp;</th>
+        <th>Old Task Name</th>
+        <th width="20">&nbsp;</th>
+        <th>Eclipse 3.0 / Ant 1.6.2</th>
+        <th width="20">&nbsp;</th>
+        <th><a href="headless.html">Can run headless</a></th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="CodeAudit.html">codepro.audit</a></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportToFileSystem.html">codepro.exportToFileSystem</a></td>
+        <td>&nbsp;</td>
+        <td>ExportToFileSystem</td>
+        <td>&nbsp;</td>
+        <td><a href="Ant162/Copy.html">Copy</a></td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportToJarFile.html">codepro.exportToJarFile</a></td>
+        <td>&nbsp;</td>
+        <td>ExportToJarFile</td>
+        <td>&nbsp;</td>
+        <td><a href="Ant162/JAR.html">Jar</a></td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportToZipFile.html">codepro.exportToZipFile</a></td>
+        <td>&nbsp;</td>
+        <td>ExportToZipFile</td>
+        <td>&nbsp;</td>
+        <td><a href="Ant162/ZIP.html">Zip</a></td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="GetClasspath.html">codepro.getClasspath</a></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="InitEclipseProperties.html">codepro.initProperties</a></td>
+        <td>&nbsp;</td>
+        <td>InitEclipseProperties</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="InitExportProperties.html">codepro.initExport</a></td>
+        <td>&nbsp;</td>
+        <td>InitExportProperties</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ComputeMetrics.html">codepro.metrics</a></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="PreProcessor.html">codepro.preprocessor</a></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="center">Yes</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="center">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportSet.html">ant</a> and <a href="ExportSet.html">codepro.exportSet</a></td>
+        <td>&nbsp;</td>
+        <td>ExportSet</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="center">&nbsp;</td>
+      </tr>
+    </table>
+    <p>In addition, CodePro adds several Ant task types that are specific to
+    WebSphere Studio Application Developer. These tasks are available in 
+	Application Developer 5.0 and 5.1, but not needed in Rational Application 
+	Developer 6.x because it provides 
+    equivalent Ant tasks:</p>
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+      <tr>
+        <td width="20">&nbsp;</td>
+        <th>Application Developer 5.x <br>
+		Ant Task</th>
+        <td width="20">&nbsp;</td>
+        <th>Application Developer 6.x <br>
+		Ant Task</th>
+        <td width="20">&nbsp;</td>
+        <th>Old Task Name</th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportAppClientToJarFile.html">codepro.exportAppClientToJarFile</a></td>
+        <td>&nbsp;</td>
+        <td><a href="RAD60/AppClientExport.html">AppClientExport</a></td>
+        <td>&nbsp;</td>
+        <td>ExportAppClientToJarFile</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportEARToEarFile.html">codepro.exportEARToEarFile</a></td>
+        <td>&nbsp;</td>
+        <td><a href="RAD60/EARExport.html">EARExport</a></td>
+        <td>&nbsp;</td>
+        <td>ExportEARToEarFile</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportEJBToJarFile.html">codepro.exportEJBToJarFile</a></td>
+        <td>&nbsp;</td>
+        <td><a href="RAD60/EJBExport.html">EJBExport</a></td>
+        <td>&nbsp;</td>
+        <td>ExportEJBToJarFile</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportToFTP.html">codepro.exportToFTP</a></td>
+        <td>&nbsp;</td>
+        <td><a href="Ant162/FTP.html">FTP</a> (in Ant 1.6.2)</td>
+        <td>&nbsp;</td>
+        <td>ExportToFTP</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportWARToWarFile.html">codepro.exportWARToWarFile</a></td>
+        <td>&nbsp;</td>
+        <td><a href="RAD60/WARExport.html">WARExport</a></td>
+        <td>&nbsp;</td>
+        <td>ExportWARToWarFile</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><a href="ExportRARToFile.html">codepro.exportRARToFile</a></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>(Application Developer 5.0 only)</td>
+      </tr>
+    </table>
+    <p>The old task names generate a warning when used, but otherwise operate 
+    identically with one exception.&nbsp; The &quot;<b>codepro.exportSet</b>&quot; task 
+    does not work under Eclipse 2.0 and Application Developer 5.0 and must be converted to the &quot;<b>ant</b>&quot; 
+    Ant task.&nbsp; <a href="ExportSet.html#convert">More details...</a><p>More 
+    information about Ant can be found at <a href="http://ant.apache.org/">
+    http://ant.apache.org/</a>
+      <h3>Eclipse 3.0 Usage</h3>
+      <p>Under Eclipse 2.1 and earlier, Ant tasks are run in the same JRE as the
+      IDE and can make use of Eclipse libraries. Under Eclipse 3.0, Ant tasks
+      are normally run in a separate JRE and don't have access to Eclipse
+      libraries. All of the CodePro Ant tasks require access to various
+      Eclipse libraries, and therefore cannot run in a separate JRE. In order to
+      use the CodePro Ant tasks within Eclipse, you need to select
+      the <b>Run in the same JRE as the workspace</b> option from the <b>JRE</b>
+      page of the Run Ant dialog.</p>
+      <p><img border="0" src="../../images/runtime_jre.gif" width="513" height="101">
+    </td>
+  </tr>
+</table>
+</body>
+</html>

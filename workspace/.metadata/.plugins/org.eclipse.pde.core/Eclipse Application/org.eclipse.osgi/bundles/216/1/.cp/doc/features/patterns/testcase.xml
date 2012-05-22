@@ -1,0 +1,370 @@
+<strategy>
+	<page label="Provide information about the test case class." initialFocus="testClassType">
+		<package 
+			name="package" required="true"
+			folderLabel="Source &amp;Folder:" folderBrowseLabel="B&amp;rowse..." folderTooltip="Specify the default source folder" folderBrowseTooltip="Select the default source folder"
+			packageLabel="&amp;Package:" packageBrowseLabel="Br&amp;owse..." packageTooltip="Specify the default package" packageBrowseTooltip="Select the default package"/>
+		<spacer displayLine="true"/>
+		<class 
+			name="testCase" label="Test &amp;case name:" tooltip="Specify the name of the test case class"
+			required="true" missingValue="Please specify the name of the test case class" style="new"
+			default="Test" defaultPackage="package" computedBy="testClassType.isValid ? testClassType.name + &quot;Test&quot; : &quot;Test&quot;"/>
+		<class 
+			name="testClassType" label="&amp;Test class:" tooltip="Specify the class to be tested"
+			required="true" missingValue="Please specify the class to be tested" style="existing" allowReadOnly="true"
+			default="*" defaultPackage="package" 
+			browseLabel="Bro&amp;wse..." browseTooltip="Select the class to be tested"/>
+		<class 
+			name="superclassType" label="&amp;Superclass:" tooltip="Specify the superclass"
+			required="true" missingValue="Please specify the superclass" style="existing" allowReadOnly="true"
+			default="junit.framework.TestCase" rootType="junit.framework.TestCase" defaultPackage="package" 
+			browseLabel="Brows&amp;e..." browseTooltip="Select a superclass"/>
+		<spacer displayLine="true"/>
+		<label text="Which method stubs would you like to create?">
+			<boolean name="createSetUp" label="set&amp;Up()" default="false" tooltip="Determines whether a setUp() method is generated"/>
+			<boolean name="createTearDown" label="tear&amp;Down()" default="false" tooltip="Determines whether a tearDown() method is generated"/>
+			<boolean name="createMain" label="public static &amp;void main(String [] args)" default="false" tooltip="Determines whether a main() method is generated">
+				<boolean name="addTestRunner" label="Add TestRunner state&amp;ments for" default="false" tooltip="Determines whether TestRunner statements are generated">
+					<multipleChoice name="testRunnerStyle" default="1">
+						<choice label="Te&amp;xt UI" value="textui" tooltip="Generate TestRunner statements using the JUnit Text UI"/>
+						<choice label="Sw&amp;ing UI" value="swingui" tooltip="Generate TestRunner statements using the JUnit Swing UI"/>
+						<choice label="&amp;AWT UI" value="awtui" tooltip="Generate TestRunner statements using the JUnit AWT UI"/>
+					</multipleChoice>
+				</boolean>
+			</boolean>
+		</label>
+	</page>
+	<page label="Test methods" initialFocus="createTestStubs">
+		<boolean 
+			name="createTestStubs" label="&amp;Create test methods for all public test class methods" default="false"
+			tooltip="Determines whether test methods for all public test class methods will be created"/>
+		<subset
+			name="methods" disabledBy="createTestStubs"
+			tooltip="Select the methods for which test class methods will be created"
+			visibility="public" showInherited="user" emptyAllowed="true" 
+			derivedFrom="testClassType" elementType="method"/>
+		<label text="Additional test &amp;names"/>
+		<list 
+			name="additionalTestNames" tooltip="Enter the names of any additional test cases that should be generated"
+			elementType="string" emptyAllowed="true" userOrdered="true"
+			addLabel="&amp;Add..." addTooltip="Add a test case name"
+			removeLabel="&amp;Remove" removeTooltip="Remove the selected test case name"/>
+	</page>
+	<page label="Test fixture and stub generation" initialFocus="createTestFixture">
+		<boolean 
+			name="createTestFixture" label="&amp;Create test fixture" default="false"
+			tooltip="Determines whether a test fixture is created">
+			<string 
+				name="testFixtureFieldName" label="Test fixture &amp;field name:" tooltip="Specify the name of the test fixture field"
+				required="createTestFixture" missingValue="Please specify the name of the test fixture field"
+				default="fixture" list="fixture,instance,testInstance"/>
+			<boolean 
+				name="createTestFixtureAccessor" label="Create &amp;accessors" default="false"
+				tooltip="Determines whether test fixture get and set methods are generated"/>
+			<boolean 
+				name="initTextFixtureLazy" label="&amp;Lazy initialize the test fixture" default="false"
+				tooltip="Determines whether the test fixture is lazily initialized"/>
+			<boolean 
+				name="initTextFixtureStatically" 
+				label= "Where do you want to initialize the test fixture?"
+				trueLabel="&amp;Initialize the test fixture statically" trueTooltip="Initialize the test fixture statically"
+				falseLabel="Initialize the test fixture in the &amp;setUp() method" falseTooltip="Initialize the test fixture in the setUp() method"
+				default="true" enabledBy="createSetUp"/>
+		</boolean>
+		<boolean 
+			name="assertTrue" label="&amp;Test methods should pass by default" default="false"
+			toolTip="Determines whether tests should pass (or fail) by default"/>
+		<boolean 
+			name="callTestMethod" label="Call test &amp;method in generated stub" default="true"
+			toolTip="Determines whether the generated stub calls the test method"/>
+	</page>
+
+	<compilationUnit package="${testCase.packageName}" name="${testCase.name}" isPrimary="true">
+		<import name="${superclassType.fullName}"/>
+		<import name="${testClassType.fullName}"/>
+		<class modifiers="public" name="${testCase.name}" extends="${superclassType.name}">
+			<javadoc>
+				<tag name="pattern" contents="JUnit Test Case"/>
+				<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+				<tag name="author" contents="${user}"/>
+				<tag name="version" contents="$$Revision$$"/>
+				The class &lt;code&gt;${testCase.name}&lt;/code&gt; contains tests for the class {@link &lt;code&gt;${testClassType.name}&lt;/code&gt;}
+				<if condition="!copyright.isEmpty">
+					&lt;p&gt;
+					${copyright}
+				</if>
+			</javadoc>
+
+			<if condition="createTestFixture">
+				<if condition="initTextFixtureStatically &amp;&amp; !initTextFixtureLazy">
+					<field modifiers="private" type="${testClassType.name}" name="${testFixtureFieldName}" initializer="new ${testClassType.name}()">
+						<javadoc>
+							The object that is being tested.
+							<tag name="see" contents="${testClassType.fullName}"/>
+						</javadoc>
+					</field>
+				</if>
+				<if condition="!initTextFixtureStatically || initTextFixtureLazy">
+					<field modifiers="private" type="${testClassType.name}" name="${testFixtureFieldName}">
+						<javadoc>
+							The object that is being tested.
+							<tag name="see" contents="${testClassType.fullName}"/>
+						</javadoc>
+					</field>
+				</if>
+			</if>
+
+			<constructor
+				modifiers="public">
+				<param type="String" name="name"/>
+				<javadoc>
+					<tag name="param" contents="name the test name"/>
+					Construct new test instance
+				</javadoc>
+				super(name);
+			</constructor>
+
+			<if condition="createMain">
+				<if condition="!addTestRunner">
+					<method
+						modifiers="public static"
+						returnType="void"
+						name="main">
+						<param type="String[]" name="args"/>
+						<javadoc>
+							<tag name="param" contents="args String[]"/>
+							Launch the test.
+						</javadoc>
+						// add code to run tests here
+					</method>
+				</if>
+				<if condition="addTestRunner">
+					<method
+						modifiers="public static"
+						returnType="void"
+						name="main">
+						<param type="String[]" name="args"/>
+						<javadoc>
+							<tag name="param" contents="args String[]"/>
+							Launch the test.
+						</javadoc>
+						junit.${testRunnerStyle}.TestRunner.run(${testCase.name}.class);
+					</method>
+				</if>
+			</if>
+
+			<if condition="createTestFixture &amp;&amp; createTestFixtureAccessor">
+				<if condition="initTextFixtureLazy &amp;&amp; initTextFixtureStatically">
+					<method
+						modifiers="public"
+						returnType="${testClassType.name}"
+						name="get${testFixtureFieldName.withInitialUppercase}">
+						<javadoc>
+							Return the object that is being tested.
+							<tag name="return" contents="the test fixture"/>
+							<tag name="see" contents="${testClassType.fullName}"/>
+						</javadoc>
+						if (${testFixtureFieldName} == null)
+						\t${testFixtureFieldName} = new ${testClassType.name}();
+						return ${testFixtureFieldName};
+					</method>
+				</if>
+				<if condition="!initTextFixtureLazy || !initTextFixtureStatically">
+					<method
+						modifiers="public"
+						returnType="${testClassType.name}"
+						name="get${testFixtureFieldName.withInitialUppercase}">
+						<javadoc>
+							Return the object that is being tested.
+							<tag name="return" contents="the test fixture"/>
+							<tag name="see" contents="${testClassType.fullName}"/>
+						</javadoc>
+						return ${testFixtureFieldName};
+					</method>
+				</if>
+				<method
+					modifiers="public"
+					returnType="void"
+					name="set${testFixtureFieldName.withInitialUppercase}">
+					<param type="${testClassType.name}" name="${testFixtureFieldName}"/>
+					<javadoc>
+						Set the object that is being tested.
+						<tag name="param" contents="${testFixtureFieldName} the test fixture"/>
+					</javadoc>
+					this.${testFixtureFieldName} = ${testFixtureFieldName};
+				</method>
+			</if>
+
+			<if condition="createSetUp">
+				<if condition="initTextFixtureStatically">
+					<method
+						modifiers="protected"
+						returnType="void"
+						name="setUp">
+						<throws type="Exception"/>
+						<javadoc>
+							<tag name="throws" contents="Exception"/>
+							<tag name="see" contents="TestCase#setUp()"/>
+							Perform pre-test initialization
+						</javadoc>
+						super.setUp();
+						// Add additional set up code here
+					</method>
+				</if>
+				<if condition="!initTextFixtureStatically">
+					<if condition="initTextFixtureLazy">
+						<method
+							modifiers="protected"
+							returnType="void"
+							name="setUp">
+							<throws type="Exception"/>
+							<javadoc>
+								<tag name="throws" contents="Exception"/>
+								<tag name="see" contents="TestCase#setUp()"/>
+								Perform pre-test initialization
+							</javadoc>
+							super.setUp();
+							// initialize the test fixture once for all tests that are run
+							if (${testFixtureFieldName} == null)
+							\t${testFixtureFieldName} = new ${testClassType.name}();
+							// Add additional set up code here
+						</method>
+					</if>
+					<if condition="!initTextFixtureLazy">
+						<method
+							modifiers="protected"
+							returnType="void"
+							name="setUp">
+							<throws type="Exception"/>
+							<javadoc>
+								<tag name="throws" contents="Exception"/>
+								<tag name="see" contents="TestCase#setUp()"/>
+								Perform pre-test initialization
+							</javadoc>
+							super.setUp();
+							// initialize the test fixture for each test that is run
+							${testFixtureFieldName} = new ${testClassType.name}();
+							// Add additional set up code here
+						</method>
+					</if>
+				</if>
+			</if>
+
+			<if condition="createTearDown">
+				<method
+					modifiers="protected"
+					returnType="void"
+					name="tearDown">
+					<throws type="Exception"/>
+					<javadoc>
+						<tag name="throws" contents="Exception"/>
+						<tag name="see" contents="TestCase#tearDown()"/>
+						Perform post-test clean up
+					</javadoc>
+					super.tearDown();
+					// Add additional tear down code here
+				</method>
+			</if>
+
+			<if condition="createTestStubs">
+				<for variable="method" in="testClassType.publicMethods">
+					<method
+						modifiers="public"
+						returnType="void"
+						name="test${method.name.withInitialUppercase}">
+						<javadoc>
+							Run the ${method.returnType} ${method.name}(${method.parameterTypeNames}) method test
+						</javadoc>
+						<if condition="!assertTrue">
+							fail("Newly generated method - fix or disable");
+						</if>
+						// add test code here
+						<if condition="callTestMethod">
+							<if condition="!createTestFixture">
+								${testClassType.name} ${testFixtureFieldName} = new ${testClassType.name}();
+							</if>
+							<for variable="param" in="method.parameters">
+								${param.typeName} ${param.name} = ${param.defaultValueString};
+							</for>
+							<if condition="method.returnType == &quot;void&quot;">
+								<if condition="createTestFixture &amp;&amp; createTestFixtureAccessor">
+									get${testFixtureFieldName.withInitialUppercase}().${method.name}(${method.parameterNames});
+								</if>
+								<if condition="!createTestFixture || !createTestFixtureAccessor">
+									${testFixtureFieldName}.${method.name}(${method.parameterNames});
+								</if>
+							</if>
+							<if condition="method.returnType != &quot;void&quot;">
+								<if condition="createTestFixture &amp;&amp; createTestFixtureAccessor">
+									${method.returnType} result = get${testFixtureFieldName.withInitialUppercase}().${method.name}(${method.parameterNames});
+								</if>
+								<if condition="!createTestFixture || !createTestFixtureAccessor">
+									${method.returnType} result = ${testFixtureFieldName}.${method.name}(${method.parameterNames});
+								</if>
+							</if>
+						</if>
+						assertTrue(${assertTrue ? "true" : "false"});
+					</method>
+				</for>
+			</if>
+			<if condition="!createTestStubs">
+				<for variable="method" in="methods">
+					<method
+						modifiers="public"
+						returnType="void"
+						name="test${method.name.withInitialUppercase}">
+						<javadoc>
+							Run the ${method.returnType} ${method.name}(${method.parameterTypeNames}) method test
+						</javadoc>
+						<if condition="!assertTrue">
+							fail("Newly generated method - fix or disable");
+						</if>
+						// add test code here
+						<if condition="callTestMethod">
+							<if condition="!createTestFixture">
+								${testClassType.name} ${testFixtureFieldName} = new ${testClassType.name}();
+							</if>
+							<for variable="param" in="method.parameters">
+								${param.typeName} ${param.name} = ${param.defaultValueString};
+							</for>
+							<if condition="method.returnType == &quot;void&quot;">
+								<if condition="createTestFixture &amp;&amp; createTestFixtureAccessor">
+									get${testFixtureFieldName.withInitialUppercase}().${method.name}(${method.parameterNames});
+								</if>
+								<if condition="!createTestFixture || !createTestFixtureAccessor">
+									${testFixtureFieldName}.${method.name}(${method.parameterNames});
+								</if>
+							</if>
+							<if condition="method.returnType != &quot;void&quot;">
+								<if condition="createTestFixture &amp;&amp; createTestFixtureAccessor">
+									${method.returnType} result = get${testFixtureFieldName.withInitialUppercase}().${method.name}(${method.parameterNames});
+								</if>
+								<if condition="!createTestFixture || !createTestFixtureAccessor">
+									${method.returnType} result = ${testFixtureFieldName}.${method.name}(${method.parameterNames});
+								</if>
+							</if>
+						</if>
+						assertTrue(${assertTrue ? "true" : "false"});
+					</method>
+				</for>
+			</if>
+
+			<for variable="testName" in="additionalTestNames">
+				<method
+					modifiers="public"
+					returnType="void"
+					name="test${testName.asValidIdentitifer.withInitialUppercase}">
+					<javadoc>
+						Run the ${testName} test
+					</javadoc>
+					<if condition="!assertTrue">
+						fail("Newly generated method - fix or disable");
+					</if>
+					// add test code here
+					assertTrue(${assertTrue ? "true" : "false"});
+				</method>
+			</for>
+
+		</class>
+	</compilationUnit>
+</strategy>

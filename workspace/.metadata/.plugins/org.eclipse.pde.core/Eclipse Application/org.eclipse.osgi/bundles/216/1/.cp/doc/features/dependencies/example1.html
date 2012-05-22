@@ -1,0 +1,66 @@
+<html>
+
+<head>
+<title>Dependencies</title>
+</head>
+
+<body>
+<h1>Dependencies Example</h1>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1" width="100%">
+      <tr>
+        <td colspan="1">
+        </td>
+        <td>
+    <p class="MsoNormal" align="right"><font face="Arial" size="2">
+        <a href="dependencies.html">introduction</a>&nbsp;
+    <a href="example1.html">example</a>&nbsp; <a href="dependency_report.html">sample
+        report</a></font></p>
+        </td>
+      </tr>
+    </table>
+      <h3>Abstract</h3>
+      <p>When decoupling two packages or projects, <a href="dependencies.html">
+      dependency analysis</a> can <b>save time </b>by graphically showing 
+      couplings between classes so that time can be spent fixing the problem 
+      rather than finding the dependencies.&nbsp; In this one example we wanted 
+      to decouple the spelling engine from our user interface so that the engine 
+      could easily be swapped out and replaced with an entirely new engine.&nbsp;
+      <h3>Content</h3>
+      <p>We started from the top down by right-clicking on our <b>
+      WSAssistSourceSpelling </b>project and selecting <img src="../../images/dependency_icon.gif" width="16" height="16">
+          <b>Analyze Dependencies</b> from the CodePro Tools submenu on the 
+      context menu.&nbsp; This opened a view showing the dependencies of the <b>
+      WSAssistSourceSpelling </b>project on all other projects and external 
+      *.jar files.<p>
+    <img border="0" src="../../images/dependencies/example_1a.gif" width="617" height="499"><p>
+    A quick glance at this graph shows <b>19 </b>dependencies between <b>
+    WSAssistSourceSpelling </b>and the <b>spellcheck.jar</b>, which we wanted to 
+    decouple.&nbsp; Double-clicking on the line between those two boxes 
+    displayed a second graph of the dependencies between classes in <b>
+    WSAssistSourceSpelling </b>and classes in <b>spellcheck.jar</b>.<p>
+    <img border="0" src="../../images/dependencies/example_1b.gif" width="855" height="340"><p>
+    Reviewing this graph showed the coupling between the <b>
+    WSAssistSourceSpelling </b>classes above such as <b>
+    SpellCheckStringLiteralsCodeAuditor </b>and <b>spellcheck.jar </b>classes 
+    below such as <b>IElement</b>.&nbsp; By double clicking on various classes 
+    and reviewing the code, it quickly became apparent that we could
+    <ul>
+      <li>create a single facade for <b>SpellChecker </b>and <b>ISpellChecker</b></li>
+      <li>wrapper <b>SpellCheckException</b></li>
+      <li>use the existing <b>Word </b>class to wrapper <b>IElement</b></li>
+      </ul>
+      <p>and thus decouple the UI from the engine.&nbsp;
+      <h3>Summary</h3>
+      <p>The point of this discussion is that using the dependency analysis 
+      functionality saved us gobs of time.&nbsp; Rather than pouring over the 
+      code class by class to find the dependencies, we quickly identified the 
+      problem and fixed it.&nbsp; Having the right tools on hand can 
+      dramatically improve productivity.</td>
+  </tr>
+</table>
+</body>
+</html>

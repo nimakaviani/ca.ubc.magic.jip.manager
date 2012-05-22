@@ -1,0 +1,252 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro Analytix">
+<title>Audit Series - ProShop Business Model</title>
+<style type="text/css">
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+	p {margin: 0.5em 2em 1em; line-height: 1.5em}
+	h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+	h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+	h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+	h4 {margin-top: 1; margin-bottom: 1; font: bold 125% verdana,arial,helvetica}
+	table tr th {font-size: 75%; background: #a6d0e0}
+	table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<h1 align="center"><a name="top">CodePro Audit Series</a></h1>
+<h2 align="center">ProShop Business Model</h2>
+<p align="right">Powered by CodePro Analytix and <a href="http://www.eclipse.org">Eclipse</a>
+</p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="a6d0e0" style="padding:2;">
+<h4>Summary</h4>
+</td></tr></table>
+<br>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="center" width="30%" bgcolor="eeeeee" style="padding:4; border-style:solid; border-width:1pt 1pt 0pt 1pt; border-color:000000">
+		<a href="#presentation0">
+		Total Violations - Circle Graph
+		</a>
+	</td>
+	<td width="18pt">&nbsp;</td>
+	<td align="center" width="30%" bgcolor="eeeeee" style="padding:4; border-style:solid; border-width:1pt 1pt 0pt 1pt; border-color:000000">
+		<a href="#presentation1">
+		Violations by Audit Rule Group - Line Graph
+		</a>
+	</td>
+	<td width="18pt">&nbsp;</td>
+	<td align="center" width="30%" bgcolor="eeeeee" style="padding:4; border-style:solid; border-width:1pt 1pt 0pt 1pt; border-color:000000">
+		<a href="#presentation2">
+		Violations by Project - Line Graph
+		</a>
+	</td>
+</tr>
+<tr>
+	<td align="center" width="30%" style="border-style:solid; border-width:0pt 1pt 1pt 1pt; border-color:000000">
+		<a href="#presentation0">
+<img border="0" height="119" width="192" alt="Total Violations - Circle Graph" src="audit_series_report_files/thumbnail0.gif">
+		</a>
+	</td>
+	<td width="18pt">&nbsp;</td>
+	<td align="center" width="30%" style="border-style:solid; border-width:0pt 1pt 1pt 1pt; border-color:000000">
+		<a href="#presentation1">
+<img border="0" height="119" width="192" alt="Violations by Audit Rule Group - Line Graph" src="audit_series_report_files/thumbnail1.gif">
+		</a>
+	</td>
+	<td width="18pt">&nbsp;</td>
+	<td align="center" width="30%" style="border-style:solid; border-width:0pt 1pt 1pt 1pt; border-color:000000">
+		<a href="#presentation2">
+<img border="0" height="119" width="192" alt="Violations by Project - Line Graph" src="audit_series_report_files/thumbnail2.gif">
+		</a>
+	</td>
+</tr>
+<tr height="18"><td span="5">&nbsp;</td></tr>
+<tr>
+	<td align="center" width="30%" bgcolor="eeeeee" style="padding:4; border-style:solid; border-width:1pt 1pt 0pt 1pt; border-color:000000">
+		<a href="#presentation3">
+		Violations by Author - Bar Graph
+		</a>
+	</td>
+	<td width="18pt">&nbsp;</td>
+	<td align="center" width="30%" bgcolor="eeeeee" style="padding:4; border-style:solid; border-width:1pt 1pt 0pt 1pt; border-color:000000">
+		<a href="#presentation4">
+		Total Fixed Violations - Line Graph
+		</a>
+	</td>
+	<td width="18pt">&nbsp;</td>
+	<td align="center" width="30%" bgcolor="eeeeee" style="padding:4; border-style:solid; border-width:1pt 1pt 0pt 1pt; border-color:000000">
+		<a href="#presentation5">
+		Fixed Violations by Author - Line Graph
+		</a>
+	</td>
+</tr>
+<tr>
+	<td align="center" width="30%" style="border-style:solid; border-width:0pt 1pt 1pt 1pt; border-color:000000">
+		<a href="#presentation3">
+<img border="0" height="119" width="192" alt="Violations by Author - Bar Graph" src="audit_series_report_files/thumbnail3.gif">
+		</a>
+	</td>
+	<td width="18pt">&nbsp;</td>
+	<td align="center" width="30%" style="border-style:solid; border-width:0pt 1pt 1pt 1pt; border-color:000000">
+		<a href="#presentation4">
+<img border="0" height="119" width="192" alt="Total Fixed Violations - Line Graph" src="audit_series_report_files/thumbnail4.gif">
+		</a>
+	</td>
+	<td width="18pt">&nbsp;</td>
+	<td align="center" width="30%" style="border-style:solid; border-width:0pt 1pt 1pt 1pt; border-color:000000">
+		<a href="#presentation5">
+<img border="0" height="119" width="192" alt="Fixed Violations by Author - Line Graph" src="audit_series_report_files/thumbnail5.gif">
+		</a>
+	</td>
+</tr>
+</table>
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="a6d0e0" style="padding:2;">
+<h4><a name="presentation0">Total Violations</a></h4>
+</td></tr></table>
+<p>
+The following graphs shows the total number of violations found each time the code was audited. They also show the relative number of violations of each severity level.
+</p>
+<table align="center"><tr><td width="50%">
+<center>
+<p>
+<img border="0" height="240" width="310" alt="Total Violations" src="audit_series_report_files/totalViolations_circle_0.gif">
+</p>
+<p><b>
+Total Violations
+</b></p>
+</center>
+</td><td width="50%">
+<center>
+<p>
+<img border="0" height="240" width="310" alt="Total Violations" src="audit_series_report_files/totalViolations_circle_1.gif">
+</p>
+<p><b>
+Total Violations
+</b></p>
+</center>
+</td></tr><tr><td width="50%">
+<center>
+<p>
+<img border="0" height="240" width="310" alt="Total Violations" src="audit_series_report_files/totalViolations_circle_2.gif">
+</p>
+<p><b>
+Total Violations
+</b></p>
+</center>
+</td><td width="50%">
+<center>
+<p>
+<img border="0" height="240" width="310" alt="Total Violations" src="audit_series_report_files/totalViolations_circle_3.gif">
+</p>
+<p><b>
+Total Violations
+</b></p>
+</center>
+</td><td width="50%">
+</td></tr></table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="a6d0e0" style="padding:2;">
+<h4><a name="presentation1">Violations by Audit Rule Group</a></h4>
+</td></tr></table>
+<p>
+The following graph shows the total number of violations found in each of the audit rule groups that were used to analyze the code.
+</p>
+<center>
+<p>
+<img border="0" height="281" width="450" alt="Violations by Audit Rule Group" src="audit_series_report_files/violationsByGroup_line.gif">
+</p>
+<p><b>
+Violations by Audit Rule Group
+</b></p>
+</center>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="a6d0e0" style="padding:2;">
+<h4><a name="presentation2">Violations by Project</a></h4>
+</td></tr></table>
+<p>
+The following graph shows the total number of violations found in each of the projects that were audited.
+</p>
+<center>
+<p>
+<img border="0" height="281" width="450" alt="Violations by Project" src="audit_series_report_files/violationsByProject_line.gif">
+</p>
+<p><b>
+Violations by Project
+</b></p>
+</center>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="a6d0e0" style="padding:2;">
+<h4><a name="presentation3">Violations by Author</a></h4>
+</td></tr></table>
+<p>
+The following graphs show the total number of violations found in each of the audit rule groups that were used to analyze the code at each of the times an audit was performed. They also show the relative number of violations of each severity level.
+</p>
+<table align="center"><tr><td width="50%">
+<center>
+<p>
+<img border="0" height="240" width="960" alt="Violations by Author" src="audit_series_report_files/violationsByAuthor_bar_0.gif">
+</p>
+<p><b>
+Violations by Author
+</b></p>
+</center>
+</td><td width="50%">
+<center>
+<p>
+<img border="0" height="240" width="960" alt="Violations by Author" src="audit_series_report_files/violationsByAuthor_bar_1.gif">
+</p>
+<p><b>
+Violations by Author
+</b></p>
+</center>
+</td></tr><tr><td width="50%">
+<center>
+<p>
+<img border="0" height="240" width="960" alt="Violations by Author" src="audit_series_report_files/violationsByAuthor_bar_2.gif">
+</p>
+<p><b>
+Violations by Author
+</b></p>
+</center>
+</td><td width="50%">
+<center>
+<p>
+<img border="0" height="240" width="960" alt="Violations by Author" src="audit_series_report_files/violationsByAuthor_bar_3.gif">
+</p>
+<p><b>
+Violations by Author
+</b></p>
+</center>
+</td><td width="50%">
+</td></tr></table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="a6d0e0" style="padding:2;">
+<h4><a name="presentation4">Total Fixed Violations</a></h4>
+</td></tr></table>
+<p>
+The following graph shows the number of violations that were fixed between each audit time and the previous audit time. It also shows the number of violations fixed at each severity level.
+</p>
+<center>
+<p>
+<img border="0" height="240" width="360" alt="Total Fixed Violations" src="audit_series_report_files/fixedViolations_line.gif">
+</p>
+<p><b>
+Total Fixed Violations
+</b></p>
+</center>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="a6d0e0" style="padding:2;">
+<h4><a name="presentation5">Fixed Violations by Author</a></h4>
+</td></tr></table>
+<p>
+The following graph shows the number of violations that were fixed between each audit time and the previous audit time, grouped by author.
+</p>
+<center>
+<p>
+<img border="0" height="240" width="345" alt="Fixed Violations by Author" src="audit_series_report_files/fixedViolationsByAuthor_line.gif">
+</p>
+<p><b>
+Fixed Violations by Author
+</b></p>
+</center>
+</body>
+</html>

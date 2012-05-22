@@ -1,0 +1,123 @@
+<html>
+
+<head>
+<title>Preferences - Metrics</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">Preferences - Metrics</font></h1>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="center">
+			<img src="../images/preferences_metrics.gif" align="left"></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+    <p><a name="MetricSet"></a>The <b> Metrics</b> page displays the selected <b>metric set</b>
+    along with a list of all of the <a
+    href="../features/metrics/metrics_details.html">metrics</a> that are 
+    available.&nbsp; There is always exactly one default metric set denoted 
+    by an asterisk following the name of the metric set, and it is used when 
+    selecting <img src="../images/metrics_icon.gif" width="16" height="16"
+    alt="metrics_icon.gif (156 bytes)">  <a href="../features/metrics/metrics.html"><b>Compute Metrics</b></a> in the
+    <b> 
+    CodePro Tools</b> menu.&nbsp; To display the enabled metrics
+    and their parameters for a particular metric set, select that metric
+    set in the metric set dropdown list above the list of metrics.</p>
+      <p>The <b><a name="FindRule">Find Metric</a></b> button provides a quick way
+      to find various metrics. Entering a keyword in the top entry field
+      will cause any metric with that word in its name or description to be
+      shown in the middle list. Selecting a metric in the list will show
+      its description in the bottom pane. Clicking the <b>OK</b> button will
+      close the dialog and set the selection of the metrics tree to the chosen metric.</p>
+      <p><img src="../images/preferences_metrics_find_metric.gif"></p>
+      <p>Within each metric set, each metric can be individually enabled 
+    or disabled by clicking on the check box beside the name of the metric.&nbsp; The
+      <b> Parameters</b> page 
+    (shown above) allows you to edit the configuration parameters and bounds of the selected
+    metric. Some metrics may not have any parameters.&nbsp; The <b> <a name="Description"> Description</a></b> page (shown below) displays the metric ID
+      and a brief description of what the selected metric will calculate when a metric analysis is performed.</p>
+    <p><img src="../images/preferences_metrics_description.gif"></p>
+    <p>When the menu item <img src="../images/metrics_icon.gif" width="16" height="16"
+    alt="metrics_icon.gif (166 bytes)">  <b>Compute Metrics</b> is selected, the enabled <a
+    href="../features/metrics/metrics_details.html">metrics</a> will be computed. The results
+    will be displayed in the <a href="../features/metrics/metrics.html">Metrics view</a>. </p>
+      <p><a name="Manage"></a>The <b>Metric Sets</b> page shows a list of all of the
+      metric sets that are defined. Use the <b>New</b> button to create a new
+      metric set, the <b>Copy</b> button to copy and existing metric set and the <b>Delete</b> button to delete an existing metric set.&nbsp;
+      The <b>Set Default</b> button makes the currently selected metric set 
+    into the default metric set. The <b><a name="Hide">Hide</a></b> button hides the selected
+    metric sets from view elsewhere in the product. The <b>Show</b> button
+    restores them.<p><img src="../images/preferences_metrics_metricsets.gif"><p><a name="Export"></a>The
+      <b>Export</b> button is used to export one or more metric sets to an
+      XML-based preference file. At the bottom of the wizard page, is an area for selecting the location to which the
+    preference file should be exported. The first option, &quot;File System&quot; allows the
+    user to export the metric set to any arbitrary location in the file system. It defaults
+    to \preferences\metrics.pref. The second option, &quot;Project&quot;, allows the user to store the
+      metric set to a
+    project loaded in their workspace. This makes it easy to put the metric
+      set file under
+    some form of source code control such as CVS, PVCS or ClearCase. The third option, &quot;Server&quot;, can be used only if a <a href="../features/collaboration/server.html">collaboration
+      server</a> has been specified in the <a href="preferences_collaboration.html">preferences</a>.
+      It allows the user to store the preferences on the <a href="../features/collaboration/server.html">collaboration
+      server</a>. The wizard automatically remembers the last path used. The fourth option, &quot;User&quot;, allows the user to send preferences to other users without intervention
+      by the receiving user. Thus, this option provides a way to silently set
+      preferences in the workbenches of other users. This can only be done for <a href="../features/collaboration/users_view.html">users</a>
+      and <a href="../features/collaboration/groups_view.html">groups</a> led by the
+      user, unless the user is the administrator, in which case it can be done
+      for any user or group. Metric
+      sets may be exported in <a name="locked"> locked</a> or unlocked format. If a locked metric
+      set is imported, it may not be modified.
+    <p><img src="../images/metrics_export.gif"><p><a name="Import"></a>The
+      <b>Import</b> button is used to import one or more metrics from an
+      XML-based preference file. At the top of the dialog, is an area for selecting the location
+    from which the metric file should be imported. The first option, &quot;File
+    System&quot; allows the user to import the metrics from any arbitrary location in the
+    file system. It defaults to \preferences\metrics.pref. The second option, &quot;Project&quot;, allows the
+    user to load metrics from a project loaded in their workspace. The third option, &quot;Server&quot;, can be used
+    only if a <a href="../features/collaboration/server.html">collaboration server</a>
+    has been specified in the <a href="preferences_collaboration.html">preferences</a>.
+    This option allows the user to load preferences from the <a href="../features/collaboration/server.html">collaboration
+    server</a>. The wizard automatically remembers the last path used.
+    <p><img src="../images/metrics_import.gif">
+      <p><a name="General"></a>The <b>General</b> page controls various options concerning
+      the maximum number of metric result sets, whether to include subpackages, the
+    presentation of bounds violations and whether to automatically refresh metrics result sets.
+      The <b>Limit the number of result sets</b> option sets the maximum number
+      of result sets. Each result set consumes memory, so this number should be
+      kept low. Once the maximum is reached, any new ones will eliminate the
+      oldest result set. The <b>Include subpackages of selected packages</b>
+      option controls whether subpackages are included in the analysis. The <b>Violated
+      Bounds</b> option controls the color used to display metrics that violate
+      their bounds.&nbsp; The <b>Automatically refresh metrics when selecting a set</b>
+    option will cause metrics result sets to be refreshed automatically when
+    switching between them.
+    <p><img src="../images/preferences_metrics_general.gif"> 
+      <p><a name="HTML"></a>The <b> Reports</b> page controls various options concerning the
+      contents of the HTML and XML Metrics reports. The <b>Include metrics for
+      sub-scopes </b>option
+      controls whether sub-scope detail information is included in the report. The <b>Include metrics for types </b>option
+      controls whether type detail information is included in the report. The <b>Include
+      details</b> option determines whether metric detail information is
+      included for most metrics. Finally, the <b>Include violation </b>summary
+      option (HTML-only) controls whether a violation summary section is included at the end
+      of the report.
+    <br>
+&nbsp;<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="left"><img src="../images/preferences_metrics_html.gif"></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+    <p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

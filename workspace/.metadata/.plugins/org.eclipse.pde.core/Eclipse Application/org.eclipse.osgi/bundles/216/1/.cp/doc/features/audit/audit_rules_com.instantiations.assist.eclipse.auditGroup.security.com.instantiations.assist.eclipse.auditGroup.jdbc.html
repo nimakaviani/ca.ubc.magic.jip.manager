@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - JDBC/SQL Usage</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - JDBC/SQL Usage</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for problems related to the use of JDBC and SQL interfaces within the code.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.avoidQueriesFromUser">Avoid Building Queries From User Input</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.databaseConnectionsShouldNotBeStatic">Database Connections Should Not Be Static</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.invalidSourceForDatabaseConnection">Invalid Source for Database Connection</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.noDBDriverLoading">No DB Driver Loading</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.reuseDataSourcesForJDBCConnections">Reuse DataSources for JDBC Connections</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.sqlInjection">SQL Injection</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.avoidQueriesFromUser">Avoid Building Queries From User Input</a></h4><p>
+<b>Summary</b><br/>Database queries should not be constructed from user input.<p><b>Description</b><br/>This audit rule looks for places where a query is being performed that was constructed from data that might have come from user input.<p>Specifically, this audit rule violates the usage of the methods "execute", "executeQuery", or "executeUpdate" as defined in <code>java.sql.Statement</code>.<p><b>Security Implications</b><br/>Malicious users could input text that could change the meaning of the SQL query to expose data, gain administrative access or drop tables.<p><b>Example</b><br/>The invocation of the executeQuery method below would be flagged because the argument is constructed from values that might include user input.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;String query = <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"SELECT userid, name FROM user_data WHERE accountnum = '" <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ req.getParameter("ACCT_NUM") <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ "'"; <br>&nbsp;&nbsp;&nbsp;&nbsp;... <br>&nbsp;&nbsp;&nbsp;&nbsp;statement.executeQuery(query);</code><p>It should be replaced by something like the following:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;PreparedStatement statement = connection.prepareStatement <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;("SELECT userid, name FROM user_data WHERE accountnum = ?"); <br>&nbsp;&nbsp;&nbsp;&nbsp;statement.setString(1, req.getParameter("ACCT_NUM"); <br>&nbsp;&nbsp;&nbsp;&nbsp;ResultSet results = statement.executeQuery();</code><h4><a name="com.instantiations.assist.eclipse.audit.databaseConnectionsShouldNotBeStatic">Database Connections Should Not Be Static</a></h4><p>
+<b>Summary</b><br/>A database connection shared via a <code>static</code> field can be accessed simultaneously by multiple threads. This is against the transaction-based nature of a <code>Connection</code> resource.<p><b>Description</b><br/><code>JDBC Connection</code> is a transactional resource object. Such objects can only be associated with one transaction at a time.<p><b>Security Implications</b><br/>Storing connections in static fields would make it easy to erroneously share them between threads in different transactions, thus creating a potentially dangerous situation for the data. <p><b>Example</b><br/>The following code would be flagged as a violation because it shares a JDBC Connection via static field:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class DataRequest {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private final static Connection connection;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.invalidSourceForDatabaseConnection">Invalid Source for Database Connection</a></h4><p>
+<b>Summary</b><br/>The methods <code>DriverManager#getConnection()</code> and <code>Driver#connect()</code> are the low-level ways of getting a connection to a database. <code>DataSource</code> should be used instead.<p><b>Description</b><br/><code>DataSource</code> implementations provided by the majority of application servers provide advanced features such as connection pooling. These features can be accessed automatically when using the class <code>DataSource</code>.<p><b>Security Implications</b><br/>Using direct connection retrieval can potentially create performance issues that can be used by an attacker to perform a Denial of Service attack.<p><b>Example</b><br/>The following code would be flagged as a violation because it directly retrieves the connection:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public Connection getConnection() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return DriverManager.getConnection(dbUrl);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.noDBDriverLoading">No DB Driver Loading</a></h4><p>
+<b>Summary</b><br/>Do not reference database driver loading classes.<p><b>Description</b><br/>This audit rule checks for classes that are used to connect to databases that should not be used within the code.<p><b>Example</b><br/>If the class java.sql.DriverManager is on the list of disallowed classes, then the following method invocation would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;DriverManager.getDrivers();</code><p><img src="../../images/auditrules/audit_no_db_driver_usage.gif" width="375" height="271"></p><h4><a name="com.instantiations.assist.eclipse.audit.reuseDataSourcesForJDBCConnections">Reuse DataSources for JDBC Connections</a></h4><p>
+<b>Summary</b><br/>Using method-local DataSource could lead to a concurrent access to the database.<p><b>Description</b><br/>This rule looks for the creation of <code>DataSource</code> objects in methods.<p><b>Security Implications</b><br/>Using method-local DataSource objects could lead to an unprotected concurrent access to the database, which could result in an unexpected state of either the application or its data.<p><b>Example</b><br/>The following method creates a <code>DataSource</code> object and would thus be marked as violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public void local() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataSource ds = null;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br></code><h4><a name="com.instantiations.assist.eclipse.analysis.sqlInjection">SQL Injection</a></h4><p>
+<b>Summary</b><br/>SQL queries might be receiving data from the user or other unsafe sources.<p><b>Description</b><br/>SQL Injection occurs when the user is able to enter data directly into SQL queries.<p>To detect violations, this audit rule searches the code for SQL queries such as <code>java.sql.Statement.execute(..)</code> and traces where the query data could have come from. In cases where the source of the query is user input, such as data from a servlet request, <code>javax.servlet.ServletRequest.getParameter(java.lang.String)</code>, or from a SWT Text widget, <code>org.eclipse.swt.widgets.Text.getText()</code>, a violation is created.<p>These two sets of methods, the locations where tainted user data can come from and the methods used to query the database, are editable by the user.If methods are missing that are in a common package (such as <code>java.lang.*</code>), please let CodePro support know.<p>Also note, the SQL query methods for Hibernate and Persistence frameworks have been added.<p><b>Security Implications</b><br/>Successful SQL Injection attacks can potentially drop tables, update the database in a malicious manner and even gain administrator access.<p><b>Example</b><br/>The invocation of the method <code>executeQuery(..)</code> would be flagged as a violation since it uses the first name information passed from a servlet request:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;ServletRequest servletRequest;<br>&nbsp;&nbsp;&nbsp;&nbsp;Connection connection;<br>&nbsp;&nbsp;&nbsp;&nbsp;Statement statement;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;servletRequest = ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;connection = DriverManager.getConnection("www.example.com", "myUserName", "myPassword");<br>&nbsp;&nbsp;&nbsp;&nbsp;statement = connection.createStatement();<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;String firstName = req.getParameter("firstName");<br>&nbsp;&nbsp;&nbsp;&nbsp;String query = "SELECT * FROM user_data WHERE firstName = '" + firstName + "'";<br>&nbsp;&nbsp;&nbsp;&nbsp;statement.executeQuery(query);<br></code><p><img src="../../images/auditrules/audit_sql_injection.gif"></p></body>
+</html>

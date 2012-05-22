@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<title>Metrics - Details - Dependency</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+      <b><font face="Verdana" color="#CC0000">Metrics - Details - Dependency</font></b></h1>
+    <p>This group contains metrics that measure the responsibility,
+    independency, and stability of a body of code.</p>
+    <h3> Abstractness</h3>
+    <blockquote>
+      <p>This is the ratio of the number of abstract types (abstract classes and
+      interfaces) in the target elements to the total number of types in the
+      target elements.</p>
+      <p>This metric includes a breakdown based on whether the type is abstract
+      or concrete.</p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type container. </p>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Afferent Couplings</h3>
+    <blockquote>
+      <p>This is the number of types outside the target elements that depend on
+      types inside the target elements. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type container. </p>
+    </blockquote>
+    <h3> Distance</h3>
+    <blockquote>
+      <p>This is the normalized distance of the target elements from the main
+      sequence. The normalized distance is computed by</p>
+      <blockquote>
+        <p><i>[Abstractness] + [Instability] - 1.</i></p>
+      </blockquote>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type container. </p>
+      <p><img src="../../images/metrics/metric_distance.gif" width="364" height="30"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum distance from mean </dt>
+        <dd>Causes the metric to flag any projects or packages with too great a
+          distance from the mean. </dd>
+      </dl>
+    </blockquote>
+    <h3> Efferent Couplings</h3>
+    <blockquote>
+      <p>This is the number of types inside the target elements that depend on
+      types outside the target elements. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type container. </p>
+      <p><img src="../../images/metrics/metric_efferent_couplings.gif" width="364" height="30"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum types with external references </dt>
+        <dd>Causes the metric to flag any projects or packages with too many
+          types with external references. </dd>
+      </dl>
+    </blockquote>
+    <h3> Instability</h3>
+    <blockquote>
+      <p>This is the amount of instability within the target elements. The
+      instability is computed by</p>
+      <blockquote>
+        <p><i>[Efferent Couplings] / ([Afferent Couplings] + [Efferent
+        Couplings]).</i></p>
+      </blockquote>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type container. </p>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    </td>
+  </tr>
+</table>
+</body>
+</html>

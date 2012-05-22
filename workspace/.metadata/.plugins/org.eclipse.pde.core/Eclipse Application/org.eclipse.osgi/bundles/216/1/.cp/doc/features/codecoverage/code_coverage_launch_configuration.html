@@ -1,0 +1,77 @@
+<html>
+
+<head>
+<title>Code Coverage - Launch Configuration</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+    <b><font face="Verdana" color="#CC0000">Code Coverage - Launch
+      Configuration</font></b></h1>
+      <p>The measurement of code coverage is supported through the addition of a
+      new kind of launch configuration called a &quot;Code Coverage&quot;
+      configuration. There are two ways of creating a code coverage
+      configuration automatically and manually.</p>
+      <p>A launch configuration will be automatically created for a class
+      (if one does not already exist) when you select &quot;<a href="code_coverage.html">Run Code
+      Coverage</a>&quot; from the &quot;CodePro Tools&quot; submenu.</p>
+      <p>To manually create a new launch configuration, select
+      &quot;Run...&quot; from the &quot;Run&quot; menu to open the launch
+      configuration dialog. Select &quot;Code Coverage&quot; in the list of
+      configurations. Select &quot;New&quot; to create a new configuration.</p>
+      <p>Once you have a code coverage configuration defined for a given class,
+      you can use that configuration to control the set of classes for which
+      coverage information will be gathered. This is done by opening the launch
+      configuration dialog, selecting the configuration for the main class, and
+      switching to the &quot;Filters&quot; page. The &quot;Filters&quot; page
+      contains two lists of patterns the inclusion list and the exclusion list.</p>
+      <p><img src="../../images/code_coverage_launch_configuration_filters.gif" width="758" height="531"></p>
+      <p>The patterns are simple patterns using the standard pattern matching
+      characters &quot;*&quot; matches zero or more characters, &quot;$&quot;
+      matches a single character. They are simple in the sense that they only
+      match strings, not structures. For example, the pattern</p>
+      <blockquote>
+        <p>junit.*</p>
+      </blockquote>
+      <p>will match any class name beginning with &quot;junit.&quot;, whether or
+      not it contains other periods. This means, for example, that the pattern
+      will match the class</p>
+      <blockquote>
+        <p>junit.framework.TestCase</p>
+      </blockquote>
+      <p>Similarly, the pattern</p>
+      <blockquote>
+        <p>*Test</p>
+      </blockquote>
+      <p>will match any class whose name ends in &quot;Test&quot; whether the
+      class is defined in your code or in code supplied by a third party.</p>
+      <p>The inclusion list specifies which classes could have coverage
+      information recorded for them. If the list is empty, all classes are
+      eligible. If the list contains one or more patterns, only those classes
+      whose fully qualified name matches at least one pattern are eligible.</p>
+      <p>The exclusion list specifies which of the eligible classes will not
+      have coverage information recorded for them. A class will be excluded if
+      it matches one or more of the patterns in the list. If the list is empty,
+      then coverage information will be recorded for all of the eligible
+      classes.</p>
+      <p>The code coverage configuration can also be used to cause a code
+      coverage report to be generated immediately after the measurements are
+      recorded. Reports can be generated in three different formats <a href="code_coverage_sample_report.html">HTML</a>, text,
+      and XML. You can also specify that you want the report to be opened
+      (within Eclipse, if possible) after it has been generated.</p>
+      <p><img src="../../images/code_coverage_launch_configuration_reports.gif" width="758" height="531"></p>
+      <p>It is not necessary to generate a report at the time the information is
+      recorded because you can generate a report at any time from the <b><a href="code_coverage_view.html"> Coverage
+      View</a></b>.
+      <h6 align="center"><b><font face="Verdana">This feature is based on technology from the EMMA
+      Project.<a href="http://emma.sourceforge.net"><br>
+      http://emma.sourceforge.net<br>
+      </a>Copyright &copy; 2001-2005 Vlad Roubtsov</font></b>
+ </td>
+  </tr>
+</table>
+</body>
+</html>

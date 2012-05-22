@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Spell Checking</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Spell Checking</font></b></h1>
+<b>Description</b>
+
+This group contains audit rules that check for spelling errors within portions of the code base.</p>
+<p>A predefined &quot;Spelling&quot; audit rule set is provided that is directly accessible via the <img src="../../images/spelling_icon.gif" width="16" height="16"><a href="../spelling.html">Check Spelling</a> command.</p><p> Each of the spell checking rules provides a number of <a href="audit.html#FixViolation">common resolutions (quick fixes)</a>. If the spelling engine can determine good possible matches, the first four will be presented directly.</p><blockquote><p><img src="../../images/auditrules/audit_spellcheck_resolutions.gif" width="181" height="185"></p></blockquote><p>An additional option is provided to open a dialog to enter any arbitrary replacement text. Clicking the Add button will add the user suggestion to the dictionary.</p><blockquote><p><img src="../../images/auditrules/audit_spellcheck_correct_dialog.gif" width="321" height="241"></p></blockquote>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spellCheckComments">Spell Check Comments</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spellCheckIdentifiers">Spell Check Identifiers</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spellCheckStringLiterals">Spell Check String Literals</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.spellCheckComments">Spell Check Comments</a></h4><p>
+<b>Summary</b>
+
+Comments should be spelled correctly.
+
+<b>Description</b>
+
+This audit rule finds comments that contain misspelled words.<p><img src="../../images/auditrules/audit_spellcheck_comments.gif" width="374" height="187"></p><h4><a name="com.instantiations.assist.eclipse.audit.spellCheckIdentifiers">Spell Check Identifiers</a></h4><p>
+<b>Summary</b>
+
+Identifiers should be composed of valid words.
+
+<b>Description</b>
+
+This audit rule finds identifiers that are composed from pieces that do not form words.<p><img src="../../images/auditrules/audit_spellcheck_word.gif" width="373" height="177"></p><h4><a name="com.instantiations.assist.eclipse.audit.spellCheckStringLiterals">Spell Check String Literals</a></h4><p>
+<b>Summary</b>
+
+String literals should be correctly spelled.
+
+<b>Description</b>
+
+This audit rule finds string literals that contain misspelled words.<p><img src="../../images/auditrules/audit_spellcheck_string_literals.gif" width="376" height="211"></p></body>
+</html>

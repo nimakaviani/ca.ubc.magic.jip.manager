@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Formatting</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Formatting</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check the code for conformance to various formatting conventions.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.blankLineUsage">Blank Line Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.bracePosition">Brace Position</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.indentCodeWithinBlocks">Indent Code Within Blocks</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.lineLength">Line Length</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.oneStatementPerLine">One Statement per Line</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spaceAfterCasts">Space After Casts</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spaceAfterCommas">Space After Commas</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spaceAroundOperators">Space Around Operators</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spaceAroundPeriods">Space Around Periods</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.whiteSpaceUsage">White Space Usage</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.blankLineUsage">Blank Line Usage</a></h4><p>
+<b>Summary</b><br/>Blank lines should be used consistently to improve readability.<p><b>Description</b><br/>This audit rule checks for places where the number of blank lines used between program elements is not consistent.<p><b>Example</b><br/>If the rule has been configured to expect two blank lines between members in a type, then the following field declarations will be flagged because there is only one blank line between them:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private int x;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;private int y;</code><p><img src="../../images/auditrules/audit_blank_line_usage.gif" width="367" height="77"></p><h4><a name="com.instantiations.assist.eclipse.audit.bracePosition">Brace Position</a></h4><p>
+<b>Summary</b><br/>Opening and closing braces should be positioned properly.<p><b>Description</b><br/>This audit rule finds opening and closing braces that are incorrectly positioned. By default, opening braces should not appear on a new line and closing braces should appear on a new line. Opening braces for methods and types should appear on a new line.<p><b>Example</b><br/>With the default settings, the opening brace for the following method and the opening brace for the if statement within it would both be flagged as violations:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public int getLength(Object[] array) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (array == null)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return array.length;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_brace_position.gif" width="301" height="129"></p><h4><a name="com.instantiations.assist.eclipse.audit.indentCodeWithinBlocks">Indent Code Within Blocks</a></h4><p>
+<b>Summary</b><br/>Code within blocks should be indented one level more than the block.<p><b>Description</b><br/>This audit rule checks for blocks of code that are not indented one level more than the code containing the block.<p><b>Example</b><br/>The statements inside the following if statement would be flagged as needing to be indented:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (employee.isHourly()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;computeHourlyBonus(employee);<br>&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;computeSalariedBonus(employee);<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.lineLength">Line Length</a></h4><p>
+<b>Summary</b><br/>Lines should not be too long.<p><b>Description</b><br/>This audit rule checks for lines that are longer than a specified number of characters. By default, each tab character is counted as four spaces.<p><b>Example</b><br/>If the rule were configured to allow lines of up to 120 character and a line were found that contained 253 characters, that line would be flagged as a violation.<p><img src="../../images/auditrules/audit_line_length.gif"></p><h4><a name="com.instantiations.assist.eclipse.audit.oneStatementPerLine">One Statement per Line</a></h4><p>
+<b>Summary</b><br/>Each statement should be on its own line.<p><b>Description</b><br/>This audit rule checks for statements that occur on the same line as a previous statement and flags them.<p><b>Example</b><br/>The second assignment statement would be flagged as needing to be on its own line:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;x = 0; y = 0;</code><h4><a name="com.instantiations.assist.eclipse.audit.spaceAfterCasts">Space After Casts</a></h4><p>
+<b>Summary</b><br/>Casts should be followed by white space.<p><b>Description</b><br/>This audit rule checks for uses of type casts to ensure that there is at least one space after the type.<p><b>Example</b><br/>The following cast expression would be flagged as a violation because there is no space between the type and the expression:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;value = (String)table.get(key);</code><h4><a name="com.instantiations.assist.eclipse.audit.spaceAfterCommas">Space After Commas</a></h4><p>
+<b>Summary</b><br/>Commas should be followed by white space.<p><b>Description</b><br/>This audit rule checks for uses of commas to ensure that there is a space after the comma, but no space before the comma.<p><b>Example</b><br/>The following method invocation would be flagged twice as a violation, once for the extra space before the first comma, and again for the missing space after the second comma:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;merge(result , left,right);</code><h4><a name="com.instantiations.assist.eclipse.audit.spaceAroundOperators">Space Around Operators</a></h4><p>
+<b>Summary</b><br/>Binary operators should be surrounded by white space.<p><b>Description</b><br/>This audit rule checks for uses of binary operators in which there is no white space on either the left or right side of the operator.<p>If checked, the "Ignore prefix operators" option causes the audit rule to ignore prefix operators when checking for whitespace violations (e.g. do not flag the expression "(-i)" as a violation). <p>The "Ignore postfix operators" option is similar (e.g. do not flag the expressions "(i++)" or i++; as violations).<p><b>Example</b><br/>The following arithmetic expression would be flagged twice as a violation, once for the missing space before the operator and again for the missing space after the operator:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;index+1</code><p><img src="../../images/auditrules/audit_space_around_operators.gif" width="392" height="46"></p><h4><a name="com.instantiations.assist.eclipse.audit.spaceAroundPeriods">Space Around Periods</a></h4><p>
+<b>Summary</b><br/>Periods should not be surrounded by white space.<p><b>Description</b><br/>This audit rule checks for uses of periods (within qualified names) in which there is white space on either the left or right side of the period.<p><b>Example</b><br/>The following method invocation would be flagged twice as a violation, once for the space before the period and again for the space after the period:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;point . getX()</code><p><img src="../../images/auditrules/audit_space_around_periods.gif" width="399" height="21"></p><h4><a name="com.instantiations.assist.eclipse.audit.whiteSpaceUsage">White Space Usage</a></h4><p>
+<b>Summary</b><br/>Indentation should consistently be done using either tabs or spaces.<p><b>Description</b><br/>Indentation should either be done using tabs, or it should be done using spaces, but should not be done using a combination of the two. This audit rule allows you to specify the indentation style you prefer, and then looks for places where space and tab characters are used in ways that violate the specified criteria.<p><img src="../../images/auditrules/audit_white_space_usage.gif" width="226" height="108"></p></body>
+</html>

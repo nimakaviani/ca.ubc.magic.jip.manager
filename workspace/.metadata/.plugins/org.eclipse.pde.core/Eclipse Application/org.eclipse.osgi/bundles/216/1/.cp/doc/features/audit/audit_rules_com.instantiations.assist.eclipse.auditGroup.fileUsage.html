@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - File Usage</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - File Usage</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for problems related to the use of files and their security.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.deleteTemporaryFiles">Delete Temporary Files</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.filenameGivenOut">Filename Given Out</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.deleteTemporaryFiles">Delete Temporary Files</a></h4><p>
+<b>Summary</b><br/>If a file contains sensitive information, it is better to delete it as soon as possible. <p><b>Description</b><br/>If a file contains sensitive information, it is better to delete it as soon as possible. This audit rule looks for places where a file created using <code>File.createTempFile()</code> and not deleted explicitly with the <code>delete()</code> method before the method returns.<p><b>Security Implications</b><br/>Using the method <code>deleteOnExit()</code> is not enough because, especially in web development, an application can run for a significantly long time. We also assume that storing sensitive data for the duration of a session is also insecure.<p><b>Example</b><br/>The following code would be flagged as a violation because it does not delete the created temporary file:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public void doSomeStoring() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File temp = File.createTempFile();<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.filenameGivenOut">Filename Given Out</a></h4><p>
+<b>Summary</b><br/>The name of a locally used file is valuable information for an attacker.<p><b>Description</b><br/>This rule violates printing file names and paths to the HttpServletResponse output stream.<p><b>Security Implications</b><br/>If the name of a locally used file is displayed to the user over a web-interface, this information could be used by an attacker to retrieve valuable information from the system. Such an action should therefore be avoided. <p><b>Example</b><br/>The following code would be flagged as a violation because it displays a filename to the user:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File file = File.createTempFile("somefile", ".tmp");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (debug.equals("true")) resp.getOutputStream().print("Using " + file.toString());<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</code></body>
+</html>

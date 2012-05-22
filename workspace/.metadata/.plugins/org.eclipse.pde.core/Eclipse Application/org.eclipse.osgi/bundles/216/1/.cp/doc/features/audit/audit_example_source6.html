@@ -1,0 +1,197 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="../../../stylesheets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../stylesheets/prettify/prettify.js"></script>
+<title>LargeNumberOfMethodsAuditRule</title>
+</head>
+
+<body onload="prettyPrint()">
+<pre class="prettyprint">
+
+package com.instantiations.assist.eclipse.analysis.audit.rule;
+ 
+import com.instantiations.assist.eclipse.analysis.audit.core.*;
+import com.instantiations.assist.eclipse.analysis.engine.core.*;
+import org.eclipse.jdt.core.dom.*;
+ 
+/**
+ * Instances of the class <code>LargeNumberOfMethodsAuditRule</code>
+ * implement an audit rule used to find types that have too many methods.
+ * 
+ * Copyright (c) 2002-2003, Google, Inc.<br>
+ * All Rights Reserved
+ *
+ * @author Brian Wilkerson
+ * @version $Revision: 1.0 $
+ */
+public class LargeNumberOfMethodsAuditRule extends CompilationUnitAuditRule
+{
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Preference Constants
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * The suffix added to the preferences identifier to compose the name of
+     * the preference whose value is the maximum number of methods that a type
+     * is allowed to have.
+     */
+    protected static final String MAX_METHOD_COUNT_PREFERENCE_SUFFIX = ".maxMethodCount";
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Constructors
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Initialize a newly created audit rule.
+     */
+    public LargeNumberOfMethodsAuditRule()
+    {
+        super();
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Accessing
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Return the maximum number of methods that a type is allowed to have.
+     *
+     * @return the maximum number of methods that a type is allowed to have
+     */
+    public int getMaxMethodCount()
+    {
+        String preferenceName;
+ 
+        preferenceName = getPreferenceIdentifier() + MAX_METHOD_COUNT_PREFERENCE_SUFFIX;
+        getPreferenceStore().setDefault(preferenceName, 24);
+        return getPreferenceStore().getInt(preferenceName);
+    }
+ 
+    /**
+     * Set the maximum number of methods that a type is allowed to have to
+     * the given value.
+     *
+     * @param max the maximum number of methods that a type is allowed to
+     *        have
+     */
+    public void setMaxMethodCount(int max)
+    {
+        String preferenceName;
+ 
+        preferenceName = getPreferenceIdentifier() + MAX_METHOD_COUNT_PREFERENCE_SUFFIX;
+        getPreferenceStore().setValue(preferenceName, max);
+    }
+ 
+    /**
+     * Return <code>true</code> if this audit rule should be enabled by
+     * default.
+     *
+     * @return <code>true</code> if this audit rule should be enabled by default
+     */
+    public boolean isEnabledByDefault()
+    {
+        return false;
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Analyzer Creation
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Create an analyzer that can perform the analysis implied by this analysis
+     * item.
+     *
+     * @param context the context in which the analysis will be performed
+     *
+     * @return the analyzer that was created
+     */
+    public Analyzer createAnalyzer(AnalysisContext context)
+    {
+        return new LargeNumberOfMethodsCodeAuditor(context, this);
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Inner Classes
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Instances of the class <code>LargeNumberOfMethodsCodeAuditor</code>
+     * implement a code auditor used to find types that have too many methods.
+     * 
+     * Copyright (c) 2002, Google, Inc.<br>
+     * All Rights Reserved
+     *
+     * @author Brian Wilkerson
+     */
+    public class LargeNumberOfMethodsCodeAuditor extends AbstractCodeAuditor
+    {
+        ////////////////////////////////////////////////////////////////////////
+        //
+        // Constructors
+        //
+        ////////////////////////////////////////////////////////////////////////
+ 
+        /**
+         * Initialize a newly created analyzer to perform an analysis in the
+         * given context for the given analysis item.
+         *
+         * @param context the context in which the analysis is to be performed
+         * @param item the analysis item for which the analysis is being
+         *        performed
+         */
+        public LargeNumberOfMethodsCodeAuditor(AnalysisContext context, AnalysisItem item)
+        {
+            super(context, item);
+        }
+ 
+        ////////////////////////////////////////////////////////////////////////
+        //
+        // Visiting
+        //
+        ////////////////////////////////////////////////////////////////////////
+ 
+        public boolean visit(TypeDeclaration node)
+        {
+            MethodDeclaration[] methods;
+            int count, startIndex, endIndex;
+ 
+            methods = node.getMethods();
+            count = 0;
+            for (int i = 0; i < methods.length; i++) {
+                if (!methods[i].isConstructor()) {
+                    count++;
+                }
+            }
+            if (count > getMaxMethodCount()) {
+                startIndex = node.getName().getStartPosition();
+                endIndex = startIndex + node.getName().getLength();
+                addViolation(new AuditViolationImpl(
+                    "com.instantiations.assist.eclipse.audit.largeNumberOfMethods.tooMany",
+                    LargeNumberOfMethodsAuditRule.this,
+                    getContext().getCurrentTarget(),
+                    startIndex,
+                    endIndex,
+                    new String[] {
+                        Integer.toString(count),
+                    }));
+            }
+            return true;
+        }
+    }
+}
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Inheritance</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Inheritance</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for problems that are either related to the type hierarchy or can only be seen by looking that the supertypes of a type.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.doNotSubclassClassLoader">Do Not Subclass ClassLoader</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.doNotSubclassClassLoader">Do Not Subclass ClassLoader</a></h4><p>
+<b>Summary</b><br/>Do not extend <code>java.lang.ClassLoader</code><p><b>Description</b><br/>Subclasses of <code>java.lang.ClassLoader</code> are flagged. In instances where <code>ClassLoader</code> needs to be subclassed, use <code>java.security.SecureClassLoader</code>.<p><b>Security Implications</b><br/>By subclassing <code>SecureClassLoader</code> instead of <code>ClassLoader</code>, additional Java security measures are taken to protect against class loading vulnerabilities.<p><b>Example</b><br/>The following class would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class A extends ClassLoader {...}</code></body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Finalization</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Finalization</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for problems with the use of the finalization mechanism (the finalize method).</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.avoidFinalizers.avoidFinalizers">Avoid Finalizers</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.doNotCreateFinalizableObjects">Do Not Create Finalizable Objects</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.emptyFinalizeMethod">Empty Finalize Method</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.explicitInvocationOfFinalize">Explicit Invocation of Finalize</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.finalizeMethodDefinition">Finalize Method Definition</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.finalizeShouldNotBePublic">Finalize Should Not Be Public</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.invokeInheritedMethod">Invoke super.finalize() from within finalize()</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.properFinalizeUsage">Proper Finalize Usage</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.avoidFinalizers.avoidFinalizers">Avoid Finalizers</a></h4><p>
+<b>Summary</b><br/>Avoid finalizers.<p><b>Description</b><br/>Finalizers should be avoided because they can lead to obscure bugs and apparent consumption of operating system resources.<p><b>Example</b><br/>Any method with the signature "finalize()" will be flagged.<h4><a name="com.instantiations.assist.eclipse.audit.doNotCreateFinalizableObjects">Do Not Create Finalizable Objects</a></h4><p>
+<b>Summary</b><br/>Finalizable objects should not be instantiated.<p><b>Description</b><br/>This audit rule checks for instance creation expressions in which the object being created implements the finalize() method. Finalization is expensive and error prone, so finalizable objects should not be used.<p><b>Example</b><br/>If the class ResourceHandle defines the finalize method, then the following instance creation expression would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;ResourceHandle handle = new ResourceHandle(resourceId);</code><p><img src="../../images/auditrules/audit_do_not_create_finalizable_objects.gif" width="309" height="80"></p><h4><a name="com.instantiations.assist.eclipse.audit.emptyFinalizeMethod">Empty Finalize Method</a></h4><p>
+<b>Summary</b><br/>The body of a finalize method should never be empty.<p><b>Description</b><br/>This audit rule finds finalize methods whose body is empty.<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;protected void finalize()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.explicitInvocationOfFinalize">Explicit Invocation of Finalize</a></h4><p>
+<b>Summary</b><br/>The method finalize() should never be explicitly called.<p><b>Description</b><br/>This audit rule looks for explicit invocations of the method finalize(). The finalize method should only be invoked by the VM.<p><b>Example</b><br/>The following method invocation would be flagged as a violation: <p><code>&nbsp;&nbsp;&nbsp;&nbsp;object.finalize();</code><h4><a name="com.instantiations.assist.eclipse.audit.finalizeMethodDefinition">Finalize Method Definition</a></h4><p>
+<b>Summary</b><br/>Finalize methods should not have parameters or a non-void return type.<p><b>Description</b><br/>The only way to declare a finalize method is<p><code>&nbsp;&nbsp;&nbsp;&nbsp;protected void finalize() [throws Throwable]</code><p>You can create other finalize methods that take parameters, but they will not be called automatically by the system, and may confuse anyone reading the code. You should reserve the name finalize for the real finalize method. This audit rule finds finalize() methods that have parameters or do not have a void return type.<p><b>Example</b><br/>The following method declaration would be flagged as a violation because the method returns an integer:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;protected int finalize()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.analysis.finalizeShouldNotBePublic">Finalize Should Not Be Public</a></h4><p>
+<b>Summary</b><br/>Finalize methods declared within an Applet should not be public<p><b>Description</b><br/>This audit rule flags any declarations of the Object.finalize that are public and within an Applet. If the finalize method is declared properly, then the method should not need to be public.<p><b>Security Implications</b><br/>Malicious users can perform attacks on Applets by calling public finalize methods.<p><b>Example</b><br/>The following declaration of finalize would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class A extends java.applet.Applet {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void finalize() {}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.invokeInheritedMethod">Invoke super.finalize() from within finalize()</a></h4><p>
+<b>Summary</b><br/>Every implementation of finalize() should invoke super.finalize().<p><b>Description</b><br/>This audit rule looks for implementations of the method finalize() that do not invoke the inherited finalize() method.<p><b>Example</b><br/>The following definition of the method finalize() would be flagged because it does not invoke the inherited implementation of finalize():<p><code>&nbsp;&nbsp;&nbsp;&nbsp;protected void finalize()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws Throwable<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (fileReader != null) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileReader.close();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileReader = null;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.analysis.properFinalizeUsage">Proper Finalize Usage</a></h4><p>
+<b>Summary</b><br/>Don't call various methods from a finalize() method.<p><b>Description</b><br/>Avoid calling various methods from a finalize() method. Specifically avoid calling any methods from the ClassLoader, Runnable or PortbaleRemoteObject classes. Also avoid calling any methods from the java.applet, java.beans, java.io, java.lang.ref, java.net, java.rmi, java.security, java.sql, javax.naming, javax.sql, javax.transaction or org.omg packages.</body>
+</html>

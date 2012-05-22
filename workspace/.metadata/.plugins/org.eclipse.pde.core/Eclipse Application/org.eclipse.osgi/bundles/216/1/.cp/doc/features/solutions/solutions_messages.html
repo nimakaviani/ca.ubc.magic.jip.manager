@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<title>Solution Messages</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1" width="100%">
+      <tr>
+        <td><h1><font face="Verdana" color="#CC0000">Solution Messages</font></h1>
+        </td>
+        <td align="right" valign="baseline">
+    <p class="MsoNormal"><font face="Arial" size="2">
+        <a href="solutions.html">introduction</a>&nbsp;
+    <a href="solutions_actions.html">actions</a>&nbsp;
+        <a href="solutions_editor.html">editor</a>&nbsp;
+        <a href="solutions_wizard.html">wizard</a>&nbsp;
+        <a href="solutions_messages.html">messages</a></font></p>
+        </td>
+      </tr>
+    </table>
+    <p class="MsoNormal">Here are various warnings and errors that appear both 
+    in the solution editor and/or in the task/problems view.</p>
+    <p class="MsoNormal"><a name="not_loaded">
+    <img border="0" src="../../images/solutions/solution_msg_not_loaded.gif" width="78" height="16"></a></p>
+    <blockquote>
+    <p class="MsoNormal">This warning appears in the solution editor indicating that the project  or nested solution 
+    specified in a solution does not exists locally in the workspace.</p>
+    <p class="MsoNormal">For example, in the
+    <a href="solutions.html#solution_graph">example solutions graph</a>, if <b>
+    Project_1 version_A</b> existed in the repository but did not exist locally in the workspace,  then when the <b>
+    Nested_Solution_1</b> <b>/solution.psf</b> file is edited, this warning 
+    would appear in the <a href="solutions_editor.html">solution editor</a> to 
+    the right of the <b>Project_1</b> entry.&nbsp; In addition, the image to the 
+    left of <b>Project_1 </b>entry would be
+    <img border="0" src="../../images/solutions/project_entry_missing.gif" width="16" height="16"> 
+    rather than the standard
+    <img border="0" src="../../images/solutions/project_entry_open.gif" width="16" height="16"> 
+    project icon.</p>
+    </blockquote>
+    <p class="MsoNormal"><a name="not_open">
+    <img border="0" src="../../images/solutions/solution_msg_not_open.gif" width="71" height="17"></a></p>
+    <blockquote>
+    <p class="MsoNormal">This warning appears in the solution editor indicating that the project  or nested solution 
+    specified in a solution exists locally in the workspace but is closed.</p>
+    <p class="MsoNormal">For example, in the
+    <a href="solutions.html#solution_graph">example solutions graph</a>, if <b>
+    Project_1 version_A</b> existed locally in the workspace, but was closed, then when the <b>
+    Nested_Solution_1</b> <b>/solution.psf</b> file is edited, this warning 
+    would appear in the <a href="solutions_editor.html">solution editor</a> to 
+    the right of the <b>Project_1</b> entry.&nbsp; In addition, the image to the 
+    left of <b>Project_1 </b>entry would be
+    <img border="0" src="../../images/solutions/project_entry_closed.gif" width="16" height="16"> 
+    rather than the standard
+    <img border="0" src="../../images/solutions/project_entry_open.gif" width="16" height="16"> 
+    project icon.</p>
+    </blockquote>
+    <p class="MsoNormal"><a name="loaded_different">
+    <img border="0" src="../../images/solutions/solution_msg_loaded_different.gif" width="105" height="17"></a></p>
+    <blockquote>
+    <p class="MsoNormal">This warning appears in the solution editor indicating that the project version or nested solution version specified in 
+    that solution is loaded in workspace, but the version loaded is different 
+    from the version specified.&nbsp; </p>
+    <p class="MsoNormal">For example, in the
+    <a href="solutions.html#solution_graph">example solutions graph</a>, if <b>
+    Project_1 version_A</b> was loaded in the workspace, but <b>
+    Nested_Solution_1</b> specified <b>Project_1 version_B</b>, then when the <b>
+    Nested_Solution_1</b> <b>/solution.psf</b> file is edited, this warning 
+    would appear in the <a href="solutions_editor.html">solution editor</a> to 
+    the right of the <b>Project_1</b> entry.&nbsp; In addition, the image to the 
+    left of <b>Project_1 </b>entry would be
+    <img border="0" src="../../images/solutions/project_entry_open_different.gif" width="16" height="16"> 
+    rather than the standard
+    <img border="0" src="../../images/solutions/project_entry_open.gif" width="16" height="16"> 
+    project icon.&nbsp; </p>
+    <p class="MsoNormal">This message would also appear if the version specified 
+    for a nested solution is different from the version actually loaded in the 
+    workspace.&nbsp; In this case, the image to the left of the nested solution 
+    would be
+    <img border="0" src="../../images/solutions/project_entry_solution_not_loaded.gif" width="16" height="16"> 
+    rather than the standard
+    <img border="0" src="../../images/solutions/project_entry_solution_loaded.gif" width="16" height="16"> 
+    nested solution icon.</p>
+    </blockquote>
+    <p class="MsoNormal"><a name="solution_not_completely_loaded">
+    <img border="0" src="../../images/solutions/solution_msg_not_completely_loaded.gif" width="171" height="19"></a></p>
+    <blockquote>
+    <p class="MsoNormal">This warning appears both in the task/problems view and 
+    in the solution editor, indicating that a solution is not completely loaded 
+    because one or more of its contained projects is either a different version, 
+    closed, or not loaded, or that one of its nested solutions is not completely 
+    loaded.&nbsp; Double clicking on the warning in the task/problems view opens 
+    the
+    <a href="solutions_editor.html">solution editor</a> on the <b>solution.psf</b> 
+    file for the solution for which the warning was issued.</p>
+    <p class="MsoNormal">For example, in the
+    <a href="solutions.html#solution_graph">example solutions graph</a>, if <b>
+    Project_1 version_A</b> was loaded in the workspace, but <b>
+    Nested_Solution_1</b> specified <b>Project_1 version_B</b>, then this 
+    warning would appear in the problem/task view indicating that <b>
+    Nested_Solution_1</b> was not completely loaded.&nbsp; Because <b>Solution_1
+    </b>contains <b>Nested_Solution_1</b>, this warning would also appear in the 
+    task/problems view indicating that <b>Solution_1 </b>was not completely 
+    loaded.</p>
+    <p class="MsoNormal">In addition, when the <b>Solution_1/solution.psf </b>
+    file is edited, this warning would appear in the
+    <a href="solutions_editor.html">solution editor</a> to the right of the <b>
+    Nested_Solution_1 </b>entry, indicating that the nested solution was not 
+    completely loaded.&nbsp; The image to the left of the <b>Nested_Solution_1
+    </b>entry would be
+    <img border="0" src="../../images/solutions/project_entry_solution_not_loaded.gif" width="16" height="16"> 
+    rather than the standard
+    <img border="0" src="../../images/solutions/project_entry_solution_loaded.gif" width="16" height="16"> 
+    nested solution icon.</p>
+    </blockquote>
+    <p class="MsoNormal"><a name="tag_conflict_with">
+    <img border="0" src="../../images/solutions/solution_msg_tag_conflict_with.gif" width="126" height="17"></a></p>
+    <blockquote>
+    <p class="MsoNormal">This error appears in both the task/problems view and 
+    in the solutions editor, indicating that a project version specified by one 
+    solution is different than the version specified for the same project in 
+    nested solution.&nbsp; Double clicking on the error in the task/problems 
+    view opens the
+    <a href="solutions_editor.html">solution editor</a> on the <b>solution.psf</b> 
+    file for the solution for which the error was issued.</p>
+    <p class="MsoNormal">For example, in the
+    <a href="solutions.html#solution_graph">example solutions graph</a>, if <b>
+    Project_1 version_A</b> was specified by <b>Solution_1</b>, but <b>
+    Nested_Solution_1,</b> which is contained by <b>Solution_1, </b>specified <b>Project_1 version_B</b>, then this 
+    error would appear in the problem/task view indicating that the solution and 
+    the nested solution specifications conflicted.</p>
+    <p class="MsoNormal">In addition, when the <b>Solution_1/solution.psf </b>
+    file is edited, this warning would appear in the
+    <a href="solutions_editor.html">solution editor</a> to the right of the <b>
+    Nested_Solution_1 </b>entry, indicating a conflicting specification.&nbsp; The image to the left of the <b>Nested_Solution_1
+    </b>entry would be
+    <img border="0" src="../../images/solutions/project_entry_solution_error.gif" width="16" height="16"> 
+    rather than the standard
+    <img border="0" src="../../images/solutions/project_entry_solution_loaded.gif" width="16" height="16"> 
+    nested solution icon.</p>
+    </blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

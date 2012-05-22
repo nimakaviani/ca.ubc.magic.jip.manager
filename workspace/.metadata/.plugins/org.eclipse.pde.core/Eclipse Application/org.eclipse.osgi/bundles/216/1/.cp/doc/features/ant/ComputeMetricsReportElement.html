@@ -1,0 +1,125 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+      <h1><font face="Verdana" color="#CC0000"><b>report</b></font> <font size="-1">(element)</font></h1>
+      <h3>Description</h3>
+      <p>
+      The <code>report</code> element, which must be nested within the
+      <a href="ComputeMetrics.html"><code>codepro.metrics</code></a> task, is
+      used to generate a report based on the results of the metric computation.
+      </p>
+      <!-- ***************************************************************** -->
+      <h3>Attributes</h3>
+      <p>
+      The following attributes are used to control the report generation process.
+      </p>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+          <td valign="top"><b>Attribute</b></td>
+          <td valign="top"><b>Description</b></td>
+          <td align="center" valign="top"><b>Required</b></td>
+        </tr>
+        <tr>
+          <td valign="top">file</td>
+          <td valign="top">
+          <p>
+          The absolute or relative path to the file to which metric results will
+          be written. If this attribute is not specified then the report will not
+          be saved to a file. Omitting the file path makes sense only if the
+          <code>mail</code> sub-element is specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">format</td>
+          <td valign="top">
+          <p>
+          The format in which the metric results will be written. If not specified,
+          then the results will be written in a simple text format. Currently
+          supported formats include:
+          </p>
+          <ul>
+            <li><code>commaSeparatedData</code></li>
+            <li><code>html</code></li>
+            <li><code>tabSeparatedData</code></li>
+            <li><code>text</code></li>
+            <li><code>xml</code></li>
+          </ul>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>text</i></td>
+        </tr>
+        <tr>
+          <td valign="top">includeSubScopes</td>
+          <td valign="top">
+          <p>
+          A boolean value indicating whether or not sub-scopes should be included
+          in the results.
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">includeTypeLevelMetrics</td>
+          <td valign="top">
+          <p>
+          A boolean value indicating whether or not type-level metrics should be
+          included in the results.
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">includeDetails</td>
+          <td valign="top">
+          <p>
+          A boolean value indicating whether or not details should be included in
+          the results.
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">includeViolationSummary</td>
+          <td valign="top">
+          <p>
+          A boolean value indicating whether or not a violation summary should
+          be included in the results.
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+      </table>
+      <!-- ***************************************************************** -->
+      <h3>Nested Elements</h3>
+      <p>
+      The following elements can be nested within the <code>report</code>
+      element:
+      </p>
+      <blockquote>
+        <p><code><b>&lt;mail&gt;</b></code></p>
+        <p>
+        The <a href="MailElement.html"><code>mail</code></a> element is used to
+        send the generated report as an attachment in an e-mail message.
+        </p>
+      </blockquote>
+      <!-- ***************************************************************** -->
+      <h3>Examples</h3>
+      <p>
+      The following <code>report</code> element will generate an XML report to
+      the file named &quot;metrics_result.xml&quot;.
+      </p>
+      <blockquote>
+      <pre>&lt;report
+      file=&quot;metrics_result.xml&quot;
+      format=&quot;xml&quot;/&gt;</pre>
+      </blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

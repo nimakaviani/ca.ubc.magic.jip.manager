@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Generation Results View</title>
+		<link type="text/css" rel="stylesheet" href="../../book.css"/>
+	</head>
+	<body>
+		<h1>Generation Results View</h1>
+		<p>The Generation Results view displays the results of CodePro&#8217;s test generation. It allows the user to see the classes and methods under test, the generated JUnit tests, as well as any issues that the test generator encountered. The user has options to resolve various issues, and the ability to regenerate affected tests from inside the view.</p>
+		<ol style="list-style: none;">
+			<li>
+				<a href="generation_results_view.html#ShowingtheView">Showing the View</a>
+			</li>
+			<li>
+				<a href="generation_results_view.html#ExploringGeneratedCode">Exploring Generated Code</a>
+			</li>
+			<li>
+				<a href="generation_results_view.html#ResolvingIssues">Resolving Issues</a>
+			</li>
+		</ol>
+		<p>
+			<img border="0" src="generation_view.gif"/>
+		</p>
+		<p><hr/></p>
+		<h2 id="ShowingtheView">Showing the View</h2>
+		<p>The Generation Results view opens automatically when the CodePro test generator runs. To generate tests, right click on a Java source file and choose 
+			<strong>CodePro Tools > Generate Test Cases</strong>. 
+		</p>
+		<h2 id="ExploringGeneratedCode">Exploring Generated Code</h2>
+		<p>The view shows the classes and methods under test in the left-hand pane. You can drill down to the generated JUnit tests by expanding a method node. Double clicking on a node will take you to the class under test, the method under test, or the generated test.</p>
+		<p>If there are issues generating tests, they show up as icon decorations in the tree. Select a decorated node to see the issue details in the right-hand pane.</p>
+		<p>There can sometimes be issues that affect many generated tests. You&#8217;ll see these issues in each affected location. The count in the upper right of the details view will show you how many instances of each specific issue there are. For these identical issues, resolving them in one location automatically resolves them in the other locations.</p>
+		<h2 id="ResolvingIssues">Resolving Issues</h2>
+		<p>Some issues have suggested resolutions. For instance, the &#8216;Unable to create object&#8217; issue gives you two possible automatic resolutions. When you choose to perform a resolution, the issue changes to a resolved state. You then need to re-run the test generation to see your changes. You can do this from within the view itself; either choose the toolbar action 
+			<strong>Regenerate Changed Tests</strong>, or select the test or class from the tree and choose the toolbar action 
+			<strong>Regenerate Selected Tests</strong>.
+		</p>
+	</body>
+</html>

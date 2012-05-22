@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Clone Usage</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Clone Usage</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for problems with the use of the cloning mechanism (the interface Cloneable and the clone method).</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.avoidSubtypingCloneable">Avoid Subtyping Cloneable</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.cloneMethodUsage">Clone Method Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.cloneWithoutCloneable">Clone Without Cloneable</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.cloneableWithoutClone">Cloneable Without Clone</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.enforceCloneableUsageSecurity">Enforce Cloneable Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.overrideCloneJudiciously">Override Clone Judiciously</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.unsupportedClone">Unsupported Clone</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.avoidSubtypingCloneable">Avoid Subtyping Cloneable</a></h4><p>
+<b>Summary</b><br/>It is best to avoid creating subtypes of Cloneable.<p><b>Description</b><br/>The Cloneable interface serves no purpose other than to modify the behavior of Object's clone method. There's no reason for interfaces to extend it. Classes rarely benefit from implementing it; there are better ways to copy objects than by cloning.<p><b>Example</b><br/>The following class declaration would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class Customer implements Cloneable</code><p><img src="../../images/auditrules/audit_avoid_subtyping_cloneable.gif" width="233" height="46"></p><h4><a name="com.instantiations.assist.eclipse.audit.cloneMethodUsage">Clone Method Usage</a></h4><p>
+<b>Summary</b><br/>Every implementation of clone() should invoke super.clone() and every clone() method should be final.<p><b>Description</b><br/>This audit rule looks for implementations of the method clone() that do not invoke the inherited clone() method. It also looks for clone() methods that are not declared final.<p><b>Example</b><br/>The following declaration of the clone method would be flagged as being a violation, both because of the lack of an invocation of the inherited clone method and because it is not declared 'final'.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public Object clone()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new Employee(getName());<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_clone_method_usage.gif" width="262" height="44"></p><h4><a name="com.instantiations.assist.eclipse.audit.cloneWithoutCloneable">Clone Without Cloneable</a></h4><p>
+<b>Summary</b><br/>Invoking <code>Object</code>'s <code>clone()</code> method on an instance that does not implement the <code>Cloneable</code> interface results in the exception <code>CloneNotSupportedException</code> being thrown.<p><b>Description</b><br/>The programmer probably intended the class to be cloneable when implementing the <code>clone()</code> method. Invoking <code>Object</code>'s <code>clone()</code> method on an instance that does not implement the <code>Cloneable</code> interface results in the exception <code>CloneNotSupportedException</code> being thrown.<p><b>Security Implications</b><br/>This means the code will not work as intended, resulting in errors and possibly unpredictable behavior thus compromising security.<p><b>Example</b><br/>The following code would be flagged as a violation because it does not implement <code>Cloneable</code> while implementing <code>clone</code> method:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class SomeBean {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public Object clone() throws CloneNotSupportedException {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.cloneableWithoutClone">Cloneable Without Clone</a></h4><p>
+<b>Summary</b><br/>Classes that implement the Cloneable interface should define a clone() method.<p><b>Description</b><br/>This audit rule looks classes that implement the Cloneable interface and do not define clone() method.<p><b>Security Implications</b><br/>It is most essential for library vendors or for mobile code. The <code>clone</code> method is mechanism that allows the creation of objects, and it might be undesirable for users to be able to inherit this class and tamper with the behavior of this method.<p><b>Example</b><br/>The following class would be flagged as a violation because it does not define a clone() method<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class MyClass implements Cloneable<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code></p>&nbsp;&nbsp;&nbsp;&nbsp;<h4><a name="com.instantiations.assist.eclipse.analysis.enforceCloneableUsageSecurity">Enforce Cloneable Usage</a></h4><p>
+<b>Summary</b><br/>When an Object is cloned, Object data is copied and returned, because of this secure classes must be conscious of Cloneable.<p><b>Description</b><br/>This audit rule aims to prevent adversaries from accessing data by extending classes and creating clone methods. Specifically, this rule flags non-anonymous classes that:<br>(1) do not implement Cloneable (so that the rule doesn't flag appropriate uses of Cloneable utilities),<br>(2) are non-final (final classes can't be extended),<br>(3) do not inherit a clone method (since inserting a clone method would be unnecessarily repetitive),<br>(4) and do not override clone():<p><code>public Object clone() throws CloneNotSupportedException;</code><p>and may enforce the following as the body of the clone method:<p><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;throws java.lang.CloneNotSupportedException("Type not cloneable");<br>}</code><p>without, or with, a String input description.<p>Note: Even though classes that do not implement the Cloneable interface throw CloneNotSupportedException, adversaries are not prevented from extending a class, implementing the Cloneable interface, and then calling clone() to retrieve a copy of an instance of the class.<p>For more audit rule options concerning clone(), see Clone Method Usage and Override Clone Judiciously under Semantic Errors.<p><b>Security Implications</b><br/>Classes that do not override clone() risk allowing a malicious user to subclass and override the clone method allowing them to gain access to data not intended by the application.<p><b>Example</b><br/>The classes A, B and C below will not be flagged, but D will be.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class A {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public Object clone() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new java.lang.CloneNotSupportedException();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;class B extends A {}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;final class C{}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;class D {}</code><p><img src="../../images/auditrules/audit_enforce_cloneable_usage.gif" width="298" height="70"></p><h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.overrideCloneJudiciously">Override Clone Judiciously</a></h4><p>
+<b>Summary</b><br/>Be careful when defining clone. It is complex and not fully specified.<p><b>Description</b><br/>This audit rule helps to ensure that clone is used properly. It checks the following items:<br>1. Either the class is final or the clone method calls super.clone().<br>2. Either the class is abstract or the clone method is declared public.<br>3. Either the class is final or the clone method declaration has the proper throws clause.<p><img src="../../images/auditrules/audit_override_clone_judiciously.gif" width="362" height="64"></p><h4><a name="com.instantiations.assist.eclipse.analysis.unsupportedClone">Unsupported Clone</a></h4><p>
+<b>Summary</b><br/>Find invocations of clone() that will throw an exception.<p><b>Description</b><br/>This audit rule checks for invocations of the clone() method on objects that do not either implement the Cloneable interface or override the default implementation of clone() in Object.<p><b>Example</b><br/>The following invocation would be flagged as being a violation if the object is not Cloneable:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;object.clone();</code><p><img src="../../images/auditrules/audit_unsupported_clone.gif" width="225" height="60"></p></body>
+</html>

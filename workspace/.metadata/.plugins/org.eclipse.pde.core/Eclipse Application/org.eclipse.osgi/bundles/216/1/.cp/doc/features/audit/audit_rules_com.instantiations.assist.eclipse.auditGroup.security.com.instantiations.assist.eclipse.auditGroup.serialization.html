@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Serialization</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Serialization</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for issues related to the use of Java's serialization mechanism.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.deserializeabilitySecurity">Deserializeability Security</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.doNotImplementSerializable">Do Not Implement Serializable</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.doNotSerializeByteArrays">Do Not Serialize Byte Arrays</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.preventOverwritingOfExternalizableObjects">Prevent Overwriting Of Externalizable Objects</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.serializeabilitySecurity">Serializeability Security</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.deserializeabilitySecurity">Deserializeability Security</a></h4><p>
+<b>Summary</b><br/>Prevent non-deserializeable classes from being deserialized by adversaries.<p><b>Description</b><br/>This audit rule enforces classes to implement a readObject method:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private final void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new IOException("Non-deserializable class");<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p>This audit will be violated if there does not exist a method with the signature: <p><code>&nbsp;&nbsp;&nbsp;&nbsp;private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException;</code><p><b>Security Implications</b><br/>Even when a class is not serializeable, adversaries can sometimes instantiate an instance of a class with a byte array. This can be a security hazard since there is no control on the state of the new object.<p><b>Example</b><br/>The following method declaration would be flagged as a violation because it does not have the required parameter:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private void readObject() throws IOException, ClassNotFoundException;</code><h4><a name="com.instantiations.assist.eclipse.analysis.doNotImplementSerializable">Do Not Implement Serializable</a></h4><p>
+<b>Summary</b><br/>Objects and interfaces should not be declared as Serializable.<p><b>Description</b><br/>This audit rule violates classes and interfaces that implement Serializable.<p><b>Security Implications</b><br/>When an object is serialized it is outside of the JRE and thus outside of all security measures enforced by the JRE. In many cases, packages or entire projects should not declare objects or interfaces as Serializable.<p><b>Example</b><br/>The following class would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class A implements java.io.Serializable ...</code><h4><a name="com.instantiations.assist.eclipse.analysis.doNotSerializeByteArrays">Do Not Serialize Byte Arrays</a></h4><p>
+<b>Summary</b><br/>Do not serialize byte arrays using the ObjectOutputStream.write(byte[]) method.<p><b>Description</b><br/>This audit rule violates invocations of the method ObjectOutputStream.write(byte[]).<p><b>Security Implications</b><br/>Byte arrays should not be serialized using <code>write(byte[])</code> because the method is not final, allowing subclasses of ObjectOutputStream to override the method and get access to internal data.<p><b>Example</b><br/>Given the following field declaration:<p>&nbsp;&nbsp;&nbsp;&nbsp;private byte[] key;<p>The following invocation of the write method would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private void writeObject(ObjectOutputStream stream)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stream.write(key);<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.analysis.preventOverwritingOfExternalizableObjects">Prevent Overwriting Of Externalizable Objects</a></h4><p>
+<b>Summary</b><br/>Disallows Externalizable objects to be overwritten.<p><b>Description</b><br/>All classes that implement java.io.Externalizable must declare the public readExternal method.<p>This audit rule declares that every subclass of Externalizable must declare readExternal and that readExternal must match the following pattern:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public synchronized void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (! initialized) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initialized = true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new IllegalStateException();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p>The boolean named "initialized", may have any valid name, and can be accessed via the this keyword, but cannot be re-assigned anywhere else within the class as such a reassignment could easily invalidate the security measures being taken.<p><b>Security Implications</b><br/>When readExternal is not overridden in this way, malicious users can call readExternal after the class has already been initialized and potentially have the internal state of the class overwritten.<p><b>Example</b><br/>The following class would be flagged as readExternal is not declared as synchronized:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class A implements Externalizable {<br><br>&nbsp;&nbsp;&nbsp;&nbsp;boolean initialized = false;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void readExternal(ObjectInput in) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (! initialized) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initialized = true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// initialize the object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new IllegalStateException();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void writeExternal(ObjectOutput out) throws IOException {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.analysis.serializeabilitySecurity">Serializeability Security</a></h4><p>
+<b>Summary</b><br/>When an Object implements Serializeable, adversaries can sometimes serialize the Object into a byte array, because of this, secure classes must be conscious of Serializeable.<p><b>Description</b><br/>This audit rule enforces the implementation of the following in all classes that implement java.io.Serializeable:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private final void writeObject(ObjectOutputStream in) throws IOException {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new java.io.IOException("Class cannot be serialized");<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p>This rule flags instances of Serializable that do not contain the following method signature:<p><code>private void writeObject(ObjectOutputStream in) throws IOException;</code><p><b>Security Implications</b><br/>This audit rule aims to prevent adversaries from accessing the state of an Object by extending classes and retrieving the Object data by calling writeObject.<p><b>Example</b><br/>The following method declaration would be flagged as a violation because it does not have the required parameter:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private void writeObject() throws IOException;</code></body>
+</html>

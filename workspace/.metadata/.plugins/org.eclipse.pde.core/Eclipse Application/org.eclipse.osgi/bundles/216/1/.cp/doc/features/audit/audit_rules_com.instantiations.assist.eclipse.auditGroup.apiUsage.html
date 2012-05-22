@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - API Usage</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - API Usage</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for API usage opportunities to make the code more secure, either by using a different API or by not using part of an API all together.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.eclipse.analysis.audit.security.classExtendsPolicy">Class Extends java.security.Policy</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.deprecatedMethod">Deprecated Method Found</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.relativeLibraryPath">Relative Library Path</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.usePrivilegedCodeSparingly">Use Privileged Code Sparingly</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.eclipse.analysis.audit.security.classExtendsPolicy">Class Extends java.security.Policy</a></h4><p>
+<b>Summary</b><br/>Classes should not extend <code>java.security.Policy</code>.<p><b>Description</b><br/>This audit rule looks for classes that subclass the class <code>java.security.Policy</code>.<p><b>Security Implications</b><br/>Allowing an implementation of <code>java.security.Policy</code> could lead to a security (and/or permission) breech.<p><b>Example</b><br/>The following class would be flagged as a violation because it extends <code>java.security.Policy</code>:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;import java.security.Policy;<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;class MyClass extends Policy<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.deprecatedMethod">Deprecated Method Found</a></h4><p>
+<b>Summary</b><br/>Deprecated API is error-prone and is a potential security threat and thus should not be used.<p><b>Description</b><br/>Old API is sometimes marked deprecated because its implementation is designed in a way that can be error-prone. Deprecated API should be avoided where possible.<p><b>Security Implications</b><br/>Blocks of code that use deprecated API are designed in a careless manner and thus are a potential security threat.<p><b>Example</b><br/>The following code would be flagged as a violation because it uses a deprecated method:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public void resumeChild() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getChildThread().resume();<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><br/>&nbsp;&nbsp;&nbsp;&nbsp;}<h4><a name="com.instantiations.assist.eclipse.audit.relativeLibraryPath">Relative Library Path</a></h4><p>
+<b>Summary</b><br/>Always use absolute paths when loading libraries.<p><b>Description</b><br/>This audit rule looks for places where libraries are loaded using a relative file path.<p><b>Security Implications</b><br/>Loading libraries without specifying an absolute path can cause the program to load malicious libraries supplied by an attacker.<p><b>Example</b><br/>The following code uses <code>System.loadLibrary()</code> to load code from a native library named <code>library.dll</code>, which is normally found in a standard system directory.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;System.loadLibrary("library.dll");</code><h4><a name="com.instantiations.assist.eclipse.analysis.usePrivilegedCodeSparingly">Use Privileged Code Sparingly</a></h4><p>
+<b>Summary</b><br/>Prevents the use or overuse of privileged code.<p><b>Description</b><br/>This audit rule flags instances of java.security.PrivilegedAction and java.security.PrivilegedExceptionAction which have more than a specified number (default 0) of statements within run().<p>Note: When set to default value of 0, no privileged code will be allowed since the method run, see PrivilegedAction or PrivilegedExceptionAction, returns an Object, which at minimum takes one statement: "return null;".<p><b>Security Implications</b><br/>Privileged code allows code access to system variables the Java API would normally not allow access to, for security purposes privileged code should be used sparingly.<p><b>Example</b><br/>The following source would be flagged since there are statements in a run() method declared for a PrivilegedAction.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;AccessController.doPrivileged(new PrivilegedAction() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public Object run() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.loadLibrary("awt");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return null;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;});</code><p><img src="../../images/auditrules/audit_use_priviledged_code_sparingly.gif" width="301" height="28"></p></body>
+</html>

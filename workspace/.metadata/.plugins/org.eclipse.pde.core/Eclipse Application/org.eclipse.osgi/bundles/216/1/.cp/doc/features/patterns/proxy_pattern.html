@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<title>Proxy Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Proxy Pattern</b></font></h1>
+    <p><strong>Also known as:</strong> Surrogate</p>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Proxy Pattern provides a surrogate or placeholder for another object to control access to
+    it. Options are provided to implement all interfaces of the subject class as well as all
+    of the public methods of the subject class.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/proxy_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Proxy class name</td>
+        <td valign="top" align="left">Type a name for the new proxy class.</td>
+        <td valign="top" align="left">&lt;Proxy&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+          <li CLASS="Item">final</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Subject type</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the class or interface for which the proxy will act as surrogate.</td>
+        <td valign="top" align="left">The type or the primary type of the compilation unit that
+        was selected when the wizard was started</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Subject field name</td>
+        <td valign="top" align="left">Type or select the name of the field that will contain the
+        instance of the subject class.</td>
+        <td valign="top" align="left">&lt;subject&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Proxy should be immutable</td>
+        <td valign="top" align="left">Determines whether the proxy will be immutable.</td>
+        <td valign="top" align="left">&lt;true&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Implement interfaces of the subject class</td>
+        <td valign="top" align="left">Determines whether the interfaces of the subject class will
+        be implemented.</td>
+        <td valign="top" align="left">&lt;true&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Implement selected public methods of the subject class</td>
+        <td valign="top" align="left">Determines whether the selected public methods of the
+        subject class will be implemented.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Proxy is applicable whenever there is a need for a more versatile or sophisticated
+    reference to an object than a simple pointer. Here are several common situations in which
+    the Proxy pattern is applicable:<ol>
+      <p><a name="idiom"></a></p>
+      <li>A <strong>remote proxy</strong> provides a local representative for an object in a
+        different address space.<p><a name="virtualproxy"></a> </p>
+      </li>
+      <li>A <strong>virtual proxy</strong> creates expensive objects on demand. </li>
+      <li>A <strong>protection proxy</strong> controls access to the original object. Protection
+        proxies are useful when objects should have different access rights. <a name="auto1012"></a>
+        <p><a name="def-smartref"></a> </p>
+      </li>
+      <li>A <strong>smart reference</strong> is a replacement for a bare pointer that performs
+        additional actions when an object is accessed. Typical uses include <ul>
+          <p><a name="def-smartpointer"></a></p>
+          <li>counting the number of references to the real object so that it can be freed
+            automatically when there are no more references. <a name="auto1013"></a> <p><a
+            name="persistence"></a> </p>
+          </li>
+          <li>loading a persistent object into memory when it's first referenced. <a name="auto1014"></a>
+            <p><a name="auto1015"></a> </p>
+          </li>
+          <li>checking that the real object is locked before it's accessed to ensure that no other
+            object can change it. </li>
+        </ul>
+      </li>
+    </ol>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?ProxyPattern">http://c2.com/cgi/wiki?ProxyPattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Proxy">http://www.cmcrossroads.com/bradapp/javapats.html#Proxy</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_proxy.asp">http://www.dofactory.com/patterns/pattern_proxy.asp</a></p></td>
+  </tr>
+</table>
+</body>
+</html>

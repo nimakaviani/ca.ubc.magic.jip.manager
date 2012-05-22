@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<title>Collaboration Users View</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Collaboration Users View</b></font>
+      </h1>
+      <p>This view is for adding, modifying, and deleting users from the
+      collaboration server. It is part of the <b>Collaboration Administration</b>
+      perspective.</p>
+      <p><img border="0" src="../../images/collaboration/users_view.gif" width="443" height="164"></p>
+      <p>A user essentially consists of a name and a password. It is the means by which
+      by which the workbench identifies itself to the collaboration <a href="server.html"> server</a>.</p>
+      <p>Only the administrator may add and delete users unless the <a href="server.html"> server</a>
+      allows open enrollment, in which case anyone
+      may add a user, and users may delete themselves. In any case, users may
+      modify themselves.</p>
+      <h3>Tool Bar</h3>
+      <p>The tool bar has the following buttons</p>
+      <ul>
+        <li><img border="0" src="../../images/collaboration/user-add.gif" width="19" height="17">
+          Add a user using the user wizard (described below).</li>
+        <li><img border="0" src="../../images/collaboration/delete.gif" width="16" height="16">
+          Delete the selected users.</li>
+      </ul>
+      <p>The tool bar menu contains the following items</p>
+      <ul>
+        <li><b>Refresh</b> - Refresh this view from the collaboration server. (The view
+          does not update automatically in response to changes on the server.)</li>
+        <li><b>Import Users</b> - Add users described in an XML file produced by the
+          Export Users item.</li>
+        <li><b>Export Users</b> - Export the users to an XML file suitable for use by
+          the Import Users item.</li>
+      </ul>
+      <h3>User List</h3>
+      <p>The columns in this list show the user name and identifier. If it is
+      open, the properties view shows additional information about the selected
+      user, such as the password.</p>
+      <p>The context menu contains the following items</p>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="75%">
+      <ul>
+        <li><img border="0" src="../../images/collaboration/user-add.gif" width="19" height="17">
+          <b>New</b> - Add a user using the user wizard (described below).</li>
+        <li><b>Edit</b> - Edit the selected user.</li>
+        <li><img border="0" src="../../images/collaboration/delete.gif" width="16" height="16">
+          <b>Delete</b> - Delete the selected users.</li>
+      </ul>
+            <p>&nbsp;</td>
+          <td width="25%">&nbsp;<img border="0" src="../../images/collaboration/users_menu.gif" width="100" height="86"></td>
+        </tr>
+      </table>
+      <h3><a name="UserWizard">User Wizard</a></h3>
+      <p>The user wizard is for adding or editing a user.</p>
+      <p><img border="0" src="../../images/collaboration/new_user_wizard.gif"></p>
+      <p>The <b>name </b>is used for display purposes. It must be unique. It is
+      typically the user's full name.</p>
+      <p>The <b>password </b>is used to authenticate the user.</p>
+      <p>The <b>identifier</b> is used internally to identify a user. It must be
+      unique. A typical choice is the user's first name.</td>
+  </tr>
+</table>
+</body>
+</html>

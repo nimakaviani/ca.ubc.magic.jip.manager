@@ -1,0 +1,498 @@
+<html>
+
+<head>
+<title>Audit - Adding New Audit Rules</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+    <b><font face="Verdana" color="#CC0000">Audit - Adding New Audit Rules</font></b></h1>
+<p>The Code Audit facility is designed to be easily enhanced using the
+standard Eclipse extension facilities.</p>
+      <ul>
+        <li><a href="#GeneralProcedure"><b><font face="Arial">General Procedure</font></b></a></li>
+        <li><a href="#SampleProjects"><b><font face="Arial">Sample Projects</font></b></a></li>
+        <li><b><font face="Arial"><a href="#ExtensionPoints">Audit Extension Points</a>
+          </font></b>
+          <ul>
+            <li><a href="#AuditRuleExtensionPoint"><b><font face="Arial">Audit Rule Extension Point</font></b></a></li>
+            <li><a href="#AuditRuleGroupExtensionPoint"><b><font face="Arial">Audit Rule Group Extension
+          Point</font></b></a></li>
+            <li><a href="#AuditRuleSetLocationExtensionPoint"><b>
+			<font face="Arial">Audit Rule Set
+          Location Extension Point</font></b></a></li>
+            <li><a href="#AuditViolationResultWriterExtensionPoint"><b>
+			<font face="Arial">Audit Violation
+          Result Writer Extension Point</font></b></a></li>
+          </ul>
+        </li>
+        <li><a href="#CodeAuditExample"><b><font face="Arial">Code Audit Example</font></b></a></li>
+        <li><a href="#FrameworkChanges"><b><font face="Arial">Framework Changes Since v2.3.0</font></b></a></li>
+      </ul>
+<h3><a name="GeneralProcedure">General Procedure</a></h3>
+<p>The general procedure for adding a new audit rule is as follows:</p>
+      <ol>
+        <li>Create a new plugin project using the PDE plugin wizard (File | New
+          | Project | Plug-in Development | Plug-in Project). Detailed
+          instructions on how to create an Eclipse plugin can be found in the
+          &quot;Tool Developer&quot; section of the Eclipse on-line help.</li>
+        <li>Make sure that the .classpath file of your project includes
+          classpath entries for the Eclipse core runtime (runtime.jar), the JDT
+          core (jdtcore.jar) and the analysis core (CodeProAnalysis.jar).</li>
+        <li>Import the &quot;org.eclipse.core.runtime&quot;, &quot;org.eclipse.jdt.core&quot;
+          and &quot;com.instantiations.assist.eclipse.analysis&quot; plugins
+          within your plugin.xml file.</li>
+        <li>Create a new audit rule class that implements the <i>com.instantiations.assist.eclipse.analysis.audit.core.AuditRule</i>
+          interface. Extending the <i>com.instantiations.assist.eclipse.analysis.audit.core.CompilationUnitAuditRule</i>
+          class is an easy way to do this. A convenient <a href="audit_rule_wizard.html">Audit
+          Rule Wizard</a> has been provided to simplify this task. An <a href="#CodeAuditExample">audit
+          rule example</a> is also presented below.</li>
+        <li>Compile your audit rule into a jar file that will be included in
+          your plugin (make sure to reference it as a runtime library within
+          your plugin.xml file). If your audit rule will need an associated
+          preference editor, make sure to include the &lt;export
+          name=&quot;*&quot;&gt; tag within your runtime library definition.</li>
+        <li>Extend the <a href="#AuditRuleExtensionPoint">com.instantiations.assist.eclipse.audit_rule</a>
+          extension point to define your new audit rule within the plugin.xml
+          file.</li>
+        <li>Optionally, define your own audit rule group using the <a href="#AuditRuleGroupExtensionPoint">com.instantiations.assist.eclipse.audit_rule_group</a>
+          extension point.</li>
+        <li>Build your plugin and install it into your \eclipse\plugins
+          directory.</li>
+        <li>Shutdown and re-start the IDE.</li>
+        <li>Open the &quot;CodePro | Audit | Rules&quot; preference page and
+          look for your new audit rule.</li>
+      </ol>
+      <p>If your audit rule needs an associated preference editor, do the
+      following:</p>
+      <ol>
+        <li>Create another new plugin project using the PDE plugin wizard (File
+          | New | Project | Plug-in Development | Plug-in Project). Since the
+          audit facility can also be used in a headless manner from an
+          Ant script, it is important that the UI portions of your audit rule
+          (e.g., the preference page) be contained in a separate plugin. That
+          will ensure that your basic audit rule will not have any UI
+          dependencies.</li>
+        <li>Make sure that the .classpath file of your project includes
+          classpath entries for the Eclipse SWT library (swt.jar), the analysis core (CodeProAnalysis.jar) and the analysis UI (CodeProAnalysisUI.jar).</li>
+        <li>Import the &quot;org.eclipse.swt&quot;, &quot;com.instantiations.assist.eclipse.analysis&quot;
+          and &quot;com.instantiations.assist.eclipse.analysis.ui&quot; plugins
+          within your plugin.xml file. Also make sure to import your audit rule
+          plugin created above.</li>
+        <li>Create a new audit rule editor class that implements the <i>com.instantiations.assist.eclipse.analysis.ui.audit.editor.AuditRuleEditor</i>
+          interface. Extending the <i>com.instantiations.assist.eclipse.analysis.ui.audit.editor.BasicAuditRuleEditor</i>
+          class is an easy way to do this. A convenient <a href="audit_rule_wizard.html">Audit
+          Rule Wizard</a> has been provided to simplify this task.</li>
+        <li>Compile your audit rule editor into a jar file that will be included
+          in your plugin (make sure to reference it as a runtime library within
+          your plugin.xml file).</li>
+        <li>Reference your editor class using the &quot;editor&quot; attribute
+          within the audit rule definition you added to your audit rule
+          plugin.xml file (in the first project above). Since the editor class
+          exists in a separate plugin, you will need to reference it using its
+          fully qualified name (e.g., plugin name/fully qualified class name).</li>
+        <li>Build your plugin and install it into your \eclipse\plugins
+          directory.</li>
+        <li>Shutdown and re-start the IDE.</li>
+        <li>Open the &quot;CodePro | Audit | Rules&quot; preference page and
+          make sure that your new audit rule now has its own editor.</li>
+      </ol>
+      <h3><a name="SampleProjects">Sample Projects</a></h3>
+      <p>Two <a href="example/SampleAuditRuleProjects.zip">sample audit rule
+      projects</a> have been provided for your convenience. The first defines a
+      simple audit rule, and the second defines an audit rule editor. Feel free
+      to use them as you see fit. To use the samples, do the following:</p>
+      <ol>
+        <li>Unzip the <a href="example/SampleAuditRuleProjects.zip">sample
+          projects</a> into your workspace directory.</li>
+        <li>Import the &quot;SampleAuditRuleProject&quot; and &quot;&quot;SampleAuditRuleEditorProject&quot;
+          projects into your workspace using the &quot;File | Import | Existing
+          Project into Workspace&quot; command.</li>
+        <li>The .classpath file for each project is set up for Application Developer 5.1. If you are using Application Developer 5.0, rename the
+          &quot;.classpath20&quot; files to &quot;.classpath&quot;.</li>
+        <li>Select the &quot;build.xml&quot; file in each project, right click
+          and select the &quot;Run Ant...&quot; command, and then choose the
+          &quot;export&quot; target to build each project.</li>
+        <li>Unzip the resulting SampleAuditRulePlugin.zip and
+          SampleAuditRuleEditorPlugin.zip files into your Eclipse or
+          &lt;websphere&gt;\eclipse
+          directory (make sure to preserve the directory structure so that the
+          plugin files themselves end up in your Eclipse \plugins directory)..</li>
+        <li>Shutdown and re-start the IDE.</li>
+        <li>Open the &quot;CodePro | Audit | Rules&quot; preference page and
+          look for the &quot;Sample Group | Sample&quot; audit rule.</li>
+      </ol>
+      <h3><a name="ExtensionPoints">Audit Extension Points</a></h3>
+<p>The Code Audit facility define several Eclipse extension points
+for adding new audit rules. See:</p>
+<blockquote>
+  <p><b>&lt;CODEPRO&gt;\eclipse\plugins\com.instantiations.assist.eclipse.analysis_X.X.X\plugin.xml</b></p>
+</blockquote>
+      <ul>
+        <li><a href="#AuditRuleExtensionPoint">Audit Rule Extension Point</a></li>
+        <li><a href="#AuditRuleGroupExtensionPoint">Audit Rule Group Extension
+          Point</a></li>
+        <li><a href="#AuditRuleSetLocationExtensionPoint">Audit Rule Set
+          Location Extension Point</a></li>
+        <li><a href="#AuditViolationResultWriterExtensionPoint">Audit Violation
+          Result Writer Extension Point</a></li>
+      </ul>
+      <h4><a name="AuditRuleExtensionPoint">Audit Rule Extension Point</a></h4>
+      <p>The audit rule extension point allows new audit rules to
+      be added to the list of audit rules that can be run. It is supported by
+      the &quot;auditRule&quot; tag, which defines the following attributes:</p>
+      <blockquote>
+        <p><b>id<br>
+        </b>A string used as a prefix to compose standard preference names.</p>
+        <p><b>name<br>
+        </b>The localized name of the audit rule. This is the name that will be
+        displayed in the user interface.</p>
+        <p><b>description<br>
+        </b>The localized description of the audit rule. This is the description
+        that will be displayed in the user interface.</p>
+        <p><b>class<br>
+        </b>The name of the class that implements the audit rule. The specified
+        class must implement the interface <i>com.instantiations.assist.eclipse.analysis.audit.core.AuditRule</i>.
+        Extending the <i>com.instantiations.assist.eclipse.analysis.audit.core.AbstractAuditRule</i>
+        class is an easy way to do this. An example of a rule may be found <a href="audit_example_source1.html">here</a>.</p>
+        <p><b>group<br>
+        </b>The id of the audit rule group to which this audit rule belongs. All
+        audit rules must belong to exactly one group. Audit rule groups are
+        defined by a separate <a href="#AuditRuleGroupExtensionPoint">extension
+        point</a>, described below.</p>
+        <p><b>editor<br>
+        </b>(optional) The name of the class that implements the subportion of
+        the Audit preference dialog page that allows the user to customize the
+        behavior of the audit rule. The specified class must implement the
+        interface <i>com.instantiations.assist.eclipse.analysis.ui.audit.editor.AuditRuleEditor</i>.
+        An example of an audit rule editor may be found <a href="audit_example_source2.html">here</a>.</p>
+        <p><b>violation<br>
+        </b>When run, each audit rule can generate multiple types of violations.
+        Each violation that can be generated by a rule is described by the
+        &quot;violation&quot; tag, which is a child of the &quot;auditRule&quot;
+        tag. Each &quot;auditRule&quot; tag can have one or more
+        &quot;violation&quot; tags. The &quot;violation&quot; tag defines the
+        following attributes:</p>
+        <blockquote>
+        <p><b>id<br>
+        </b>A string used to identify the violation. The identifiers must be
+        unique across all violations, not just within the violations for a
+        single audit rule.</p>
+        <p><b>description<br>
+        </b>The localized description of the violation. This is the description
+        that will be displayed in the user interface.</p>
+        <p><b>explanation<br>
+        </b>The localized explanation of the audit rule. This is the text that
+        will be displayed in the user interface when the user asks for an
+        explanation. It should be concise, but complete.</p>
+        </blockquote>
+      </blockquote>
+      <p>For example</p>
+      <blockquote>
+        <p>&lt;<b>extension</b> <b>point</b>=&quot;com.instantiations.assist.eclipse.audit_rule&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp; &lt;<b>auditRule</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>id</b>=&quot;com.xyz.audit.myAuditRule&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>name</b>=&quot;%myAuditRuleName&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>description</b>=&quot;%myAuditRuleDescription&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>class</b>=&quot;com.xyz.audit.MyAuditRule&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>group</b>=&quot;com.xyz.audit.myAuditRuleGroup&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>editor</b>=&quot;com.xyz.audit.MyAuditRuleEditor&quot;/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<b>violation<br>
+        </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>id</b>=&quot;com.xyz.audit.myAuditRule.myViolation&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>description</b>=&quot;%myAuditRule.myViolationDescription&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>explanation</b>=&quot;%myAuditRule.myViolationExplanation&quot;/&gt;<br>
+        &nbsp;&nbsp;&nbsp; &lt;/<b>auditRule</b>&gt;<br>
+        &lt;/<b>extension</b>&gt;</p>
+      </blockquote>
+<p>All of CodePro's audit rules are defined using this extension point.</p>
+      <h4><a name="AuditRuleGroupExtensionPoint">Audit Rule Group Extension
+      Point</a></h4>
+      <p>The audit rule group extension point allows new audit
+      rule groups to be added to the list of groups that can be associated with
+      audit rules. It is supported by the &quot;auditRuleGroup&quot; tag, which
+      defines the following attributes:</p>
+      <blockquote>
+        <p><b>id<br>
+        </b>The identifier used to associate audit rules with this group.</p>
+        <p><b>name<br>
+        </b>The localized name of the group. This is the name that will be
+        presented to the user within the user interface.</p>
+        <p><b>description<br>
+        </b>The localized description of the audit rule group. This is the
+        description that will be displayed in the user interface.</p>
+      </blockquote>
+      <p>For example:</p>
+      <blockquote>
+        <dl>
+          <dt>&lt;<b>extension</b> point=&quot;com.instantiations.assist.eclipse.audit_rule_group&quot;&gt;</dt>
+          <dt>&nbsp;&nbsp;&nbsp; &lt;<b>auditRuleGroup</b></dt>
+          <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>id</b>=&quot;com.xyz.audit.myAuditRuleGroup&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>name</b>=&quot;%myAuditRuleGroupName&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>description</b>=&quot;%myAuditRuleGroupDescription&quot;/&gt;</dt>
+          <dt>&lt;/<b>extension</b>&gt;</dt>
+        </dl>
+      </blockquote>
+<p>The product predefines many audit rule groups that you may reuse, if you are so
+inclined.</p>
+      <blockquote>
+        <table border="0" cellpadding="0" cellspacing="0" width="90%">
+          <tr>
+            <td><b>EJB</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.ejb</td>
+          </tr>
+          <tr>
+            <td><b>Exception Usage</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.exceptionUsage</td>
+          </tr>
+          <tr>
+            <td><b>Formatting</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.formatting</td>
+          </tr>
+          <tr>
+            <td><b>Inheritance</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.inheritance</td>
+          </tr>
+          <tr>
+            <td><b>Import Usage</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.importUsage</td>
+          </tr>
+          <tr>
+            <td><b>Internationalization</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.internationalization</td>
+          </tr>
+          <tr>
+            <td><b>Javadoc Conventions</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.javadocConventions</td>
+          </tr>
+          <tr>
+            <td><b>Miscellaneous</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.miscellaneous</td>
+          </tr>
+          <tr>
+            <td><b>Modifier Usage</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.modifierUsage</td>
+          </tr>
+          <tr>
+            <td><b>Naming Conventions</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.namingConventions</td>
+          </tr>
+          <tr>
+            <td><b>Performance</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.performance</td>
+          </tr>
+          <tr>
+            <td><b>Possible Errors</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.possibleErrors</td>
+          </tr>
+          <tr>
+            <td><b>Potential Refactoring</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.potentialRefactoring</td>
+          </tr>
+          <tr>
+            <td><b>Program Complexity</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.programComplexity</td>
+          </tr>
+          <tr>
+            <td><b>Semantic Errors</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.semanticErrors</td>
+          </tr>
+          <tr>
+            <td><b>Style</b></td>
+            <td>com.instantiations.assist.eclipse.auditGroup.style</td>
+          </tr>
+        </table>
+      </blockquote>
+<h4><a name="AuditRuleSetLocationExtensionPoint">Audit Rule Set Location
+Extension Point</a></h4>
+      <p>The audit rule set location extension point allows new
+      audit rule sets to be read in at Eclipse startup time. These rule sets
+      automatically become locked so the user can make no changes to them. It is
+      supported by the &quot;ruleSetLocation&quot; tag, which defines the
+      following attributes:</p>
+      <blockquote>
+        <p><b>directory<br>
+        </b>The path name of the directory in which rule set files will be
+        found. Either fully qualified or relative to the Eclipse plugin
+        directory.</p>
+      </blockquote>
+      <p>For example:</p>
+      <blockquote>
+        <dl>
+          <dt>&lt;<b>extension</b> <b>point</b>=&quot;com.instantiations.assist.eclipse.audit_rule_set_location&quot;&gt;</dt>
+          <dt>&nbsp;&nbsp;&nbsp; &lt;<b>ruleSetLocation</b> <b>directory</b>=&quot;myPlugin/myRuleSets&quot;/&gt;</dt>
+          <dt>&lt;/<b>extension</b>&gt;</dt>
+        </dl>
+      </blockquote>
+<h4><a name="AuditViolationResultWriterExtensionPoint">Audit Violation Result
+Writer Extension Point</a></h4>
+      <p>The Audit Violation Result Writer extension point allows new
+      result writers to be added to the list of result writers that can be used
+      to format audit results.</p>
+      <blockquote>
+        <p><b>id<br>
+        </b>The identifier for the result writer.</p>
+        <p><b>name<br>
+        </b>The human readable name for the result writer.</p>
+        <p><b>class<br>
+        </b>The fully qualified name of the class that implements the com.instantiations.assist.eclipse.analysis.audit.core.AuditResultWriter
+        interface.</p>
+      </blockquote>
+      <p>For example:</p>
+      <blockquote>
+        <dl>
+          <dt>&lt;<b>extension</b> <b>point</b>=&quot;com.instantiations.assist.eclipse.analysis.audit_result_writer&quot;&gt;</dt>
+          <dl>
+            <dt>&nbsp;&nbsp;&nbsp; &lt;<b>writer</b></dt>
+            <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>id</b>=&quot;com.xyz.audit.MyAuditResultWriter&quot;</dt>
+            <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>name</b>=&quot;%myAuditResultWriterName&quot;</dt>
+            <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>fileExtension</b>=&quot;rep&quot;</dt>
+            <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>class</b>=&quot;com.xyz.audit.MyAuditResultWriter&quot;/&gt;</dt>
+          </dl>
+          <dt>&lt;/<b>extension</b>&gt;</dt>
+        </dl>
+      </blockquote>
+<p>Here are examples of the audit result writers provided with CodePro. You can
+use these as templates to create your own custom reports.</p>
+      <ul>
+        <li><a href="audit_example_writer_source1.html">SimpleTextAuditWriter</a></li>
+        <li><a href="audit_example_writer_source2.html">HTMLAuditWriter</a></li>
+        <li><a href="audit_example_writer_source3.html">XMLAuditWriter</a></li>
+      </ul>
+<h3><a name="CodeAuditExample">Code Audit Example</a></h3>
+      <p>A simple example of an audit rule is the <a href="audit_example_source1.html">AddMethodToInterfaceAuditRule.java</a>
+      class. The code for the violation testing itself is very simple and
+      requires nothing beyond knowledge of the Eclipse AST model (which is well
+      commented and comes with full source).</p>
+      <p>The audit rule is contributed to the system via a standard Eclipse
+      extension point, The following is the snippet from our code audit <b>plugin.xml</b>
+      file that defines this rule:</p>
+      <blockquote>
+        <dl>
+          <dt>&lt;<b>auditRule</b></dt>
+          <dt>&nbsp;&nbsp;&nbsp; <b>id</b>=&quot;com.instantiations.assist.eclipse.audit.addMethodToInterface&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp; <b>name</b>=&quot;%addMethodToInterfaceName&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp; <b>description</b>=&quot;%addMethodToInterfaceDescription&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp; <b>class</b>=&quot;<a href="audit_example_source1.html">com.instantiations.assist.eclipse.analysis.audit.rule.AddMethodToInterfaceAuditRule</a>&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp; <b>group</b>=&quot;com.instantiations.assist.eclipse.auditGroup.potentialRefactoring&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp; <b>editor</b>=&quot;<a href="audit_example_source2.html">com.instantiations.assist.eclipse.analysis.ui.audit.editor.AddMethodToInterfaceAuditRuleEditor&quot;</a>&gt;</dt>
+          <dt>&nbsp;&nbsp;&nbsp; &lt;<b>violation</b></dt>
+          <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>id</b>=&quot;com.instantiations.assist.eclipse.audit.addMethodToInterface.addMethod&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>description</b>=&quot;%addMethodToInterface.addMethodDescription&quot;</dt>
+          <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>explanation</b>=&quot;%addMethodToInterface.addMethodExplanation&quot;/&gt;</dt>
+          <dt>&lt;/<b>auditRule</b>&gt;</dt>
+        </dl>
+      </blockquote>
+      <p>Each audit &quot;rule&quot; may define one or more audit violations (in
+      this case, there is just one). Each rule defines its ID, name, description
+      (which shows up in the audit pref page), <a href="audit_example_source1.html">implementing
+      class</a>, audit rule group (you can define your own groups via another
+      extension point), <a href="audit_example_source2.html">editor class</a> (in
+      case the rule has any user-settable properties exposed in the preference
+      dialog), and its list of violations. Each violation defines its ID,
+      description (which shows up in the <a href="audit.html">audit view</a> or
+      as hover help in an editor) and explanation text (basically a more
+      detailed version of the description text that is shown when the user asks
+      for an explanation of the rule).</p>
+      <p>The strings are all externalized in a <b>plugin.properties</b> file.
+      The following is a snippet from that file that provides that actual
+      strings used for this rule:</p>
+      <blockquote>
+        <dl>
+          <dt><b>addMethodToInterfaceName</b> = Add Method to Interface</dt>
+          <dt><b>addMethodToInterfaceDescription</b> = \</dt>
+          <dt>&nbsp;&nbsp;&nbsp; &lt;b&gt;Summary&lt;/b&gt;\n\</dt>
+          <dt>&nbsp;&nbsp;&nbsp; \n\</dt>
+          <dt>&nbsp;&nbsp;&nbsp; Identify properties that can be added to an
+            interface.\n\</dt>
+          <dt>&nbsp;&nbsp;&nbsp; \n\</dt>
+          <dt>&nbsp;&nbsp;&nbsp; &lt;b&gt;Description&lt;/b&gt;\n\</dt>
+          <dt>&nbsp;&nbsp;&nbsp; \n\</dt>
+          <dt>&nbsp;&nbsp;&nbsp; This audit rule finds methods in concrete
+            classes that can be \</dt>
+          <dt>&nbsp;&nbsp;&nbsp; added to their corresponding interfaces. If a
+            class is named Foo \</dt>
+          <dt>&nbsp;&nbsp;&nbsp; and has a &quot;bar&quot; property with getBar()
+            and setBar() methods, the \</dt>
+          <dt>&nbsp;&nbsp;&nbsp; corresponding interface, IFoo, will be checked
+            to see if it defines \</dt>
+          <dt>&nbsp;&nbsp;&nbsp; the getter and setter method.</dt>
+          <dt><b>addMethodToInterface.addMethodDescription</b> = \</dt>
+          <dt>&nbsp;&nbsp;&nbsp; The {0}() method should be added to the {1}
+            interface.</dt>
+          <dt><b>addMethodToInterface.addMethodExplanation</b> = \</dt>
+          <dt>&nbsp;&nbsp;&nbsp; The {0}() method is not defined by the {1}
+            interface and \</dt>
+          <dt>&nbsp;&nbsp;&nbsp; should be added.</dt>
+        </dl>
+      </blockquote>
+      <p>Note that the description text supports simple HTML formatting. The
+      violation description and explanation text can be parameterized with
+      strings passed by the violation itself (in this case, the name of the
+      method and the name of the interface - you will see these passed as
+      arguments in the <a href="audit_example_source1.html">implementing class</a>).
+      <p>Some additional sample audit rules that can act as templates for any new
+      audit rules that you create include:
+      <ul>
+        <li><a href="audit_example_source3.html">UseEqualsAuditRule</a></li>
+        <li><a href="audit_example_source4.html">PublicConstructorInNonPublicTypeAuditRule</a></li>
+        <li><a href="audit_example_source5.html">MissingBlockAuditRule</a></li>
+        <li><a href="audit_example_source6.html">LargeNumberOfMethodsAuditRule</a></li>
+      </ul>
+      <p>A convenient <a href="audit_rule_wizard.html">Audit Rule Wizard</a> has
+      also been provided to simplify the task of creating new audit rules.
+      <h3><a name="FrameworkChanges">Framework Changes</a> Since v2.3.0</h3>
+      <p>In order to enhance the Code Audit framework to support file types
+      other than .java, several major changes have been made to the code
+      auditing framework that will necessitate changes be made to any audit rule
+      written to the v2.3.0 spec or earlier.<p>To convert an audit rule from the
+      earlier spec to the new spec, do the following:
+      <ol>
+        <li>Import the following packages (replacing the current imports):
+          <ul>
+            <li><b>com.instantiations.assist.eclipse.analysis.audit.core.*</b></li>
+            <li><b>com.instantiations.assist.eclipse.analysis.audit.rule.*</b></li>
+            <li><b>com.instantiations.assist.eclipse.analysis.engine.core.*<br>
+              <br>
+              </b></li>
+          </ul>
+        </li>
+        <li>Change the superclass from &quot;<b>AbstractAuditRule</b>&quot; to
+          &quot;<b>CompilationUnitAuditRule</b>&quot;<br>
+          <br>
+        </li>
+        <li>Replace the method...
+          <blockquote>
+            <p><font face="Courier" size="1"><b>public CodeAuditor
+            createCodeAuditor(AuditContext context){<br>
+            &nbsp;&nbsp;&nbsp; return new SampleCodeAuditor(context);<br>
+            }</b></font></p>
+          </blockquote>
+          <p>with...</p>
+          <font SIZE="1">
+          <blockquote>
+            <p></font><font face="Courier" size="1"><b>public Analyzer
+            createAnalyzer(AnalysisContext context) {<br>
+            &nbsp;&nbsp;&nbsp; return new SampleCodeAuditor(context, this);<br>
+            }</b></font></p>
+          </blockquote>
+        </li>
+        <li>Add &quot;<b>AnalysisItem item</b>&quot; to the argument list of the code
+          auditor constructor. For example...
+          <p><font face="Courier" size="1"><b>public
+          SampleCodeAuditor(AnalysisContext context, AnalysisItem item) {<br>
+          &nbsp;&nbsp;&nbsp; super(context, item);<br>
+          }<br>
+          <br>
+          </b></font></li>
+        <li>Within calls to the <b>AuditViolationImpl</b> constructor, change
+          references to &quot;<b>getCompilationUnit()</b>&quot;<br>
+          to &quot;<b>getContext().getCurrentTarget()</b>&quot;</li>
+      </ol>
+ </td>
+  </tr>
+</table>
+</body>
+</html>

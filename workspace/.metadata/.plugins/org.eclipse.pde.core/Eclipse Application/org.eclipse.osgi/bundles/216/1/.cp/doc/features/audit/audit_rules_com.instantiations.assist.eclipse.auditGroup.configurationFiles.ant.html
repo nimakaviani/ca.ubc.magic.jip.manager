@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Ant</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Ant</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for potential problems in Ant build scripts.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.externalDependencyInAnt">External Dependency in Ant</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.externalDependencyInAnt">External Dependency in Ant</a></h4><p>
+<b>Summary</b><br/>Using external downloadable dependencies is an additional security risk.<p><b>Description</b><br/>This audit rule violates the retrieval of dependancies in an Ant script via&lt;get&gt; ant task.<p><b>Security Implications</b><br/>An external repository can be compromised by an attacker to allow malicious code into your application during its building. This threat is completely negated when you do not use downloadable dependencies at all; if this is not an option, you can use local repository proxies for storing trusted dependency packages that can be used during the build. In contrast to external repositories belonding to third parties, such a repository's security can be controlled.<p><b>Example</b><br/>The following part of an Ant script would be flagged as a violation because it tries to access a remote dependency jar via &lt;get&gt; task:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;target name="get_deps"&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;get src="http://ext.repository.com/jackarta/commons-lang.jar" dest="deps/commons-lang.jar" /&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/target&gt;</code></body>
+</html>

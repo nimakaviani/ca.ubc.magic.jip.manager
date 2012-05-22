@@ -1,0 +1,535 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro Analytix">
+<title>Audit Rule Set - Security</title>
+<style type="text/css">
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+	p {margin: 0.5em 2em 1em; line-height: 1.5em}
+	h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+	h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+	h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+	h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+	table tr th {font-size: 75%}
+	table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<h1 align="center"><a name="top">CodePro Audit Rule Set</a></h1>
+<h2 align="center">Security</h2>
+<p align="right">Powered by CodePro Analytix and <a href="http://www.eclipse.org">Eclipse</a>
+</p>
+<hr size="2">
+<h4>Summary</h4>
+<table>
+	<tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.appletFieldSecurity">Applet Field Security</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.avoidQueriesFromUser">Avoid Building Queries From User Input</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.avoidComparingClassesByStrings">Avoid Comparing Classes By String Names</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.avoidInnerClasses">Avoid Inner Classes</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.avoidPackageScopeAuditRule">Avoid Package Scope</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.deserializeabilitySecurity">Deserializeability Security</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.doNotImplementSerializable">Do Not Implement Serializable</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.doNotSerializeByteArrays">Do Not Serialize Byte Arrays</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.doNotSubclassClassLoader">Do Not Subclass ClassLoader</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.disallowReturnMutable">Don't Return Mutable Types</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.enforceCloneableUsageSecurity">Enforce Cloneable Usage</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.finalizeShouldNotBePublic">Finalize Should Not Be Public</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.hardcodedPassword">Hardcoded Password</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.instanceFieldSecurity">Instance Field Security</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.mutabilityOfArrays">Mutability Of Arrays</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.mutableConstantField">Mutable Constant Field</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.preventOverwritingOfExternalizableObjects">Prevent Overwriting Of Externalizable Objects</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.serializeabilitySecurity">Serializeability Security</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.staticFieldSecurity">Static Field Security</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.useOfRandom">Use of Random</a></td>
+	</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.usePrivilegedCodeSparingly">Use Privileged Code Sparingly</a></td>
+	</tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.appletFieldSecurity">Applet Field Security</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Enforces Applet fields to be non-private, final and non-static<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule violates all field declarations in Applets that are not private, final and not static.  Fields that do not have all of these characteristics reduce the risk of malicious users from manipulating or gaining internal access to the Applet.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following integer would be flagged as it is public:<p>	public final int x = 0;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.avoidQueriesFromUser">Avoid Building Queries From User Input</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Database queries should not be constructed from user input.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule looks for places where a query is being performed that was constructed from data that might have come from user input. Malicious users can input text that will change the meaning of the query and expose data that ought not to be exposed.<p>Specifically, this audit rule violates the usage of the methods "execute", "executeQuery", or "executeUpdate" as defined in java.sql.Statement.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The invocation of the executeQuery method below would be flagged because the argument is constructed from values that might include user input.<p>	String query = <br>		"SELECT userid, name FROM user_data WHERE accountnum = '" <br>		+ req.getParameter("ACCT_NUM") <br>		+ "'"; <br>	... <br>	statement.executeQuery(query);<p>It should be replaced by something like the following:<p>	PreparedStatement statement = connection.prepareStatement <br>		("SELECT userid, name FROM user_data WHERE accountnum = ?"); <br>	statement.setString(1, req.getParameter("ACCT_NUM"); <br>	ResultSet results = statement.executeQuery(); 
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.avoidComparingClassesByStrings">Avoid Comparing Classes By String Names</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>String comparisons should not occur with the output from Class.getName()<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule looks for places where a class name is compared via the String.equals, String.equalsIgnoreCase, == or !=.  By not making comparisons in this way, code is prevented from malicious users creating a class with the same name in order access the blocks of code.<p>Specifically, this audit rule flags the following patterns:<p>[class].getName().equals(*)<br>*.equals([class]>.getName())<br>[class].getName().equalsIgnoreCase(*)<br>*.equalsIgnoreCase(.getName())<br>[class].getName() == *<br>* == [class].getName()<br>[class].getName() != *<br>* != [class].getName()<p>Where [class] is any instance of java.lang.Class.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following method invocation of equals would be flagged a violation:<p><pre>if("SomeClassName".equals(class.getName())) {...}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.avoidInnerClasses">Avoid Inner Classes</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Avoid using inner classes.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>Inner classes are converted into bytecode just like parent classes.  Don't depend on an inner class to keep adversaries from private fields.  Remember, an inner class has bytecode separate from parent class, but still has access to private fields in the parent class.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following inner class declaration and the anonymous class declaration would both be flagged as violations:<p>	public class OuterClass {<br>		<br>		public class InnerClass{}<br>		<br>		public void foo() {<br>		Runnable runnable = new Runnable() {<br>			public void run(){/*do nothing*/}<br>		}<br>		<br>	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.avoidPackageScopeAuditRule">Avoid Package Scope</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Only use public, protected or private scopes.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>Classes, methods and fields with package scope (default scope) can be accessed from all code within the same package, including code written by adversaries. This audit flags all inner classes, constructors, methods, and fields that have a package scope.<p>Note: non-inner classes and interfaces cannot syntactically be declared protected or private, thus since a non-inner class/ interface isn't more secure if it has package scope instead of a public scope, this audit does not flag interfaces or non-inner classes that have a package scope.<p>Also note: the resolutions (fixes) for flagged instances of this audit include the insertion of the "public" modifier as well as "private" and "protected" modifiers. However, changing a modifier from package scope to a public scope does not make the code more secure, and is included only because it is expected that the public modifier is used.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following will all be flagged since they all have a package scope: the constructor "Example", the class "InnerClass", the method "some_method", and the integer "x":<p>	class Example {<br>		Example(){super();}<br>		class InnerClass{}<br>		static void some_method(){/* do nothing */}<br>		int x;<br>	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.deserializeabilitySecurity">Deserializeability Security</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Prevent non-deserializeable classes from being deserialized by adversaries.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>Even when a class is not serializeable, adversaries can sometimes instantiate an instance of a class with a byte array. This can be a security hazard since there is no control on the state of the new object. To prevent this, implement a readObject method:<p> 	private final void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException { <br> 		throw new IOException("Non-deserializable class"); <br> 	} <br> <p>This audit will be violated if there does not exists a method with the signature: <p>	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException;<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following method declaration would be flagged as a violation because it does not have the required parameter:<p>	private void readObject() throws IOException, ClassNotFoundException;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.doNotImplementSerializable">Do Not Implement Serializable</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Objects and interfaces should not be declared as Serializable.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>When an object is serialized it is outside of the JRE and thus outside of all security measures  enforced by the JRE.  In many cases, packages or entire projects should not declare objects or interfaces as Serializable.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following class would be flagged:<p>	class A implements java.io.Serializable {..}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.doNotSerializeByteArrays">Do Not Serialize Byte Arrays</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Do not serialize byte arrays using the ObjectOutputStream.write(byte[]) method.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule looks for invocations of the method ObjectOutputStream.write(byte[]). Byte arrays should not be serialized using this method because the method is not final, allowing subclasses of ObjectOutputStream to override the method and have access to internal data.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>Given the following field declaration:<p>	private byte[] key;<p>The following invocation of the write method would be flagged:<p>	private void writeObject(ObjectOutputStream stream)<br>	{<br>		stream.write(key);<br>	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.doNotSubclassClassLoader">Do Not Subclass ClassLoader</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Do not extend java.lang.ClassLoader<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>Do not subclass java.lang.ClassLoader, doing so can introduce security risk. In instances where ClassLoader needs to be subclassed, use java.security.SecureClassLoader.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following class would be flagged as a violation:<p>	class A extends ClassLoader {...}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.disallowReturnMutable">Don't Return Mutable Types</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Don't return mutable types from methods.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>Checks that returned types are either default immutable types like java.lang.Integer or are declared immutable in the audit rule preferences.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following method declaration would be flagged (assuming "MutableType" is not declared as immutable in the audit rule preferences):<p>	public MutableType getData() {<br>		return new MutableType();<br>	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.enforceCloneableUsageSecurity">Enforce Cloneable Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>When an Object is cloned, Object data is copied and returned, because of this secure classes must be conscious of Cloneable.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule aims to prevent adversaries from accessing data by extending classes and creating clone methods. Specifically, this rule flags non-anonymous classes that:<br>(1) do not implement Cloneable (so that the rule doesn't flag appropriate uses of Cloneable utilities),<br>(2) are non-final (final classes can't be extended),<br>(3) do not inherit a clone method (since inserting a clone method would be unnecessarily repetitive),<br>(4) and do not override clone():<p>public Object clone() throws CloneNotSupportedException;<p>and may enforce the following as the body of the clone method:<p>{<br>	throws java.lang.CloneNotSupportedException("Type not cloneable");<br>}<p>without, or with, a String input description.<p>Note: Even though classes that do not implement the Cloneable interface throw CloneNotSupportedException, adversaries are not prevented from extending a class, implementing the Cloneable interface, and then calling clone() to retrieve a copy of an instance of the class.<p>For more audit rule options concerning clone(), see Clone Method Usage and Override Clone Judiciously under Semantic Errors.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The classes A, B and C below will not be flagged, but D will be.<p>class A {<br>	public Object clone() {<br>		throw new java.lang.CloneNotSupportedException();<br>	}<br>}<br><br>class B extends A {}<br><br>final class C{}<br><br>class D {}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.finalizeShouldNotBePublic">Finalize Should Not Be Public</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Finalize methods declared within an Applet should not be public<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule flags any declarations of the Object.finalize that are public and within an Applet. If the finalize method is declared properly, then the method should not need to be public. Furthermore, there are cases in which where malicious users can preform attacks on Applets using a public finalize method.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following declaration of finalize would be flagged:<p>	class A extends java.applet.Applet {<br>		public void finalize() {}<br>	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.hardcodedPassword">Hardcoded Password</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Passwords should not be hardcoded.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule violates any instance where a java.util.Properties object has a password hardcoded within the source code. When a password is hardcoded, not only can other developers see the password, but the password can also be extracted from the java byte code. If a such a password is found, and it is also empty, a violation is thrown to create a password.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The line "properties.setProperty("password", "somePassword");" would be flagged as "somePassword" is a hardcoded password.<p>	Properties properties = new Properties();<br>	properties.setProperty("user", "someUserName");<br>	properties.setProperty("password", "somePassword");<br>	DriverManager.getConnection(..., properties);
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.instanceFieldSecurity">Instance Field Security</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Refrain from using non-final public instance fields.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>To the extent possible, refrain from using non-final public instance fields. Instead, let the interface to your instance field be through accessor methods. In this way it is possible to add centralized security checks, if required.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following field declaration would be flagged as a violation because it is both public and non-final:<p>	public int width;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.mutabilityOfArrays">Mutability Of Arrays</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Do not return internal arrays from non-private methods<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule flags unsafe set or get of an internal array field, this includes flagging: 1) internal array returns from a non-private method and 2) setting an internal array with parameter given through a non-private method.<p>With arrays it is safer to make a copy before the set or return. This way, the internal data is not manipulated outside of the class.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>Given the following field declaration:<p>int[] integerArray = ...;<br><br>public int[] getIntegerArray() {<br>	return integerArray;<br>}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.mutableConstantField">Mutable Constant Field</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Disallows public static final mutable type fields.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>Checks that public static final fields are either default immutable types like java.lang.Integer or are user-specified immutable types, declared through the audit rule preferences.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following would be flagged:<p>	public static final MutableType mutableType;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.preventOverwritingOfExternalizableObjects">Prevent Overwriting Of Externalizable Objects</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Disallows Externalizable objects to be overwritten.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>All classes that implement java.io.Externalizable must declare the public readExternal method. Malicious users may call this method after the method has been initialized, this can potentially overwrite the internal state of the class.<p>This audit rule declares that every class and subclass of Externalizable must declare readExternal and that readExternal must match the following pattern:<p>public synchronized void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {<br>	if (! initialized) {<br>		initialized = true;<br>		*<br>	} else {<br>		throw new IllegalStateException();<br>	}<br>}<br><p>The boolean named "initialized", may have any valid name, and can be accessed via the this keyword, but cannot be re-assigned anywhere else within the class as such a reassignment could easily invalidate the security measures being taken.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following class would be flagged as readExternal is not declared as synchronized:<p>public class A implements Externalizable {<br><br>	boolean initialized = false;<br>	public void readExternal(ObjectInput in) {<br>		if (! initialized) {<br>			initialized = true;<br>			// initialize the object		} else {<br>			throw new IllegalStateException();<br>		}<br>	}<br><br>	public void writeExternal(ObjectOutput out) throws IOException {<br>		*<br>	}<br>}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.serializeabilitySecurity">Serializeability Security</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>When an Object implements Serializeable, adversaries can sometimes serialize the Object into a byte array, because of this, secure classes must be conscious of Serializeable.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule aims to prevent adversaries from accessing the state of an Object by extending classes and retrieving the Object data by calling writeObject. To prevent this hazard, implement the following in all classes that implement java.io.Serializeable:<p>	private final void writeObject(ObjectOutputStream in) throws IOException {<br>		new java.io.IOException("Class cannot be serialized");<br>	}<p>This rule flags instances of Serializable that do not contain the following method signature:<p>private void writeObject(ObjectOutputStream in) throws IOException;<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following method declaration would be flagged as a violation because it does not have the required parameter:<p>	private void writeObject() throws IOException;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.staticFieldSecurity">Static Field Security</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Refrain from using non-final public static fields.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>To the extent possible, refrain from using non-final public static fields because there is no way to check whether the code that changes such fields has appropriate permissions.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following declaration would be flagged as a violation because it is both public and non-final:<p>	public static int minutesPerHour = 60;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.useOfRandom">Use of Random</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>java.util.Random is not as secure as java.security.SecureRandom<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>This audit rule looks for any use of the java.util.Random class, including any classes declared as a subclass of Random, and any instances of Random being instantiated.<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following would be flagged as a violation:<p>	class A extends Random {}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.usePrivilegedCodeSparingly">Use Privileged Code Sparingly</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+<p>Prevents the overuse of privileged code.<p>
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+<p>"Privileged" code allows code access to system variables the Java API would normally not allow access to, for security purposes this code should be used sparingly. <p>This audit rule flags instances of java.security.PrivilegedAction and java.security.PrivilegedExceptionAction which have more than a specified number (default 0) of statements within run().<p>Note: When set to default value of 0, no privileged code will be allowed since the method run, see PrivilegedAction or PrivilegedExceptionAction, returns an Object, which at minimum takes one statement: "return null;".<p>
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+<p>The following source would be flagged since there are statements in a run() method declared for a PrivilegedAction.<p>...<br>	AccessController.doPrivileged(new PrivilegedAction() {<br>		public Object run() {<br>			System.loadLibrary("awt");<br>			return null;<br>		}<br>	});<br>...
+</p>
+</body>
+</html>

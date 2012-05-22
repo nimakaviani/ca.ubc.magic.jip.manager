@@ -1,0 +1,303 @@
+<html>
+
+<head>
+<title>Preferences - Audit</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">Preferences - Audit</font></h1>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="center">
+			<img src="../images/preferences_audit.gif" align="left"></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+	<ul>
+		<li><b><a href="#AuditRuleSets"><font face="Arial">Rules</font></a></b></li>
+		<li><b><a href="#DynamicAudit"><font face="Arial">Dynamic</font></a></b></li>
+		<li><b><a href="#Manage"><font face="Arial">Rule Sets</font></a></b></li>
+		<li><b><a href="#Reports"><font face="Arial">Reports</font></a></b></li>
+		<li><b><a href="#Resolutions"><font face="Arial">General</font></a></b></li>
+		<li><b><font face="Arial"><a href="#Annotations">Annotations</a></font></b></li>
+	</ul>
+    <h3><a name="AuditRuleSets"></a><font face="Verdana" color="#CC0000"><b>Rules</b></font></h3>
+	<p>The <b> Rule</b> page displays the selected <b>audit 
+    rule set</b> along with a list of all of the <a
+    href="../features/audit/audit_details.html">audit rules</a> that are 
+    available.&nbsp; There is always exactly one default audit rule set denoted 
+    by an asterisk following the name of the audit rule set, and it is used when 
+    selecting <a href="../features/audit/audit.html"><b>Audit Code</b></a> in the
+    <b> 
+    CodePro Tools</b> menu.&nbsp; To display the enabled audit rules 
+    and their parameters for a particular audit rule set, select that audit rule 
+    set in the audit rule set dropdown list above the list of audit rules.</p>
+      <p>The <b><a name="FindRule">Find Rule</a></b> button provides a quick way
+      to find various audit rules. Entering a keyword in the top entry field
+      will cause any audit rule with that word in its name, description or notes
+      to be
+      shown in the middle list. Selecting an audit rule in the list will show
+      its description or note in the bottom pane (depending on which includes
+      the match). Clicking the <b>OK</b> button will
+      close the dialog and set the selection of the audit tree to the chosen rule. Options
+      are provided to search audit rule names, descriptions or notes.</p>
+      <p><img src="../images/preferences_audit_find_rule.gif" width="446" height="640"></p>
+      <p>Within each audit rule set, each audit rule can be individually enabled 
+    or disabled by clicking on the check box beside the name of the audit rule.&nbsp; The
+      <b> Parameters</b> page 
+    (shown above) allows you to edit the configuration parameters of the selected
+    audit rule. At minimum, each audit rule with have at least one parameter- its severity
+    level.&nbsp; The <b> Description</b> page (shown below) displays the audit rule ID
+      (useful for <a href="../features/audit/locally_disabling_audit_rules.html">locally
+      disabling</a> any rule) and a brief description of what the selected audit rule will
+    check for when a code audit is performed.</p>
+    <p><img src="../images/preferences_audit_description.gif"></p>
+	<p><a name="AutoFix"></a>The <b>Auto Fix</b> page (shown below) controls the 
+	auto fix behavior of the rule. When auto fix is turned on, any detected 
+	violations will be automatically corrected. The <b>Automatically resolve 
+	violations for this rule</b> option turns auto fix on and off for any rule 
+	that allows auto fixing (note that this option is grayed out for any rule 
+	that does not allow auto fixing). Rules with auto fix turned on are 
+	indicated with a green decorator (e.g.,
+	<img border="0" src="../images/auto_fix_on.gif" width="15" height="16">). 
+	Rules with auto fix turned off are indicated with a gray decorator (e.g.,
+	<img border="0" src="../images/auto_fix_off.gif" width="15" height="16">). 
+	Rules that do not allow auto fixing are not decorated at all.</p>
+	<p><img src="../images/preferences_audit_auto_fix.gif"></p>
+      <p><a name="Note"></a>The <b>Notes</b> page (shown below) provides a place to enter audit rule
+      set specific notes about an audit rule. This is very useful if you want to
+      create a team standard and then document the reasons that various rules
+      are enabled (or not) or their specific settings.</p>
+      <p><img src="../images/preferences_audit_note.gif"></p>
+    <p>When the menu item <img src="../images/audit_icon.gif" width="16" height="16"
+    alt="audit_icon.gif (166 bytes)">  <b>Audit Code</b> is selected, the enabled <a
+    href="../features/audit/audit_details.html">audit rules</a> will be computed. The results
+    will be displayed in the <a href="../features/audit/audit.html">Audit view</a>. </p>
+      <h3><a name="DynamicAudit"></a><font face="Verdana" color="#CC0000">
+		Dynamic</font></h3>
+	<p>The <b> Dynamic</b> page shows a list of
+      inclusion and exclusion patterns that will be dynamically
+    audited using the selected <a href="#AuditRuleSet">audit rule set</a> when the &quot;Dynamically audit code&quot; option is
+    turned on. Buttons for
+    adding, browsing, editing and removing patterns are provided. Turn this
+      option off to <a href="../faq.html#CodeProOptimization">improve
+      performance</a>.</p>
+      <p>The patterns follow the Ant syntax and are taken to be relative to a project's
+      root directory. For example, adding the pattern &quot;**/com/google/**/*&quot;
+      to the inclusion list would include any files in the com.google
+      package hierarchy. Likewise, adding the &quot;**/generated/**/*&quot;
+      pattern to the exclusion list would cause any file in a package with
+      &quot;generated&quot; in its path to be excluded from dynamic auditing.</p>
+      <p>When dynamic auditing is turned on for a package, opening a class in 
+      that package will result in it being automatically scanned for audit 
+      violations and any violations found are added to the audit view (to the
+      &quot;Violations in Open Files&quot; audit violation set). When that 
+      file is saved, the file is rescanned and the audit violations in the audit 
+      view are updated to reflect the new state of that file. When the editor is 
+      closed, the audit violations for that file are removed from the audit 
+      view. </p>
+      <p>Note that the product can manage multiple violation result sets
+      simultaneously, but only one can be active and visible at one time. If the
+      dynamic audit violation set (e.g., &quot;Violations in Open Files&quot;)
+      is not active, you would not see any dynamic audit results. </p>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="left"><img src="../images/preferences_audit_dynamic.gif"></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+      <h3><a name="Manage"></a><font face="Verdana" color="#CC0000"><b>Rule Sets</b></font></h3>
+	<p>The <b>Rule Sets</b> page shows a list of all of the audit
+    rule sets that are defined. Use the <b>New</b> button to create a new audit 
+    rule set. This will open the <a href="../features/audit/audit_ruleset_wizard.html">Audit Rule Set wizard</a>.
+    Use the <b>Copy</b> button to copy an existing audit rule set and the <b>Delete</b> button to delete an existing audit rule set.&nbsp; 
+    The <b>Set Default</b> button makes the currently selected audit rule set 
+    into the default audit rule set. The <b><a name="Hide">Hide</a></b> button hides the selected
+    audit rule sets from view elsewhere in the product. The <b>Show</b> button
+    restores them. The <b><a name="Report">Report</a></b> button will generate
+      HTML documentation for the selected audit rule set.
+      <p>The <b>Maximum Violation Counts</b> fields control the
+      maximum number of violations of various types that can be recorded into a
+      single violation results set. The <b>Total</b> field sets the maximum
+      number of violations in the entire violation set. The <b>Per Rule</b>
+      field sets the maximum number of violations per audit rule. The <b>Per
+      Compilation Unit&nbsp; </b>field sets the maximum number of violations
+      recorded per file. The <b>Per Rule Per Compilation Unit</b> field sets the
+      maximum number of violations of a single type that can occur in a single
+      file.&nbsp;<p><a name="AutoEnable"></a>The <b>Enable automatic resolution</b> 
+	option controls whether automatic resolutions is enabled for this audit rile 
+	set (this is turned off by default). A global option on the <b>General</b> 
+	page is available to disable automatic resolutions for all audit rule sets.<p><a name="IgnoreDisableDirectives"></a>The <b>Ignore disable directives when using this rule set</b>
+      option
+      provides a way to override any rule disable directives that might be
+      placed within any source files. Turning this on will cause all audit
+      violations to be recorded, even those that would normally be ignored
+      because of disable directives.
+    <p><a name="OnlyAuditResources"></a>The <b>Only audit resources</b> option 
+	provides a way to only show violations occurring in files modified on or 
+	after a given date or since a specific tagged version. If the date fields 
+	are populated with positive integers, they will represent a specific date. 
+	If negative integers are used, they will represent a delta date from the 
+	current date. For example, place a &quot;-1&quot; in the day field will show only 
+	violations in files modified in the last 24 hours. Likewise, &quot;-7&quot; would show 
+	violations in files modified in the last calendar week.<p>
+	<a name="OnlyAuditLines"></a>The <b>Only audit lines modified on or after 
+	the specified version</b> option modifies the behavior to only show 
+	violations on lines of code modified on or after a given date or since a 
+	specific tagged version. <a name="Legacy"></a>These options are very useful in filtering out 
+	violations in legacy code created prior to a specific point in time or as a 
+	way to focus on violations created very recently. <font color="#CC0000"><i>
+	Note that this feature requires Eclipse 3.2 or 3.3 and an Eclipse 3.2 Team 
+	API-compatible source code manager (CVS is a good example).<br>
+&nbsp;</i></font><table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="left"><img src="../images/preferences_audit_rulesets.gif"></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+	<p><a name="Export"></a>The
+      <b>Export</b> button is used to export one or more audit rule sets to an 
+	XML-based preference file. At the bottom of the wizard page, is an area for 
+	selecting the location to which the preference file should be exported. The 
+	first option, <b>File System</b> allows the
+    user to export the audit rule set to any arbitrary location in the file system. It defaults
+    to \preferences\audit.pref. The second option, <b>Project</b>, allows the user to store the
+      audit rule set to a
+    project loaded in their workspace. This makes it easy to put the audit rule
+      set file under
+    some form of source code control such as CVS, PVCS or ClearCase. The third 
+	option, <b>Server</b>, can be used only if a <a href="../features/collaboration/server.html">collaboration
+      server</a> has been specified in the <a href="preferences_collaboration.html">preferences</a>.
+      It allows the user to store the preferences on the <a href="../features/collaboration/server.html">collaboration
+      server</a>. The wizard automatically remembers the last path used. The 
+	fourth option, <b>User</b>, allows the user to send preferences to other users without intervention
+      by the receiving user. Thus, this option provides a way to silently set
+      preferences in the workbenches of other users. This can only be done for <a href="../features/collaboration/users_view.html">users</a>
+      and <a href="../features/collaboration/groups_view.html">groups</a> led by the
+      user, unless the user is the administrator, in which case it can be done
+      for any user or group. Audit rule
+      sets may be exported in <a name="locked"> locked</a> or unlocked format. If a locked audit rule
+      set is imported, it may not be modified. If an audit rule set is exported
+      as the default, it will become the default audit rule set when loaded into
+      another workspace.
+    <p><img src="../images/audit_export.gif" width="347" height="430"><p><a name="Import"></a>The
+      <b>Import</b> button is used to import one or more audit rules from an 
+	XML-based preference file. At the top of the dialog, is an area for 
+	selecting the location from which the audit rule file should be imported. 
+	The first option, <b>File
+    System</b> allows the user to import the audit rules from any arbitrary location in the
+    file system. It defaults to \preferences\audit.pref. The second option, <b>Project</b>, 
+	allows the user to load audit rules from a project loaded in their 
+	workspace. The third option, <b>Server</b>, can be used
+    only if a <a href="../features/collaboration/server.html">collaboration server</a>
+    has been specified in the <a href="preferences_collaboration.html">preferences</a>.
+    This option allows the user to load preferences from the <a href="../features/collaboration/server.html">collaboration
+    server</a>. The wizard automatically remembers the last path used. The <b>
+	Load as default</b> option will cause the imported audit rule set to become 
+	the new default rule set. The <b>Overwrite existing sets</b> option causes 
+	the imported audit rules sets to override any existing sets with the same 
+	names. If this option is turned off, the imported rule sets have numbers 
+	appended to their names.<br>
+&nbsp;<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="left"><img src="../images/audit_import.gif"></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+	<p><a name="Convert"></a>The
+      <b>Convert</b> button is used to PMD and FindBugs configuration files into 
+	CodePro Audit Rule Sets. Add one or more foreign configuration files using 
+	the <b>Add</b> button (they will all be merged). Click <b>Next</b> to enter 
+	the name of the new Audit Rule Set. <p>
+	<img src="../images/audit_convert.gif"><p>
+	The final page of the conversion wizard shows the mapping between foreign 
+	rules and CodePro rules. Unmapped rules are also listed and the list may be 
+	sent to CodePro support to request implementation of any missing rules.<p>
+	<img src="../images/audit_convert2.gif" width="615" height="462"><h3>
+	<a name="Reports"></a><font face="Verdana" color="#CC0000"><b>Reports</b></font></h3>
+	<p>The <b>Reports</b> page controls various options concerning
+      the reports generated by the audit tool.&nbsp; The <b>Show recommendations
+      </b>option determines
+    whether recommendations for fixes are shown in the various report types. The
+      <b>Show severities</b> option determines
+    whether severities for each rule type are shown in the various report types.
+      The <b>Author Information</b> options determine whether author names are 
+		shown for each violation. The <b>Generate files for violated resources</b> 
+	option determines whether <a href="preferences_audit.html">detail files</a> 
+	are generated for each HTML report that show the violations in context 
+	within the application source code. The <b>File Name</b> options control the default file names used for the
+      various report types. When a single resource (project, package or class)
+      has been audited, the <b>Include target in file name </b>option will cause
+      the resource name to be used as the base file name. The <b>Include date in
+      file name </b>will cause the current date to be appended to the name of
+      the file. The <b>Include time in file name </b>will cause the current time
+      to be appended to the name of the file.
+    <br>
+&nbsp;<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="left">
+    <img src="../images/preferences_audit_reports.gif"></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+      <h3><a name="Resolutions"></a><font face="Verdana" color="#CC0000"><b>
+		General</b></font></h3>
+	<p>The <b>General</b> page controls various options concerning
+      the maximum number of audit result sets, whether to include subpackages,
+      whether to automatically refresh audit result sets, the
+    presentation of recommendations and integration with the Eclipse 2.1/3.x Quick
+    Fix feature. The <b>Limit the number of result sets</b> option sets the
+      maximum number of result sets. Each result set consumes memory, so this
+      number should be kept low. Once the maximum is reached, any new ones will
+      eliminate the oldest result set. The <b>Include subpackages of selected
+      packages</b> option controls whether subpackages are included in the
+      analysis. The <b>Automatically refresh violations when selecting a set</b>
+    option will cause violation result sets to be refreshed automatically when
+    switching between them. Under Eclipse 2.1 &amp; 3.0, the <b>Enable Quick Fix support</b> option determines
+    whether audit violation markers contribute quick fixes that may be invoked directly
+    in the editor. The <b>Include standard resolutions in Quick Fix </b>
+ option
+    determines whether standard resolutions (e.g., disable the rule) are
+    included with the other quick fixes. The <b>Enable automatic resolution</b> 
+		option controls whether automatic resolutions is available on a global 
+		basis (if turned off, this overrides the settings on all audit rule 
+		sets). The <b>Place file-wide disable
+      directives after header comments</b> option controls whether disable
+      directives are placed at the top of the file or after any initial header
+      comments. The <b>Show repairs in entire
+      compilation unit</b> option determines whether the <a href="../features/javadoc.html">Javadoc
+      Repair</a> editor
+      shows repairs for the entire compilation unit, or just the Java element
+      selected when it was opened.
+    	The <b>Use the long names of the audit rules</b> option controls whether 
+		audit rules show up in the tree using their short names or their long 
+		names. The <b>Highlight audit rules modified after</b> option causes 
+		audit rules created or modified after the specified date to be 
+		highlighted in the audit rule list. This makes it easy to see what rules 
+		have been added since the last version that you have installed.<p>
+    <img src="../images/preferences_audit_general.gif"><h3>
+    <b><font face="Verdana" color="#CC0000">Annotations</font></b></h3>
+	<p>
+    The <b>Workbench &gt; Editors &gt; <a name="Annotations">Annotations</a></b> 
+	preference page can be used to control how the audit violation annotations 
+	appear within the Java Editor. You can independently control whether the 
+	text of the violation is highlighted and whether the violation is shown in 
+	either the overview ruler or vertical ruler.<p>
+    <img border="0" src="../images/preferences_audit_annotations.gif"></td>
+  </tr>
+</table>
+</body>
+</html>

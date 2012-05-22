@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<title>Preferences - Patterns</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">Preferences - Patterns</font></h1>
+    <p><img src="../images/preferences_patterns.gif"></p>
+    <p>This page is used to control various CodePro pattern code generation options.</p>
+    <h3>Create stub methods with a body that</h3>
+    <p>This preference determines whether generated methods return an appropriate default
+    value (e.g., &quot;0&quot; for ints, &quot;False&quot; for booleans, &quot;null&quot; for
+    objects, etc.) or throw an UnsupportedOperastionException.</p>
+    <h3>Include the following text in stub method bodies</h3>
+    <p>This option determines whether additional &quot;marker&quot; text is generated in each
+    stub method. Default choices include:<ul>
+      <li>unimplemented();</li>
+      <li>// TODO: Implement this method</li>
+      <li>/** @todo Implement this method */</li>
+    </ul>
+      <h3>Create stub methods with a comment that includes the same comment as the overridden
+    method</h3>
+    <p>This option determines whether the comment of the stub method copies the comment of the
+    abstract or interface method that it overrides.</p>
+    <h3>Create stub methods with a comment that includes an @see tag referring to the
+    overridden method</h3>
+    <p>This option determines whether the comment of the stub method includes an @see tag
+    referring to the overridden method.</p>
+    <h3>Use code formatter on newly created compilation units</h3>
+    <p>This option controls whether newly generated compilation units will be 
+	formatted using the users formatting preferences.</p>
+    <h3>Use code formatter on modified compilation units</h3>
+    <p>This option controls whether modified compilation units will be formatted using the
+    users formatting preferences.</p>
+    <h3>Copyright</h3>
+    <p>This option controls the copyright text that will be generated into each generated
+    class (at the end of the class comment).</p>
+    <h3>Generate metadata</h3>
+    <p>This option determines whether pattern metadata is inserted in a comment at the end of
+    each generated class. This metadata will be used to support a future
+    &quot;round-trip&quot; pattern editing feature. If the metadata is not generated, the
+    pattern wizard will not be able to re-edit and update that class.</td>
+  </tr>
+</table>
+</body>
+</html>

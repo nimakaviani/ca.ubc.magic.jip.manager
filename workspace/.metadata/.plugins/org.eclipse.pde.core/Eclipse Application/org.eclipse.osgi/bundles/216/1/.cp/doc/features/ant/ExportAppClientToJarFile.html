@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.exportAppClientToJarFile</b></font><br>
+      <font size="4">
+      <small>(Application Developer only... replaced in</small></font><small><font size="4"> 
+	Rational Application Developer 6.x</font></small><font size="4"><small> 
+    by <a href="RAD60/AppClientExport.html">AppClientExport</a>)</small></font></h1>
+    <p><i>(old task name ExportAppClientToJarFile)</i></p>
+    <p>codepro.exportAppClientToJarFile performs an export identical to one that would 
+    be performed manually using the standard Application Developer App Client Export Wizard.&nbsp; 
+    The various options for this Ant task type include:</p>
+    <ul>
+      <li>destination (required) - the path to the jar file into which the code 
+      will be exported.&nbsp; The path may either be an absolute path, or 
+      relative to the Application Developer workspace directory</li>
+      <li>exportSource (optional - default false)</li>
+      <li>overwrite (optional - default false)</li>
+      <li>project (required) - the name of the app client project to be exported</li>
+    </ul>
+      <p>Example:</p>
+      <blockquote>
+        <pre>&lt;codepro.exportAppClientToJarFile 
+    project=&quot;WSAssistTestAppClient&quot; 
+    destination=&quot;../export-test/testAppClient.jar&quot; 
+    overwrite=&quot;true&quot; 
+    exportSource=&quot;true&quot;/&gt;</pre>
+      </blockquote>
+      <p style="margin-bottom: 8">&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

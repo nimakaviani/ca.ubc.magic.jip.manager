@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Semantic Errors</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Semantic Errors</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that report coding practices that often indicate that the code will not perform the way the program might expect.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.eclipse.analysis.audit.security.containerShouldNotContainItselfAsElement">Container Should Not Contain Itself As Element</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.nullPointerDereference">Null Pointer Dereference</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.eclipse.analysis.audit.security.containerShouldNotContainItselfAsElement">Container Should Not Contain Itself As Element</a></h4><p>
+<b>Summary</b><br/>Re-adding objects in a container to its contents is usually a typo which could result in an inpredicted behaviour of a code.<p><b>Description</b><br/>This audit rule violates container storing operations such as <code>addAll()</code> or <code>removeAll()</code> when they are invoked with the same container as an argument.<p><b>Security Implications</b><br/>Such invocation is usually a typo which indicates a plain error in a logic of the code. Such code will not function as expected and could result in any security threat from Denial of Service to data leaks when used in security-sensitive areas.<p><b>Example</b><br/>The following method is supposed to remove all banned users from the given list of users trying to access secure data but will fail because of the typo; this typo would thus be marked as violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;protected void filterBannedUsers(List allUsers) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List bannedUsers = new ArrayList();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (Iterator i = allUsers.iterator(); i.hasNext();) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User user = (User) i.next();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (isBanned(user)) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bannedUsers.add(user);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.nullPointerDereference">Null Pointer Dereference</a></h4><p>
+<b>Summary</b><br/>Null pointers should not be dereferenced.<p><b>Description</b><br/>This audit rule checks for places where a value that is known to be null is being dereferenced in a way that is guaranteed to produce a NullPointerException. <p><b>Example</b><br/>The following code will cause a violation because the variable <code>o</code> is known to have a null value:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Object o = null;<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(o.getClass().getName());</code></body>
+</html>

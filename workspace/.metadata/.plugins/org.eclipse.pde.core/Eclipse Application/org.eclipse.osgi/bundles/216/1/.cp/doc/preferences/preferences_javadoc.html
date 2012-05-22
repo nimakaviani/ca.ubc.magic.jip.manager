@@ -1,0 +1,165 @@
+<html>
+
+<head>
+<title>Preferences - Javadoc</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">Preferences - Javadoc</font></h1>
+    <p><img src="../images/preferences_javadoc.gif"></p>
+      <p>When the menu item <img src="../images/javadoc_icon.gif" width="16" height="16">
+    &quot;Repair Javadoc&quot; is chosen, the javadoc repair engine is run.<br>
+    This computes missing javadoc comments as well as corrections and improvements to existing
+    ones, and<br>
+    displays these in a<a href="../features/javadoc.html"> javadoc comparison editor</a>.
+      Note that when the javadoc repair tool is invoked from an audit violation
+      resolution, the <a href="../features/audit/audit_rules_com.instantiations.assist.eclipse.auditGroup.javadocConventions.html">javadoc
+      audit rule</a> settings will override the preferences set here. </p>
+    <p>The javadoc repair options are grouped according to the Java program elements they
+    affect:<ul>
+      <li><a href="#All">All</a></li>
+      <li><a href="#Fields">Fields</a></li>
+      <li><a href="#Methods">Methods</a></li>
+      <li><a href="#Types">Types</a></li>
+      <li><a href="#Tags">Tags</a></li>
+    </ul>
+    <h2><a name="All">All</a></h2>
+    <h3>Include '*' column at left of comments</h3>
+    <p>This option determines whether an asterisk will be used to start each line in&nbsp; the
+    comment. (All javadoc comments must start with &quot;/**&quot; and end with
+    &quot;*/&quot;, but the&nbsp; lines in between do not need to start with a '*', although
+    by convention they do.)</p>
+    <h3>Indentation inside comments (typically a single space)</h3>
+    <p>This option determines what characters are used to indent lines inside a comment (after
+    the '*' if there is one). Typically, this is a single space.</p>
+    <h3>Use qualified type names in method comments</h3>
+    <p>This option determines whether qualified type names will be used&nbsp; in @param and
+    @see tags. By default, unqualified type names are used.</p>
+    <h3>Generate an empty comment even if no tags are generated</h3>
+    <p>This option determines whether an empty comment will be generated for Java program
+    elements even if no tags are generated. (This arises with&nbsp; fields and simple
+    zero-argument methods returning void.)</p>
+    <h3>Show the original code on the left and the modified on the right</h3>
+      <p>This option causes the original and modified panes in the Javadoc
+      editor to be transposed, so that the original code is shown on the left
+      and the modified code is shown on the right.</p>
+    <h3>Save only manually edited files in response to File&gt;Save</h3>
+      <p>This option causes the File&gt;Save command in the Javadoc editor to
+      save only manually edited files. Otherwise, all
+      files in the editor are saved.</p>
+    <h3>Ignore javadoc-related audit disable directives</h3>
+      <p>This option causes <a href="../features/audit/locally_disabling_audit_rules.html"> audit disable directives</a> related to javadoc (for example, &quot;// $codepro.audit.disable methodJavadoc&quot;)
+      to be ignored. When not ignored, such directives inhibit javadoc repair
+      suggestions for the associated Java entity.</p>
+    <h3>Make suggestions based on javadoc-related audit rules instead</h3>
+      <p>This option causes the preferences in this dialog to be ignored.
+      Instead, the javadoc-related audit rules in the audit rule set specified
+      in the drop-down list are used to make suggestions regarding javadoc
+      repairs.</p>
+    <h2><a name="Fields">Fields</a></h2>
+    <p><img src="../images/preferences_javadoc_field.gif"></p>
+    <h3>Checked Visibility</h3>
+    <p>Only Java program elements with the specified visibility are checked by the javadoc
+    clean-up engine. For example, if the &quot;private&quot; box is left unchecked, then
+    private methods (or fields or types) are not checked by the engine.</p>
+    <h3>Add @values tag (requires javadoc 1.4 or later)</h3>
+      <p>The user can select whether to insert a @value tag into the javadoc
+      comment of final static fields. Final static fields have a fixed value.
+      This option requires a JSDK1.4 (or later) version of the javadoc tool be
+      used to generate the javadoc pages.</p>
+    <h3>Valid Javadoc tags</h3>
+      <p>The user can enter a list of tags that are valid for field Javadoc.
+      Only tags that appear on this list are considered valid. Any other tags
+      will be removed by the Javadoc Repair tool. The <b>Add</b> button adds a
+      tag and the
+      <b>Remove</b> button removes a tag from the list.</p>
+    <h2><a name="Methods">Methods</a></h2>
+    <p><img src="../images/preferences_javadoc_method.gif"></p>
+    <h3>Checked Visibility</h3>
+    <p>Only Java program elements with the specified visibility are checked by the javadoc
+    clean-up engine. For example, if the &quot;private&quot; box is left unchecked, then
+    private methods (or fields or types) are not checked by the engine.</p>
+    <h3>Check @param tags</h3>
+    <p>The user can select whether the @param tags are checked. If this option is selected,
+    then the engine will check that there is a @param tag for every parameter and that there
+    are no additional @param tags. </p>
+    <h3>Check @return tag </h3>
+    <p>The user can select whether the @return tag is checked. If this option is selected,
+    then the engine will check that there is a @return tag if, and only if, the method has a
+    return type other than void. It will also check that there is some text following the
+    @return tag. </p>
+    <h3>Check @see tag </h3>
+    <p>The user can select whether the @see tag is checked. If this option is selected, then
+    the engine will check that there is a @see tag for every method defined by an implemented
+    interface.</p>
+    <h3>Allow @see tag to replace full Javadoc </h3>
+    <p>The user can select whether comments with a single <code>@see </code>tag
+    are allowed, as long as that <code>@see</code> refers to a method with the
+    same name and parameter types as the one being described. Note that other
+    tags are allowed except for <font face="Courier New" size="2">@param</font>,
+    <font face="Courier New" size="2">@return</font>, and <font face="Courier New" size="2">@throws</font>,
+    since these may conflict with the method signature given by the <code>@see </code>tag.</p>
+    <h3>Allow @see tag in non-Javadoc block comment to replace full Javadoc </h3>
+    <p>The user can select whether non-Javadoc block comments (&quot;/* ...
+    */&quot;) with a single <code>@see </code>tag are
+    allowed.</p>
+    <h3>Check @throws tags </h3>
+    <p>The user can select whether the @throws tags are checked. If this option is selected,
+    then the engine will check that there is a @throws tag for every checked exception that is
+    thrown by the method. </p>
+    <h3>Allow @throws tags for unchecked exceptions </h3>
+    <p>The user can select whether @throws tags are allowed to be included for exceptions that
+    are not explicitly declared for the method. The typical case is a desire to document some
+    unchecked exceptions that can be thrown, hence the name of the option. </p>
+    <h3>Replace @exception tags with @throws tags </h3>
+      <p>The user can choose to replace existing @exception tags, which are
+      deprecated, with equivalent @throws tags.</p>
+      <h3>Required special tag</h3>
+      The user can enter the name of a special tag that must be present
+          for Javadoc checking to occur.
+    <h3>Valid Javadoc tags</h3>
+      <p>The user can enter a list of tags that are valid for method Javadoc.
+      Only tags that appear on this list are considered valid. Any other tags
+      will be removed by the Javadoc Repair tool. The <b>Add</b> button adds a
+      tag and the
+      <b>Remove</b> button removes a tag from the list.</p>
+    <h2><a name="Types">Types</a></h2>
+    <p><img src="../images/preferences_javadoc_type.gif"></p>
+    <h3>Checked Visibility</h3>
+    <p>Only Java program elements with the specified visibility are checked by the javadoc
+    clean-up engine. For example, if the &quot;private&quot; box is left unchecked, then
+    private methods (or fields or types) are not checked by the engine.</p>
+    <h3>Check @author tag </h3>
+    <p>The user can select whether the @author tags are checked. If this option is selected,
+    then the engine will check that there is an @author tag for every type (or 
+	only for top-level types). If the @author tag
+    is missing, it will be added based on the contents of the @author template
+    (see the Java &gt; Editor &gt; Templaes &gt; @author preference).
+    <h3>Check @version tag </h3>
+    <p>The user can select whether the @version tags are checked. If this option is selected,
+    then the engine will check that there is an @version tag for every type (or 
+	only for top-level types). If the
+    @version tag
+    is missing, it will be added based on the contents of the &quot;Version
+    Identifier&quot; field.
+    <h3>Valid Javadoc tags</h3>
+      <p>The user can enter a list of tags that are valid for type Javadoc. Only
+      tags that appear on this list are considered valid. Any other tags will be
+      removed by the Javadoc Repair tool. The <b>Add</b> button adds a tag and the
+      <b>Remove</b> button removes a tag from the list.</p>
+    <h2><a name="Tags">Tags</a></h2>
+    <p><img border="0" src="../images/preferences_javadoc_tags.gif">
+    <h3>Custom tags</h3>
+      <p>The user can enter a list of custom tags that will be placed at the end
+      of the tag list and sorted in the order specified. This applies to field,
+      method and type Javadoc. The <b>Add</b> button adds a new tag; the <b>Edit</b>
+      button edits an existing tag in the list; the <b>Up</b> button moves a tag
+      up in the list; the <b>Down</b> button moves a tag down in the list; and the
+      <b>Remove</b> button removes a tag from the list. </td>
+  </tr>
+</table>
+</body>
+</html>

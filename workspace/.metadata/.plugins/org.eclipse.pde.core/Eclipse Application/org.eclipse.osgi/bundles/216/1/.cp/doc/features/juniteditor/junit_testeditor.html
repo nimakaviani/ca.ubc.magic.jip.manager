@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>JUnit Test Editor</title>
+</head>
+
+<body>
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top" width="500"><h1>JUnit Test Editor</h1>
+
+			<p align="left"><a href="#invoke">Invoking the Test Editor</a><br><a href="#features">TestEditor Features</a><br><a href="../../preferences/preferences_testeditor.html">Preferences</a><br><a href="faq_testeditor.html">FAQ</a><a name="invoke0"></a></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+	<a name="invoke"></a><a name="invoke1"><h3>Invoking the&nbsp;Test Editor</h3></a>
+<p>Before invoking the Test Editor, you first need to generate your test classes. <span style="font-weight: bold;">Right-Click on the project or the class</span> and select <span style="font-weight: bold;">CodePro Tools &gt; Generate Test Cases</span>. For more information, see the section on JUnit Test Case Generation.</p>
+The CodePro Test Editor is invoked by <span style="font-weight: bold;">Right-clicking</span> the test class and selecting <span style="font-weight: bold;">Open With &gt; CodePro Test Editor</span>.<p>
+<img src="../../images/juniteditor/openwith.gif" alt="Open With &gt; CodePro Test Editor"></p><h3>Test Editor Pane</h3>By default<span style="font-weight: bold;"></span><span style="font-weight: bold;"></span> the Test editor view preference is set to <span style="font-weight: bold;">"split with source on left"</span>.
+When you open a test class the source pane is on the left and the test
+editor pane is one the right. You can change this setting in the
+CodePro &gt; JUnit &gt; TestEdito preference page. <br><p><img alt="Split Pane View" src="../../images/juniteditor/junit_test_editor.gif"></p><p>Here is a sample of a tabbed pane. You should see a two "notebook like" tabs at the bottom of the editor labeled <span style="font-weight: bold;">Source</span> and <span style="font-weight: bold;">Test</span>s. Click on the<span style="font-weight: bold;"></span> <span style="font-weight: bold;">Tests</span> tab to see the test methods in the <span style="font-weight: bold;">Test Editor</span> pane. <br></p><p><img src="../../images/juniteditor/tabbed_pane.gif" alt="Tabbed Pane View"></p><a name="features"><h3><br></h3><h3>Test Editor Features and Functionalities</h3></a><ul style="font-weight: bold;"><li>Method List Combobox<br><span style="font-weight: normal;">Lists
+all the testable methods. Selecting a method from the combo
+box shows the corresponding testing methods in the Tests tab.</span></li></ul><p style="margin-left: 40px;"><img src="../../images/juniteditor/methodlist.gif" alt="Methods List"></p><ul><li><span style="font-weight: bold;"><a name="addtest">Adding Tests (</a></span><a name="addtest"><img src="../../images/juniteditor/add_row.gif" alt="Add Test Method"></a><span style="font-weight: bold;"><a name="addtest">)</a></span><br>Test methods can be added through the test editor or by typing directly into the Java editor:</li></ul><ul><ul><li>To add a test method using&nbsp;the Test editor, click the <span style="font-weight: bold;">Adds a Test Method</span> 
+(<img src="../../images/juniteditor/add_row.gif" alt="Add Test Method">)
+button or press <span style="font-weight: normal;"><span style="font-weight: bold;">Ctrl + Shift + N</span></span>. A new test method is added to the list. Enter the necessary
+arguments and&nbsp;assertions and save your work. The new test method
+should now be
+visible in the Java editor<span style="font-weight: bold;">&nbsp;</span>as well.&nbsp;</li><li>You
+can also add new test methods directly in the Java editor and&nbsp;it
+will automatically appear in the Test editor after saving.</li></ul></ul>
+<div style="margin-left: 80px;"><img src="../../images/juniteditor/added_test.gif" alt="New Test Method"></div><ul><li><span style="font-weight: bold;"><a name="addassert">Adding Assertions (</a></span><a name="addassert"><img src="../../images/juniteditor/add_column.gif" alt="Add Assertion"></a><span style="font-weight: bold;"><a name="addassert">)</a></span><br>Additional assertions can be added by either typing directly into the Java editor<span style="font-weight: bold;"> </span>or by using the Test editor:</li></ul><ul><ul><li>To
+add an assertion using the Test editor, click the <span style="font-weight: bold;">Add an Assertion</span>
+(
+<img src="../../images/juniteditor/add_column.gif" alt="Add Assertion">) button or press <span style="font-weight: normal;"><span style="font-weight: bold;">Ctrl + Shift + A</span></span>. &nbsp;A dialog appears which takes inputs
+as they will appear in the source. &nbsp;Enter the necessary inputs and press <span style="font-weight: bold;">OK</span>.</li></ul></ul>
+<div style="margin-left: 80px;">
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top" width="500"><img src="../../images/juniteditor/add_assertion_dialog.gif" alt="Add Assertion Column Dialog"></td>
+			<td width="50">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+	</div><ul><ul><li>An empty column is now added to the grid which behaves like all the other columns.</li></ul></ul>
+<div style="margin-left: 80px;"><img src="../../images/juniteditor/assert_columns.gif" alt="Added Assert Columns"></div><ul style="font-weight: bold;"><li>Duplicate Selected Row (<img src="../../images/juniteditor/duplicate_row.gif" alt="Duplicate Selected Row">)<br><span style="font-weight: normal;">To duplicate a row, select a row&nbsp;or&nbsp;a cell and click the <span style="font-weight: bold;">Duplicate Selected Row</span> (</span><img style="font-weight: normal;" src="../../images/juniteditor/duplicate_row.gif" alt="Duplicate Selected Row"><span style="font-weight: normal;">&nbsp;) button or press <span style="font-weight: bold;"></span></span>Ctrl+Shift+V<span style="font-weight: normal;"><span style="font-weight: bold;"></span>. A new row is added with a different method name.&nbsp;This is an easy way of adding new tests.</span></li></ul>
+<div style="margin-left: 40px;"><img src="../../images/juniteditor/duplicated_row.gif" alt="Duplicated Row"></div><ul style="font-weight: bold;"><li>Refresh Tests (F5)<br><span style="font-weight: normal;">This function will re-run all the tests.</span></li></ul><ul><li><span style="font-weight: bold;">Editing Tests<br></span>
+Test methods can be edited in the test editor or the Java editor. Changes
+made through the Test editor are reflected in the Java editor and vice
+versa.</li></ul><ul><li><span style="font-weight: bold;">Deleting Tests<br></span>Deleting test methods in the Java editor will also delete it from the Test editor and vice versa.&nbsp;</li></ul><ul><ul><li>To delete a test method using the Test Editor, select the row&nbsp;and press the <span style="font-weight: bold;">Delete key</span>.</li><li>You can also delete from the Java source editor and it will automatically reflect in the Test Editor.</li></ul></ul>
+<div style="margin-left: 80px;"><img src="../../images/juniteditor/delete_confirmation.gif" alt="Confirm Delete Dialog"></div><ul><li><span style="font-weight: bold;">Color coding</span><br>The
+Test editor dynamically runs the test whenever the argument or the
+assertion is changed. The background color in the grid changes depending on the
+test result.</li></ul>
+<div style="margin-left: 40px;"><img src="../../images/juniteditor/color_codes.gif" alt="Color Codes"></div><ul><ul><li><span style="font-weight: bold;">White </span>- Passed.</li><li><span style="font-weight: bold;">Gray </span>- Dirty cells, save needs to occur for the test method to be run.</li><li><span style="font-weight: bold;">Yellow </span>- A failure occurred before the assertion was reached.</li><li><span style="font-weight: bold;">Red </span>- The assertion failed.<br><span style="font-style: italic;">Note: Hovering your mouse over the text of the red cell will display the failure message.</span><br></li></ul></ul>
+<div style="margin-left: 80px;"><img src="../../images/juniteditor/failure_msg.gif" alt="Failure Message"></div><span style="font-weight: bold;"></span><div style="margin-left: 40px;">
+<br></div><ul style="font-weight: bold;"><li>Tooltips</li></ul><p style="margin-left: 40px;">To
+find out more about a failed test, hover your mouse over the cell and a
+description of the error in the form of a tooltip will appear.</p><p style="margin-left: 40px;">
+<img src="../../images/juniteditor/failure_msg.gif" alt="Failed Message"></p><span style="font-weight: bold;"></span><br><h3>Keyboard shortcuts</h3><ul><li style="font-weight: bold;"><span style="font-weight: normal;"><span style="font-weight: bold;">F12</span> - Toggles between the Java editor and Test Editor pane if Test Editor preference is set to&nbsp;tabbed view.</span></li><li style="font-weight: bold;">Esc<span style="font-weight: normal;"> -&nbsp;Deselects the cell .</span></li><li style="font-weight: bold;"><span style="font-weight: normal;"></span>Tab <span style="font-weight: normal;">- Move one cell to the right.</span></li><li style="font-weight: bold;"><span style="font-weight: normal;"></span>Ctrl+Enter<span style="font-weight: normal;"> - Move one cell down.</span></li><li style="font-weight: bold;">Ctrl+Shift+Enter<span style="font-weight: normal;"> - Move one cell up.</span></li><li style="font-weight: bold;">Ctrl+Shift+V<span style="font-weight: normal;"><span style="font-weight: bold;"></span>&nbsp;- Duplicate selected column.</span></li><li style="font-weight: bold;"><span style="font-weight: normal;"><span style="font-weight: bold;">Ctrl + Shift + A</span> - Add new column.</span></li><li style="font-weight: bold;"><span style="font-weight: normal;"><span style="font-weight: bold;">Ctrl + Shift + N</span> - Add new row.</span></li><li style="font-weight: bold;"><span style="font-weight: normal;"><span style="font-weight: bold;">F5</span> - Refresh and rerun tests.</span></li><li style="font-weight: bold;"><span style="font-weight: normal;"><span style="font-weight: bold;">Del</span> - Delets the selected row or column</span></li></ul>
+
+
+
+
+
+
+
+
+
+</body></html>

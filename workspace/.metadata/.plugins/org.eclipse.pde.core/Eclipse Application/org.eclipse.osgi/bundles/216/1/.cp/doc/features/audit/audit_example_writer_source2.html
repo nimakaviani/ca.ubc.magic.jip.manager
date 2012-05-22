@@ -1,0 +1,319 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="../../../stylesheets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../stylesheets/prettify/prettify.js"></script>
+<title>HTMLAuditWriter</title>
+</head>
+
+<body onload="prettyPrint()">
+<pre class="prettyprint">
+package com.instantiations.assist.eclipse.analysis.audit.writer;
+ 
+import com.instantiations.assist.eclipse.analysis.audit.core.*;
+import com.instantiations.assist.eclipse.analysis.audit.resolution.*;
+import com.instantiations.assist.eclipse.analysis.audit.util.AuditResultGroup;
+import com.instantiations.jlib.license.*;
+import com.instantiations.jlib.xml.*;
+import org.eclipse.core.resources.*;
+import org.eclipse.core.runtime.*;
+ 
+/**
+ * Instances of the class <code>HTMLAuditWriter</code> implement a audit writer
+ * that produces HTML formatted output.
+ * 
+ * Copyright (c) 2003, Google, Inc.
+ * All Rights Reserved
+ *
+ * @author Dan Rubel
+ * @author Brian Wilkerson
+ * @version $Revision: 1.0 $
+ */
+public class HTMLAuditWriter extends AbstractAuditWriter
+{
+    /**
+     * The string to be printed to represent a single level of indentation.
+     */
+    protected static final String INDENTATION = "&nbsp;&nbsp;&nbsp;&nbsp;";
+ 
+    /**
+     * The maximum number of columns in the TOC.
+     */
+    protected static final int MAX_TOC_COLUMNS = 4;
+ 
+    /**
+     * The maximum number of rows in the TOC.
+     */
+    protected static final int MAX_TOC_ROWS = 8;
+ 
+    /**
+     * The number of columns in the report.
+     */
+    protected int numColumns = 3;
+	
+    /**
+     * @see com.instantiations.assist.eclipse.analysis.audit.core.AuditResultWriter#writeHeader(AuditViolationSet)
+     */
+    public void writeHeader(AuditViolationSet violationSet) {
+        if (includeRecommendations) numColumns++;
+        if (includeSeverities) numColumns++;
+ 		
+        _writer.println(&quot;&lt;html&gt;&quot;);
+        _writer.println("");
+        _writer.println(&quot;&lt;head&gt;&quot;);
+        _writer.println("");
+        _writer.println(&quot;&lt;style type=text/css&gt;&quot;);
+        _writer.println("\tbody {font: 70% verdana,arial,helvetica; color: #000000}");
+        _writer.println("\tp {margin: 0.5em 2em 1em; line-height: 1.5em}");
+        _writer.println("\th1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}");
+        _writer.println("\th2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}");
+        _writer.println("\th3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}");
+        _writer.println("\th4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}");
+        _writer.println("\ttable tr th {font-size: 75%}");
+        _writer.println("\ttable tr td {font-size: 75%} ");
+        _writer.println("\ttable.details tr th {background: #a6d0e0; font-weight: bold; text-align: left}");
+        _writer.println("\ttable.details tr td {background: #eeeeee; text-align: top; vertical-align: top}");
+        _writer.println("\ttable.detailgroup tr th {background: #91d5ac; font-weight: bold; text-align: center; font-size: 80%}");
+        _writer.println(&quot;&lt;/style&gt;&quot;);
+        _writer.println("");
+        _writer.println(&quot;&lt;meta name=\"GENERATOR\" content=\"" + Product.getMainProduct().getName() + "\"&gt;&quot;);
+        _writer.println(&quot;&lt;title>CodePro Code Audit for " + violationSet.getName() + &quot;&lt;/title&gt;&quot;);
+        _writer.println("");
+        _writer.println(&quot;&lt;/head&gt;&quot;);
+        _writer.println("");
+        _writer.println(&quot;&lt;body&gt;&quot;);
+        _writer.println("");
+        _writer.println(&quot;&lt;h1&gt;&lt;a name=top&gt;CodePro Code Audit&lt;/a&gt;&lt;/h1&gt;&quot;);
+        _writer.println(&quot;&lt;h2 align=\"center\"&gt;&quot; + violationSet.getName() + &quot;&lt;/h2&gt;&quot;);
+ 
+        AuditRuleSet auditRuleSet = violationSet.getAuditRuleSet();
+        if (auditRuleSet != null && !auditRuleSet.isDefault()) {
+            _writer.println(&quot;&lt;h2 align=\"center\">Computed using " + auditRuleSet.getName() + &quot;&lt;/h2&gt;&quot;);
+        }
+        _writer.println(&quot;&lt;h3 align=\"center\">Violation Summary - " + violationSet.getSeveritySummary() + &quot;&lt;/h3&gt;&quot;);
+        _writer.println("");
+                   
+        _writer.println(&quot;&lt;p align=right>Powered by");
+        _writer.println( Product.getMainProduct().getName() + " and");
+        _writer.println("\t&lt;a href=\"http://www.eclipse.org\">Eclipse&lt;/a&gt;&quot;);
+        _writer.println(&quot;&lt;/p&gt;&quot;);
+        _writer.println("");
+    }
+ 
+    /**
+     * @see com.instantiations.assist.eclipse.analysis.audit.core.AuditResultWriter#writeTableOfContents(AuditResultGroup[])
+     */
+    public void writeTableOfContents(AuditResultGroup[] groups) {
+        String groupName;
+        int start, end;
+        int columns = Math.max(Math.min(((groups.length - 1) / MAX_TOC_ROWS) + 1, MAX_TOC_COLUMNS), 1);
+        int rows = ((groups.length - 1) / columns) + 1;
+ 
+        _writer.println(&quot;&lt;hr size=2&gt;&quot;);
+        _writer.println(&quot;&lt;h4>Summary&lt;/h4&gt;&quot;);
+ 
+        _writer.println(&quot;&lt;table&gt;&quot;);
+        _writer.println("\t&lt;tr&gt;&quot;);
+ 
+        for (int i = 0; i < columns; i++) {
+            start = Math.min(i * rows, groups.length - 1);
+            end = Math.min(start + rows , groups.length);
+ 
+            _writer.println("\t\t&lt;td valign=\"top\"&gt;&quot;);
+            _writer.println("\t\t\t&lt;b&gt;&quot;);
+            for (int j = start; j < end; j++) {
+                groupName = getViolationContainerName(groups[j].getElement());
+                _writer.println("\t\t\t\t&lt;a href=\"#" + groupName + "\"&gt;&quot; + groupName + &quot;&lt;/a>&lt;br&gt;&quot;);
+            }
+            _writer.println("\t\t\t&lt;/b&gt;&quot;);
+            _writer.println("\t\t&lt;/td&gt;&quot;);
+               
+            _writer.println("\t\t&lt;td valign=\"top\" align=\"right\"&gt;&quot;);
+            _writer.println("\t\t\t&lt;b&gt;&quot;);
+            for (int j = start; j < end; j++) {
+                _writer.println("\t\t\t\t" + groups[j].getTotalViolationCount() + &quot;&lt;br&gt;&quot;);
+            }
+            _writer.println("\t\t\t&lt;/b&gt;&quot;);
+            _writer.println("\t\t&lt;/td&gt;&quot;);
+            _writer.println("\t\t&lt;td width=\"10\"/&gt;&quot;);
+        }
+ 
+        _writer.println("\t&lt;/tr&gt;&quot;);
+        _writer.println(&quot;&lt;/table&gt;&quot;);
+ 
+        _writer.println("");
+ 
+        _writer.println(&quot;&lt;hr size=2&gt;&quot;);
+        _writer.println(&quot;&lt;h4>Details&lt;/h4&gt;&quot;);
+        _writer.println(&quot;&lt;table class=details width=\"100%\"&gt;&quot;);
+ 
+    }
+ 
+    /**
+     * Write out information about the specified group of audit violations.
+     *
+     * @param violationContainer the violation container
+     *        (e.g. an audit rule or a resource - not null)
+     * @param violationCount the number of violations in this group
+     * @param depth the depth of this group
+     */
+    public void writeGroupHeader(Object violationContainer, int violationCount, int depth, int maxDepth)
+    {
+        String violationText = getViolationContainerText(violationContainer, violationCount);
+        violationText = XMLUtils.encodeData(violationText);
+ 
+        _writer.println("\t&lt;tr&gt;&quot;);
+        if (depth >= maxDepth) {
+            _writer.println("\t\t&lt;th&gt;&quot;);
+            _writer.print("\t\t\t&lt;a name=\"");
+            _writer.print(getViolationContainerName(violationContainer));
+            _writer.print("\"/&gt;&quot;);
+            _writer.print(violationText);
+        } else {
+            _writer.println("\t\t&lt;th colspan=\"" + numColumns + "\"&gt;&quot;);
+            _writer.print("\t\t\t&lt;table class=detailgroup width=\"100%\" cellspacing=\"2\" cellpadding=\"2\"&gt;&quot;);
+            _writer.println("\t\t\t\t&lt;th&gt;&quot;);
+            _writer.print("\t\t\t\t\t&lt;a name=\"");
+            _writer.print(getViolationContainerName(violationContainer));
+            _writer.print("\"/&gt;&quot;);
+            _writer.print(violationText);
+            _writer.println("\t\t\t\t&lt;/th&gt;&quot;);
+            _writer.print("\t\t\t&lt;/table&gt;&quot;);
+        }
+        //for (int i = 1; i < depth; i++) {
+        //    _writer.print(INDENTATION);
+        //}
+        if (depth == maxDepth) {
+            _writer.println(" &lt;a href=\"#top\">top&lt;/a&gt;&quot;);
+        } else {
+            _writer.println("");
+        }
+        _writer.println("\t\t&lt;/th&gt;&quot;);
+ 
+        if (depth >= maxDepth) {
+            if (includeRecommendations) {
+                _writer.println("\t\t&lt;th&gt;&quot;);
+                _writer.println("\t\t\tRecommendation");
+                _writer.println("\t\t&lt;/th&gt;&quot;);
+            }
+ 
+            if (includeSeverities) {
+                _writer.println("\t\t&lt;th&gt;&quot;);
+                _writer.println("\t\t\tSeverity");
+                _writer.println("\t\t&lt;/th&gt;&quot;);
+            }
+ 
+            _writer.println("\t\t&lt;th&gt;&quot;);
+            _writer.println("\t\t\tJava File");
+            _writer.println("\t\t&lt;/th&gt;&quot;);
+ 
+            _writer.println("\t\t&lt;th&gt;&quot;);
+            _writer.println("\t\t\tLine");
+            _writer.println("\t\t&lt;/th&gt;&quot;);
+        }
+ 
+        _writer.println("\t&lt;/tr&gt;&quot;);
+    }
+ 
+    /**
+     * Write out information about the specified violation.
+     *
+     * @param violation the audit violation (not null)
+     * @param depth the depth of this violation
+     */
+    public void writeViolation(AuditViolation violation, int depth)
+    {
+        AuditViolationResolution[] resolutions;
+        IMarker marker;
+        String colorText = "";
+        String colorEndText = "";
+        if (violation.getSeverity() >= AuditRule.HIGH_SEVERITY) {
+            colorText = &quot;&lt;font color=\"red\"&gt;&quot;;
+            colorEndText = &quot;&lt;/font&gt;&quot;;
+        }
+ 
+        _writer.println("\t&lt;tr&gt;&quot;);
+ 
+        // Write violation description
+        _writer.println("\t\t&lt;td&gt;&quot;);
+        _writer.print("\t\t\t");
+        //for (int i = 1; i &lt; depth; i++) {
+        //    _writer.print(INDENTATION);
+        //}
+        _writer.print(colorText + XMLUtils.encodeHtmlData(violation.getDescription()) + colorEndText);
+        _writer.println("");
+        _writer.println("\t\t&lt;/td&gt;&quot;);
+ 
+        // Write recommendation
+        if (includeRecommendations) {
+            resolutions = violation.getResolutions();
+            _writer.println("\t\t&lt;td&gt;&quot;);
+            _writer.print("\t\t\t");
+            if (resolutions.length > 0) {
+                _writer.println(colorText + XMLUtils.encodeHtmlData(resolutions[0].getDescription()) + colorEndText);
+            } else {
+                _writer.println("&nbsp;");
+            }
+            _writer.println("\t\t&lt;/td&gt;&quot;);
+        }
+ 
+        // Write severity
+        if (includeSeverities) {
+            _writer.println("\t\t&lt;td&gt;&quot;);
+            _writer.print("\t\t\t");
+            _writer.println(colorText + AuditRule.SEVERITY_LABELS[violation.getSeverity()] + colorEndText);
+            _writer.println("\t\t&lt;/td&gt;&quot;);
+        }
+ 
+        // Write resource name
+        _writer.println("\t\t&lt;td&gt;&quot;);
+        _writer.print("\t\t\t");
+        _writer.println(colorText + violation.getResource().getName() + colorEndText);
+        _writer.println("\t\t&lt;/td&gt;&quot;);
+ 
+        // Write line
+        _writer.println("\t\t&lt;td&gt;&quot;);
+        _writer.print("\t\t\t");
+        try {
+            marker = violation.getMarker();
+            if (marker == null) {
+                _writer.println("??");
+            } else {
+                _writer.println(colorText + marker.getAttribute(IMarker.LINE_NUMBER) + colorEndText);
+            }
+        } catch (CoreException exception) {
+            _writer.println("??");
+        }
+        _writer.println("\t\t&lt;/td&gt;&quot;);
+ 
+        _writer.println("\t&lt;/tr&gt;&quot;);
+    }
+ 
+    /**
+     * Write out information about the specified group of audit violations.
+     *
+     * @param violationContainer the violation container
+     *        (e.g. an audit rule or a resource - not null)
+     * @param depth the depth of this group
+     */
+    public void writeGroupFooter(Object violationContainer, int depth)
+    {
+    }
+ 
+    /**
+     * @see com.instantiations.assist.eclipse.analysis.audit.core.AuditResultWriter#writeFooter(AuditViolationSet)
+     */
+    public void writeFooter(AuditViolationSet violationSet)
+    {
+        _writer.println(&quot;&lt;/table&gt;&quot;);
+        _writer.println("");
+        _writer.println(&quot;&lt;/body&gt;&quot;);
+        _writer.println("");
+        _writer.println(&quot;&lt;/html&gt;&quot;);
+    }
+}
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Infoset and Infoview for the CodePro User's Guide -->
+
+<infoset 
+	id="infoset" 
+	label="CodePro User Guide" 
+	href="doc/splash.html"> 
+	<infoview 
+		id="infoview" 
+		label="Contents" /> 
+</infoset>

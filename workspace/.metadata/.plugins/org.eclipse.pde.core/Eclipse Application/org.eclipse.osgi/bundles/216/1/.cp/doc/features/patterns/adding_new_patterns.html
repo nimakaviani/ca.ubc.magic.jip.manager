@@ -1,0 +1,199 @@
+<html>
+
+<head>
+<title>Adding New Patterns</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>
+      Adding New Patterns</b></font></h1>
+<p>The Pattern facility is designed to be easily enhanced using the
+standard Eclipse extension facilities.</p>
+      <ul>
+        <li><a href="#GeneralProcedure">General Procedure</a></li>
+        <li><a href="#SampleProject">Sample Project</a></li>
+        <li><a href="#ExtensionPoints">Pattern Extension Points</a>
+          <ul>
+            <li><a href="#PatternExtensionPoint">Pattern Extension Point</a></li>
+            <li><a href="#StrategyExtensionPoint">Strategy Extension Point</a></li>
+            <li><a href="#CalloutExtensionPoint">Call-out Extension Point</a></li>
+          </ul>
+        </li>
+        <li><a href="#Examples">Pattern Examples</a>
+        </li>
+      </ul>
+    <h3><a name="GeneralProcedure">General Procedure</a></h3>
+<p>The general procedure for adding a new pattern is as follows:</p>
+      <ol>
+        <li>Create a new plugin project using the PDE plugin wizard (File | New
+          | Project | Plug-in Development | Plug-in Project). Detailed
+          instructions on how to create an Eclipse plugin can be found in the
+          &quot;Tool Developer&quot; section of the Eclipse on-line help.</li>
+        <li>Import the &quot;com.instantiations.assist.eclipse.pattern&quot;
+          plugin
+          within your plugin.xml file.</li>
+        <li>Create a pattern strategy file (in XML format using the pattern
+    language and <a href="strategy_dtd.html">DTD</a>) that defines the user interface and code generation of your
+          pattern. Many <a href="#Examples">examples</a> are provided below.
+          Feel free to use any pattern supplied with the product as a template for
+          creating your own patterns.</li>
+        <li>Extend the <a href="#PatternExtensionPoint">com.instantiations.assist.eclipse.pattern.pattern</a>
+          extension point to define the name, description, category and source
+          of your new pattern within the plugin.xml
+          file.</li>
+        <li>Extend the <a href="#StrategyExtensionPoint">com.instantiations.assist.eclipse.pattern.strategy</a>
+          extension point to define the actually implementation your new pattern within the plugin.xml
+          file. Note that a single pattern may have one or more strategies that
+          implement it.</li>
+        <li>Optionally, if your pattern needs to collect external data (e.g.,
+          using a JDBC query or detailed AST model analysis), you can extend the
+          <a href="#CalloutExtensionPoint">com.instantiations.assist.eclipse.pattern.callOut</a>
+          extension point with a reference to your own call-out class which
+          implements the <i>com.instantiations.assist.eclipse.pattern.core.CallOutHandler</i>
+          interface. If you do this, you will need to compile your class into a
+          jar file and reference it as a runtime library in your plugin.xml
+          file. You will also need to add a
+          classpath entry that references the CodeProPattern.jar library to your
+          project's .classpath file.</li>
+        <li>Build your plugin and install it into your \eclipse\plugins
+          directory.</li>
+        <li>Shutdown and re-start the IDE.</li>
+        <li>Open the Pattern wizard and
+          look for your pattern.</li>
+      </ol>
+      <h3><a name="SampleProject">Sample Project</a></h3>
+      <p>A <a href="example/SamplePatternProject.zip">sample pattern project</a>
+      has been provided for your convenience. It defines a sample pattern which
+      you can use as you see fit. To use the sample, do the following:</p>
+      <ol>
+        <li>Unzip the <a href="example/SamplePatternProject.zip">sample project</a>
+          into your workspace directory.</li>
+        <li>Import the &quot;SamplePatternProject&quot; project into your workspace using the &quot;File | Import | Existing
+          Project into Workspace&quot; command.</li>
+        <li>Select the &quot;build.xml&quot; file in the project, right click
+          and select the &quot;Run Ant...&quot; command, and then choose the
+          &quot;export&quot; target to build the project.</li>
+        <li>Unzip the resulting SamplePatternPlugin.zip file into your Eclipse or
+          &lt;websphere&gt;\eclipse
+          directory (make sure to preserve the directory structure so that the
+          plugin files themselves end up in your Eclipse \plugins directory)..</li>
+        <li>Shutdown and re-start the IDE.</li>
+        <li>Open the Pattern wizard and
+          look for the &quot;Sample&quot; pattern.</li>
+      </ol>
+      <h3><a name="ExtensionPoints">Pattern Extension Point</a></h3>
+    <p>Patterns are defined via an XML-based pattern
+    language and <a href="strategy_dtd.html">DTD</a> provided with CodePro. New or customized patterns may be easily
+    added by a patterns extension point defined by Codepro. See:
+      <blockquote>
+        <p><b>&lt;CODEPRO&gt;\eclipse\plugins\com.instantiations.assist.eclipse.pattern.ui_X.X.X\plugin.xml</b></p>
+      </blockquote>
+      <h4><a name="PatternExtensionPoint">Pattern Extension Point</a></h4>
+      <p>The pattern extension point provides two hooks for the
+      pattern support. The first allows new patterns to be added to the list of
+      patterns that can be generated. It is supported by the &quot;pattern&quot;
+      tag, which defines the following attributes:</p>
+      <blockquote>
+        <p><b>id<br>
+        </b>A string used to uniquely identify the pattern.</p>
+        <p><b>name<br>
+        </b>The localized name of the pattern. This is the name that will be
+        displayed in the user interface.</p>
+        <p><b>description<br>
+        </b>A localized description of the pattern. This is the description that
+        will be displayed in the user interface. This should generally be the
+        &quot;Intent&quot; section from the pattern's definition.</p>
+        <p><b>category<br>
+        </b>The localized name of the category to which the pattern belongs.</p>
+        <p><b>source<br>
+        </b>The localized name of the source of the pattern.</p>
+      </blockquote>
+      <p>For example:</p>
+      <blockquote>
+        <p>&lt;<b>extension</b> <b>point</b>=&quot;com.instantiations.assist.eclipse.pattern.pattern&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp; &lt;<b>pattern</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>id</b>=&quot;com.xyz.pattern.myPattern&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>name</b>=&quot;%myPatternName&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>description</b>=&quot;%myPatternDescription&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>category</b>=&quot;%myPatternCategory&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>source</b>=&quot;%myPatternSource&quot;/&gt;<br>
+        &lt;/<b>extension</b>&gt;</p>
+      </blockquote>
+      <h4><a name="StrategyExtensionPoint">Strategy Extension Point</a></h4>
+      <p>The second allows new strategies to be added to the list of strategies
+      that implement any particular pattern. It is supported by the
+      &quot;strategy&quot; tag, which defines the following attributes:</p>
+      <blockquote>
+        <p><b>pattern<br>
+        </b>The id of the pattern implemented by the strategy.</p>
+        <p><b>name<br>
+        </b>The localized name of the strategy. This is the name that will be
+        displayed in the user interface.</p>
+        <p><b>description<br>
+        </b>A localized description of the strategy. This is the description
+        that will be displayed in the user interface.</p>
+        <p><b>helpContext<br>
+        </b>The help context id used to link to the pattern help page.</p>
+        <p><b>file<br>
+        </b>(optional) The path to the XML-based strategy file defining the
+        strategy. The XML-based pattern language is defined in the 
+		Pattern Support Implementation Guide and <a href="strategy_dtd.html">DTD</a>.</p>
+        <p><b>class<br>
+        </b>(optional) The fully qualified name of the of the class that
+        implements the strategy. The class must implement the interface <i>com.instantiations.assist.eclipse.pattern.core.Strategy.</i></p>
+      </blockquote>
+      <p>For example:</p>
+      <blockquote>
+        <p>&lt;<b>extension</b> <b>point</b>=&quot;com.instantiations.assist.eclipse.pattern.strategy&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp; &lt;<b>strategy</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>pattern</b>=&quot;com.xyz.pattern.myPattern&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>name</b>=&quot;%myStrategyName&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>class</b>=&quot;com.xyz.pattern.MyPatternStrategy&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp; &lt;<b>strategy</b>/&gt;<br>
+        &lt;/<b>extension</b>&gt;</p>
+      </blockquote>
+      <h4><a name="CalloutExtensionPoint">Call-out Extension Point</a></h4>
+      <p>The third allows new <a name="callout">call-out</a> handlers to be
+      registered so that they can be used to compute values other than those
+      entered directly by the user. It is supported by the &quot;handler&quot;
+      tag, which defines the following attributes:</p>
+      <blockquote>
+        <p><b>id<br>
+        </b>A string used to uniquely identify the call-out.</p>
+        <p><b>class<br>
+        </b> The fully qualified name of the of the class that
+        implements the call-out. The class must implement the interface <i>com.instantiations.assist.eclipse.pattern.core.CallOutHandler</i>.
+        See the details in the 
+		Pattern Support Implementation Guide and <a href="strategy_dtd.html">DTD</a>.</p>
+      </blockquote>
+      <p>For example:</p>
+      <blockquote>
+        <p>&lt;<b>extension</b> <b>point</b>=&quot;com.instantiations.assist.eclipse.pattern.callOut&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp; &lt;<b>handler</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>id</b>=&quot;com.xyz.pattern.myHandler&quot;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>class</b>=&quot;com.xyz.pattern.MyCallOutHandler&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp; &lt;<b>handler</b>/&gt;<br>
+        &lt;/<b>extension</b>&gt;</p>
+      </blockquote>
+      <h3><a name="Examples">Pattern Examples</a></h3>
+      <p>You can see lots of example patterns here:</p>
+      <blockquote>
+        <p><b>&lt;CODEPRO&gt;\eclipse\plugins\com.instantiations.assist.eclipse.pattern_X.X.X\strategy</b></p>
+      </blockquote>
+        <p>Some example patterns that can act as templates for any new patterns
+        that you create include:</p>
+      <ul>
+        <li><a href="adapter.xml">Adapter Pattern</a></li>
+        <li><a href="decorator.xml">Decorator Pattern</a></li>
+        <li><a href="factoryMethod.xml">Factory Method Pattern</a></li>
+        <li><a href="testcase.xml">JUnit Test Case Pattern</a></li>
+        <li><a href="proxy.xml">Proxy Pattern</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

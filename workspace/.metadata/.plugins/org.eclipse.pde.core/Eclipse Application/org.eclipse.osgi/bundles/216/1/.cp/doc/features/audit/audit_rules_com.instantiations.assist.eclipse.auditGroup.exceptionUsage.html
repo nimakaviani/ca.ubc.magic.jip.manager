@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Exception Usage</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Exception Usage</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for problems related to the use of exceptions within the code.</p>
+<p><img src="../../images/auditrules/audit_exceptions.gif" width="406" height="124"></p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.caughtExceptions">Caught Exceptions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.declaredExceptions">Declared Exceptions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.exceptionUsage.exceptionCreation">Exception Creation</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.exceptionUsage.exceptionDeclaration">Exception Declaration</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.logExceptions">Log Exceptions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.rethrownExceptions">Rethrown Exceptions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.thrownExceptions">Thrown Exceptions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.unnecessaryExceptions">Unnecessary Exceptions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.useOfInstanceOfInCatchBlock">Use of instanceof in Catch Block</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.caughtExceptions">Caught Exceptions</a></h4><p>
+<b>Summary</b><br/>Some exceptions should not be caught.<p><b>Description</b><br/>This audit rule finds catch clauses that catch an exception class that is disallowed. The list initially includes exception classes that are either too general (such as Throwable or Exception), or that are unchecked (such as Error and RuntimeException).<p><b>Example</b><br/>The following catch clause would be flagged because it catches instances of the class java.lang.Throwable, which is too general:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;try {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;} catch (Throwable exception) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.declaredExceptions">Declared Exceptions</a></h4><p>
+<b>Summary</b><br/>Some exceptions should not be declared for methods or constructors.<p><b>Description</b><br/>This audit rule finds methods and constructors that declare as a thrown exception an exception class that is disallowed. The list initially includes exception classes that are either too general (such as Throwable or Exception), or that are unchecked (Error, RuntimeException, and all subclasses of either).<p><b>Example</b><br/>If the rule is configured to disallow the declaration of unchecked exceptions, then the following method would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public void initialize()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws Error<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img border="0" src="../../images/auditrules/audit_declared_exceptions.gif" width="273" height="24"></p><h4><a name="com.instantiations.assist.eclipse.audit.exceptionUsage.exceptionCreation">Exception Creation</a></h4><p>
+<b>Summary</b><br/>Exceptions should be created with as much information as possible.<p><b>Description</b><br/>When exceptions are created they should be given as much information as possible, including a message and, when one is available, the exception that caused the exception being created.<p><b>Example</b><br/>The following exception creation would be flagged as a violation because it does not specify a message:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;throw new CriticalApplicationException();</code><p><img border="0" src="../../images/auditrules/audit_exception_creation.gif" width="367" height="66"></p><h4><a name="com.instantiations.assist.eclipse.audit.exceptionUsage.exceptionDeclaration">Exception Declaration</a></h4><p>
+<b>Summary</b><br/>Exceptions should be declared to inherit from Exception, but not from either RuntimeException or RemoteException.<p><b>Description</b><br/>Exceptions should be declared to inherit from Exception, but not from either RuntimeException or RemoteException.<p><b>Example</b><br/>The following class declaration would be flagged as an error because it extends RuntimeException:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class MyException extends RuntimeException<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.logExceptions">Log Exceptions</a></h4><p>
+<b>Summary</b><br/>Exceptions that are caught should be logged.<p><b>Description</b><br/>This audit rule checks for caught exceptions that are not logged.<p><b>Example</b><br/>The following catch clause would be flagged as a violation because the exception is not logged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;try {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception exception) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Exceptions should never be ignored like this<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img border="0" src="../../images/auditrules/audit_log_exceptions.gif" width="378" height="126"></p><h4><a name="com.instantiations.assist.eclipse.audit.rethrownExceptions">Rethrown Exceptions</a></h4><p>
+<b>Summary</b><br/>Some exceptions should be rethrown.<p><b>Description</b><br/>This audit rule finds catch clauses that do not rethrow the original exception. The list initially includes Error and ThreadDeath. For example, if ThreadDeath is not rethrown, then the thread will not terminate.<p><b>Example</b><br/>If the rule has been configured to require that instances of the class java.lang.ThreadDeath must be rethrown, the following catch clause would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;try {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;} catch (ThreadDeath exception) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resource.release();<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.thrownExceptions">Thrown Exceptions</a></h4><p>
+<b>Summary</b><br/>Some exceptions should not be thrown.<p><b>Description</b><br/>This audit rule finds throw statements that throw an exception class that is disallowed. The list initially includes exception classes that are either too general (such as Throwable or Exception), or that are unchecked (Error, RuntimeException, and all subclasses of either).<p><b>Example</b><br/>If the rule is configured to disallow throwing of instances of Throwable, then the following throw statement would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;throw new Throwable("Bet this won't get caught");</code><h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryExceptions">Unnecessary Exceptions</a></h4><p>
+<b>Summary</b><br/>Unnecessary exceptions should be removed.<p><b>Description</b><br/>This audit rule checks for methods that declare an exception that cannot be thrown within the body of the method.<p>There are two options. The first controls whether unchecked exceptions will be allowed to be declared. This is sometimes desirable to allow the full range of exceptions to be fully documented.<p>The second option controls whether a class of exception can be declared when a subclass of the exception class is thrown, or whether only the classes of exceptions that are actually thrown can be declared.<p>Note: this rule does not examine the implementations of a method that occur in subclasses to see whether an exception is being declared in a superclass in order to allow it to be thrown by a method in a subclass.<p><b>Example</b><br/>The following throws clause would be flagged as a violation because there is no way for the exception to be thrown:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public int getChildCount()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws RemoteException<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img border="0" src="../../images/auditrules/audit_unnecessary_exceptions.gif" width="283" height="66"></p><h4><a name="com.instantiations.assist.eclipse.audit.useOfInstanceOfInCatchBlock">Use of instanceof in Catch Block</a></h4><p>
+<b>Summary</b><br/>Do not use <code>instanceof</code> to determine an exception's type in a catch block. Such check could miss some unexpected exception.<p><b>Description</b><br/>This audit rule looks for <code>catch</code> blocks where the <code>instanceof</code> operator is used to check the exception's type. Subclasses of the caught exception can be handled separately by including a separate <code>catch</code> block for them before the superclass' <code>catch</code> block.<p><b>Security Implications</b><br/>An uncaught exception can be handled by default exception handling mechanisms, which usually results in an exposure of a stack trace. This provides an attacker with an information on the technology stack of a system which could later be used to implement an attack.<p><b>Example</b><br/>The following code will be flagged as a violation because the <code>instanceof</code> operator is used to check an exception's type:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;} catch (IOException e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (e instanceof EOFException) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br></code></body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Topics to appear in the CodePro User's Guide -->
+
+<!-- As new doc pages are added, add a reference to that doc page here -->
+
+<toc label="CodePro Analytix User Guide" topic="doc/index.html"> 
+	<topic
+			label="Overview" 
+			href="doc/analytix.html">
+	</topic>
+	<topic
+			label="General">
+		<topic
+				label="System Requirements"
+				href="doc/requirements.html"/>
+		<topic
+				label="Version History"
+				href="doc/history.html"/>
+		<topic
+				label="FAQ"
+				href="doc/faq.html"/>
+		<topic
+				label="Evaluation Guide" 
+				href="CodePro-EvalGuide.pdf"/> 
+		<topic
+				label="CodePro Menu" 
+				href="doc/codepro_menu.html"/> 
+	</topic> 
+	<topic
+			label="Installation"
+			href="doc/install.html">
+		<topic
+				href="doc/installation/updatesite_3.4.html"
+				label="Update Site for Eclipse 3.4"/>
+		<topic
+				href="doc/installation/updatesite_3.5.html"
+				label="Update Site for Eclipse 3.5 or 3.6"/>
+  <topic href="doc/installation/uninstall.html" label="Uninstall">
+  </topic>
+	</topic> 
+	<topic
+			label="Features" 
+			href="doc/features/features.html"> 
+		<anchor id="audit"/>
+		<anchor id="test"/>
+		<anchor id="deadcode"/>
+		<anchor id="similarcode"/>
+		<anchor id="dependency"/>
+		
+	</topic> 
+	<topic
+			label="Preferences" 
+			href="doc/preferences/preferences.html"> 
+		<anchor id="audit_prefs"/> 
+		<topic 
+				label="Debug Log" 
+				href="doc/preferences/preferences_debug_log.html" />
+		<anchor id="test_prefs"/> 
+		<topic 
+				label="Mail" 
+				href="doc/preferences/preferences_mail.html" /> 
+		<topic 
+				label="Startup" 
+				href="doc/preferences/preferences_startup.html" />
+		<anchor id="similarcode_prefs"/>
+		<anchor id="dependency_prefs"/>
+	</topic>
+ <topic href="http://forums.instantiations.com/viewforum.php?f=7" label="User Support Forum">
+ </topic>
+ <topic href="doc/faq.html" label="FAQ">
+ </topic>
+ <topic href="doc/tos.html" label="Terms of Service">
+ </topic> 
+</toc>

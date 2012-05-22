@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<title>Solutions</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+      <tr>
+        <td><h1><font face="Verdana" color="#CC0000">Solutions</font></h1>
+        </td>
+        <td align="right" valign="baseline">
+    <p class="MsoNormal"><font face="Arial" size="2">
+        <a href="solutions.html">introduction</a>&nbsp;
+    <a href="solutions_actions.html">actions</a>&nbsp;
+        <a href="solutions_editor.html">editor</a>&nbsp;
+        <a href="solutions_wizard.html">wizard</a>&nbsp;
+        <a href="solutions_messages.html">messages</a></font></p>
+        </td>
+      </tr>
+    </table>
+      <h3><em><small>Available only under CVS</small></em></h3>
+    <p class="MsoNormal">Our use of the word &quot;Solutions&quot; comes from its use in 
+    IBM's Visual Age for Java where solutions are projects that &quot;logically&quot; 
+    contain other projects.&nbsp; Rather than loading and updating projects 
+    individually, solutions and the projects and nested solutions that they 
+    contain can be <a href="solutions_actions.html">loaded and updated</a> as a single unit.</p>
+    <p class="MsoNormal"><a name="solution_graph">
+    <img border="1" src="../../images/solutions/solution_graph.gif" align="left" hspace="10" width="445" height="147"></a>Solutions 
+    are projects just like any other and can contain java code or another other 
+    type of resources.&nbsp; In addition, solutions can be &quot;nested&quot; so that when 
+    the parent solution is loaded or updated, all projects and nested solutions 
+    are recursively loaded or updated.</p>
+    <p class="MsoNormal">Only <font color="#FF0000"><b>shared projects </b>
+    </font>(projects and solutions already stored in a repository) can be 
+    contained by a solution.&nbsp; Projects that are not shared can <b>not</b> 
+    be added to a solution.</p>
+    <p class="MsoNormal">New solutions can be created using the
+    <a href="solutions_wizard.html">New Solution wizard</a>, while existing 
+    projects can be converted into solutions using the
+    <a href="solutions_wizard.html">Convert to Solution wizard</a>.</p>
+    <p class="MsoNormal">
+    <img border="0" src="../../images/solutions/solutions_in_nav.gif" align="right" hspace="10" width="168" height="239">Solutions 
+    appear in the navigator along with all other types of projects, but are 
+    denoted by a small blue
+    <img border="0" src="../../images/solutions/solution_proj_overlay_loaded.gif" width="8" height="8">
+    solution image overlay (label decorator) on top of the standard
+    <img border="0" src="../../images/solutions/project_entry_open.gif" width="16" height="16"> 
+    project folder image.&nbsp; A small gray
+    <img border="0" src="../../images/solutions/solution_proj_overlay_not_loaded.gif" width="8" height="8"> 
+    solution image indicates that a solution is
+    <a href="solutions_messages.html#solution_not_completely_loaded">not 
+    completely loaded</a>, perhaps because a
+    <a href="solutions_messages.html#loaded_different">different version</a> of 
+    a project or nested solution directly or indirectly contained by the 
+    solution&nbsp; is loaded.&nbsp; A small red
+    <img border="0" src="../../images/solutions/solution_proj_overlay_error.gif" width="8" height="8"> 
+    solution image indicates that there is some error in the solution 
+    specification, such as a <a href="solutions_messages.html#tag_conflict_with">
+    tag conflict</a>.</p>
+    <p class="MsoNormal">
+    Each solution has a <b>
+    <img border="0" src="../../images/solutions/solution_editor.gif" width="16" height="16"> 
+    solution.psf</b> file that contains the specification for the projects and 
+    nested solutions contained by the solution along with their various 
+    versions.&nbsp; Double clicking on the <b>
+    <img border="0" src="../../images/solutions/solution_editor.gif" width="16" height="16"> 
+    solution.psf </b>file opens a <a href="solutions_editor.html">solution 
+    editor</a> to edit the specification for that solution.</p>
+    <p class="MsoNormal">
+    Solutions label decorators may be turned on and off via the Workbench |
+    Label Decorations preference page.</p>
+    <p class="MsoNormal">
+    <img border="0" src="../../images/solutions/solution_label_decorations.gif" width="458" height="362"></p>
+    <p class="MsoNormal"><i><font size="2"><b>Acknowledgements:</b><br>
+    Our Solutions functionality is based upon the Eclipse 
+    Team Project Set functionality and additional Project Set functionality 
+    provided by Dirk Baumann, Gregor Kohlwes, and Rolf Wilms at CSC 
+    SoftwareConsult GmbH &amp; Co. OHG.&nbsp; Our thanks to all for a great 
+    foundation on which to build.</font></i></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Program Complexity</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Program Complexity</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for places where the code might be too complex. Complex code is harder to understand and maintain. It also tends to contain more errors.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.blockDepth">Block Depth</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.cyclomaticComplexity">Cyclomatic Complexity</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.fileLength">File Length</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfConstructors">Large Number of Constructors</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfFields">Large Number of Fields</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfMethods">Large Number of Methods</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfParameters">Large Number of Parameters</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.methodChainLength">Method Chain Length</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.sourceLength">Source Length</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.typeDepth">Type Depth</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.blockDepth">Block Depth</a></h4><p>
+<b>Summary</b><br/>Methods should be kept fairly flat.<p><b>Description</b><br/>This audit rule finds methods and constructors that have too many levels of nested blocks. A method with too many levels of nested blocks can be difficult to understand. The definition of "too many" can be set.<p><b>Example</b><br/>If the limit is set to two, then the inner if statement in the following would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (firstChoice == null) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (secondChoice == null) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (thirdChoice == null) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return null;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_block_depth.gif" width="397" height="68"></p><h4><a name="com.instantiations.assist.eclipse.audit.cyclomaticComplexity">Cyclomatic Complexity</a></h4><p>
+<b>Summary</b><br/>Methods should be kept fairly simple.<p><b>Description</b><br/>This audit rule finds methods, constructors and initializers that are too complex. The complexity is measured by the number of "if", "while", "do", "for", "?:", "catch" and "switch" statements (plus one) in the body of the member.<p><b>Example</b><br/>If the maximum cyclomatic complexity has been configured to be 3, then the following method would be flagged as a violation because it has a cyclomatic complexity of 4:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public int getHireYear()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmploymentRecord employmentRecord = getEmploymentRecord();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (employmentRecord == null) return 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HiringRecord hiringRecord = employmentRecord.getHiringRecord();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (hiringRecord == null) return 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar hireDate = hiringRecord.getHireDate();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (hireDate == null) return 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return hireDate.getYear();<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_cyclomatic_complexity.gif"></p><h4><a name="com.instantiations.assist.eclipse.audit.fileLength">File Length</a></h4><p>
+<b>Summary</b><br/>Compilation units should not be too long.<p><b>Description</b><br/>This audit rule finds compilation units that are longer than a specified number of lines.<p><b>Example</b><br/>If the rule is configured to allow files of up to 40,000 lines, a file containing 100,000 lines of code would be flagged as a violation.<p><img src="../../images/auditrules/audit_file_length.gif" width="386" height="28"></p><h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfConstructors">Large Number of Constructors</a></h4><p>
+<b>Summary</b><br/>Types should not have too many constructors.<p><b>Description</b><br/>This audit rule finds types that have more than the specified number of constructors. Types that exceed this number are likely to be too complex. Consider making some of the constructors more general.<p><b>Example</b><br/>If the rule is configured to allow 3 constructors and a class with 6 constructors is found, that class will be flagged as a violation.<p><img src="../../images/auditrules/audit_number_of_constructorrs.gif" width="403" height="29"></p><h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfFields">Large Number of Fields</a></h4><p>
+<b>Summary</b><br/>Types should not have too many fields.<p><b>Description</b><br/>This audit rule finds types that have more than the specified number of fields. Types that exceed this number are likely to be too complex. Consider splitting the class into multiple smaller classes.<p><b>Example</b><br/>If the rule is configured to allow 6 fields and a class with 15 fields is found, that class will be flagged as a violation.<p><img src="../../images/auditrules/audit_number_of_fields.gif" width="397" height="50"></p><h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfMethods">Large Number of Methods</a></h4><p>
+<b>Summary</b><br/>Types should not have too many methods.<p><b>Description</b><br/>This audit rule finds types that have more than the specified number of methods. Types that exceed this number are likely to be too complex. Consider splitting the class into multiple smaller classes.<p><b>Example</b><br/>If the rule is configured to allow 20 methods and a class with 114 methods is found, that class will be flagged as a violation.<p><img src="../../images/auditrules/audit_number_of_methods.gif" width="403" height="30"></p><h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfParameters">Large Number of Parameters</a></h4><p>
+<b>Summary</b><br/>Methods should not have too many parameters.<p><b>Description</b><br/>This audit rule finds methods that have more than the specified number of parameters. Methods that exceed this number are likely to be too complex. Consider moving some of the values and behavior associated with them into a separate class.<p><b>Example</b><br/>If the rule is configured to allow 4 parameters and a method with 12 parameters is found, that method will be flagged as a violation.<p><img src="../../images/auditrules/audit_number_of_params.gif" width="401" height="27"></p><h4><a name="com.instantiations.assist.eclipse.audit.methodChainLength">Method Chain Length</a></h4><p>
+<b>Summary</b><br/>Method invocations should not be chained into a long line.<p><b>Description</b><br/>This audit rule looks for places where multiple method invocations are chained together into an overly long chain. There are two problems with long chains of method invocations. The most obvious is that they can make the code difficult to follow. An even more serious problem is that they often point out places where information has not been well encapsulated.<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;Color roofColor = party.getWorkAddress().getStructure().getRoof().getColor();</code><p><img src="../../images/auditrules/audit_message_chain_length.gif" width="374" height="26"></p><h4><a name="com.instantiations.assist.eclipse.audit.sourceLength">Source Length</a></h4><p>
+<b>Summary</b><br/>Methods, constructors and initializers should be limited in length.<p><b>Description</b><br/>This audit rule checks for methods, constructors and initializers that are more that the specified number of lines in length.<p><img src="../../images/auditrules/audit_source_length.gif" width="332" height="121"></p><h4><a name="com.instantiations.assist.eclipse.audit.typeDepth">Type Depth</a></h4><p>
+<b>Summary</b><br/>Types should not be deeply nested.<p><b>Description</b><br/>This audit rule finds source in which type declarations are deeply nested. The maximum depth can be configured. Top level types have a depth of zero (0), so a maximum depth of 2 would mean, for example, that an inner class of a top-level class could have an anonymous inner class without being flagged, but a third level of nesting would be flagged.<p><img src="../../images/auditrules/audit_type_depth.gif" width="361" height="26"></p></body>
+</html>

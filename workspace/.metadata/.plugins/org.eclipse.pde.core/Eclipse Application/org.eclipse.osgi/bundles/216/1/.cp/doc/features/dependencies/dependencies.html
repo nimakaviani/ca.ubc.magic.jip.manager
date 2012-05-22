@@ -1,0 +1,228 @@
+<html>
+
+<head>
+<title>Dependencies</title>
+</head>
+
+<body>
+<h1>Dependency Analysis</h1>
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1" width="100%">
+      <tr>
+        <td colspan="1">
+        </td>
+        <td>
+    <p class="MsoNormal" align="right"><font face="Arial" size="2">
+        <a href="dependencies.html">introduction</a>&nbsp;
+    <a href="example1.html">example</a>&nbsp; <a href="dependency_report.html">sample
+        report</a></font></p>
+        </td>
+      </tr>
+    </table>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top" rowspan="2">
+		<img src="../../images/dependencies_menu.gif" align="top"></td>
+        <td valign="top" width="4" rowspan="2">&nbsp;&nbsp;&nbsp; </td>
+        <td valign="top"><p>The dependencies view displays the results of a
+          dependency analysis, and can, <a href="example1.html">for example, be 
+        used to decouple two projects or packages</a>. A dependency analysis can be performed by
+          selecting one or more projects, package fragment roots, or package
+          fragments in the Package Explorer and selecting <img src="../../images/dependency_icon.gif" width="16" height="16">
+          <b>Analyze Dependencies</b> from the CodePro Tools submenu on the
+          context menu. The system maintains a list of available dependency
+          analyses. The dependency view can be used both to choose which analysis to
+          view and to manage the list.</p>
+        </td>
+        <td width="10" valign="top">&nbsp;</td>
+        <td valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top" colspan="3">The dependencies that are computed can potentially be viewed at
+          three different levels of granularity: dependencies between projects,
+          packages, or types. If the analysis is performed on one or more
+          projects, then all levels of granularity are available. If the analysis
+          is performed on one or more package fragment roots and package
+          fragments, then only package and type level results are available.
+          When an analysis is chosen, the highest possible level of granularity
+          is displayed.
+        </td>
+      </tr>
+    </table>
+        <h3>Dependencies View</h3>
+        <p><img src="../../images/dependencies_view_projects.gif" width="815" height="323"></p>
+      <p>Dependencies are displayed in a graphical format. The elements visible
+      at each level of granularity (projects, packages, or types) are displayed
+      as rectangles labeled by both an icon indicating the kind of element being
+      viewed and the name of the element. Dependencies between the elements are
+      displayed as directed lines (lines with arrows at either one end or both).
+      The elements are divided into three groups, which are color coded for ease
+      of recognition (the colors can be changed on the <a href="../../preferences/preferences_dependencies.html">Dependencies
+      preference</a>  page as well as the line connection style).</p>
+      <p>The first group are internal elements, which are elements that were
+      either directly selected when the analysis was performed, or elements that
+      are contained in directly selected elements. For example, if you were to
+      select the package java.util, both the package java.util and the class
+      java.util.ArrayList would be internal elements. By default, internal
+      elements are displayed in black.</p>
+      <p>The second group are external elements, which are elements that were
+      neither selected nor contained in selected elements, but that are
+      referenced by them. For example, if you were to select the package
+      java.util, the interface java.lang.Cloneable would be an external element
+      in the type-level graph because the class java.util.ArrayList implements
+      it and it is not within the java.util package. No analysis is done on
+      external items, so no dependency line will ever originate from an external
+      item. By default, external elements are displayed in gray.</p>
+      <p>The third group is a subset of the internal elements; those that are
+      elements of a strongly connected component. A strongly connected component
+      is a set of elements in which it is possible to reach all of the elements
+      by following dependencies, starting from any element. In other word, they
+      are sets of elements that are mutually dependent on one another. These
+      usually represent a problem in the code, so by default they are displayed
+      in red. The thickness of each line further indicates whether the
+      dependency is bi-directional or not.</p>
+      <p>The number of dependencies between nodes can be optionally displayed
+      as labels on the connecting lines. If the line is bi-directional, the
+      number of dependencies in both directions will be displayed, separated by
+      a slash ("/").</p>
+      <p><img src="../../images/dependencies_view_packages.gif" width="815" height="323"></p>
+      <p>When a dependency analysis is being viewed, finer levels of granularity
+      can be accessed by double clicking on some portion of the graph. Double
+      clicking on an element will display a graph containing only those elements
+      within the element that was clicked on and the elements that they are
+      dependent on. This is same as right-clicking and selecting the <b>Explore
+      | Contents </b>command. For example, double clicking on a project will display a
+      graph consisting of the packages defined within that project and those on
+      which those packages depend. Double clicking on external elements is
+      disallowed because no dependency information is recorded for external
+      elements.</p>
+      <p><img src="../../images/dependencies_view_types.gif" width="815" height="323"></p>
+      <p><a name="Cycles"></a>Double clicking on an element that is part of a strongly connected
+      component will, if the shift key is held down, display a graph containing
+      the elements within any of the members of the strongly connected
+      component. This is same as right-clicking and selecting the <b>Explore |
+      Cycle </b>command.</p>
+      <p>Double clicking on a dependency line will display a graph consisting of
+      those elements from either end of the arrow that have a dependency on
+      something on the other end of the arrow. This is same as selecting the
+      elements at both ends of the arrow, then right-clicking
+      and selecting the <b>Explore | Dependencies</b> command.</p>
+      <p>Whenever a new view of the analysis is accessed by double clicking on
+      something, the old view is placed on a list. Controls are provided for
+      moving backward and forward along the list.</p>
+      <p>The following operations are available on the title bar:</p>
+      <h3><img src="../../images/backward_nav.gif" valign="bottom"
+    width="16" height="16">  Go Back</h3>
+      <p>Restores the view to the previously visible level of granularity, if
+      there was one.</p>
+      <h3><img src="../../images/forward_nav.gif" valign="bottom"
+    width="16" height="16">   Go Forward</h3>
+      <p>Restores the view to the level of granularity that was visible before
+      the last Go Back operation, if there was one.</p>
+      <h3><img src="../../images/goto_file.gif" valign="bottom"
+    width="16" height="16">   Go To File</h3>
+      <p>Opens the Java file represented by the file node.</p>
+      <h3><img src="../../images/show_external.gif" valign="bottom"
+    width="16" height="16">   Show External Nodes</h3>
+      <p>Toggles the visibility of external elements at the currently visible
+      level of granularity. When selected, external elements are displayed.</p>
+      <h3><img src="../../images/show_non_cycles.gif" valign="bottom"
+    width="16" height="16">    Show Nodes Not Contained In Cycles</h3>
+      <p>Toggles the visibility of elements that are not involved in cycles.
+      When selected, nodes that are not in a cycle are displayed.</p>
+      <h3><img src="../../images/show_from.gif" valign="bottom"
+    width="16" height="16">   Show Dependencies from Selected Nodes</h3>
+      <p>Causes only dependencies originating from the selected nodes to be
+      displayed.</p>
+      <h3><img src="../../images/show_to.gif" valign="bottom"
+    width="16" height="16">   Show Dependencies to Selected Nodes</h3>
+      <p>Causes only dependencies leading to the selected nodes to be
+      displayed.</p>
+      <h3><img src="../../images/show_from_to.gif" valign="bottom"
+    width="16" height="16">   Show Dependencies to or from Selected Nodes</h3>
+      <p>Causes only dependencies that are either leading to or originating from
+      the selected nodes to be displayed.</p>
+      <h3><img src="../../images/show_all_dependencies.gif" valign="bottom"
+    width="16" height="16">   Show All Dependencies</h3>
+      <p>Causes all dependencies to be displayed.</p>
+      <h3><img src="../../images/show_labels.gif" valign="bottom"
+    width="16" height="16">   Show Reference Counts</h3>
+      <p>Toggles the visibility of the number of references between nodes. When
+      selected, the lines connecting the nodes will be labeled with the number
+      of references.</p>
+      <h3><a name="Report"></a><img src="../../images/export_analysis_as_html_hover.gif" valign="bottom"
+    width="16" height="16">    Export Analysis as HTML</h3>
+      <p>Exports the dependency analysis in a detailed <a href="dependency_report.html"> HTML</a> report..</p>
+      <h3><img src="../../images/refresh.gif" valign="bottom"
+    width="16" height="16">   Refresh</h3>
+    <p>Recomputes the dependencies between the portions of code originally
+    selected for the current dependency analysis.</p>
+      <h3><img src="../../images/remove_item.gif" valign="bottom"
+    width="16" height="16">  <a name="removeItem">Remove Current Dependency Analysis</a> </h3>
+    <p>Removes the currently selected dependency analysis from the list of
+    available analyses. </p>
+    <a name="removeAll"><h3><img src="../../images/remove_all.gif" valign="bottom" width="16"
+    height="16"> </a> Remove All Dependency Analysis </h3>
+    <p>Removes all previously computed dependency analyses from the list of
+    available analyses, resulting in an empty list.</p>
+    <a name="history"><h3><img src="../../images/history_hover.gif" valign="bottom"
+    width="16" height="16"> </a>  Previous Dependency Analyses </h3>
+    <p>Presents the user with a list of dependency analyses that are available 
+	for viewing. If the list is too long, the last item, labeled &quot;Other 
+	Dependency Analyses&quot;, will open a dialog in which all of the available 
+	dependency analyses are available for selection. Analyses are not persisted 
+	beyond a single execution of the workbench.</p>
+      <p>The following operations are available on the context menu:</p>
+      <p><img src="../../images/dependencies_cu_menu.gif" align="top" width="248"
+        height="216"></p>
+      <h3>
+    Undo</h3>
+      <p>Undoes the last node manipulation.
+      <h3>
+    Redo</h3>
+  <p>Redoes the last node manipulation..
+      <h3>
+    <img src="../../images/goto_file.gif" valign="bottom"
+    width="16" height="16"> Go To File</h3>
+    <p>Opens the Java file represented by the file node.
+      <h3>Explore Contents</h3>
+         <p>Shows a graph containing only those elements within the selected
+         element and any elements that they are dependent on.
+      <h3>Explore Dependencies</h3>
+         <p>Shows a graph containing the elements of all of the selected
+         elements that either reference some element in a different selected
+         element or are referenced from such an element.
+      <h3>Explore Cycle</h3>
+         <p>Shows a graph of all of the elements involved in the cycle
+         containing the selected node.
+      <h3><a name="Closure"></a>Explore Closure</h3>
+         <p>Shows a graph of all of the elements referenced (either directly or
+         indirectly) by the selected node.
+      <h3>
+    Move</h3>
+      <p>Invokes the Move refactoring on the selected element.
+      <h3>
+    Rename</h3>
+      <p>Invokes the Rename refactoring on the selected element.
+      <h3>
+    <a name="history"><img src="../../images/print.gif" valign="bottom"
+    width="16" height="16"> </a>  Print Image...</h3>
+      <p>Opens a print dialog, then, if a printer is selected, prints the
+      currently visible graph. The graph is scaled to fit on a single sheet of
+      paper.</p>
+      <h3>
+    Export Graph</h3>
+      <p>Opens a save dialog, then, if a file name is specified, saves the
+      currently visible graph as a GIF.
+      <h3>
+    <img src="../../images/export_analysis_as_html_hover.gif" valign="bottom"
+    width="16" height="16"> Export Analysis</h3>
+      <p>Opens a save dialog, then, if a file name is specified, saves the
+      currently selected analysis in either <a href="dependency_report.html"> HTML</a> or XML format.
+ </td>
+  </tr>
+</table>
+</body>
+</html>

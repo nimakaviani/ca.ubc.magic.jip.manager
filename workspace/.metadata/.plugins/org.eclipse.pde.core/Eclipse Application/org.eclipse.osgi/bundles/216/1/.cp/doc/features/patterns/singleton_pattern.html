@@ -1,0 +1,141 @@
+<html>
+
+<head>
+<title>Singleton Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Singleton Pattern</b></font></h1>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Singleton Pattern ensures a class only has one instance, and provide a global point of
+    access to it. It's important for some classes to have exactly one instance. How do we
+    ensure that a class has only one instance and that the instance is easily accessible? A
+    global variable makes an object accessible, but it doesn't keep you from instantiating
+    multiple objects. A better solution is to make the class itself responsible for keeping
+    track of its sole instance. The class can ensure that no other instance can be created (by
+    intercepting requests to create new objects), and it can provide a way to access the
+    instance. This is the Singleton pattern.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/singleton_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center" height="19"><strong>Option</strong></td>
+        <td align="center" height="19"><strong>Description</strong></td>
+        <td align="center" height="19"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Source folder</td>
+        <td valign="top" align="left" height="57">Enter a source folder for the new class. Either
+        type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select
+        a source folder via a dialog.</td>
+        <td valign="top" align="left" height="57">The source folder of the element that was
+        selected when the wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Package</td>
+        <td valign="top" align="left" height="57">Enter a package to contain the new class. You
+        can select either this option or the Enclosing Type option, below. Either type a valid
+        package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via a
+        dialog.</td>
+        <td valign="top" align="left" height="57">The package of the element that was selected
+        when the wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Enclosing type</td>
+        <td valign="top" align="left" height="19">Select this option to choose a type in which to
+        enclose the new class. You can select either this option or the Package option, above.
+        Either type a valid name in the field or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a type via a dialog.</td>
+        <td valign="top" align="left" height="19">The type or the primary type of the compilation
+        unit that was selected when the wizard was started or &lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Class name</td>
+        <td valign="top" align="left" height="19">Type a name for the new class.</td>
+        <td valign="top" align="left" height="19">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">Either public, default, private, or protected (private and protected are
+            only available if you specify an enclosing type)</li>
+          <li CLASS="Item">final</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Superclass</td>
+        <td valign="top" align="left" height="38">Type or click&nbsp;<span CLASS="Label">Browse</span>
+        to select a superclass for this class.</td>
+        <td valign="top" align="left" height="38">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Field name</td>
+        <td valign="top" align="left" height="19">Type or select the name of the field that will
+        contain the single instance of the class.</td>
+        <td valign="top" align="left" height="19">&lt;instance&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Field Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the unique instance
+        filed.<ul CLASS="UnorderedList">
+          <li CLASS="Item">Either public, default, private, or protected (private and protected are
+            only available if you specify an enclosing type)</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">private</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Would you like to have the singleton field initialized
+        dynamically</td>
+        <td valign="top" align="left">Select &quot;Yes&quot; to initialize the singleton field
+        dynamically, or select &quot;No&quot; to initialize the singleton field statically.</td>
+        <td valign="top" align="left">&lt;Yes&gt;.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Method name</td>
+        <td valign="top" align="left" height="19">Type or select the name of the method that will
+        return the single instance of the class.</td>
+        <td valign="top" align="left" height="19">&lt;getInstance&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="56">Generate serialization support</td>
+        <td valign="top" align="left" height="56">Determines whether the singleton class will
+        implement the Serializable interface</td>
+        <td valign="top" align="left" height="56">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Generate thread-safe code</td>
+        <td valign="top" align="left">Determines whether thread-safe code should be generated<p>.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Singleton pattern when<ul>
+      <li>there must be exactly one instance of a class, and it must be accessible to clients from
+        a well-known access point.<br>
+        <br>
+        <a name="auto1007"></a> </li>
+      <li>when the sole instance should be extensible by subclassing, and clients should be able
+        to use an extended instance without modifying their code. </li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?SingletonPattern">http://c2.com/cgi/wiki?SingletonPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Singleton_pattern">http://www.wikipedia.org/wiki/Singleton_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Singleton">http://www.cmcrossroads.com/bradapp/javapats.html#Singleton</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_singleton.asp">http://www.dofactory.com/patterns/pattern_singleton.asp</a></p>
+    <p><a href="http://www.castle-cadenza.demon.co.uk/single.htm">http://www.castle-cadenza.demon.co.uk/single.htm</a></td>
+  </tr>
+</table>
+</body>
+</html>

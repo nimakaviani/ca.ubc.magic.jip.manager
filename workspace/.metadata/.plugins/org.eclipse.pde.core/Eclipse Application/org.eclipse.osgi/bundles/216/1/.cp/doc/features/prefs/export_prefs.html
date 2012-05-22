@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<title>Export Preferences</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Export Preferences</b></font></h1>
+    <p><img src="../../images/export_prefs_wizard1.gif" width="470" height="550"></p>
+    <p>Migrating from one IDE version to another is inconvenient due to the
+    difficulty in moving general workspace preferences from one version to another. Likewise,
+    configuring multiple user's workspaces with common settings (such as code formatting
+    preference, classpath variable settings, etc.) is also very difficult.</p>
+    <p>CodePro makes it easy for users to copy workspace preferences in any granularity
+    between multiple workspaces. It also makes it easy for team leaders and administrators to
+    set up common sets of preferences for configuring multiple workspaces.</p>
+      <p>Key advantages relative to the simple preference import/export
+      mechanism in base Eclipse are:</p>
+      <ul>
+        <li>Much better control over the granularity of exported preferences.
+          This makes it easy, for example, to share just your code formatter
+          preferences with other team members without forcing them to take the
+          rest of your preferences as well.<br>
+          <br>
+        </li>
+        <li>Better handling of many preferences like classpath variables. The
+          Eclipse preference exporter exports classpath variables using hard coded
+          paths which makes them pretty useless when imported into another
+          workspace or on another machine. The CPS preference exporter will
+          export them in a workspace-relative format that makes them useable in
+          multiple workspaces and on multiple developer machines.<br>
+          <br>
+        </li>
+        <li>Support for many non-standard preference settings like templates and
+          working sets. These are stored as XML files in your workspace metadata
+          directory and are not visible to the Eclipse preference exporter.</li>
+      </ul>
+    <h3>Exporting preferences</h3>
+    <p>To export preferences, open the Export Wizard, select &quot;Preferences&quot; and click
+    &quot;Next&quot;. At the top of the wizard is a checkbox tree list showing all of the
+    preferences that may be exported. Each plugin that defines any preferences is listed and
+    may be individually selected. Some plugins define multiple categories of preferences
+    (e.g., the &quot;Java Core&quot; plugin defines both &quot;Classpath Variables&quot; and
+    &quot;Code Formatting&quot; preferences) which also may be individually selected.</p>
+    <p><img src="../../images/export_prefs_wizard2.gif" width="470" height="573"></p>
+    <p>Immediately above the checkbox tree is a dropdown list providing quick access to common
+    sets of preferences such as &quot;Java Classpath Variables&quot; or &quot;Java Code
+    Formatting&quot;. Selecting one of those items will cause the appropriate checkboxes to be
+    checked. Below the the checkbox tree are two checkboxes controlling some additional export
+    options. The &quot;Include optional settings&quot; checkbox includes some optional
+    categories into the list of available preferences (these tend to be very workspace
+    specific and most appropriate for a single user wishing to move from one release of
+    Application Developer or Eclipse to another). The &quot;Show all plugins&quot; checkbox shows all loaded plugins
+    including those that do not define any exportable preferences.</p>
+    <p><img src="../../images/export_prefs_wizard3.gif" width="470" height="573"></p>
+    <p>At the bottom of the wizard page, is an area for selecting the location to which the
+    preference file should be exported. The first option, &quot;File System&quot; allows the
+    user to export the preferences to any arbitrary location in the file system. It defaults
+    to \preferences\preferences.pref (the &quot;.pref&quot; suffix is used for all preference
+    files). The wizard automatically remembers the names of the last eight files that have
+    been exported.</p>
+    <p><img src="../../images/export_prefs_target1.gif" width="446" height="87"></p>
+    <p>The second option, &quot;Project&quot;, allows the user to store the preferences to a
+    project loaded in their workspace. This makes it easy to put the preference file under
+    some form of source code control such as CVS, PVCS or ClearCase. The wizard automatically
+    remembers the last project exported to as well as the last eight files that have been
+    exported.</p>
+    <p><img src="../../images/export_prefs_target2.gif" width="446" height="85"></p>
+      <p>The third option, &quot;Server&quot;, can be used only if a <a href="../collaboration/server.html">collaboration
+      server</a> has been specified in the <a href="../../preferences/preferences_collaboration.html">preferences</a>.
+      It allows the user to store the preferences on the <a href="../collaboration/server.html">collaboration
+      server</a>. The wizard automatically remembers the last path used.</p>
+      <p><img border="0" src="../../images/export_prefs_target3.gif" width="445" height="85"></p>
+      <p><a name="GlobalPrefs"></a>The fourth option, &quot;User&quot;, likewise
+      can be used only if a <a href="../collaboration/server.html">collaboration
+      server</a> has been specified in the <a href="../../preferences/preferences_collaboration.html">preferences</a>.
+      It allows the user to send preferences to other users as an attachment to
+      a <a href="../collaboration/messages_view.html">message</a>; the
+      attachment will be automatically applied upon receipt without intervention
+      by the receiving user. Thus, this option provides a way to silently set
+      preferences in the workbenches of other users. This can only be done for <a href="../collaboration/users_view.html">users</a>
+      and <a href="../collaboration/groups_view.html">groups</a> led by the
+      user, unless the user is the administrator, in which case it can be done
+      for any user or group. The wizard automatically remembers the last
+      users/groups used.</p>
+      <p><img border="0" src="../../images/export_prefs_target4.gif" width="446" height="88"></p>
+    <p>Preference files are stored in standard XML format. The following is an example of what
+    an exported preference file looks like. In this case, only the users classpath variables
+    have been exported. Note that the classpath variables are stored relative to the
+    &quot;eclipse.root&quot;, &quot;eclipse.workspace&quot; or &quot;eclipse.drive&quot; as
+    appropriate (system classpath variables such as &quot;JRE_LIB&quot; are not exported).
+    This makes it easy to import these preferences into another workspace that might be
+    installed on a different drive or in a different location relative to the original
+    workspace.</p>
+    <p><img src="../../images/export_prefs_file.gif" width="636" height="560"
+    alt="export_prefs_file.gif (32025 bytes)"></td>
+  </tr>
+</table>
+</body>
+</html>

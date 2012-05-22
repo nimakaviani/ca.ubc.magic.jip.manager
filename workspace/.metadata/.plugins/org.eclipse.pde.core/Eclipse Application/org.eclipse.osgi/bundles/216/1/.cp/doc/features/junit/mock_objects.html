@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Mock Object Support</title>
+		<link type="text/css" rel="stylesheet" href="../../book.css"/>
+	</head>
+	<body>
+		<h1>Mock Object Support</h1>
+		<p>Mock objects are simulated objects that stand in for real objects, and respond to method calls in controlled ways. They are used in unit testing in order to isolate the code under test from specific dependencies. For instance, a unit test of an account management class shouldn&#8217;t depend on have a live database connection. You want to create a mock instance of that database connection, and have the account management class talk to that.</p>
+		<p>CodePro uses the 
+			<a href="http://www.easymock.org">EasyMock</a> library to implement its mock object support. For examples and documentation of how to use EasyMock, see 
+			<a href="http://easymock.org/EasyMock2_4_Documentation.html">easymock.org</a>.
+		</p>
+		<ol style="list-style: none;">
+			<li>
+				<a href="mock_objects.html#Setup">Setup</a>
+				<ol style="list-style: none;">
+					<li>
+						<a href="mock_objects.html#EasyMockVersion">EasyMock Version</a>
+					</li>
+					<li>
+						<a href="mock_objects.html#AlwaysMockInterfaces">Always Mock Interfaces</a>
+					</li>
+					<li>
+						<a href="mock_objects.html#MockingSpecificClasses">Mocking Specific Classes</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<a href="mock_objects.html#MockObjectExample">Mock Object Example</a>
+			</li>
+		</ol>
+		<p><hr/></p>
+		<h2 id="Setup">Setup</h2>
+		<p>You can configure CodePro&#8217;s use of mock objects through the 
+			<strong>CodePro > JUnit > Mock Objects</strong> preference page.
+		</p>
+		<h3 id="EasyMockVersion">EasyMock Version</h3>
+		<p>CodePro can use EasyMock version 1.2 or 2.4. If your test project already uses a specific version of EasyMock, CodePro will recognize and use that version. Otherwise, CodePro will default to using EasyMock 2.4. This version of EasyMock is more powerful and has simplier syntax. However, it requires Java 5 to run. If your project is limited to using Java 1.4 or earlier, CodePro will emit tests that use EasyMock 1.2.</p>
+		<h3 id="AlwaysMockInterfaces">Always Mock Interfaces</h3>
+		<p>It is good programming practice to create interfaces for services that are consumed by different parts of your application. This allows a good separation between the contract of a service and its implementation. It also allows easy mocking of that service for testing purposes. If you select the 
+			<strong>Always create mock objects for interfaces</strong> option, CodePro will use mock objects for interfaces in generated tests.
+		</p>
+		<h3 id="MockingSpecificClasses">Mocking Specific Classes</h3>
+		<p>In many cases, it is not possible to use an interface for a service definition. You may not have control over the definition of a class, or you may be working with legacy code or be otherwise unable to refactor the class. For these cases, CodePro allows you to create mocks of concrete objects in generated tests.</p>
+		<p>
+			<img border="0" src="../../images/preferences_junit_mock_objects.gif"/>
+		</p>
+		<h2 id="MockObjectExample">Mock Object Example</h2>
+		<p>We&#8217;ll illustrate using mock objects with a simple example:</p>
+		<pre><code>
+/**
+ * A collection of JDBC helper methods.
+ */
+public final class DbUtils {
+	
+    /**
+     * Close a &lt;code>Connection&lt;/code>, avoid closing if null.
+     *
+     * @param conn Connection to close.
+     * @throws SQLException if a database access error occurs
+     */
+    public static void close(Connection conn) throws SQLException {
+        if (conn != null) {
+            conn.close();
+        }
+    }
+    
+}
+</code></pre>
+		<p></p>
+		<p>When we generate tests for this method (right click on the class in the Package Explorer and choose 
+			<strong>CodePro Tools > Generate Test Cases</strong>), we get the following test case:
+		</p>
+		<pre><code>
+public class DbUtilsTest extends TestCase {
+	/**
+	 * Run the void close(Connection) method test.
+	 *
+	 * @generatedBy CodePro at 11/26/08 10:14 AM
+	 */
+	public void testClose_1()
+		throws Exception {
+		Connection conn = EasyMock.createMock(Connection.class);
+		// add mock object expections here
+
+		EasyMock.replay(conn);
+
+		DbUtils2.close(conn);
+
+		// add additional test code here
+		EasyMock.verify(conn);
+	}
+</code></pre>
+		<p></p>
+		<p>When we execute this test, we get a test failure. The 
+			<code>Connection.close()</code> method was called in the 
+			<code>DBUtils.close()</code> method and the mock object had not been set up to expect this. In order to correct this failure, we modify the test to include the call to 
+			<code>close()</code>. This practice of setting up the mock objects expectations to done before the call to 
+			<code>EasyMock.replay()</code>. The new test looks like:
+		</p>
+		<pre><code>
+public void testClose_1()
+	throws Exception {
+	Connection conn = EasyMock.createMock(Connection.class);
+	// add mock object expections here
+	conn.close();
+	EasyMock.replay(conn);
+
+	DbUtils2.close(conn);
+
+	// add additional test code here
+	EasyMock.verify(conn);
+}
+</code></pre>
+		<p></p>
+		<p>This modified test passes. The steps to using mock objects in tests are:</p>
+		<ol>
+			<li>Create the mock object.</li>
+			<li>Set up its expectations &#8211; the methods that will be called, and any return values.</li>
+			<li>Switch the mock object over to replay mode &#8211; it is now expecting the code under test to call methods on it.</li>
+			<li>At the end test, verify that its expectations were met &#8211; that the methods it thought would be called were.</li>
+		</ol>
+		<p>For more examples of using mock objects in tests, see 
+			<a href="http://easymock.org/EasyMock2_4_Documentation.html">easymock.org</a>.
+		</p>
+	</body>
+</html>

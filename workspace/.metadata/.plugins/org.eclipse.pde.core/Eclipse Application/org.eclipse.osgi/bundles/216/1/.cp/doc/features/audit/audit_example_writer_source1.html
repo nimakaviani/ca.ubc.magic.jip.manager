@@ -1,0 +1,219 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="../../../stylesheets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../stylesheets/prettify/prettify.js"></script>
+<title>SimpleTextAuditWriter</title>
+</head>
+
+<body onload="prettyPrint()">
+<pre class="prettyprint">
+
+package com.instantiations.assist.eclipse.analysis.audit.writer;
+ 
+import java.util.Hashtable;
+ 
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExecutableExtension;
+ 
+import com.instantiations.assist.eclipse.analysis.audit.core.AuditRule;
+import com.instantiations.assist.eclipse.analysis.audit.core.AuditRuleSet;
+import com.instantiations.assist.eclipse.analysis.audit.core.AuditViolation;
+import com.instantiations.assist.eclipse.analysis.audit.core.AuditViolationSet;
+import com.instantiations.assist.eclipse.analysis.audit.resolution.AuditViolationResolution;
+import com.instantiations.assist.eclipse.analysis.audit.util.AuditResultGroup;
+import com.instantiations.assist.eclipse.core.util.StringUtilities;
+import com.instantiations.jlib.util.JLibUtils;
+ 
+/**
+ * Instances of the class <code>SimpleTextAuditWriter</code> implement a audit writer
+ * that produces simple text formatted output.
+ * 
+ * Copyright (c) 2003, Google, Inc.<br>
+ * All Rights Reserved
+ *
+ * @author Dan Rubel
+ * @author Brian Wilkerson
+ * @version $Revision: 1.0 $
+ */
+public class SimpleTextAuditWriter extends AbstractAuditWriter
+    implements IExecutableExtension
+{
+    protected String indent;
+    protected String separator1;
+    protected String separator2;
+    protected String separator3;
+               
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Constructors and Initialization
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Construct a new instance.
+     *
+     * WARNING! If this constructor is used, then
+     * {@link #setInitializationData(IConfigurationElement, String, Object)}
+     * should be used to initialize the receiver.
+     */
+    public SimpleTextAuditWriter() {
+        this.indent = JLibUtils.ONE_TAB;
+        this.separator1 = JLibUtils.ONE_TAB;
+        this.separator2 = JLibUtils.ONE_TAB;
+        this.separator3 = JLibUtils.ONE_TAB;
+    }
+ 
+    /**
+     * @see org.eclipse.core.runtime.IExecutableExtension#setInitializationData(IConfigurationElement, String, Object)
+     */
+    public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
+        throws CoreException
+    {
+        indent = getStringFromData(data, "indent", JLibUtils.ONE_TAB);
+        separator1 = getStringFromData(data, "separator1", JLibUtils.ONE_TAB);
+        separator2 = getStringFromData(data, "separator2", JLibUtils.ONE_TAB);
+        separator3 = getStringFromData(data, "separator3", JLibUtils.ONE_TAB);
+    }
+               
+    /**
+     * Extract a string value from the specified hashtable
+     *
+     * @param data the hashtable
+     * @param key the key of the value to be returned
+     * @param defaultValue the default value
+     * @return the value in the hashtable
+     *                 or the default value if the data is not a hashtable
+     *                 or if the key does not exist in the table
+     *                 or if the value is not a string
+     */
+    public static String getStringFromData(Object hashtable, String key, String defaultValue) {
+        String value = null;
+        if (hashtable instanceof Hashtable) {
+            Object object = ((Hashtable) hashtable).get(key);
+            if (object instanceof String) {
+                value = (String) object;
+            }
+        }
+        if (value == null)
+            value = defaultValue;
+        return StringUtilities.decodeEscapes(value);
+    }
+               
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Audit Result Writer
+    //
+    ////////////////////////////////////////////////////////////////////////////
+               
+    /**
+     * @see com.instantiations.assist.eclipse.analysis.audit.core.AuditResultWriter#writeHeader(AuditViolationSet)
+     */
+    public void writeHeader(AuditViolationSet violationSet) {
+        _writer.print("Audit violations for " + violationSet.getName());
+        AuditRuleSet auditRuleSet = violationSet.getAuditRuleSet();
+        if (auditRuleSet != null && !auditRuleSet.isDefault())
+            _writer.print(" using " + auditRuleSet.getName());
+        _writer.println("");
+        _writer.println("");
+    }
+ 
+    /**
+     * @see com.instantiations.assist.eclipse.analysis.audit.core.AuditResultWriter#writeTableOfContents(AuditResultGroup[])
+     */
+    public void writeTableOfContents(AuditResultGroup[] groups) {
+    }
+ 
+    /**
+     * Write out information about the specified group of audit violations.
+     *
+     * @param violationContainer the violation container
+     *        (e.g. an audit rule or a resource - not <code>null</code>)
+     * @param violationCount the number of violations in this group
+     * @param depth the depth of this group
+     */
+    public void writeGroupHeader(Object violationContainer, int violationCount, int depth, int maxDepth)
+    {
+        for (int i = 1; i < depth; i++) {
+            _writer.print(indent);
+        }
+        _writer.println(getViolationContainerText(violationContainer, violationCount));
+    }
+ 
+    /**
+     * Write out information about the specified violation.
+     *
+     * @param violation the audit violation (not <code>null</code>)
+     * @param depth the depth of this violation
+     */
+    public void writeViolation(AuditViolation violation, int depth)
+    {
+        IMarker marker;
+        Object attribute;
+        AuditViolationResolution[] resolutions;
+ 
+        // Write violation description
+        for (int i = 1; i < depth; i++) {
+            _writer.print(indent);
+        }
+        _writer.print(violation.getDescription());
+ 
+        // Write recommendation
+        if (includeRecommendations) {
+            resolutions = violation.getResolutions();
+            _writer.print(separator1);
+            if (resolutions.length > 0) {
+                _writer.print(resolutions[0].getDescription());
+            } else {
+                _writer.print("No recommendation");
+            }
+        }
+ 
+        // Write severity
+        if (includeSeverities) {
+            _writer.print(separator2);
+            _writer.print(AuditRule.SEVERITY_LABELS[violation.getSeverity()] + " Severity");
+        }
+ 
+        // Write resource name
+        _writer.print(separator3);
+        _writer.print(violation.getResource().getName());
+ 
+        // Write line
+        try {
+            marker = violation.getMarker();
+            if (marker != null) {
+                attribute = marker.getAttribute(IMarker.LINE_NUMBER);
+                _writer.print(separator3);
+                _writer.print("Line ");
+                _writer.println(attribute);
+            }
+        } catch (CoreException exception) {
+        }
+    }
+ 
+    /**
+     * Write out information about the specified group of audit violations.
+     *
+     * @param violationContainer the violation container
+     *        (e.g. an audit rule or a resource - not <code>null</code>)
+     * @param depth the depth of this group
+     */
+    public void writeGroupFooter(Object violationContainer, int depth)
+    {
+    }
+ 
+    /**
+     * @see com.instantiations.assist.eclipse.analysis.audit.core.AuditResultWriter#writeFooter(AuditViolationSet)
+     */
+    public void writeFooter(AuditViolationSet violationSet)
+    {
+    }
+}
+</pre>
+</body>
+
+</html>

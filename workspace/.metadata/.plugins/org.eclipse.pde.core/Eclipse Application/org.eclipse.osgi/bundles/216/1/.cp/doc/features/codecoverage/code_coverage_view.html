@@ -1,0 +1,159 @@
+<html>
+
+<head>
+<title>Code Coverage - Coverage View</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top"><h1>
+      <b><font face="Verdana" color="#CC0000">Code Coverage - Coverage View</font></b></h1>
+      		<p>The <b> Coverage View</b> is divided into two sections a content region and a
+      details region. The content region displays the Java elements for which
+      coverage information was recorded. These elements can either be displayed
+      in a hierarchy (like that shown in either the Package Explorer or the
+      Outline View), or as a flat list of elements of a similar kind.</p>
+      		</td>
+			<td width="50">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+	<p><img src="../../images/code_coverage_view.gif" width="835" height="322"></p>
+      <div align="left">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="0"></td>
+            <td valign="top">Selecting an element in the content region will
+              cause the details region to reflect the information recorded about
+              that element. The details region contains two tabbed pages the <b>
+              Details</b> page and the <b> History</b> page.
+              <p>The <b> Details</b> page shows the coverage information reported for
+              classes, methods, lines, blocks, and instructions. (Class
+              information is not available when the selected element is a
+              method.) The information is expressed both as a fraction (the
+              number of covered units divided by the total number of units) and
+              as a percentage. The percentage is also represented graphically. <a href="../../preferences/preferences_code_coverage.html">Preferences</a>
+              are available to control the colors of the graphic bars and
+              whether percentage changes are shown in the tree view. If the
+              coverage for an item falls below a user <a href="../../preferences/preferences_code_coverage.html">established
+              percentage</a>, that item is highlighted in red (or any other <a href="../../preferences/preferences_code_coverage.html">chosen
+              color</a>).</p>
+              <p>The meaning of some of these units should be explained. Classes
+              refers to individual classes, not compilation units. Methods
+              should be self-explanatory. Lines correspond to lines of code
+              within the source. Instructions are individual bytecodes executed
+              by the VM. Blocks are groups of instructions that do not include
+              any branches.</p>
+              <p>The <b> History</b> page displays a line graph showing the changes in
+              the coverage information for the selected element across all of
+              the available versions of the report. You can use this page to
+              determine whether the results are generally getting better as well
+              as to identify whether a particular change to a test increased the
+              coverage. <a href="../../preferences/preferences_code_coverage.html">Preferences</a>
+              are available to control the number of historical versions kept
+              for each report.<br>
+&nbsp;</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div align="left">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1">
+			<tr>
+				<td>
+				<img border="0" src="../../images/code_coverage_toolbar.gif" width="211" height="174"></td>
+				<td>&nbsp;</td>
+				<td valign="top"><a name="ruler"></a>If a compilation unit for 
+				which coverage information was gathered is opened in an editor, 
+				the editor will show which lines of the file were covered or not 
+				in a special code coverage ruler. The ruler itself may be turned 
+				on and off using the code coverage toolbar button. Different 
+				sets of code coverage data may be selected from the code 
+				coverage toolbar button's drop down menu.<p>In the coverage 
+				ruler, covered lines will show one to three bars depending on he 
+				relative number of times that the line was executed. Partially 
+				covered lines will have a yellow bar beside them and lines that 
+				were completely uncovered will have a red bar beside them. 
+				Hovering over the bars will show a tooltip indicating exactly 
+				how many times the line was executed. </td>
+			</tr>
+		</table>
+	</div>
+      <p><img border="0" src="../../images/code_coverage_editor.gif"></p>
+      <p>You can quickly open a file containing one of the classes or methods
+      shown in the content region by double-clicking on the class or method. You
+      can do the same thing by selecting &quot;Go to File&quot; from the context
+      menu.</p>
+      <h2>Actions</h2>
+      <p><img border="0" src="../../images/code_coverage_icon_sort_name.gif" width="21" height="20">
+      Sorts the elements in the content region alphabetically.</p>
+      <p><img border="0" src="../../images/code_coverage_icon_sort_percentage.gif" width="21" height="20">
+      Sorts the elements in the content region based on the percentage of code
+      that was covered (ordered from least to greatest).</p>
+      <p><img border="0" src="../../images/code_coverage_icon_sort_lines.gif" width="21" height="20">
+      Sorts the elements in the content region based on the number of lines of
+      code that were not fully executed (ordered from greatest to least). . <a href="../../preferences/preferences_code_coverage.html">Preferences</a>
+      are available to control whether the number of uncovered lines are shown
+      in the tree view.</p>
+      <p>
+		<img border="0" src="../../images/code_coverage_icon_style.gif">
+      Changes the presentation of items within the content region. The choices
+      are:</p>
+      <blockquote>
+        <p><img border="0" src="../../images/code_coverage_view_display_menu.gif" width="126" height="117"></p>
+        <p><b>Hierarchy</b> - Displays the elements in a hierarchy.</p>
+        <p><b>Projects</b> - Displays a flat list of projects.</p>
+        <p><b>Packages</b> - Displays a flat list of packages.</p>
+        <p><b>Compilation Units</b> - Displays a flat list of compilation units.</p>
+        <p><b>Classes</b> - Displays a flat list of classes.</p>
+        <p><img border="0" src="../../images/code_coverage_view_classes.gif" width="835" height="322"></p>
+        <p><b>Methods</b> - Displays a flat list of methods.</p>
+      </blockquote>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top"><img border="0" src="../../images/export_analysis_as_html_hover.gif" width="16" height="16">
+      Generates an <a href="code_coverage_sample_report.html"> HTML report</a> from the
+        currently displayed coverage report.
+        <p>
+        <img border="0" src="../../images/remove_item.gif" width="16" height="16">
+      Removes the most recent version of the current code coverage report.</p>
+      <p><img border="0" src="../../images/remove_all.gif" width="16" height="16">
+      Removes all versions of all code coverage reports.</p>
+      		</td>
+			<td width="50">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+      <p><img border="0" src="../../images/history_hover.gif" width="16" height="16">
+      Selects which code coverage report is being viewed. The available series 
+		are listed first followed by the elements in the selected series.</p>
+      <blockquote>
+        <p>
+		<img border="0" src="../../images/code_coverage_view_series_menu.gif"></p>
+      </blockquote>
+      <h2>Context Menu</h2>
+      <blockquote>
+        <p><img border="0" src="../../images/code_coverage_view_context_menu.gif" width="174" height="95"></p>
+        <p><b>Go to File</b> - Opens the file containing the selected class or
+        method.</p>
+        <p><b>Generate HTML Report</b> - Generates an <a href="code_coverage_sample_report.html"> HTML report</a> from the
+        currently displayed coverage report.</p>
+        <p><b>Generate Text Report</b> - Generates a text report from the
+        currently displayed coverage report.</p>
+        <p><b>Generate XML Report</b> - Generates an XML report from the
+        currently displayed coverage report.</p>
+      </blockquote>
+      <h6 align="center"><b><font face="Verdana">This feature is based on technology from the EMMA
+      Project.<a href="http://emma.sourceforge.net"><br>
+      http://emma.sourceforge.net<br>
+      </a>Copyright &copy; 2001-2005 Vlad Roubtsov</font></b>
+ </td>
+  </tr>
+</table>
+</body>
+</html>

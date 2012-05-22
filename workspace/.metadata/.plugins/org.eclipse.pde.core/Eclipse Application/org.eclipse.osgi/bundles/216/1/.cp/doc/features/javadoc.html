@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<title>Javadoc Repair</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">Javadoc Repair</font></h1>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top"><img src="../images/javadoc_menu.gif" align="top"></td>
+        <td valign="top" width="4">&nbsp;&nbsp;&nbsp; </td>
+        <td valign="top"><p>Each
+        time the menu item <img src="../images/javadoc_icon.gif" width="16" height="16">
+        &quot;Repair Javadoc&quot; is selected, the javadoc repair engine is run.<br>
+        This computes missing javadoc comments as well as corrections and improvements to existing
+        ones, and displays these in a javadoc comparison editor. From there, the suggested changes
+        may then be edited and applied, or rejected.</p>
+        <p>Options are provided via a <a href="../preferences/preferences_javadoc.html">preference
+        page</a> to determine what Java program elements the javadoc repair engine examines, and
+        to set the format of generated text. Custom Javadoc tags may also be
+        specified.</td>
+      </tr>
+    </table>
+    <h3>The Compilation Unit Tree</h3>
+    <p><img src="../images/javadoc_editor.gif" width="595" height="496"></p>
+    <p>The compilation unit tree (shown on the top left in the picture above) shows the
+    compilation units within the selected scope for which there are suggested javadoc changes.
+    Selecting a compilation unit will show the changes suggested for the elements in that
+    compilation unit.</p>
+    <p>The context menu contains a menu item for saving the suggested javadoc changes under
+    the selection, for expanding the tree and for removing a selection from view.</p>
+    <p><img src="../images/javadoc_cu_menu.gif" width="135" height="66"></p>
+    <h3>The Structure Tree</h3>
+    <p>The structure tree (shown on the top right in the picture above) shows the elements in
+    the selected compilation unit for which there are suggested javadoc changes. Selecting an
+    element will restrict the comparison view (shown in the bottom half of the picture above)
+    to that element. The context menu contains a menu item for expanding the tree. </p>
+    <h3>The Comparison View</h3>
+    <p>The comparison view (shown in the bottom half of the picture above) shows a comparison
+    between the suggested javadoc changes (on the left) and the original version (on the
+    right). The text in the left pane may be edited. An option is provided via
+    the <a href="../preferences/preferences_javadoc.html">preference
+        page</a>  that will cause the original and modified panes in the Javadoc
+    editor to be transposed, so that the original code is shown on the left and
+    the modified code is shown on the right.</p>
+    <p> The context menu contains the usual edit
+    menu items.&nbsp;</p>
+    <h3><img src="../images/copy_l_co.gif" valign="bottom" width="16" height="16"> 
+    Copy All
+    from Right to Left Button </h3>
+    <p>Clicking on the &quot;Copy All from Right to Left&quot; button will remove any proposed
+    changes in the selected compilation unit, type or method.</p>
+    <h3><img src="../images/copycont_l_co.gif" valign="bottom" width="16" height="16"> Copy
+    Current Change from Right to Left Button</h3>
+    <p>Clicking on the &quot;Copy Current Change from Right to Left&quot; button will remove
+    the current change in the selected compilation unit, type or method.</p>
+    <h3><img src="../images/next_nav.gif" valign="bottom" width="16" height="16"> Select Next
+    Change Button </h3>
+    <p>Clicking on the &quot;Select Next Change&quot; button will highlight the next proposed
+    change.</p>
+    <h3><img src="../images/prev_nav.gif" valign="bottom" width="16" height="16"> Select
+    Previous Change Button </h3>
+    <p>Clicking on the &quot;Select Previous Change&quot; button will highlight the previous
+    proposed change.</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+package actions;
+
+import jipplugin.Activator;
+
+import org.eclipse.jface.action.Action;
+
+public class AboutAction 
+extends Action 
+{
+	public
+	AboutAction()
+	{
+		this.setToolTipText("Disconnect from application to produce snapshot.");
+		this.setText("About");
+	}
+	
+	@Override
+	public void 
+	run()
+	{
+
+	}
+}

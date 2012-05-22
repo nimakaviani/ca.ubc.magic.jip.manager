@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Javadoc Conventions</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Javadoc Conventions</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for both the existence and correctness of Javadoc comments within your code.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.fieldJavadoc">Field Javadoc Conventions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.methodJavadoc">Method Javadoc Conventions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.packageJavadoc">Package Javadoc</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.typeJavadoc">Type Javadoc Conventions</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.fieldJavadoc">Field Javadoc Conventions</a></h4><p>
+<b>Summary</b><br/>All fields should have a Javadoc comment associated with them.<p><b>Description</b><br/>This audit rule checks for the existence of a Javadoc comment for each field. It can be configured to only flag fields with the specified visibilities.<p><b>Example</b><br/>The following field declaration would be flagged as a violation because it does not have a Javadoc comment associated with it:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private String name;</code><p><img src="../../images/auditrules/audit_field_javadoc_conventions.gif" width="403" height="183"></p><h4><a name="com.instantiations.assist.eclipse.audit.methodJavadoc">Method Javadoc Conventions</a></h4><p>
+<b>Summary</b><br/>All methods should have a Javadoc comment associated with them.<p><b>Description</b><br/>This audit rule checks for the existence of a Javadoc comment for each method. In addition, it checks that each Javadoc comment includes a @param tag for each parameter (and none for non-parameters), a @return tag if the method has a return type other than void (and not if the return type is void), and a @throws tag for each explicitly declared exception (and none for exceptions that are not declared). It also checks for the use of the obsolete @exception tag.<p><b>Example</b><br/>The Javadoc for the following method would be flagged three times as a violation, twice for missing @param tags and once for a missing @return tag:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;/**<br>&nbsp;&nbsp;&nbsp;&nbsp; * Return the sum.<br>&nbsp;&nbsp;&nbsp;&nbsp; */<br>&nbsp;&nbsp;&nbsp;&nbsp;public int sum(int x, int y)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_method_javadoc_conventions.gif"></p><h4><a name="com.instantiations.assist.eclipse.audit.packageJavadoc">Package Javadoc</a></h4><p>
+<b>Summary</b><br/>Packages should have Javadoc comments in a file named "package.html".<p><b>Description</b><br/>This audit rule checks all of the packages to ensure that there is a file named "package.html" that can be used by the Javadoc program to create package-level Javadoc information.<h4><a name="com.instantiations.assist.eclipse.audit.typeJavadoc">Type Javadoc Conventions</a></h4><p>
+<b>Summary</b><br/>All types should have a Javadoc comment associated with them.<p><b>Description</b><br/>This audit rule checks for the existence of a Javadoc comment for each type. It optionally checks for the existence of at least one @author tag and always ensures that every author tag has some text following it. It also optionally checks for the existence of at least one @version tag and always ensures that every version tag has some text following it.<p><img src="../../images/auditrules/audit_type_javadoc_conventions.gif"></p></body>
+</html>

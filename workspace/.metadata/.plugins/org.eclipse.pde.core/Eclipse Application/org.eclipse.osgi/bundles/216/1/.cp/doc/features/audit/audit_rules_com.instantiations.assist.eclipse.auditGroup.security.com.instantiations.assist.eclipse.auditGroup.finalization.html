@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Finalization</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Finalization</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for problems with the use of the finalization mechanism (the finalize method).</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.finalizeShouldNotBePublic">Finalize Should Not Be Public</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.finalizeShouldNotBePublic">Finalize Should Not Be Public</a></h4><p>
+<b>Summary</b><br/>Finalize methods declared within an Applet should not be public<p><b>Description</b><br/>This audit rule flags any declarations of the Object.finalize that are public and within an Applet. If the finalize method is declared properly, then the method should not need to be public.<p><b>Security Implications</b><br/>Malicious users can perform attacks on Applets by calling public finalize methods.<p><b>Example</b><br/>The following declaration of finalize would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class A extends java.applet.Applet {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void finalize() {}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code></body>
+</html>

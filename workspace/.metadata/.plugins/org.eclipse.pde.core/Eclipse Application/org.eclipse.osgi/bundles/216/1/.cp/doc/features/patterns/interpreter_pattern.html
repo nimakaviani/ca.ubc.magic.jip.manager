@@ -1,0 +1,187 @@
+<html>
+
+<head>
+<title>Interpreter Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Interpreter Pattern</b></font></h1>
+    <p>Given a language, the <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Interpreter Pattern defines a representation for its grammar along with an
+    interpreter that uses the representation to interpret sentences in the
+    language. If a particular kind of problem occurs often enough, then it might
+    be worthwhile to express instances of the problem as sentences in a simple
+    language. Then you can build an interpreter that solves the problem by
+    interpreting these sentences. The Interpreter pattern describes how to
+    define a grammar for simple languages, represent sentences in the language,
+    and interpret these sentences.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/interpreter_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Context class</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a context class.</td>
+        <td valign="top" align="left">&lt;Context&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+          <li CLASS="Item">final</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for the context class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Client class</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a client class.</td>
+        <td valign="top" align="left">&lt;Client&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+          <li CLASS="Item">final</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for the client class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Expression method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          return the expression</td>
+        <td valign="top" align="left">&lt;getExpression&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Method names</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of sample
+          methods that
+        should be created in the client class</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/interpreter_wizard2.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Abstract expression</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a abstract expression class.</td>
+        <td valign="top" align="left">&lt;AbstractExpressiob&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for the abstract expression class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Interpret method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          interpret the expression</td>
+        <td valign="top" align="left">&lt;interpret&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Terminal expression classes</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of terminal
+          expression classes that
+        should be created.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Non-terminal expression classes</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of
+          non-terminal expression classes that
+        should be created.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Interpreter pattern when there is a language to interpret, and
+    you can represent statements in the language as abstract syntax trees. The
+    Interpreter pattern works best when<ul>
+      <li>the grammar is simple. For complex grammars, the class hierarchy for
+        the grammar becomes large and unmanageable. Tools such as parser
+        generators are a better alternative in such cases. They can interpret
+        expressions without building abstract syntax trees, which can save space
+        and possibly time. </li>
+    </ul>
+    <ul>
+      <li>efficiency is not a critical concern. The most efficient interpreters
+        are usually <em>not</em> implemented by interpreting parse trees
+        directly but by first translating them into another form. For example,
+        regular expressions are often transformed into state machines. But even
+        then, the <em>translator</em> can be implemented by the Interpreter
+        pattern, so the pattern is still applicable.</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?InterpreterPattern">http://c2.com/cgi/wiki?InterpreterPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Interpreter_pattern">http://www.wikipedia.org/wiki/Interpreter_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Interpreter">http://www.cmcrossroads.com/bradapp/javapats.html#Interpreter</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_interpreter.asp">http://www.dofactory.com/patterns/pattern_interpreter.asp</a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

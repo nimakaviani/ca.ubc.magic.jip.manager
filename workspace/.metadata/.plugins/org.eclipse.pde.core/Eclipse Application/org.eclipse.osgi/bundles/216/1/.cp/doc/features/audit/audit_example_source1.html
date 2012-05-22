@@ -1,0 +1,256 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="../../../stylesheets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../stylesheets/prettify/prettify.js"></script>
+
+<title>AddMethodToInterfaceAuditRule</title>
+</head>
+
+<body onload="prettyPrint()">
+
+<pre class="prettyprint">
+package com.instantiations.assist.eclipse.analysis.audit.rule;
+ 
+import com.instantiations.assist.eclipse.analysis.audit.core.*;
+import com.instantiations.assist.eclipse.analysis.audit.util.*;
+import com.instantiations.assist.eclipse.analysis.engine.core.*;
+import org.eclipse.jdt.core.*;
+import org.eclipse.jdt.core.dom.*;
+ 
+/**
+ * Instances of the class <code>AddMethodToInterfaceAuditRule</code> implement
+ * an audit rule used to find methods that could be added to super interfaces.
+ * 
+ * Copyright (c) 2003, Google, Inc.
+ * All Rights Reserved
+ *
+ * @author Eric Clayberg
+ * @version $Revision: 1.0 $
+ */
+public class AddMethodToInterfaceAuditRule extends CompilationUnitAuditRule
+{
+    /**
+    * This is the ID of the audit violation as defined in the plugin.xml file
+    */
+    protected static final String ADD_METHOD_VIOLATION_ID = "com.instantiations.assist.eclipse.audit.addMethodToInterface.addMethod";
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Preference Constants
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+    * The suffix added to the preferences identifier to compose the name of the
+    * preference indicating whether only properties (get and set) should be checked
+    */
+    protected static final String CHECK_PROPERTIES_PREFERENCE_SUFFIX = ".onlyCheckProperties";
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Constructors
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+    * Initialize a newly created audit rule.
+    */
+    public AddMethodToInterfaceAuditRule()
+    {
+        super();
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Accessing
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+    * Return whether only properties (get and set) should be checked
+    *
+    * @return whether only properties (get and set) should be checked
+    */
+    public boolean getOnlyCheckProperties()
+    {
+        String preferenceName;
+ 
+        preferenceName = getPreferenceIdentifier() + CHECK_PROPERTIES_PREFERENCE_SUFFIX;
+        getPreferenceStore().setDefault(preferenceName, true);
+        return getPreferenceStore().getBoolean(preferenceName);
+    }
+ 
+    /**
+    * Set whether only properties (get and set) should be checked
+    *
+    * @param onlyCheckProperties whether only properties (get and set) should be checked
+    */
+    public void setOnlyCheckProperties(boolean onlyCheckProperties)
+    {
+        String preferenceName;
+ 
+        preferenceName = getPreferenceIdentifier() + CHECK_PROPERTIES_PREFERENCE_SUFFIX;
+        getPreferenceStore().setValue(preferenceName, onlyCheckProperties);
+    }
+ 
+    /**
+    * Return <code>true</code> if this audit rule should be enabled by
+    * default.
+    *
+    * @return <code>true</code> if this audit rule should be enabled by default
+    */
+    public boolean isEnabledByDefault()
+    {
+        return false;
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Analyzer Creation
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+    * Create an analyzer that can perform the analysis implied by this analysis
+    * item.
+    *
+    * @param context the context in which the analysis will be performed
+    *
+    * @return the analyzer that was created
+    */
+    public Analyzer createAnalyzer(AnalysisContext context)
+    {
+        return new AddPropertyToInterfaceCodeAuditor(context, this);
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Inner Classes
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+    * Instances of the class <code>AddPropertyToInterfaceCodeAuditor</code>
+    * implement a code auditor used to find methods that could be added to super interfaces
+    * 
+    * Copyright (c) 2003, Google, Inc.
+    * All Rights Reserved
+    *
+    * @author Eric Clayberg
+    */
+    public class AddPropertyToInterfaceCodeAuditor extends AbstractCodeAuditor
+    {
+        ////////////////////////////////////////////////////////////////////////
+        //
+        // Constructors
+        //
+        ////////////////////////////////////////////////////////////////////////
+ 
+        /**
+        * Initialize a newly created analyzer to perform an analysis in the
+        * given context for the given analysis item.
+        *
+        * @param context the context in which the analysis is to be performed
+        * @param item the analysis item for which the analysis is being
+        *        performed
+        */
+        public AddPropertyToInterfaceCodeAuditor(AnalysisContext context, AnalysisItem item)
+        {
+            super(context, item);
+        }
+ 
+        ////////////////////////////////////////////////////////////////////////
+        //
+        // Visiting
+        //
+        ////////////////////////////////////////////////////////////////////////
+ 
+        public boolean visit(TypeDeclaration node)
+        {
+            MethodDeclaration[] methods;
+            InheritanceContext context, interfaceContext;
+            ITypeBinding interfaceType;
+            String name, interfaceName;
+            int startIndex, endIndex;
+            boolean onlyCheckProperties;
+            AuditViolationImpl violation;
+ 
+            // If this type is an interface, bail out
+            if (node.isInterface()) return true;
+ 
+            // Construct the associated interface name from the type name. For example, for
+            // a class named "Foo", look for an interface named "IFoo". If the class is named
+            // "FooImpl" or "AbstractFoo", look for an interface named "Foo". This could be
+            // enhanced with user-customizable patterns for constructing interface names
+            name = node.getName().getIdentifier();
+            if (name.endsWith("Impl") && name.length() > 4) {
+                         interfaceName = name.substring(1, name.length() - 4);
+            } else if (name.startsWith("Abstract") && name.length() > 8) {
+                         interfaceName = name.substring(9, name.length());
+            } else {
+                         interfaceName = "I" + name;
+            }
+ 
+            // Find out whether this type inherits from the proposed interface. If not, bail out
+            context = new InheritanceContext(node);
+            interfaceType = context.interfaceNamed(interfaceName);
+            if (interfaceType == null) return true;
+            interfaceContext = new InheritanceContext(interfaceType);
+ 
+            // Do we want to only check properties (get & set methods) or all public methods
+            onlyCheckProperties = getOnlyCheckProperties();
+ 
+            // Loop through all of the type's methods
+            methods = node.getMethods();
+            for (int i = 0; i < methods.length; i++) {
+ 
+                         // Get the name of the method
+                         name = methods[i].getName().getIdentifier();
+ 
+                         // Check that the method is public, isn't a constructor and optionally starts with "get" or "set"
+                         if (Flags.isPublic(methods[i].getModifiers())
+                            && !methods[i].isConstructor()
+                            && (!onlyCheckProperties || name.startsWith("get") || name.startsWith("set"))) {
+ 
+                            // Look to see whether the associated interface (or its super interfaces) implements the method
+                            if (context.findMatching(methods[i], interfaceType) == null && interfaceContext.findMatchingInInterface(methods[i]) == null) {
+ 
+                               // Get the starting and ending indexes of the method node in the type's source
+                               startIndex = methods[i].getName().getStartPosition();
+                               endIndex = startIndex + methods[i].getName().getLength();
+ 
+                               // If the method is not implemented, throw an audit violation
+                               violation = new AuditViolationImpl(
+                                  ADD_METHOD_VIOLATION_ID, // This is the ID of the audit violation as defined in the plugin.xml file
+                                  AddMethodToInterfaceAuditRule.this, // Pass the audit rule that created the violation (provides user severity levels, etc.)
+                                  getContext().getCurrentTarget(), // Place the audit violation on the current compilation unit
+                                  startIndex, // Set the starting index for the violation
+                                  endIndex, // Set the ending index for the violation
+                                  new String[] { // Pass the arguments to the violation - pass EMPTY_PARAMETERS, if no arguments
+                                     name, // pass the name of the method
+                                     interfaceName, // pass the name of the interface
+                                  });
+ 
+                               // Pass arguments to the resolution
+                               violation.setResolutionParameter(
+                                  RECOMMENDATION_PARAM1,
+                                  name);
+                               violation.setResolutionParameter(
+                                  RECOMMENDATION_PARAM2,
+                                  interfaceName);
+ 
+                               // Add the violation
+                               addViolation(violation);
+                            }
+                         }
+            }
+            return true;
+        }
+    }
+}
+</pre>
+</body>
+
+</html>

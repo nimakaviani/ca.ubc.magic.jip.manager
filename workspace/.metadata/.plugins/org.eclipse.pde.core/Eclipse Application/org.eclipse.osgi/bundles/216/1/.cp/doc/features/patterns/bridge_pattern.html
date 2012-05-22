@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<title>Bridge Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>
+      Bridge Pattern</b></font></h1>
+    <p><strong>Also known as:</strong> Handle/Body</p>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Bridge Pattern decouples an abstraction from its implementation so that the two can vary
+    independently. When an abstraction can have one of several possible implementations, the
+    usual way to accommodate them is to use inheritance. An abstract class defines the
+    interface to the abstraction, and concrete subclasses implement it in different ways. But
+    this approach isn't always flexible enough. Inheritance binds an implementation to the
+    abstraction permanently, which makes it difficult to modify, extend, and reuse
+    abstractions and implementations independently.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/bridge_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center" height="19"><strong>Option</strong></td>
+        <td align="center" height="19"><strong>Description</strong></td>
+        <td align="center" height="19"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Source folder</td>
+        <td valign="top" align="left" height="57">Enter a source folder for the new class. Either
+        type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select
+        a source folder via a dialog.</td>
+        <td valign="top" align="left" height="57">The source folder of the element that was
+        selected when the wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Package</td>
+        <td valign="top" align="left" height="57">Enter a package to contain the new class. Either
+        type a valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a
+        package via a dialog.</td>
+        <td valign="top" align="left" height="57">The package of the element that was selected
+        when the wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Abstraction class name</td>
+        <td valign="top" align="left" height="19">Type a name for the new abstraction class.</td>
+        <td valign="top" align="left" height="19">&lt;Abstraction&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+          <li CLASS="Item">final</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Superclass</td>
+        <td valign="top" align="left" height="38">Type or click&nbsp;<span CLASS="Label">Browse</span>
+        to select a superclass for the abstraction class.</td>
+        <td valign="top" align="left" height="38">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="56">Implementation class</td>
+        <td valign="top" align="left" height="56">Type or click&nbsp;<span CLASS="Label">Browse</span>
+        to select the class to be used as the implementation class</td>
+        <td valign="top" align="left" height="56">The type or the primary type of the compilation
+        unit that was selected when the wizard was started</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for the implementation class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Bridge pattern when<ul>
+      <li>you want to avoid a permanent binding between an abstraction and its implementation.
+        This might be the case, for example, when the implementation must be selected or switched
+        at run-time.<br>
+        <br>
+      </li>
+      <li>both the abstractions and their implementations should be extensible by subclassing. In
+        this case, the Bridge pattern lets you combine the different abstractions and
+        implementations and extend them independently.<br>
+        <br>
+      </li>
+      <li>changes in the implementation of an abstraction should have no impact on clients; that
+        is, their code should not have to be recompiled.<br>
+        <br>
+      </li>
+      <li>you have a proliferation of classes. Such a class hierarchy indicates the need for
+        splitting an object into two parts.<br>
+        <br>
+      </li>
+      <li>you want to share an implementation among multiple objects (perhaps using reference
+        counting), and this fact should be hidden from the client.</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?BridgePattern">http://c2.com/cgi/wiki?BridgePattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Bridge_pattern">http://www.wikipedia.org/wiki/Bridge_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Bridge">http://www.cmcrossroads.com/bradapp/javapats.html#Bridge</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_bridge.asp">http://www.dofactory.com/patterns/pattern_bridge.asp</a></p>
+    <p><a href="http://www.agcs.com/supportv2/techpapers/patterns/papers/tutnotes/sld009.htm">http://www.agcs.com/supportv2/techpapers/patterns/papers/tutnotes/sld009.htm</a></td>
+  </tr>
+</table>
+</body>
+</html>

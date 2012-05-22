@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<title>Export Sets and ANT</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Export Sets - Internal format</b></font></h1>
+    <p>Export Sets are stored as standard ANT scripts based upon new <a
+    href="../ant/enhancements.html">Ant task types added by CodePro</a>, and as such can be
+    treated exactly like a standard ANT script. This includes manually editing the Export Set
+    file to add ANT operations not covered in the Export Set wizard, and running an Export set
+    at any time by right-clicking on it in the workbench window and selecting the &quot;Run
+    Ant...&quot; command.&nbsp; An example of one export set nested inside another export set
+    follows.</p>
+    <h3>export.xml</h3>
+    <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!-- Export the CodePro Project to a variety of configurations.  --&gt;
+&lt;project name=&quot;ExportSet&quot; basedir=&quot;.&quot; default=&quot;export&quot;&gt;
+	&lt;target name=&quot;export&quot;&gt;
+		&lt;<a
+href="../ant/enhancements.html#InitExportProperties">InitExportProperties</a>/&gt;
+		&lt;<a
+href="../ant/enhancements.html#ExportSet">ExportSet</a> path=&quot;/CodePro/export_1.xml&quot; inheritAll=&quot;false&quot;&gt;
+			&lt;property name=&quot;Parameter1&quot; value=&quot;value1&quot;/&gt;
+			&lt;property name=&quot;Parameter2&quot; value=&quot;value2&quot;/&gt;
+		&lt;/ExportSet&gt;
+		&lt;ExportSet path=&quot;/TestFoo/export_2.xml&quot;/&gt;
+		&lt;ExportSet path=&quot;/TestFoo/export_3.xml&quot;&gt;
+			&lt;property name=&quot;ParameterX&quot; value=&quot;valueX&quot;/&gt;
+		&lt;/ExportSet&gt;
+	&lt;/target&gt;
+&lt;/project&gt;</pre>
+    <p>In the Export Set example above, the <b>project</b> element contains a <b>target</b>
+    element named &quot;<b>export</b>&quot;. The Export Set Wizard can edit any existing ANT
+    script, looking for a target named &quot;export&quot;, creating it if necessary. The
+    wizard only regenerates the &quot;export&quot; target, leaving all other aspects of the
+    ANT script in tact.</p>
+    <p>In the example above, there are four operations defined in the Export Set:<ul>
+      <li><p style="margin-bottom: 8px"><a href="../ant/enhancements.html#InitExportProperties"><b>InitExportProperties</b></a>
+        - initializes the ${eclipse.workspace.root} variable (amoung others), but (in this case)
+        does not define any parameters or properties.&nbsp; The Export Set Wizard automatically
+        ensures that the &quot;export&quot; target contains exactly one
+        &quot;InitExportProperties&quot; operation as the first step.</p>
+      </li>
+      <li><p style="margin-bottom: 8px"><a href="../ant/enhancements.html#ExportSet"><b>ExportSet</b></a>
+        - three calls to nested export sets, some of which pass parameters. &nbsp; The
+        inheritAll=&quot;false&quot; indicates that the properties defined in export.xml are not
+        available for use during execution of export_1.xml.</p>
+      </li>
+    </ul>
+    <h3>export_1.xml</h3>
+    <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!-- Export the CodePro Project to a variety of configurations. --&gt;
+&lt;project name=&quot;ExportSet&quot; basedir=&quot;.&quot; default=&quot;export&quot;&gt;
+	&lt;target name=&quot;export&quot;&gt;
+		&lt;<a
+href="../ant/enhancements.html#InitExportProperties">InitExportProperties</a>&gt;
+			&lt;ExportParameters&gt;
+				Parameter1
+				Parameter2=&quot;aDefValue&quot;
+			&lt;/ExportParameters&gt;
+			&lt;ExportProperties&gt;
+				Property1=&quot;myValue&quot;
+			&lt;/ExportProperties&gt;
+		&lt;/InitExportProperties&gt;
+		&lt;<a
+href="../ant/enhancements.html#ExportToFileSystem">ExportToFileSystem</a> destinationPath=&quot;G:/export-out/files&quot;&gt;
+			&lt;Resources&gt;
+				/CodeProStudioDemo
+			&lt;/Resources&gt;
+		&lt;/ExportToFileSystem&gt;
+		&lt;<a
+href="../ant/enhancements.html#ExportToJarFile">ExportToJarFile</a> jarLocation=&quot;G:/export-out/export.jar&quot;&gt;
+			&lt;Resources&gt;
+				/CodeProStudioDemo
+			&lt;/Resources&gt;
+		&lt;/ExportToJarFile&gt;
+		&lt;<a
+href="../ant/enhancements.html#ExportToZipFile">ExportToZipFile</a> destinationFilename=&quot;G:/export-out/export.zip&quot;&gt;
+			&lt;Resources&gt;
+				/CodeProStudioDemo
+			&lt;/Resources&gt;
+		&lt;/ExportToZipFile&gt;
+	&lt;/target&gt;
+&lt;/project&gt;</pre>
+    <p>In the example above, there are four operations defined in the Export Set:<ul>
+      <li><p style="margin-bottom: 8"><a href="../ant/enhancements.html#InitExportProperties"><b>InitExportProperties</b></a>
+        - initializes the ${eclipse.workspace.root} variable (amoung others) and (in this case)
+        defines two parameters and one property.&nbsp; The first parameter has no value associated
+        with it, and thus is &quot;required&quot; and must be defined by the outer export set that
+        contains this nested export set</p>
+      </li>
+      <li><p style="margin-bottom: 8"><a href="../ant/enhancements.html#ExportToFileSystem"><b>ExportToFileSystem</b></a>
+        - exports the &quot;CodePro Demo&quot; project to the
+        &quot;G:\export-out\files&quot; directory</p>
+      </li>
+      <li><p style="margin-bottom: 8"><a href="../ant/enhancements.html#ExportToJarFile"><b>ExportToJarFile</b></a>
+        - exports the &quot;CodePro Demo&quot; project to the
+        &quot;G:\export-out\export.jar&quot; file</p>
+      </li>
+      <li><p style="margin-bottom: 8"><a href="../ant/enhancements.html#ExportToZipFile"><b>ExportToZipFile</b></a>
+        - exports the &quot;CodePro Demo&quot; project to the
+        &quot;G:\export-out\export.zip&quot; file</p>
+      </li>
+    </ul>
+    <p>Any standard ANT operation may be added anywhere in the &quot;export&quot; target, so
+    long as it appears after the &quot;InitExportProperties&quot; operation. When edited using
+    the Export Set Wizard, these new ANT operations that were manually added will appear in
+    the wizard, but will not be editable. If after manually adding new ANT operations, the
+    &quot;export&quot; target then depends upon another ANT target in the same file, a
+    &quot;depends&quot; attribute may be added to the &quot;export&quot; target specifying
+    target upon which the &quot;export&quot; target depends. This &quot;depends&quot;
+    attribute will be faithfully regenerated by the Export Set wizard. Over time, we will be
+    adding more operations that are editable in the Export Set Wizard. If there are particular
+    ANT operations, Eclipse Export operations, or new operations that you would like to see,
+    then please let us know.</p>
+    <p>See the online Jakarta docs for <a href="http://jakarta.apache.org/ant/">more
+    information about ANT</a>...</td>
+  </tr>
+</table>
+</body>
+</html>

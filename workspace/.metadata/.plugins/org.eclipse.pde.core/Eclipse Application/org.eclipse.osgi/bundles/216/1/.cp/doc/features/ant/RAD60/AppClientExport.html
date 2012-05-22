@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>AppClientExport</title>
+</head>
+
+<body>
+
+<h1><font face="Verdana" color="#CC0000">AppClientExport&nbsp;&nbsp;&nbsp; (provided by Rational 
+Application Developer 6.x)</font></h1>
+<div>
+  This task performs the same operation as the Application Client export wizard 
+  for exporting an Application Client Project to an Application Client JAR file.<div class="skipspace">
+    <span class="uicontrol">Parameters</span><div class="skipspace">
+      <table cellSpacing="0" cellPadding="4" rules="all" summary border="1" frame="border">
+        <thead align="left">
+          <tr>
+            <th id="d0e22" vAlign="top">Attribute</th>
+            <th id="d0e24" vAlign="top">Description</th>
+            <th id="d0e26" vAlign="top" align="left">Required</th>
+          </tr>
+        </thead>
+        <tr>
+          <td vAlign="top" headers="d0e22 ">AppClientProjectName</td>
+          <td vAlign="top" headers="d0e24 ">Name of the Application Client 
+          Project (<i>Case Sensitive</i>)</td>
+          <td vAlign="top" align="left" headers="d0e26 ">Yes</td>
+        </tr>
+        <tr>
+          <td vAlign="top" headers="d0e22 ">AppClientExportFile</td>
+          <td vAlign="top" headers="d0e24 ">Absolute path of the Application 
+          Client JAR file.</td>
+          <td vAlign="top" align="left" headers="d0e26 ">Yes</td>
+        </tr>
+        <tr>
+          <td vAlign="top" headers="d0e22 ">ExportSource</td>
+          <td vAlign="top" headers="d0e24 ">Whether to include source files or 
+          not.</td>
+          <td vAlign="top" align="left" headers="d0e26 ">No, default is<i> false</i></td>
+        </tr>
+        <tr>
+          <td vAlign="top" headers="d0e22 ">Overwrite</td>
+          <td vAlign="top" headers="d0e24 ">Whether to overwrite if the file 
+          already exists.</td>
+          <td vAlign="top" align="left" headers="d0e26 ">No, default is<i> false</i></td>
+        </tr>
+      </table>
+    </div>
+    <p><span class="uicontrol">Examples</span></p>
+    <ul>
+      <li>Export the project &quot;ProjectClient&quot; to &quot;ProjectClient.jar&quot; in the C 
+      Drive:
+      <pre>&lt;appClientExport 
+AppClientProjectName=&quot;ProjectClient&quot; 
+AppClientExportFile=&quot;C:\ProjectClient.jar&quot;/&gt;</pre>
+      </li>
+      <li>Export the project &quot;ProjectClient&quot; with the source files to &quot;ProjectClient.jar&quot; 
+      in the C Drive:
+      <pre>&lt;appClientExport 
+AppClientProjectName=&quot;ProjectClient&quot; 
+AppClientExportFile=&quot;C:\ProjectClient.jar&quot; 
+ExportSource=&quot;true&quot;/&gt;</pre>
+      </li>
+    </ul>
+  </div>
+</div>
+
+</body>
+
+</html>

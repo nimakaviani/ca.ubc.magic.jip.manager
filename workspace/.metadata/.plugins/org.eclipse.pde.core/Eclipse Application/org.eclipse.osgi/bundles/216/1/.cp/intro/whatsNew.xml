@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+	<extensionContent id="com.instantiations.assist.eclipse.intro" name="CodePro"
+		style="css/whatsnew.css" path="whatsnew/@">
+		<group id="content-group" style-id="content-group">
+			<link label="CodePro"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.instantiations.assist.eclipse/doc/history.html"
+				id="comcodeproeclipseintro-whatsNewLink" style-id="content-link">
+				<text>Find out about new features in CodePro</text>
+			</link>
+		</group>
+	</extensionContent>
+</introContent>

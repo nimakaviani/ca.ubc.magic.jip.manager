@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Comments</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Comments</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for the correct usage of non-Javadoc comments within your code.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.codeInComments">Code in Comments</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.commentLocalVariables">Comment Local Variables</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.documentClosingBraces">Document Closing Braces</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.fileComment">File Comment</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.codeInComments">Code in Comments</a></h4><p>
+<b>Summary</b><br/>Code that has been commented-out should be removed.<p><b>Description</b><br/>This rule searches for comments that appear to contain code and flags them. Such code should either be removed or made conditional (for example, by testing a logging level).<p><b>Example</b><br/>The following comment would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;//System.out.println("Entering method");</code><p><img src="../../images/auditrules/audit_code_in_comments.gif" width="164" height="66"></p><h4><a name="com.instantiations.assist.eclipse.audit.commentLocalVariables">Comment Local Variables</a></h4><p>
+<b>Summary</b><br/>Local variables should be commented.<p><b>Description</b><br/>This audit rule checks for local variable declarations that are not followed by an end-of-line style comment. The comment is intended to describe the purpose of the variable.<p>If there are multiple local variables declared on a single line, the comment (if there is one) is assumed to belong to the first variable.<p><b>Example</b><br/>The following local variable declaration would be flagged because it is not commented:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;int sum = 0;</code><p><img src="../../images/auditrules/audit_comment_local_variables.gif" width="295" height="23"></p><h4><a name="com.instantiations.assist.eclipse.audit.documentClosingBraces">Document Closing Braces</a></h4><p>
+<b>Summary</b><br/>Closing braces should be documented with a comment.<p><b>Description</b><br/>This audit rule checks for closing braces for specified statements that are not followed by a specified end-of-line comment. The comments are used to make it easier for readers to see the structure of the code.<p><b>Example</b><br/>The closing brace for the following if statement would be flagged as needing to be commented:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (employee.isHourly()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_document_closing_braces.gif" width="376" height="128"></p><h4><a name="com.instantiations.assist.eclipse.audit.fileComment">File Comment</a></h4><p>
+<b>Summary</b><br/>Compilation units should have a file comment.<p><b>Description</b><br/>This audit rule finds compilation units that do not have a comment as the first element in the file.<p><b>Example</b><br/>A file that begins with a package statement would be flagged as a violation because a comment is expected to appear before anything else.<p><img src="../../images/auditrules/audit_file_comment.gif" width="360" height="176"></p></body>
+</html>

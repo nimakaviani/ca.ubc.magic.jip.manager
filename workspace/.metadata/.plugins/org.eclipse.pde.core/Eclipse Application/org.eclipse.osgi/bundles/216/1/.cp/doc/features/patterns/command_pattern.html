@@ -1,0 +1,142 @@
+<html>
+
+<head>
+<title>Command Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>
+	Command Pattern</b></font></h1>
+    <p><strong>Also known as:</strong> Action, Transaction</p>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Command Pattern encapsulates a request as an object, thereby letting you parameterize
+    clients with different requests, queue or log requests, and support undoable operations.
+    Sometimes it's necessary to issue requests to objects without knowing anything about the
+    operation being requested or the receiver of the request.</p>
+    <p>The Command pattern lets toolkit objects make requests of unspecified application
+    objects by turning the request itself into an object. This object can be stored and passed
+    around like other objects. The key to this pattern is an abstract Command class, which
+    declares an interface for executing operations. In the simplest form this interface
+    includes an abstract Execute operation. Concrete Command subclasses specify a
+    receiver-action pair by storing the receiver as an instance variable and by implementing
+    Execute to invoke the request. The receiver has the knowledge required to carry out the
+    request.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/command_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center" height="19"><strong>Option</strong></td>
+        <td align="center" height="19"><strong>Description</strong></td>
+        <td align="center" height="19"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Source folder</td>
+        <td valign="top" align="left" height="57">Enter a source folder for the new class. Either
+        type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select
+        a source folder via a dialog.</td>
+        <td valign="top" align="left" height="57">The source folder of the element that was
+        selected when the wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Package</td>
+        <td valign="top" align="left" height="57">Enter a package to contain the new class. Either
+        type a valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a
+        package via a dialog.</td>
+        <td valign="top" align="left" height="57">The package of the element that was selected
+        when the wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Abstract command</td>
+        <td valign="top" align="left" height="19">Type or click&nbsp;<span CLASS="Label">Browse</span>
+        to select an abstract command class.</td>
+        <td valign="top" align="left" height="19">&lt;AbstractCommand&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public, abstract</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Superclass</td>
+        <td valign="top" align="left" height="38">Type or click&nbsp;<span CLASS="Label">Browse</span>
+        to select a superclass for the abstract command class.</td>
+        <td valign="top" align="left" height="38">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Interfaces</td>
+        <td valign="top" align="left">Click&nbsp;<span CLASS="Label">Add</span> to choose
+        interfaces that the command classes implement.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Command manager</td>
+        <td valign="top" align="left" height="19">Type or click&nbsp;Browse to select a command
+        manager class.</td>
+        <td valign="top" align="left" height="19">&lt;CommandManager&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="56">Command names</td>
+        <td valign="top" align="left" height="56">Click&nbsp;Add to enter the names of the
+        commands that should be created</td>
+        <td valign="top" align="left" height="56">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Generate undo/redo classes</td>
+        <td valign="top" align="left">Determines whether Undo and Redo classes are generated<p>.</td>
+        <td valign="top" align="left">&lt;true&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Command pattern when you want to<ul>
+      <li>parameterize objects by an action to perform. You can express such parameterization in a
+        procedural language with a <strong>callback</strong> function, that is, a function that's
+        registered somewhere to be called at a later point. Commands are an object-oriented
+        replacement for callbacks.<br>
+        <br>
+      </li>
+      <li>specify, queue, and execute requests at different times. A Command object can have a
+        lifetime independent of the original request. If the receiver of a request can be
+        represented in an address space-independent way, then you can transfer a command object
+        for the request to a different process and fulfill the request there.<br>
+        <br>
+      </li>
+      <li>support undo. The Command's Execute operation can store state for reversing its effects
+        in the command itself. The Command interface must have an added Unexecute operation that
+        reverses the effects of a previous call to Execute. Executed commands are stored in a
+        history list. Unlimited-level undo and redo is achieved by traversing this list backwards
+        and forwards calling Unexecute and Execute, respectively.<br>
+        <br>
+      </li>
+      <li>support logging changes so that they can be reapplied in case of a system crash. By
+        augmenting the Command interface with load and store operations, you can keep a persistent
+        log of changes. Recovering from a crash involves reloading logged commands from disk and
+        reexecuting them with the Execute operation.<br>
+        <br>
+      </li>
+      <li>structure a system around high-level operations built on primitives operations. Such a
+        structure is common in information systems that support <strong>transactions</strong>. A
+        transaction encapsulates a set of changes to data. The Command pattern offers a way to
+        model transactions. Commands have a common interface, letting you invoke all transactions
+        the same way. The pattern also makes it easy to extend the system with new transactions. </li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?CommandPattern">http://c2.com/cgi/wiki?CommandPattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Command">http://www.cmcrossroads.com/bradapp/javapats.html#Command</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_command.asp">http://www.dofactory.com/patterns/pattern_command.asp</a></td>
+  </tr>
+</table>
+</body>
+</html>

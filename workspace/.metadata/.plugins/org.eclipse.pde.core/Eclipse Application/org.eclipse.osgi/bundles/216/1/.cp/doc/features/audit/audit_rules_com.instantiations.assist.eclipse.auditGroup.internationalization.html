@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Internationalization</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Internationalization</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for potential problems unique to internationalized applications.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.characterComparison">Character Comparison</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.dateAndTimeUsage">Date and Time Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.mimeEncodingMethodUsage">Mime Encoding Method Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.parseMethodUsage">Parse Method Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.disallowStringConcatenation">String Concatenation</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.stringLiterals">String Literals</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.stringMethodUsage">String Method Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.stringTokenizer">StringTokenizer Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.toStringMethodUsage">toString() Method Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.internationalization.useLocaleSpecificMethods">Use locale-specific methods</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.characterComparison">Character Comparison</a></h4><p>
+<b>Summary</b><br/>Character values should not be compared using any of the non-equality operators.<p><b>Description</b><br/>This audit rule finds places where two Character values are compared using any of the non-equality operators. Such comparisons are usually an attempt to classify characters and such tests are usually not valid across all locales.<p><b>Example</b><br/>The following code, designed to test for a lower-case letter, would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z') {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.analysis.dateAndTimeUsage">Date and Time Usage</a></h4><p>
+<b>Summary</b><br/>Don't use deprecated Date and Time methods.<p><b>Description</b><br/>Deprecated methods from the Date and Time classes should not be used. As of JDK 1.1, the Calendar class should be used to convert between dates and time fields, and the DateFormat class should be used to format and parse date strings.<p><b>Example</b><br/>The following use of the parseInteger() method would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Date myDate = Date(2005, 10, 12);<br>&nbsp;&nbsp;&nbsp;&nbsp;int year = myDate.getYear();</code><p><img src="../../images/auditrules/audit_date_and_time_usage.gif" width="172" height="45"></p><h4><a name="com.instantiations.assist.eclipse.analysis.mimeEncodingMethodUsage">Mime Encoding Method Usage</a></h4><p>
+<b>Summary</b><br/>Don't use specific mime encoding methods.<p><b>Description</b><br/>Don't use specific mime encoding methods.<h4><a name="com.instantiations.assist.eclipse.audit.parseMethodUsage">Parse Method Usage</a></h4><p>
+<b>Summary</b><br/>The parseXXX() methods for Numerics should not be used in an internationalized environment.<p><b>Description</b><br/>This audit rule checks for the use of the parseXXX() methods for Numerics in an internationalized environment. Numeric formats differ with region and language, so consistent results cannot be counted on.<p><b>Example</b><br/>The following use of the parseInteger() method would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;myInt = Integer.parseInteger("12345");</code><h4><a name="com.instantiations.assist.eclipse.audit.disallowStringConcatenation">String Concatenation</a></h4><p>
+<b>Summary</b><br/>Strings should not be concatenated.<p><b>Description</b><br/>This audit rule finds places where two Strings are concatenated. Concatenation of localized strings to produce a longer string is not valid because the word order can change from one locale to the next. Instead, the class MessageFormat should be used to construct the string based on a pattern that can be localized for each locale.<p><b>Example</b><br/>The following expression would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;return "The button was clicked " + clickCount + " times.";</code><p><img src="../../images/auditrules/audit_string_concatenation.gif"></p><h4><a name="com.instantiations.assist.eclipse.audit.stringLiterals">String Literals</a></h4><p>
+<b>Summary</b><br/>String literals should not appear in code.<p><b>Description</b><br/>This audit rule checks for string literals within the code that are not included in a user-defined list of acceptable literal values. The rule can be configured to ignore strings that are used as static final field initializers, contain single characters, only whitespace and/or digits and/or a specially formed trailing comment.<p>The primary purpose of this rule is to aid in internationalization efforts. With this rule on, you can identify all of the hardcoded strings in the application and move them out into external property files that can be translated.<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;String message = "Houston, we have ignition.";</code><p><img src="../../images/auditrules/audit_string_literals.gif" width="374" height="189"></p><h4><a name="com.instantiations.assist.eclipse.audit.stringMethodUsage">String Method Usage</a></h4><p>
+<b>Summary</b><br/>The String.equals(), String.equalsIgnoreCase() and String.comparesTo() methods should not be used in an internationalized environment.<p><b>Description</b><br/>This audit rule checks for the use of the String.equals(),String.equalsIgnoreCase(), String.comparesTo() and String.indexOf() methods in an internationalized environment. These methods cannot be relied on to sort strings because the Unicode values of the characters in the strings do not correspond to the relative order of the characters in most languages.<p><b>Example</b><br/>The following expression would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (stringArray[i].equals(stringToInsert)) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_string_method_usage.gif" width="186" height="87"></p><h4><a name="com.instantiations.assist.eclipse.audit.stringTokenizer">StringTokenizer Usage</a></h4><p>
+<b>Summary</b><br/>The StringTokenizer class should not be used in an internationalized environment.<p><b>Description</b><br/>This audit rule checks for the use of the StringTokenizer class in an internationalized environment. This class cannot be relied on because the Unicode values of the characters in the strings do not correspond to the relative order of the characters in most languages.<p><b>Example</b><br/>The following instance creation expression would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;new StringTokenizer(inputString)</code><h4><a name="com.instantiations.assist.eclipse.audit.toStringMethodUsage">toString() Method Usage</a></h4><p>
+<b>Summary</b><br/>The toString() methods for Dates, Times and Numerics should not be used in an internationalized environment.<p><b>Description</b><br/>This audit rule checks for the use of the toString() methods for Dates, Times and Numerics in an internationalized environment. Date, time and numeric formats differ with region and language, so consistent results cannot be counted on.<p><b>Example</b><br/>The following use of the toString() method would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;today = new Date();<br>&nbsp;&nbsp;&nbsp;&nbsp;dateString = today.toString();</code><p><img src="../../images/auditrules/audit_tostring_method_usage.gif"></p><h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.internationalization.useLocaleSpecificMethods">Use locale-specific methods</a></h4><p>
+<b>Summary</b><br/>Locale-specific methods should be used to convert Strings to either upper or lower case.<p><b>Description</b><br/>This rule looks for invocations of either toUpperCase() or toLowerCase() that do not have an instance of Locale as an argument. When converting a String to either upper or lower case, the locale-specific method should be used to ensure proper conversion.<p><b>Example</b><br/>The following would be flagged as an error because the invocation of toLowerCase does not have a Locale as an argument:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (x.toLowerCase().equals("test"))</code></body>
+</html>

@@ -1,0 +1,21 @@
+package actions;
+
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.dialogs.MessageDialog;
+
+public class 
+FinishAction 
+extends Action 
+{
+	public
+	FinishAction()
+	{
+		this.shell = new Shell();
+	}
+	@Override
+	public void run()
+	{
+		MessageDialog.openInformation( this.shell, "First plug-in", "Start!" );
+
+	}
+}

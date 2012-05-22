@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.exportToFTP</b></font><small><font size="4"><br>
+      (Application Developer only... replaced in Eclipse 3.0 
+    by <a href="Ant162/FTP.html">FTP</a>)</font></small></h1>
+    <p><i>(old task name &quot;ExportToFTP&quot;)</i></p>
+    <p>codepro.exportToFTP performs an export identical to one that would 
+    be performed manually using the standard Application Developer FTP Export Wizard.&nbsp; 
+    The various options for this Ant task type include:</p>
+    <ul>
+      <li>connectionTimeout</li>
+      <li>firewallHostname</li>
+      <li>firewallUserID</li>
+      <li>firewallPort</li>
+      <li>firewallPassword</li>
+      <li>firewallSavePassword</li>
+      <li>firewallType</li>
+      <li>firewallSocksHostName</li>
+      <li>firewallSocksPort</li>
+      <li>firewallUseSocks</li>
+      <li>ftpFolder</li>
+      <li>ftpPort</li>
+      <li>overwrite</li>
+      <li>passiveMode</li>
+      <li>password</li>
+      <li>resource</li>
+      <li>savePassword</li>
+      <li>serverName</li>
+      <li>serverPath</li>
+      <li>useFirewall</li>
+      <li>userLogin</li>
+    </ul>
+      <p>Example:</p>
+      <blockquote>
+        <pre>&lt;codepro.exportToFTP 
+        serverPath=&quot;ftp://username@www.mycompany.com/test&quot; 
+        serverName=&quot;<a href="http://www.mycompany.com">www.mycompany.com</a>&quot; 
+        ftpFolder=&quot;/test&quot;
+        userLogin=&quot;username&quot; 
+        password=&quot;password&quot;
+        resource=&quot;/WSAssistTest/export_ftp.xml&quot;/&gt;
+    &lt;Resources&gt;
+        /WSAssistTest/export_all_ejb.xml
+        /WSAssistTest/export_appclient.xml
+        /WSAssistTest/export_ear.xml
+        /WSAssistTest/export_ejb.xml
+        /WSAssistTest/export_ftp.xml
+        /WSAssistTest/export_war.xml
+        /WSAssistTest/property_prompt_test.xml
+    &lt;/Resources&gt;
+&lt;/codepro.exportToFTP&gt;</pre>
+        <pre>&nbsp;</pre>
+      </blockquote>
+      <p style="margin-bottom: 8">&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

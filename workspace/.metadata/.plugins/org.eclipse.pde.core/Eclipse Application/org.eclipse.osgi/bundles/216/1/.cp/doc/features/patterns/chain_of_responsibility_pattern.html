@@ -1,0 +1,123 @@
+<html>
+
+<head>
+<title>Chain of Responsibility Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>
+      Chain of Responsibility Pattern</b></font></h1>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Chain of Responsibility Pattern avoids coupling the sender of a request to
+    its receiver by giving more than one object a chance to handle the request.
+    Chain the receiving objects and pass the request along the chain until an
+    object handles it.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/chain_of_responsibility_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Handler class</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select an abstract handler class.</td>
+        <td valign="top" align="left">&lt;AbstractHandler&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Interfaces</td>
+        <td valign="top" align="left">Click&nbsp;<span CLASS="Label">Add</span> to choose
+        interfaces that the new class implements.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Successor field</td>
+        <td valign="top" align="left">Type or select the name of the field that will contain the
+          next object in the chain</td>
+        <td valign="top" align="left">&lt;successor&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Can handle method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          answer whether the class can handle the request</td>
+        <td valign="top" align="left">&lt;canHandle&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Handle request method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          handle the request</td>
+        <td valign="top" align="left">&lt;handleRequest&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Concrete handler classes</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of the
+          concrete handler classes that
+        should be created.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Chain of Responsibility pattern when<ul>
+      <li>more than one object may handle a request, and the handler isn't known
+        <em>a priori</em>. The handler should be ascertained automatically. </li>
+    </ul>
+    <ul>
+      <li>you want to issue a request to one of several objects without
+        specifying the receiver explicitly.</li>
+    </ul>
+    <ul>
+      <li>the set of objects that can handle a request should be specified
+        dynamically.</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?ChainOfResponsibilityPattern">http://c2.com/cgi/wiki?ChainOfResponsibilityPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Chain_of_responsibility_pattern">http://www.wikipedia.org/wiki/Chain_of_responsibility_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#ChainOfResponsibility">http://www.cmcrossroads.com/bradapp/javapats.html#ChainOfResponsibility</a></p>
+    <p><a href="http://www.dofactory.com/Patterns/Pattern_Chain.asp">http://www.dofactory.com/Patterns/Pattern_Chain.asp</a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

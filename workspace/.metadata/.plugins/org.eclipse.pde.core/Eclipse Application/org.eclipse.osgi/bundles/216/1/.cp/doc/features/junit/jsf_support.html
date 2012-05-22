@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>JSF Test Generation</title>
+		<link type="text/css" rel="stylesheet" href="../../book.css"/>
+	</head>
+	<body>
+		<h1>JSF Test Generation</h1>
+		<p>CodePro can generate tests for the JavaServer Faces Framework (
+			<a href="http://java.sun.com/javaee/javaserverfaces/">java.sun.com/javaee/javaserverfaces</a>). JSF is a framework for building user interfaces for web applications. CodePro supports generating tests for JSF 1.1 and JSF 1.2.
+		</p>
+		<ol style="list-style: none;">
+			<li>
+				<a href="jsf_support.html#HelloWorldExample">Hello World Example</a>
+			</li>
+			<li>
+				<a href="jsf_support.html#ImplementationDetails">Implementation Details</a>
+				<ol style="list-style: none;">
+					<li>
+						<a href="jsf_support.html#ShalesFacesContextvstheincontainerFacesContext">Shale's FacesContext vs. the in-container FacesContext</a>
+					</li>
+					<li>
+						<a href="jsf_support.html#Waystoimprovegeneratedtests">Ways to improve generated tests</a>
+					</li>
+					<li>
+						<a href="jsf_support.html#HowdoesCodeProdeterminewhenaclassisaJSFclassbackingbean">How does CodePro determine when a class is a JSF class / backing bean?</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<a href="jsf_support.html#ShaleTestLibrary">Shale Test Library</a>
+			</li>
+		</ol>
+		<p><hr/></p>
+		<h2 id="HelloWorldExample">Hello World Example</h2>
+		<p>Let&#8217;s start out with a simple Hello World example of a JSF backing bean:</p>
+		<pre><code>public class PersonBean {
+
+	String personName;
+
+	public String getPersonName() {
+		return personName;
+	}
+
+	public void setPersonName(String name) {
+		personName = name;
+	}
+
+	public int getPersonCount() {
+		Map sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+
+		Integer personCount = (Integer) sessionMap.get("personCount");
+
+		return personCount != null ? personCount.intValue() : 0;
+	}
+}
+</code></pre>
+		<p></p>
+		<p>In order to generate tests for this controller, right click on the class in the Package Explorer and choose 
+			<strong>CodePro Tools > Generate Test Cases</strong>. This will create and open a new test case called 
+			<code>PersonBeanTest</code>. 
+		</p>
+		<p>
+			<img border="0" src="generate_test_case.gif"/>
+		</p>
+		<pre><code>public class PersonBeanTest extends AbstractJsfTestCase {
+
+	public PersonBeanTest(String name) {
+		super(name);
+	}
+
+	public void testGetPersonCount_1()
+		throws Exception {
+		PersonBean fixture = new PersonBean();
+		fixture.setPersonName("");
+
+		int result = fixture.getPersonCount();
+
+		// add additional test code here
+		assertEquals(0, result);
+	}
+
+	public void testGetPersonCount_2()
+		throws Exception {
+		PersonBean fixture = new PersonBean();
+		fixture.setPersonName("");
+
+		int result = fixture.getPersonCount();
+
+		// add additional test code here
+		assertEquals(0, result);
+	}
+
+	public void testGetPersonName_1()
+		throws Exception {
+		PersonBean fixture = new PersonBean();
+		fixture.setPersonName("");
+
+		String result = fixture.getPersonName();
+
+		// add additional test code here
+		assertNotNull(result);
+	}
+
+	public void testSetPersonName_1()
+		throws Exception {
+		PersonBean fixture = new PersonBean();
+		fixture.setPersonName("");
+		String name = "";
+
+		fixture.setPersonName(name);
+
+		// add additional test code here
+	}
+}
+</code></pre>
+		<p></p>
+		<p>You can see that, like CodePro&#8217;s normal test generation, we create a fixture of the class under test, execute the method under test, and make assertions on the results. For JSF tests we use Shale&#8217;s 
+			<code>AbstractJsfTestCase</code> class as the superclass of our test case. This class initializes certain JSF variables, like the 
+			<code>FacesContext</code>, so that our JUnit tests can refer to these variables. For instance in the 
+			<code>PersonBean.getPersonCount()</code> method, we get information out of the 
+			<code>FacesContext</code>'s session map. We would not have been able to do this without the FacesContext already having been set up by the 
+			<code>AbstractJsfTestCase</code> class.
+		</p>
+		<h2 id="ImplementationDetails">Implementation Details</h2>
+		<h3 id="ShalesFacesContextvstheincontainerFacesContext">Shale&#8217;s FacesContext vs. the in-container FacesContext</h3>
+		<p>CodePro&#8217;s generated JSF unit tests are client based tests. The test code runs locally on the client and not in a servlet container. This means that there is no real JSF framework running. Your backing beans from the 
+			<code>faces-config.xml</code> file have not been initialized, no servlet listeners from the 
+			<code>web.xml</code> file have been started, and your datasources defined in xml files are not active. The 
+			<code>FacesContext</code> implementation that exists in the context of CodePro&#8217;s generated unit tests is good for unit testing; for testing smaller pieces of the application&#8217;s functionality in isolation. For in-container integration style tests, a tool like 
+			<a href="http://jakarta.apache.org/cactus/">Cactus</a> should be investigated.
+		</p>
+		<h3 id="Waystoimprovegeneratedtests">Ways to improve generated tests</h3>
+		<p>There are a few ways to improve the quality of the generated tests. One way is to turn on mock object support. You can do this through the 
+			<strong>CodePro > JUnit > Mock Objects</strong> preference page. Testing with mock objects helps you reduce the dependencies between the code you&#8217;re testing and other parts of your application. If you can isolate and test different parts of your application separately, you&#8217;ll have more reliable and targeted tests.
+		</p>
+		<p>Another way to improve the quality of your tests is to use dependency injection in your source code. Dependency injection, or inversion of control, is a way of suppling an object&#8217;s dependencies indirectly. Instead of an object knowing how to get a reference to a service, a dependency injection framework supplies that service to the object; i.e. it injects the dependency into the object. This allows services to be mocked much easier, and facilitates testing. Spring, Juice, and PicoContainer are all examples of dependency injection frameworks.</p>
+		<p>A third way to improve the generated tests is to modify them slightly after generation to supply more information to the test fixture. In the 
+			<code>testGetPersonCount_1()</code> test method above, the test fixture accesses the session variable 
+			<code>personCount</code>. It could be that in order to test this method in a meaningful way, this session variable should be set to a value before the method is executed. The new, user-modified test might look like:
+		</p>
+		<pre><code>public void testGetPersonCount_1()
+	throws Exception
+{
+	PersonBean fixture = new PersonBean();
+	fixture.setPersonName("");
+	
+	// user added code
+	Map sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+	sessionMap.set("personCount", new Integer(5));
+	
+	int result = fixture.getPersonCount();
+	
+	// add additional test code here
+	assertEquals(5, result);
+}
+</code></pre>
+		<p></p>
+		<p>Note that if you edit a generated test method, you need to remove the <code>@generatedBy</code> tag in the comments to prevent CodePro from writing over your modifications the next time it generates tests for that class.</p>
+		<h3 id="HowdoesCodeProdeterminewhenaclassisaJSFclassbackingbean">How does CodePro determine when a class is a JSF class / backing bean?</h3>
+		<p>CodePro uses two different methods to determine if a class is a JSF class.</p>
+		<p>If the class makes an explicit reference to the 
+			<code>FacesContext</code> class, then it is assumed to be a JSF class. Otherwise, unit tests for that class would not have access to an initialized 
+			<code>FacesContext</code> instance.
+		</p>
+		<p>The second way of identifying a JSF class is to use the faces-config.xml file. If a faces-config.xml file exists in the project, and the class is referenced from there as a managed-bean / backing bean, then the class is assumed to be a JSF class.</p>
+		<h2 id="ShaleTestLibrary">Shale Test Library</h2>
+		<p>Shale is a web application framework based on JSF. CodePro uses the Shale test library to initialize JSF variables, including the 
+			<code>FacesContext</code>. For more information about Shale and the Shale test library, see 
+			<a href="http://shale.apache.org/shale-test/index.html">shale.apache.org/shale-test</a>.
+		</p>
+	</body>
+</html>

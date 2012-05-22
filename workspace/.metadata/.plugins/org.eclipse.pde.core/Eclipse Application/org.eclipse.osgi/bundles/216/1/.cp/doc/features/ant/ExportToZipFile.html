@@ -1,0 +1,66 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.exportToZipFile</b></font></h1>
+      <p><b><font size="4">(replaced in Eclipse 3.x / Ant 1.6.2 by
+      <a href="Ant162/ZIP.html">Zip</a>)</font></b></p>
+      <p><i>(old task name &quot;ExportToZipFile&quot;)</i></p>
+      <p>Exports project resources to a specified zip file.&nbsp; Each line in the
+      &lt;Resources&gt; section defines a project resource or group of resources to be exported,
+      where all paths are relative to the workspace root.&nbsp; If the resource specified is a
+      folder, then recursively all files and folders in that folder will included in the export.
+      &nbsp; Valid attributes include:<ul>
+        <li><b>destinationFilename</b> (required) = the name and location of the 
+        zip file to be created.&nbsp; This is identical to the zipfile or 
+        destfile attribute provided by the standard ant zip task.<br>
+&nbsp; </li>
+        <li><b>createLeadupStructure</b> (optional - default true) = whether the 
+        directories containing the specified resources are created in the 
+        destination zip file.&nbsp; For example, if <b>MyProject's src</b> 
+        folder is specified as one of the resources to be exported, then setting 
+        this attribute true causes the resources in the src folder to be 
+        exported into <b>MyProject/src/myDirectories</b>, 
+        whereas setting this attribute false causes the resources in the src 
+        folder to be exported into <b>myDirectories</b>.&nbsp; 
+        This option only applies to files and directories specified using the 
+        &lt;Resources&gt; structure, not to FileSets.<br>
+&nbsp; </li>
+        <li><b>generateManifestFile</b> (optional - default false) = whether or 
+        not a manifest file is generated as part of the zip file.<br>
+&nbsp; </li>
+        <li><b>overwriteFile</b> (optional - default false) = if true, then the 
+        destination zip file, if it exists, will be deleted before building a 
+        new zip file.&nbsp; This is the inverse of the update attribute provided 
+        by the standard ant zip task<br>
+&nbsp; </li>
+        <li><b>useCompression</b> (optional - default true) = whether or not the 
+        contents of the zip file are to be compressed.&nbsp; This is identical 
+        to the compress attribute provided by the standard ant zip task.</li>
+      </ul>
+      <p>The codepro.exportToZipFile Ant task is based upon the standard ant
+      <a href="http://ant.apache.org/manual/CoreTasks/zip.html">zip</a> task, 
+      so all of the options that apply to the zip task (such as
+      <a href="http://ant.apache.org/manual/CoreTypes/fileset.html">FileSets</a>) 
+      also apply to the codepro.exportToZipFile task.</p>
+      <p>Example:</p>
+      <blockquote>
+        <pre>&lt;codepro.exportToZipFile destinationFilename=&quot;G:/export-out/export.zip&quot;&gt;
+	&lt;Resources&gt;
+		/CodeProStudioDemo
+	&lt;/Resources&gt;
+&lt;/codepro.exportToZipFile&gt;</pre>
+      </blockquote>
+      <p>In this example, the CodeProStudioDemo project's contents are being exported to the
+      specified zip file.</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

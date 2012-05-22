@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Pattern Usage</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Pattern Usage</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check your code for constructs that violate specific coding patterns.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.enforceTheSingletonPropertyWithAPrivateConstructor">Enforce Singleton Property with Private Constructor</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.invalidVisitorUsage">Invalid Visitor Usage</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.lazilyInitializeSingletons">Lazily Initialize Singletons</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.useThreadSafeLazyInitialization">Use Thread-safe Lazy Initialization</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.enforceTheSingletonPropertyWithAPrivateConstructor">Enforce Singleton Property with Private Constructor</a></h4><p>
+<b>Summary</b><br/>Flag classes that appear to follow the Singleton pattern but have a non-private constructor.<p><b>Description</b><br/>Ensure that a class defined as a singleton follows specific rules that disallow multiple instances to be created. Singleton classes should have a single, private constructor and static access to the instance.<h4><a name="com.instantiations.assist.eclipse.audit.invalidVisitorUsage">Invalid Visitor Usage</a></h4><p>
+<b>Summary</b><br/>A visit and endVisit methods should only be invoked by the object being visited.<p><b>Description</b><br/>This audit rule looks for places where a <code>visit</code> or <code>endVisit</code> method is being invoked by an object other than the one being visited. Such invocations indicate that the visitor pattern is being used incorrectly. Clients should not invoke the <code>visit</code> and <code>endVisit</code> methods directly, but should ask the object to be visited to accept the visitor.<p><b>Example</b><br/>The following invocation of the <code>visit</code> method would be flagged as a violation because the argument to the invocation is not <code>this</code>: <p><code>&nbsp;&nbsp;&nbsp;&nbsp;visitor.visit(someObject);</code><h4><a name="com.instantiations.assist.eclipse.audit.lazilyInitializeSingletons">Lazily Initialize Singletons</a></h4><p>
+<b>Summary</b><br/>Singleton objects should be initialized as late as possible.<p><b>Description</b><br/>This audit rule looks for singleton classes in which the singleton object is initialized earlier than necessary.<p><b>Example</b><br/>The following static field declaration would be flagged because the field is initialized in the declaration rather than in the getInstance() method:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private static MySingleton UniqueInstance = new MySingleton();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;public static MySingleton getInstance()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return UniqueInstance;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.useThreadSafeLazyInitialization">Use Thread-safe Lazy Initialization</a></h4><p>
+<b>Summary</b><br/>Static fields should be initialized in a thread safe way.<p><b>Description</b><br/>Static fields are typically initialized either as part of their declaration, in a static initializer, or lazily in a static method. The first two ways are thread safe because of the way the JVM initializes classes. In order for the initialization of a lazily initialized field (such as the unique instance of a Singleton class) to be thread safe, either the method must be synchronized or the body of the method must be inside a synchronize statement. If not, and if the method is called by multiple threads, one of the threads might get a reference to the field before it is fully initialized or it might be initialized multiple times. This audit rule looks for places where a static field is initialized in a way that is not thread safe.<p><b>Example</b><br/>The following singleton is not thread-safe, and would be marked as a violation.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class MySingleton {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public MySingleton instance = null;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public MySingleton getInstance() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (instance == null) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance = new MySingleton();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return instance;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private MySingleton() {}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</body>
+</html>

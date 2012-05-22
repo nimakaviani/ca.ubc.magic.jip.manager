@@ -1,0 +1,4146 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro">
+<title>Audit Rule Set - Potential Errors and Refactorings</title>
+<style type="text/css">
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+	p {margin: 0.5em 2em 1em; line-height: 1.5em}
+	h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+	h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+	h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+	h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+	table tr th {font-size: 75%}
+	table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<h1 align="center"><a name="top">CodePro Audit Rule Set</a></h1>
+<h2 align="center">Potential Errors and Refactorings</h2>
+<p align="right">Powered by CodePro and <a href="http://www.eclipse.org">Eclipse</a>
+</p>
+<hr size="2">
+<h4>Summary</h4>
+<table>
+	<tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.abstractSpecialization">Abstract Specialization</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.addMethodToInterface">Add Method to Interface</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.appendString">Append String</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.assignmentInCondition">Assignment In Condition</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.blockDepth">Block Depth</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.caughtExceptions">Caught Exceptions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.checkTypeInEquals">Check Type In Equals</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.cloneMethodUsage">Clone Method Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.commandExecution">Command Execution</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.convertClassToInterface">Convert Class to Interface</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.danglingElse">Dangling Else</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.declareAsInterface">Declare As Interface</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.declaredExceptions">Declared Exceptions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.defaultNotLastInSwitch">Default Not Last in Switch</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.defineInitialCapacity">Define Initial Capacity</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowNativeMethods">Disallow Native Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowNotifyUsage">Disallow Notify Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowSleepInsideWhile">Disallow Sleep Inside While</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowThreadGroupUsage">Disallow ThreadGroup Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowAWTPeerUsage">Disallow Use of AWT Peer Classes</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowDeprecatedMethodUsage">Disallow Use of Deprecated Thread Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowYieldUsage">Disallow Yield Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.duplicatePropertyName">Duplicate Property Name</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.duplicatePropertyValue">Duplicate Property Value</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.efficientExpression">Efficient Expression</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptyCatchClause">Empty Catch Clause</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptyFinallyClause">Empty Finally Clause</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptyStatement">Empty Statement</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptySynchronizedStatement">Empty Synchronized Statement</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.enforceTheSingletonPropertyWithAPrivateConstructor">Enforce Singleton Property with Private Constructor</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.entryPointMethod">Entry Point Method</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.environmentVariableAccess">Environment Variable Access</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.equalityTestWithBooleanLiteral">Equality Test with Boolean Literal</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.expressionValue">Expression Evaluation</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.extraSemicolon">Extra Semicolon</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.finalizeMethodDefinition">Finalize Method Definition</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.floatComparison">Float Comparison</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.hidingInheritedFields">Hiding Inherited Fields</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.hidingInheritedStaticMethods">Hiding Inherited Static Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.instanceFieldSecurity">Instance Field Security</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.instanceFieldVisibility">Instance Field Visibility</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.invokeInheritedMethod">Invoke super.finalize() from finalize()</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfParameters">Large Number of Parameters</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfSwitchStatementCases">Large Number of Switch Statement Cases</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.lossOfPrecisionInCast">Loss of Precision in Cast</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.methodChainLength">Method Chain Length</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.missingBlock">Missing Block</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.missingDefaultInSwitch">Missing Default in Switch</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.noRunMethod">No Run Method</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.nonBlankFinalInstanceField">Non-blank Final Instance Field</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.nonCaseLabelInSwitch">Non-case Label in Switch</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.nonPrivateConstructorInStaticType">Non-private Constructor in Static Type</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.nonProtectedConstructorInAbstractType">Non-protected Constructor in Abstract Type</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.nonTerminatedCaseClause">Non-terminated Case Clause</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.obeyEqualsContract.obeyGeneralContractOfEquals">Obey General Contract of Equals</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.overloadedMethods">Overloaded Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.overridingEqualsAndHashCode">Override both equals() and hashCode()</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.overridingNonAbstractMethod">Overriding a Non-abstract Method with an Abstract Method</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.overridingSynchronizedMethod">Overriding a Synchronized Method with a Non-synchronized Method</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.overridingPrivateMethod">Overriding Private Method</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.parenthesizeCondition">Parenthesize Condition in Conditional Operator</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.platformSpecificLineSeparator">Platform Specific Line Separator</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.preferredExpression">Preferred Expression</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.questionableAssignment">Questionable Assignment</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.redundantAssignment">Redundant Assignment</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.restrictedSuperclasses">Restricted Superclasses</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.rethrownExceptions">Rethrown Exceptions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.returnInFinally">Return in Finally</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.reusableImmutables">Reusable Immutables</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.serializableUsage">Serializable Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.staticFieldSecurity">Static Field Security</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.stringComparison">String Comparison</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.stringConcatenationInLoop">String Concatenation in Loop</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.stringCreatedFromLiteral">String Created from Literal</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.synchronizedMethod">Synchronized Method</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.temporaryObjectCreation">Temporary Object Creation</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.throwInFinally">Throw in Finally</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.thrownExceptions">Thrown Exceptions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.typeDepth">Type Depth</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.unnecessaryInstanceof">Unnecessary "instanceof" Test</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.unnecessaryReturnStatementParentheses">Unnecessary Return Statement Parentheses</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.unnecessaryCast">Unnecessary Type Cast</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.useForLoop">Use "for" Loops Instead of "while" Loops</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.useCharAtRatherThanStartsWith">Use charAt() Rather Than startsWith()</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.useEquals">Use equals() Rather Than ==</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.useOfInstanceOfWithThis">Use of "instanceof" with "this"</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.variableDeclaredInLoop">Variable Declared Within a Loop</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.variableShouldBeFinal">Variable Should Be Final</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.variableUsage">Variable Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.waitInsideWhile">Wait Inside While</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.whiteSpaceBeforePropertyName">White Space Before Property Name</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.wrongIntegerTypeSuffix">Wrong Integer Type Suffix</a></td>
+	</tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.abstractSpecialization">Abstract Specialization</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Abstract classes should not be subclasses of concrete classes.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds abstract classes that are subclasses of concrete classes. An exception is made for abstract subclasses of the class java.lang.Object.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class declaration would be flagged as a violation because the class java.util.ArrayList is not an abstract class:
+</p>
+<p>
+	public abstract class SpecializedList extends ArrayList
+</p>
+<p>
+while the following class declaration would not be flagged because the class java.lang.Object is treated specially:
+</p>
+<p>
+	public abstract Person extends Object
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.addMethodToInterface">Add Method to Interface</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Identify properties that can be added to an interface.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods in concrete classes that can be added to their corresponding interfaces. If a class is named Foo and has a "bar" property with getBar() and setBar() methods, the corresponding interface, IFoo, will be checked to see if it defines the getter and setter method.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the class Employee were defined as:
+</p>
+<p>
+	public class Employee implements IEmployee
+</p>
+<p>
+and defined the methods getSSN() and setSSN() that were not declared in the IEmployee interface, then those methods would be flagged as violations.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.appendString">Append String</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Appending strings with single characters to buffers or streams is slower than appending just the single character.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds single character string literals as a single argument to a method invocation where that argument can be replaced by a character literal to improve performance.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+Given the following declaration:
+</p>
+<p>
+	StringBuffer sb = new StringBuffer();
+</p>
+<p>
+The statement
+</p>
+<p>
+	sb.append("a");
+</p>
+<p>
+would be flagged as needing to be replaced by the statement
+</p>
+<p>
+	sb.append('a');
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.assignmentInCondition">Assignment In Condition</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The assigment operator should never be used in a condition.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places in the code where an assignment operator is used within a condition associated with an if, for, while or do statement. Such uses are often caused by mistyping a single equal (=) where a double equal (==) was intended.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (a = 0) {
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.blockDepth">Block Depth</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods should be kept fairly flat.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods and constructors that have too many levels of nested blocks. A method with too many levels of nested blocks can be difficult to understand. The definition of "too many" can be set.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the limit is set to two, then the inner if statement in the following would be flagged as a violation:
+</p>
+<p>
+	if (firstChoice == null) {
+		if (secondChoice == null) {
+			if (thirdChoice == null) {
+				return null;
+			}
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.caughtExceptions">Caught Exceptions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Some exceptions should not be caught.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds catch clauses that catch an exception class that is disallowed. The list initially includes exception classes that are either too general (such as Throwable or Exception), or that are unchecked (such as Error and RuntimeException).
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following catch clause would be flagged because it catches instances of the class java.lang.Throwable, which is too general:
+</p>
+<p>
+	try {
+		...
+	} catch (Throwable exception) {
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.checkTypeInEquals">Check Type In Equals</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Implementations of equals() should check the type of the parameter.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds implementations of the method equals() that do not check the type of the parameter. The rule can be configured for how the type of the parameter should be checked.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following declaration of the equals() method would be flagged because the type of the argument is not checked:
+</p>
+<p>
+	public boolean equals(Object other)
+	{
+		return getName().equals(((Employee) other).getName());
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.cloneMethodUsage">Clone Method Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Every implementation of clone() should invoke super.clone() and every clone() method should be final.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for implementations of the method clone() that do not invoke the inherited clone() method. It also looks for clone() methods that are not declared final.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following declaration of the clone method would be flagged as being a violation, both because of the lack of an invocation of the inherited clone method and because it is not declared 'final'.
+</p>
+<p>
+	public Object clone()
+	{
+		return new Employee(getName());
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.commandExecution">Command Execution</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+External commands should not be executed because not all platforms have the same syntax for executing them.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The method Runtime.exec() should not be used to execute commands because the format of command execution is platform dependent.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following invocation of the exec() method would be flagged as a violation:
+</p>
+<p>
+	Runtime.exec("c:binmyApp.exe", new String[0]);
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.convertClassToInterface">Convert Class to Interface</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Some classes could be converted to interfaces.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds classes containing no methods or only abstract methods, and no fields or only static final fields. Classes such as these could be converted to an equivalent interface providing increased implementation flexibility.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class declaration would be flagged as a violation:
+</p>
+<p>
+	public abstract class RunnableWithException
+	{
+		public abstract void run()
+			throws Exception;
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.danglingElse">Dangling Else</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Use blocks to prevent dangling else clauses.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places in the code where else clauses are not preceded by a block because these can lead to dangling else errors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (a &gt; 0)
+		if (a &gt; 100)
+			b = a - 100;
+	else
+		b = -a;
+
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.declareAsInterface">Declare As Interface</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Variables of certain types should be declared using an interface.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds declarations of fields and variables whose type should have been declared to be an interface but was declared to be a class that implements the interface instead. The list of interfaces that are checked can be configured.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+If the type java.util.List is on the list of interfaces, the following would be flaged as a violation because the declared type of the field should have been "List":
+</p>
+<p>
+	private ArrayList myList;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.declaredExceptions">Declared Exceptions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Some exceptions should not be declared for methods or constructors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods and constructors that declare as a thrown exception an exception class that is disallowed. The list initially includes exception classes that are either too general (such as Throwable or Exception), or that are unchecked (Error, RuntimeException, and all subclasses of either).
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to disallow the declaration of unchecked exceptions, then the following method would be flagged as a violation:
+</p>
+<p>
+	public void initialize()
+		throws Error
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.defaultNotLastInSwitch">Default Not Last in Switch</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The default case should be the last case in a switch statement.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds switch statements in which the default case is not the last case. Making the default case always be last improves the readability of the code by making it easier to locate the default behavior.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following case statement would be flagged as a violation because the default case is not the last case:
+</p>
+<p>
+	switch (registrationType) {
+	case 0: \ audit
+		...
+	default:
+	case 1: \ for credit
+		...
+	case 2: \ pass/fail
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.defineInitialCapacity">Define Initial Capacity</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Define an initial capacity for 'ArrayList','HashMap', 'HashSet', 'Hashtable', 'Vector', 'WeakHashMap' or 'StringBuffer' instances.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule requires an initial capacity to be specified when creating 'ArrayList','HashMap', 'HashSet', 'Hashtable', 'Vector', 'WeakHashMap' or 'StringBuffer'. Array capacity expansion involves allocating a larger array and copying the contents of the old array to a new one. The old array object eventually gets reclaimed by the garbage collector. Array expansion is an expensive operation which should be avoided where possible. If you are able to approximate the expected size, you should use this value instead of the default.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following instance creation would be flagged as a violation because the expected size of the collection is not specified:
+</p>
+<p>
+	new ArrayList();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowNativeMethods">Disallow Native Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Native methods should be avoided because they are often platform dependent.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Native methods should be avoided because they are often platform dependent.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following method declaraction would be flagged as a violation because it is implemented as a native method:
+</p>
+<p>
+	public int native getUID();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowNotifyUsage">Disallow Notify Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The notify() method should not be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The method notifyAll() should be used rather than notify() because it will generally lead to a better scheduling of waiting threads.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following invocation of the notify() method would be flagged as a violation:
+</p>
+<p>
+	synchronize (monitor) {
+		monitor.notify();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowSleepInsideWhile">Disallow Sleep Inside While</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The sleep() method should not be used within a while loop.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for invocations of the sleep() method that occur inside of a while loop. Such occurances usually indicate that the code implements a busy-wait loop, which is inefficient. Instead, the code should use wait() and notify() to block the thread until it is possible for execution to proceed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following invocation of the sleep() method would be flagged as a violation:
+</p>
+<p>
+	while (eventQueue.isEmpty()) {
+		Thread.sleep();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowThreadGroupUsage">Disallow ThreadGroup Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The class ThreadGroup should not be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The class ThreadGroup should not be used in multi-threaded applications because its implementation is not thread safe.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following instance creation would be flagged as a violation because it is creating an instance of the class java.lang.ThreadGroup:
+</p>
+<p>
+	new ThreadGroup("Background Threads")
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowAWTPeerUsage">Disallow Use of AWT Peer Classes</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+AWT peer classes should not be referenced because they are platform dependent.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The AWT peer classes provide a platform-specific implementation of the AWT widgets. Referencing any of these classes directly will result in platform dependent code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following reference to the class sun.awt.windows.WButtonPeer would be flagged as a violation because it is specific to the Windows platform:
+</p>
+<p>
+	if (peer instanceof sun.awt.windows.WButtonPeer)
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowDeprecatedMethodUsage">Disallow Use of Deprecated Thread Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Don't use deprecated methods when writing multi-threaded code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The methods Thread.resume(), Thread.stop(), Thread.suspend() and Runtime.runFinalizersOnExit() have been deprecated and should not be used because they are inherently unsafe.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following use of the suspend() method would be flagged as a violation:
+</p>
+<p>
+	processingThread.suspend();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowYieldUsage">Disallow Yield Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The method Thread.yield() should not be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The method Thread.yield() should not be used because its behavior is not consistent across all platforms.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following invocation of the yield() method would be flagged as a violation:
+</p>
+<p>
+	backgroundTask.yield();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.duplicatePropertyName">Duplicate Property Name</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Properties should only be declared once.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks to ensure that there is never more than one property declaration with the same name in the same file. Declaring multiple properties with the same name is usually a mistake because only the last such property will be visible to the code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	applicationName = CoolApp
+	applicationName = Ice Machine Controller
+
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.duplicatePropertyValue">Duplicate Property Value</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Properties should only be declared once.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks to ensure that there is never more than one property declaration with the same value in the same file. Declaring multiple properties with the same value can needlessly increase the amount of effort required to translate the property values into another locale.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	importBottonLabel = Import...
+	importMenuLabel = Import...
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.efficientExpression">Efficient Expression</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Some expressions are more efficient than others.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This rule finds expressions that can be replaced with other equivalent and more efficient expressions.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The expression
+</p>
+<p>
+	(new Integer("1234")).intValue()
+</p>
+<p>
+should be replaced by
+</p>
+<p>
+	Integer.parseInt("1234")
+</p>
+<p>
+because the latter expression does not create an intermediate Integer object and thus is more efficient.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptyCatchClause">Empty Catch Clause</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Catch clauses should not be empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This rule finds places where an exception is caught and nothing is done. It can be configured to allow the existence of a comment to substitute for actual Java code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	try {
+		...
+	} catch (Exception exception) {
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptyFinallyClause">Empty Finally Clause</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Finally clauses should never be empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds finally clauses whose block is empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	try {
+		...
+	} finally {
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptyStatement">Empty Statement</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Empty statements should never be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where an empty statement occurs within a control structure. (An empty statement is a semi-colon appearing alone in a place where a statement is allowed). The existence of an empty statement usually indicates a problem, such as a piece of code that was unintentionally removed or a semicolon added in the wrong place.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (hasBeenAuthenticated);
+		grantSpecialAccess();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptySynchronizedStatement">Empty Synchronized Statement</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Synchronized statements should never be empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds empty synchronized statements.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	synchronized (monitor) {
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.enforceTheSingletonPropertyWithAPrivateConstructor">Enforce Singleton Property with Private Constructor</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Flag classes that appear to follow the Singleton pattern but have a non-private constructor.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Ensure that a class defined as a singleton follows specific rules that disallow multiple instances to be created. Singleton classes should have a single, private constructor and static access to the instance.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.entryPointMethod">Entry Point Method</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The main() method should be defined as "public static void main(java.lang.String[])".
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds main() methods that are not defined as "public static void main(java.lang.String[])". The main() method should only be used as the entry point for a class.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following method would be flagged as a violation because it is not declared to be a static method:
+</p>
+<p>
+	public void main(String[] args)
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.environmentVariableAccess">Environment Variable Access</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Environment variables should not be accessed because not all platforms have support for environment variables.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The method System.getenv() should not be used to access environment variables because not all platforms have support for environment variables. Properties should be used instead.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following invocation of the getenv() method would be flagged as a violation:
+</p>
+<p>
+	System.getenv("PATH");
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.equalityTestWithBooleanLiteral">Equality Test with Boolean Literal</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Boolean literals should never be used in equality tests.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds equality tests (using either == or !=) in which either or both of the operands are a Boolean literal (either true or false).
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (todayIsTuesday() == true) {
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.expressionValue">Expression Evaluation</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Expression evaluation.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This set of audit rules checks the value of expressions for certain conditions. It detects constant and zero values, divide-by-zero, and others.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation because it always produces the same value:
+</p>
+<p>
+	int secondsPerDay = 24 * 60 * 60;
+</p>
+<p>
+The following expression would be flagged as a violation because it will always cause a divide by zero exception:
+</p>
+<p>
+	return 23 / 0;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.extraSemicolon">Extra Semicolon</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Extra semicolons clutter the code and serve no useful purpose.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where a semicolon occurs but is not needed. While not strictly an error, such semicolons clutter the code and serve no useful purpose.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	while (index &lt; count) {
+		index = index + 1;;
+	};
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.finalizeMethodDefinition">Finalize Method Definition</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Finalize methods should not have parameters or a non-void return type.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The only way to declare a finalize method is
+</p>
+<p>
+	public void finalize() [throws Throwable]
+</p>
+<p>
+You can create other finalize methods that take parameters, but they will not be called automatically by the system, and may confuse anyone reading the code. You should reserve the name finalize for the real finalize method. This audit rule finds finalize() methods that have parameters or do not have a void return type.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following method declaration would be flagged as a violation because the method returns an integer:
+</p>
+<p>
+	public int finalize()
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.floatComparison">Float Comparison</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Floating-point values should not be compared using equals (==) or not equals (!=).
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where two floating-point values are compared using either the equals (==) or not equals (!=) operators. The problem is that floating-point values are not exact, and floating-point operations sometimes introduce rounding errors. This sometimes results in getting the wrong result from equality-based comparisons.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+Given two floating point variables:
+</p>
+<p>
+	double oneThird = 1.0 / 3.0;
+	double anotherThird = (2.0 / 3.0) - oneThird;
+</p>
+<p>
+The following expression would be flagged as a violation:
+</p>
+<p>
+	if (oneThird == anotherThird)
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.hidingInheritedFields">Hiding Inherited Fields</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Inherited fields should not be hidden.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds fields that hide inherited fields. That is, it finds fields that have the same name as a field from a superclass.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+Given a class declaration like the following:
+</p>
+<p>
+	public class Person
+	{
+		private String name;
+		...
+	}
+</p>
+<p>
+The field declaration in the following class declaration would be flagged as a violation:
+</p>
+<p>
+	public class Employee extends Person
+	{
+		private String name;
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.hidingInheritedStaticMethods">Hiding Inherited Static Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Inherited static methods should not be hidden.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods that hide inherited static methods. That is, it finds methods that have the same name and compatible argument types as a static method from a superclass. The problem with defining methods like this is that it is too easy to miss the fact that the methods are static and that the subclasses method therefore does not override the method from the superclass.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+Given a class declaration like the following:
+</p>
+<p>
+	public class Person
+	{
+		public static Person newNamed(String name)
+		{
+			...
+		}
+		...
+	}
+</p>
+<p>
+The method declaration in the following class declaration would be flagged as a violation:
+</p>
+<p>
+	public class Employee extends Person
+	{
+		public static Person newNamed(String name)
+		{
+			...
+		}
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.instanceFieldSecurity">Instance Field Security</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Refrain from using non-final public instance fields.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+To the extent possible, refrain from using non-final public instance fields. Instead, let the interface to your instance field be through accessor methods. In this way it is possible to add centralized security checks, if required.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following field declaration would be flagged as a violation because it is both public and non-final:
+</p>
+<p>
+	public int width;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.instanceFieldVisibility">Instance Field Visibility</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Instance fields should have an appropriate visibility.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the visibility of all non-static fields to ensure that it is one of the allowed visibilities.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow private instance fields, then the following field declaration would be flagged as a violation because it is declared as being public:
+</p>
+<p>
+	public int x;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.invokeInheritedMethod">Invoke super.finalize() from finalize()</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Every implementation of finalize() should invoke super.finalize().
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for implementations of the method finalize() that do not invoke the inherited finalize() method.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following definition of the method finalize() would be flagged because it does not invoke the inherited implementation of finalize():
+</p>
+<p>
+	public void finalize()
+	{
+		if (fileReader != null) {
+			fileReader.close();
+			fileReader = null;
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfParameters">Large Number of Parameters</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods should not have too many parameters.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods that have more than the specified number of parameters. Methods that exceed this number are likely to be too complex. Consider moving some of the values and behavior associated with them into a separate class.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to allow 4 parameters and a method with 12 parameters is found, that method will be flagged as a violation.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfSwitchStatementCases">Large Number of Switch Statement Cases</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Switch statements should not have more than 256 case clauses.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for switch statements that have more than 256 case clauses. Some processors have special support for switch statements and some JITs will take advantage of such instructions when there are few enough cases.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If a switch statement with more than 256 case clauses is found, it will be flagged as a violation.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.lossOfPrecisionInCast">Loss of Precision in Cast</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Casting to a lower precision type can cause loss of data.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for places where one numeric type is being cast to another type of lower precision than the first. Doing so can result in a loss of data, which is generally not desirable.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+Given a declaration of the form:
+</p>
+<p>
+	double oneThird = 1.0 / 3.0;
+</p>
+<p>
+The following expression would be flagged as a violation:
+</p>
+<p>
+	(float) oneThird
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.methodChainLength">Method Chain Length</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Method invocations should not be chained into a long line.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for places where multiple method invocations are chained together into an overly long chain. There are two problems with long chains of method invocations. The most obvious is that they can make the code difficult to follow. An even more serious problem is that they often point out places where information has not been well encapsulated.
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	Color roofColor = party.getWorkAddress().getStructure().getRoof().getColor();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.missingBlock">Missing Block</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+A single statement should never be used where a block is allowed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for statements that control the execution of another statement (do, for, if or while) to ensure that the statement being controlled is always a block.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (color == null)
+		color = getDefaultColor();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.missingDefaultInSwitch">Missing Default in Switch</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Every switch statement should have a default clause.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of a default case within every switch statement.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following switch statement would be flagged as a violation because it does not contain a "default" case label:
+</p>
+<p>
+	switch (accountType) {
+	case CHECKING_ACCOUNT:
+		balance = ((CheckingAccount) account).getCheckingBalance();
+	case SAVINGS_ACCOUNT:
+		balance = ((SavingsAccount) account).getSavingsBalance();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.noRunMethod">No Run Method</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Subclasses of Thread should implement the run() method.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Subclasses of Thread should implement the run() method so that they will have the behavior for which they were created.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class will be flagged as a violation because it does not implement a run() method even though it subclasses java.lang.Thread:
+</p>
+<p>
+	public class SuperThread extends Thread
+	{
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.nonBlankFinalInstanceField">Non-blank Final Instance Field</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Final instance fields should be blank.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds instance fields that are marked as final and have a value assigned to them in the declaration. If the value of the field is the same for all instances, which it must be in this case, it should be a static field instead. If the value can be different in different instances, then either the field should not be final or the field should be assigned its value in a constructor.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following field declaration would be flagged as a violation:
+</p>
+<p>
+	private final int maxItemCount = 64;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.nonCaseLabelInSwitch">Non-case Label in Switch</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Switch statements should only contain case labels.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds labels other that case labels that appear within a switch statement. Such labels are often the result of forgetting to type the keyword "case" rather than an intent to use a labeled statement. If it isn't the result of an accident, having a labeled statement in a switch statement makes the logic much harder to understand because it can easily be mistaken for a case label.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The statement labeled "SAVINGS_ACCOUNT" would be flagged as a violation:
+</p>
+<p>
+	switch (accountType) {
+	case CHECKING_ACCOUNT:
+		balance = ((CheckingAccount) account).getCheckingBalance();
+	SAVINGS_ACCOUNT:
+		balance = ((SavingsAccount) account).getSavingsBalance();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.nonPrivateConstructorInStaticType">Non-private Constructor in Static Type</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Constructors in classes containing only static members should be private.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds non-private constructors in classes containing only static members. There is no value in creating an instance of a type that contains only static members. To prevent such instantiation, ensure that type has a single, no-argument, private constructor and no other constructors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class declaration would be flagged as a violation:
+</p>
+<p>
+	public class Utilities
+	{
+		public static int getSize(List list)
+		{
+			...
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.nonProtectedConstructorInAbstractType">Non-protected Constructor in Abstract Type</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Constructors in abstract classes should be protected.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds non-protected constructors in abstract classes. Constructors in an abstract class can only be called from an instantiating subclass. Marking all constructors protected will help indicate this.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The constructor in the following class declaration would be flagged as a violation:
+</p>
+<p>
+	public abstract class Widget
+	{
+		public Widget()
+		{
+			...
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.nonTerminatedCaseClause">Non-terminated Case Clause</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Case clauses should never fall through into the following case.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of either a break, continue, return, or throw statement at the end of each case clause in a switch statement. The lack of either of these statements means that control will fall through to the next case, which is usually not what is intended. It is possible to configure this rule to also accept a user-defined comment (such as "no break") as a signal that the developer knew what was happening.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	switch (accountType) {
+	case CHECKING_ACCOUNT:
+		balance = ((CheckingAccount) account).getCheckingBalance();
+	case SAVINGS_ACCOUNT:
+		balance = ((SavingsAccount) account).getSavingsBalance();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.obeyEqualsContract.obeyGeneralContractOfEquals">Obey General Contract of Equals</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Obey the general contract when overriding equals().
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The equals() method defined in Object is intended to be overridden by subclasses but each subclass must obey the general contract specified by the superclass. Classes should not use the name "equals" for methods that take any parameters other than a single Object. The body of the method should be coded defensively to accept any class of object as its argument.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The style of equals() definition that this rule looks for is this:
+</p>
+<p>
+	public boolean equals(Object arg) {
+		if (this == arg)
+			return true;
+		if (!(arg instanceof Foo))
+			return false;
+		Foo fooArg = (Foo) arg;
+		...
+	}
+</p>
+<p>
+"Foo" is the name of a type, which is either the class that declares this equals() method or an interface that is implemented by that class.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.overloadedMethods">Overloaded Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Overloading method names can cause confusion and errors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods that are overloaded. Overloaded methods are methods that have the same name and the same number of parameters, but do not have the same types of parameters. Such methods can cause confusion and errors because it is not always obvious which method will be selected at run time.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	public void process(Person person)
+	public void process(Employee employee)
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.overridingEqualsAndHashCode">Override both equals() and hashCode()</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Classes should override both equals() and hashCode() if they override either.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds classes in which either the equals() or hashCode() method has been overridden, but not both.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class declaration will be flagged as a violation because it overrides the method equals() but does not override the method hashCode():
+</p>
+<p>
+	public class Employee
+	{
+		private String name;
+</p>
+<p>
+		...
+</p>
+<p>
+		public boolean equals(Object object)
+		{
+			return object instanceof Employee
+				&& getName().equals(((Employee) object).getName());
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.overridingNonAbstractMethod">Overriding a Non-abstract Method with an Abstract Method</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+An abstract method should not override a non-abstract method.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds abstract methods that override a non-abstract method. Such a case usually represents a violation of the inherited contract.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+Given the following class:
+</p>
+<p>
+	public class Widget
+	{
+		public int getPartCount()
+		{
+			return 0;
+		}
+	}
+</p>
+<p>
+The method getPartCount() would be flagged as a violation in the following class:
+</p>
+<p>
+	public abstract class CompositeWidget extends Widget
+	{
+		public abstract int getPartCount();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.overridingSynchronizedMethod">Overriding a Synchronized Method with a Non-synchronized Method</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+A non-synchronized method should not override a synchronized method.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds non-synchronized methods that override a synchronized method. Such a case usually indicates thread-unsafe code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	public class Widget
+	{
+		public synchronized int getPartCount()
+		{
+			return 0;
+		}
+	}
+</p>
+<p>
+The method getPartCount() would be flagged as a violation in the following class:
+</p>
+<p>
+	public class CompositeWidget extends Widget
+	{
+		public int getPartCount()
+		{
+			return children.size();
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.overridingPrivateMethod">Overriding Private Method</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods cannot override a private method.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for methods that look like they were intended to override a method from a superclass but fail because the inherited method is defined to be a private method.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+Given the following class:
+</p>
+<p>
+	public class TreeNode
+	{
+		private int getChildCount()
+		{
+			return children.size();
+		}
+	}
+</p>
+<p>
+The method getChildCount() would be flagged as a violation in the following class:
+</p>
+<p>
+	public abstract class LeafNode extends TreeNode
+	{
+		private int getChildCount()
+		{
+			return 0;
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.parenthesizeCondition">Parenthesize Condition in Conditional Operator</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The condition in a conditional operator should be parenthesized if it contains a binary operator.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for uses of the conditional operator in which the condition contains a binary operator but has not been parenthesized.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation because the condition is not parenthesized:
+</p>
+<p>
+	childCount = children == null ? 0 : children.size();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.platformSpecificLineSeparator">Platform Specific Line Separator</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Line separators should not be hard-coded because they are platform dependent.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Line separators should not be hard-coded because they are platform dependent.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following use of the escape sequence "
+" would be flagged as a violation because not all platforms use it as a line separator:
+</p>
+<p>
+	text = title + "
+</p>
+<p>
+" + message;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.preferredExpression">Preferred Expression</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Some expressions are preferred over other equivalent expressions.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule searches for expressions that can be replaced with other equivalent and more preferred expressions. Specifically Colors can be replaced with Color constants and Booleans with Boolean constants.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The expression
+</p>
+<p>
+	new Color(0, 0, 0)
+</p>
+<p>
+can be replaced by
+</p>
+<p>
+	Color.black
+</p>
+<p>
+and the expression
+</p>
+<p>
+	new Boolean(true)
+</p>
+<p>
+can be replaced by
+</p>
+<p>
+	Boolean.TRUE
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.questionableAssignment">Questionable Assignment</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Questionable assignments may lead to semantic errors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for assignments to for loop variables within the loop body or assignments to method parameters within the body of the method. While these may sometimes prove useful they often have unintended side effects. Be sure you really mean to make these assignments!
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The assignment to "index" in the following method would be flagged as a violation because it is a method parameter:
+</p>
+<p>
+	public int lastIndexOf(Object[] array, Object value, int index)
+	{
+		index = array.size() - 1;
+		while (index >= 0) {
+			...
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.redundantAssignment">Redundant Assignment</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Redundant assignments should never be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the assignment of a variable to itself. This often indicates a missing qualifier, such as "this." for one or the other of the identifiers.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	public void setName(String name)
+	{
+		name = name;
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.restrictedSuperclasses">Restricted Superclasses</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Some classes should never be directly subclassed even though they cannot be marked as final.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds classes that directly subclass any of a list of classes that should never be directly subclassed. It is typically the case that there are subclasses of these classes that can be subclassed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to disallow direct subclasses of java.lang.Throwable, the following class declaration would be flagged as a violation:
+</p>
+<p>
+	public class QuestionableResult extends Throwable
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.rethrownExceptions">Rethrown Exceptions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Some exceptions should be rethrown.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds catch clauses that do not rethrow the original exception. The list initially includes Error and ThreadDeath. For example, if ThreadDeath is not rethrown, then the thread will not terminate.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule has been configured to require that instances of the class java.lang.ThreadDeath must be rethrown, the following catch clause would be flagged as a violation:
+</p>
+<p>
+	try {
+		...
+	} catch (ThreadDeath exception) {
+		resource.release();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.returnInFinally">Return in Finally</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Finally blocks should not contain a return statement.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where a return statement is contained in a finally block.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following return statement would be flagged as a violation:
+</p>
+<p>
+	try {
+		...
+	} finally {
+		return 0;
+	}
+	return array.length;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.reusableImmutables">Reusable Immutables</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Objects that cannot be modified at run-time should be created as static constants.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds the creation of some kinds of immutable objects. An immutable object is an object whose state cannot be modified at run-time. Such objects should be created as constants (static final fields) so that in order to reduce the amount of garbage that must be collected.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	new Integer(5);
+	new int[0];
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.serializableUsage">Serializable Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Serializable classes should be define properly.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds classes that are defined as Serializable (that implement the interface java.io.Serializable) that have specific problems or that do not need to be defined as Serializable.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class would be flagged as a violation because it does not define any instance fields:
+</p>
+<p>
+	public class Utilities implements Serializable
+	{
+		public static double computeInterest(double amount, double interestRate, double payment)
+		{
+			...
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.staticFieldSecurity">Static Field Security</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Refrain from using non-final public static fields.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+To the extent possible, refrain from using non-final public static fields because there is no way to check whether the code that changes such fields has appropriate permissions.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following declaration would be flagged as a violation because it it both public and non-final:
+</p>
+<p>
+	public static int minutesPerHour = 60;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.stringComparison">String Comparison</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Strings should not be compared using equals (==) or not equals (!=).
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Strings should always be compared using one of the comparison methods defined for strings. This audit rule looks for comparisons using either the equals (==) or not equals (!=) operators.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	String currentName, proposedName;
+</p>
+<p>
+	...
+	if (proposedName != currentName) {
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.stringConcatenationInLoop">String Concatenation in Loop</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Strings should not be concatenated within a loop.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The code to concatenate two strings is not very efficient because it creates a StringBuffer for each concatenation. When placed in a loop, this can result in the creation and collection of large numbers of temporary objects. You can create the StringBuffer before entering the loop, and append to it within the loop, thus reducing the overhead.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	String[] path;
+	String result = "";
+	for (int i = 0; i &lt; path.length; i++) {
+		result = result + "." + path[i];
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.stringCreatedFromLiteral">String Created from Literal</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Strings should not be created from a String literal.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places in the code where a String literal is used to initialize a newly created String. Doing so is almost never necessary and usually only serves to waste both time and space.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation:
+</p>
+<p>
+	new String("Pause");
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.synchronizedMethod">Synchronized Method</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods should never be marked as synchronized.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule reports the use of the synchronized modifier with methods. It is too easy to miss the existence of the synchronized modifier, so following this rule leads to more readable code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	public synchronized String getName()
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.temporaryObjectCreation">Temporary Object Creation</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Instances of numeric classes should not be created solely for the purpose of converting a numeric value to a string.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the creation of numeric classes where the only purpose for the object is to invoke the toString() method on it. All of the numeric classes implement a static toString() method that can do the same thing, but without the cost of creating and collecting an extra object.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation:
+</p>
+<p>
+	(new Integer(age)).toString()
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.throwInFinally">Throw in Finally</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Finally blocks should not contain a throw statement.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where a throw statement is contained in a finally block.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following throw statement would be flagged as a violation because it occurs within a finally block:
+</p>
+<p>
+	try {
+		...
+	} finally {
+		throw new Exception("This is never OK");
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.thrownExceptions">Thrown Exceptions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Some exceptions should not be thrown.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds throw statements that throw an exception class that is disallowed. The list initially includes exception classes that are either too general (such as Throwable or Exception), or that are unchecked (Error, RuntimeException, and all subclasses of either).
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to disallow throwing of instances of Throwable, then the following throw statement would be flagged as a violation:
+</p>
+<p>
+	throw new Throwable("Bet this won't get caught");
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.typeDepth">Type Depth</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Types should not be deeply nested.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds source in which type declarations are deeply nested. The maximum depth can be configured. Type level types have a depth of zero (0), so a maximum depth of 2 would mean, for example, that an inner class of a top-level class could have an anonymous inner class without being flagged, but a third level of nesting would be flagged.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryInstanceof">Unnecessary "instanceof" Test</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Unnecessary instanceof tests should be removed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for unnecessary usages of "instanceof". An "instanceof" test against a superclass or superinterface of the static type of an object is unnecessary and should be removed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	"this is a string" instanceof String;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryReturnStatementParentheses">Unnecessary Return Statement Parentheses</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The expression in a return statement should not be parenthesized.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for return statements where the expression that computes the value to be returned is enclosed in parentheses. They are unnecessary and typically make the code harder to read and maintain.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following return statement's expression would be flagged as a violation because the parentheses are not necessary:
+</p>
+<p>
+	return (x * x);
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryCast">Unnecessary Type Cast</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Unnecessary type casts should be removed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for places where a value is being cast to another type and the type case is not necessary. 
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	int i = (int) 0; 
+	Object o = (Object) new String();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.useForLoop">Use "for" Loops Instead of "while" Loops</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Disallows the use of "while" loops.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the use of "while" loops rather than "for" loops. "for" loops allow loop-scoped variables to be declared during loop setup, minimizing the scope of loop-control variables to just the body of the loop. Since their scope ends after the loop, they cannot be referenced later accidentally.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following while loop would be flagged as a violation:
+</p>
+<p>
+	int index = 0;
+	while (index &lt; array.length) {
+		...
+		index++;
+	}
+</p>
+<p>
+because it should be rewritten as:
+</p>
+<p>
+	for (int i = 0; i &lt; array.length; i++) {
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.useCharAtRatherThanStartsWith">Use charAt() Rather Than startsWith()</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Use charAt() rather than startsWith() when the constant is a single character string.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Use charAt(0) rather than startsWith("string constant") when the constant is a single character string. Using startsWith() with a one character argument works, but it makes several computations while preparing to compare its prefix with another string, which is unnecessary when you just want to compare one character against another.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following method invocation would be flagged as a violation:
+</p>
+<p>
+	string.startsWith("&lt;")
+</p>
+<p>
+because the condition could more efficiently be tested using:
+</p>
+<p>
+	string.charAt(0) == '&lt;'
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.useEquals">Use equals() Rather Than ==</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Values should not be compared using equals (==) or not equals (!=).
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where two values are compared using either the equals (==) or not equals (!=) operators.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation:
+</p>
+<p>
+	if (firstString == secondString) {
+</p>
+<p>
+because it should be rewritten as:
+</p>
+<p>
+	if (firstString.equals(secondString)) {
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.useOfInstanceOfWithThis">Use of "instanceof" with "this"</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The type of "this" should not be tested using "instanceof".
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for places where the type of "this" is being tested using the "instanceof" operator. Code that depends on the type of an object should be distributed to the sublasses so that polymorphism will automatically choose the right code to execute.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (this instanceof SpecialSublass) ...
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.variableDeclaredInLoop">Variable Declared Within a Loop</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+One should be careful when declaring variables inside of for, while, or do loops. This may lead to problems especially if the variable is initialized as well. 
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for variables that have been declared or initialized within a for, while, or do loop. 
+</p>
+<p>
+Declaring a variable within a loop breaks some suggested style rules. 
+</p>
+<p>
+Initializing a variable within a loop may indicate a problem with the program's logic. It could also lead to degraded performance.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following declaration of the variable "event" would be flagged as a violation:
+</p>
+<p>
+	while (hasMoreEvents()) {
+		Event event = getNextEvent();
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.variableShouldBeFinal">Variable Should Be Final</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Variables that are assigned only once should be final. Variables marked as final communicate additional information to the reader about how the variable is supposed to be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds private fields that have a value assigned in an initializer or in a constructor and no where else, and local variables that have a value assigned in their initializer and no where else. The variable should be marked as final indicating that the value of the variable does not change through out the variable's lifetime.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.variableUsage">Variable Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Variables should never shadow variables with the same name that are defined in an outer scope.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for any declarations of variables that shadow a variable with the same name that is defined in an outer scope.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+In a class with a field declaration such as:
+</p>
+<p>
+	private int inventoryCount;
+</p>
+<p>
+the following parameter would be flagged as a violation:
+</p>
+<p>
+	public void printInventory(int inventoryCount)
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.waitInsideWhile">Wait Inside While</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The wait() method should only be invoked within a while loop.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for invocations of the wait() method that occur outside of a while loop.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following invocation of the wait() method would be flagged as a violation:
+</p>
+<p>
+	public void waitForEvent()
+	{
+		synchronize (eventQueue) {
+			eventQueue.wait();
+			...
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.whiteSpaceBeforePropertyName">White Space Before Property Name</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Property names should not be preceeded by white space.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for property names that are preceeded by white space. Property names that are preceeded by white space often indicate a missing line continuation character on the preceeding line.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The property named "operation" below, which was likely intended to be part of the line before it, would be flagged as a violation:
+</p>
+<p>
+	messageText = You should have known better than to have tried this
+		operation without first changing your preference settings.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.wrongIntegerTypeSuffix">Wrong Integer Type Suffix</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Long literals should use 'L' for a suffix.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for long-valued literals whose suffix is a lowercase 'l'. Although the language specification allows this, it is too easily confused with the number one (1), and hence should not be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	public static final long ONE = 1l;
+</p>
+</body>
+</html>

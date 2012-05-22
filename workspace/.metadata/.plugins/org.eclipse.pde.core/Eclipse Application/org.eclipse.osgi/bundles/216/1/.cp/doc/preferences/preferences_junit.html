@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Preferences - JUnit</title>
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tbody><tr>
+    <td><h1><font color="#cc0000" face="Verdana">Preferences - JUnit</font>
+      </h1>
+    <p>The code generator is invoked from a menu item on the <b>CodePro Tools</b>
+    submenu in either the <b>Package Explorer</b> or the <b>Resource</b> views.
+    The menu item does not prompt the user for any additional information; all
+    of the configuration options are currently available on the <b>CodePro &gt;
+    JUnit</b> preferences pages.</p>
+    
+      <ul>
+        <li><b><a href="#JUnit">JUnit</a></b></li>
+        <ul>
+			<li><b><a href="#AutoUpdate">Auto Update</a></b></li>
+	        <li><b><a href="#CodeUnderTest">Code Under Test</a></b></li>
+	        <li><b><a href="#DesignByContract">Design by Contract</a></b></li>
+	        <li><b><a href="#FactoryClasses">Factory Classes</a></b></li>
+	        <li><b><a href="#GeneratedCode">Generated Code</a></b></li>
+	        <ul>
+	        	<li><b><a href="#Comments">Comments</a></b></li>
+	        	<li><b><a href="#Fixtures">Fixtures</a></b></li>
+	        	<li><b><a href="#Methods">Methods</a></b></li>
+	        	<li><b><a href="#TestSuites">Suites</a></b></li>
+	        </ul>
+	        <li><b><a href="#MockObjects">Mock Objects</a></b></li>
+	        <li><b><a href="#Execution">Test Execution</a></b></li>
+	      </ul>  
+      </ul>
+    
+    <!-- JUnit -->
+    
+	<h2><a name="JUnit">JUnit</a></h2>
+	<p>CodePro will generate JUnit tests using either JUnit 3 or JUnit 4 
+	patterns depending on what version of JUnit is currently in use in the test 
+	project. For new test projects, the <b>JUnit</b> page controls which 
+	version of JUnit will be used initially.</p>
+	
+	<p>CodePro has a new, flow path based test generator. This creates tests for a method by
+	analyzing the flow through the method under test. It is possible to revert to the original,
+	heuristic based test generator by changing the preference setting.</p>
+	
+	<p>You can also specify whether any 
+	additional JUnit extension frameworks can be used (like Ejb3Unit).</p>
+	
+	<p>
+	<img src="../images/preferences_junit_main.gif"></p>
+	
+	<!-- AutoUpdate -->
+
+    <h2><a name="AutoUpdate">Auto Update</a></h2>
+    <p>This <b>JUnit &gt; Auto Update</b> preferences
+    allow you to specify that test classes should be updated whenever the target
+    class is edited. When a test class is updated, new test methods will be
+    added for any untested methods in the target class, but existing code will
+    not be modified. This is true whether the existing code was previously
+    generated or whether it was hand-written.</p>
+    <p><img src="../images/preferences_junit_auto_update.gif"></p>
+    <p><span style="font-family: Times New Roman; font-style: italic;">In the 
+	future, additional options will be added to automatically delete any test 
+	cases that are no longer valid and to rewrite existing test cases to reflect 
+	changes in computed result values.</span></p>
+	
+	<!-- CodeUnderTest -->
+	
+    <h2><a name="CodeUnderTest">Code Under Test</a></h2>
+    
+    <p>The <b>JUnit &gt; Code Under Test</b> page allows the user to select which types, and which
+    methods within those types will have test code generated for them. The user
+    can separately control test code generation based on the visibility of the
+    program element and the kind of element.</p>
+    
+    <p>The user can choose to not have test methods generated for empty methods
+    and methods that only return a constant value. The test code generator will
+    prompt for confirmation before generating test code for test cases, and the
+    user can choose to have test cases ignored without being prompted.</p>
+    
+    <p><img src="../images/preferences_junit_code_under_test.gif"></p>
+    
+	<!-- DesignByContract -->
+	
+    <h2><a name="DesignByContract">Design by Contract</a></h2>
+    <p><span style="font-size: 12pt; font-family: Times New Roman;">The
+    <b>JUnit &gt; Design by Contract</b> preferences</span> allow the user to control the handling of the
+    design by contract information.</p>
+    <p><img src="../images/preferences_junit_design_by_contract.gif"></p>
+    
+	<!-- FactoryClasses -->
+	
+    <h2><a name="FactoryClasses">Factory Classes</a></h2>
+    <p>The <b>JUnit &gt; Factory Classes</b> preferences allow the user to
+    specify the location of the factory classes. The user can specify the name
+    of the project, source folder, package, and factory class.</p>
+    <p><img src="../images/preferences_junit_factory_classes.gif"></p>
+      <p>As with the destination options, these locations are
+      specified as templates with the following variables being available:</p>
+      <ul>
+        <li><span style="font-size: 10pt; font-family: Arial;">project_name</span> - the name of the project containing the target class</li>
+        <li><span style="font-size: 10pt; font-family: Arial;">source_folder</span>
+          - the name of the source folder containing the target class</li>
+        <li><span style="font-size: 10pt; font-family: Arial;">package_name</span> - the name of the package containing the target class</li>
+        <li><span style="font-size: 10pt; font-family: Arial;">class_name</span> - the name of the target class</li>
+      </ul>
+      <p>For example, given the default settings above, if
+      test generator were looking for a factory class for the class <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">junit.samples.money.Money</span>
+      located in the source folder <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">src</span>
+      in a project named "Samples", it would look for a class named <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">junit.samples.money.MoneyFactory</span>
+      in the source folder <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">src</span>
+      in a project named "SamplesTest".</p>
+      
+	<!-- GeneratedCode -->
+	
+    <h2><a name="GeneratedCode">Generated Code</a></h2>
+    <p><span style="font-size: 12pt; font-family: Times New Roman;">The
+    <b>JUnit &gt; Generated Code</b> page</span> allows the user to specify the location in which
+    the compilation units will be generated. The user can specify the name of
+    the project, source folder, package, and test case.</p>
+    <p><img src="../images/preferences_junit_generated_code.gif"></p>
+      <p>These locations are specified as templates with the
+      following variables being available:</p>
+      <ul>
+        <li><span style="font-size: 10pt; font-family: Arial;">project_name</span> - the name of the project containing the target class</li>
+        <li><span style="font-size: 10pt; font-family: Arial;">source_folder</span> - the name of the source folder containing the target class</li>
+        <li><span style="font-size: 10pt; font-family: Arial;">package_name</span> - the name of the package containing the target class</li>
+        <li><span style="font-size: 10pt; font-family: Arial;">class_name</span> - the name of the target class</li>
+      </ul>
+      For example, given the default settings above, if you
+      were to generate a test case for the class <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">junit.samples.money.Money</span> located in the source folder <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">src</span> in a project named "Samples", the generated test
+      case would be named <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">junit.samples.money.MoneyTest</span> and would be located in the source folder <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">src</span> in
+      a project named "SamplesTest".
+      
+	<!-- Comments -->
+	
+    <h2><a name="Comments">Comments</a></h2>
+    <p><span style="font-size: 12pt; font-family: Times New Roman;">The
+    <b>JUnit &gt; Generated Code &gt; Comments</b> page</span> allows the user to control how the generated code is commented.</p>
+    <p><img src="../images/preferences_junit_comments.gif"></p>
+      <p>There are two kinds of comments that can be
+      generated: Javadoc and inline. Javadoc comments, if selected, get
+      generated for the test case class and all of its members. The options
+      under the top-level check box control the class Javadoc, including whether
+      a copyright notice is included and whether the <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">author</span>
+      and <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">version</span>
+      tags are generated. The author name is taken from the System's <span style="background: white none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; font-size: 10pt; font-family: 'Courier New';" class="Code">user.name</span> property. The version tag
+      assumes CVS.</p>
+      <p>The copyright text is specified as a template with
+      the following variable being available:</p>
+      <p><span style="font-size: 10pt; font-family: Arial;">year</span> - the four digit integer representing the current year in the Gregorian
+      calendar.</p>
+      <p>If inline comments are generated, the indented option
+      will cause a to-do comment to be generated in each test method.</p>
+      
+	<!-- Fixtures -->
+
+    <h2><a name="Fixtures">Fixtures</a></h2>
+      <p>A <i style="">test fixture</i>
+      is an object used to invoke an instance method. Test fixtures are,
+      obviously, not needed for either static methods or constructors. <span style="font-size: 12pt; font-family: Times New Roman;">The
+      <b>JUnit &gt; Generated Code &gt; Fixtures</b> page</span> allows the user to control the generation of code
+      related to test fixtures.</p>
+    <p><img src="../images/preferences_junit_fixtures.gif"></p>
+      <p>Test fixtures can either be generated as fields or on
+      a test-by-test basis. If they are generated as fields, then the user can
+      specify whether they want to create accessor methods for each field. When
+      generated as fields, test fixtures show up in the <b><a href="../features/junit/test_case_outline_view.html">JUnit
+      Test Case Outline</a></b> view.
+      </p>
+      The user can also specify where test fixtures are
+      initialized. There are currently three options for where to place the
+      initialization code: in the initializer for the field, in the accessor
+      method (which is only an option if accessor methods are generated), or in
+      the <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">setUp</span>
+      method (which, again, is only an option if a <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">setUp</span> method is to be generated).
+      
+    <!-- Methods -->
+	
+    <h2><a name="Methods">Methods</a></h2>
+    <p><span style="font-size: 12pt; font-family: Times New Roman;">The
+    <b>JUnit &gt; Generated Code &gt; Methods</b> page</span> allows the user to control how many test methods
+    can be generated, whether test methods are marked as being unverified,
+    and which framework methods will be generated within a test case.</p>
+    <p><img src="../images/preferences_junit_methods.gif"></p>
+    
+    <p>The user can optionally request the generation of
+    a constructor for the test case (which is no longer needed by the JUnit
+    framework but might be desired for backward compatibility), a <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">setUp</span>
+    method, a <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">tearDown</span>
+    method, and a <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">main</span>
+    method. If a <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">main</span>
+    method is generated, the code in its body will create a test runner, and the
+    user can choose which style of test runner should be used.</p>
+      <p>The test method count specifies the maximum number of
+      test methods that will be generated for each target method or constructor.
+      Fewer methods will be generated if the method can be thoroughly tested
+      with fewer methods.</p>
+      Because the test code generator is not perfect, it is
+      strongly recommended that all generated test methods be marked as needing
+      to be verified for correctness. The third group of options controls
+      whether this will be done and how. Two choices are currently available.
+      The first inserts an invocation of the method <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">fail</span> into the code to ensure that the method will fail when
+      used, forcing the developer to verify the method. The second inserts a
+      comment into the code to indicate that the method should be verified.
+      Unverified test methods are highlighted in red in the <b><a href="../features/junit/test_case_outline_view.html">JUnit
+      Test Case Outline</a></b> view.
+      
+	<!-- TestSuites -->
+	
+    <h2><a name="TestSuites">Suites</a></h2>
+    <p><span style="font-size: 12pt; font-family: Times New Roman;">The
+    <b>JUnit &gt; Generated Code &gt; Suites</b> preferences</span> allow the user to specify the generation of test
+    suites. The user can specify whether test suites should be generated, and,
+    if so, whether test suites should automatically include the tests in test
+    suites defined in subpackages. The user can also specify the name used for
+    test suites.</p>
+    <p><img src="../images/preferences_junit_suites.gif"></p>
+    
+	<!-- MockObjects -->
+	
+    <h2><a name="MockObjects">Mock Objects</a></h2>
+    <p><span style="font-size: 12pt; font-family: Times New Roman;">The
+    <b>JUnit &gt; Mock Objects</b> preferences</span> allow the user to control the generation
+    of mock objects. The user can specify whether mock objects are used in generated tests at all.
+    They can choose between EasyMock version 1.2 or 2.4. EasyMock 2.4 is recommended; it is under active
+    development and is the latest version of the library. It requires Java 5 however; EasyMock 1.2 is available
+    for people who can't yet use Java 5.</p>
+    <p>The user can select individual classes and interfaces to mock. They can also choose to always 
+    mock interfaces.</p>
+    <p><img src="../images/preferences_junit_mock_objects.gif"></p>
+      
+	<!-- Execution -->
+	
+    <h2><a name="Execution">Test Execution</a></h2>
+    <p>In order to determine the expected result of a
+    target method, the code generator executes that method. The <b>JUnit &gt; Test Execution</b>
+    page controls the code generator's response when the execution of a method
+    throws an exception.</p>
+    
+    <p><img src="../images/preferences_junit_test_execution.gif"></p>
+    
+      <!-- p>There are three options for computing result values. 
+		The first is to execute the code within a separate VM. This is a bit 
+		safer than executing within the local Eclipse VM as it protects the IDE 
+		against any possible problems caused by the executing code. There is a 
+		significant amount of communication overhead involved, so this option is 
+		slower than next option.</p>
+	<p>The second option is to execute the code within the 
+	local Eclipse VM. This is significantly faster than executing in a separate 
+	VM. This is a reasonably safe option as the engine traps any thrown 
+	exceptions and prevents specifically harmful code like System.exit() from 
+	executing.</p>
+	<p>The third option is to not execute the code at all. 
+	While this is the fastest option, it also prevents the code generator from 
+	computing any result values and generating any assertion code. Only use this 
+	option, if you want to supply all of the expected result values manually 
+	(and write the corresponding assertion code).</p -->
+	
+	<p>There are three options available for handling 
+	exceptions. The first is to
+      not generate any test methods that cause exceptions to be thrown. This is
+      really only appropriate if the target code should not throw exceptions so
+      that you know in advance that any such test methods would not be testing
+      valid results.</p>
+      <p>The second option is to generate test methods that
+      throw exceptions only when the exception was declared by the target
+      method.</p>
+      The third option is to always generate test methods,
+      even if an exception is thrown. This option is generally only
+      useful if you want to generate tests for unchecked exceptions. One example
+      of an unchecked exception that you might want to test for is the class <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">AssertionError</span>, which is thrown by the <span style="font-size: 10pt; font-family: 'Courier New';" class="Code">assert</span> statement.
+    <p>If a test method is generated when an exception is thrown, the structure
+       of the test method depends on the following two checkboxes, which control
+       the structure for declared and undeclared exceptions respectively. If the
+       checkbox is checked, then the test method will wrap the invocation of the
+       target method in an exception handler and only succeed if the exception is
+       thrown. If the checkbox is not checked, then no exception handler will be
+       generated and the test method will fail when the exception is thrown.</p>
+       
+    </td>
+  </tr>
+</tbody></table>
+
+</body></html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - JCL</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - JCL</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for correct usage of the JCL (Jakarta Commons Logging) framework.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.checkEnabledBeforeLogging.jcl">Check Enabled Before Logging</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.logLevel.jcl">Log Level</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.checkEnabledBeforeLogging.jcl">Check Enabled Before Logging</a></h4><p>
+<b>Summary</b><br/>Check that logging has been enabled before invoking the logging methods.<p><b>Description</b><br/>This audit rule finds invocations of the JCL logging methods that are not guarded by a check to ensure that the appropriate level of logging has been enabled. Invocations of the logging methods should be guarded to avoid computation of logging output when it isn't going to be reported.<p><b>Example</b><br/>The following invocation of the debug method:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;logger.debug("I never thought we'd get here!");</code><p>should be replaced by something like the following:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (logger.isDebugEnabled()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.debug("I never thought we'd get here!");<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_check_enabled_before_logging.gif" width="194" height="122"></p><h4><a name="com.instantiations.assist.eclipse.audit.logLevel.jcl">Log Level</a></h4><p>
+<b>Summary</b><br/>Only those log levels that are allowed should be used.<p><b>Description</b><br/>This audit rule checks for used of log levels that are not allowed.<p><b>Example</b><br/>If the rule were configured to not allow the use of the DEBUG level, the following invocation would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;logger.debug("This is debugging output");</code><p><img src="../../images/auditrules/audit_log_level.gif" width="181" height="164"></p></body>
+</html>

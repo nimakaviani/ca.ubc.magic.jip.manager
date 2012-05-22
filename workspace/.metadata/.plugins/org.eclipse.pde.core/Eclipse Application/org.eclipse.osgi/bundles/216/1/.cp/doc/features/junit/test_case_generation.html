@@ -1,0 +1,757 @@
+<html>
+
+<head>
+<title>JUnit Test Case Generation</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+  <tr>
+    <td><h1>
+    <b><font face="Verdana" color="#CC0000">JUnit Test Case Generation</font></b></h1>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top" rowspan="2"><img src="../../images/test_case_menu.gif" align="top"></td>
+        <td valign="top" width="4" rowspan="2">&nbsp;&nbsp;&nbsp; </td>
+        <td valign="top">
+          <p>The <b>CodePro JUnit Test Case Generation</b>
+          facility allows you to automate the creation of comprehensive JUnit
+          regression test cases. Given an input class, the tool creates a
+          corresponding test class complete with multiple test methods for each
+          input class method. The tool analyzes each method and input argument
+          with the goal of generating test cases that exercise each line of code
+          (the <b>CodePro <a href="../codecoverage/code_coverage.html">Code
+          Coverage</a> </b>facility can provide feedback on how good your test
+          cases are).<br>
+&nbsp;</p>
+        </td>
+        <td width="10" valign="top">
+          &nbsp;</td>
+        <td valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top" colspan="3">
+          <ul>
+            <li>
+              <p><a href="#InvokingTestGenerator"><b>Invoking
+              the Test Generator</b></a></li>
+            <li>
+              <p><a href="#Targets"><b>Target Selection</b></a></li>
+            <li>
+              <p><a href="#Location"><b>Location of Generated
+              Code</b></a></li>
+            <li>
+              <p><a href="#TestMethods"><b>Generated Test
+              Cases</b></a></li>
+            <li>
+              <p><a href="#Execution"><b>Execution</b></a></li>
+            <li>
+              <p><a href="#Fixtures"><b>Test Fixture Support</b></a></li>
+            <li>
+              <p><a href="#TestMethodGeneration"><b>Test
+              Method Generation</b></a></li>
+            <li>
+              <p><a href="#AutoUpdate"><b>Automatic Update</b></a></li>
+            <li>
+              <p><a href="#DesignByContract"><b>Design by
+              Contract Support</b></a></li>
+            <li>
+              <p><a href="#FactoryClasses"><b>Support for
+              Factory Classes</b></a></li>
+            <li>
+              <p><a href="mock_objects.html"><b>Support for Mock Objects</b></a>
+            </li>
+            <li>
+              <p><a href="#TestSuites"><b>Test Suite
+              Generation</b></a></li>
+			<li>
+              <p><b><a href="CodeProJUnitDemo.zip">Sample Test 
+				Project (CodeProJUnitDemo.zip)</a></b></li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+      <h2><a name="InvokingTestGenerator">Invoking the Test Generator</a></h2>
+          <p>The code generator is invoked from the <b>Generate
+          Test Cases</b> menu item on
+          the <b>CodePro Tools</b> submenu in either the <b>Package Explorer</b>
+          or the <b>Resource</b> views. The menu item does not prompt the user
+          for any additional information; all of the configuration options are
+          currently available on the <b><a href="../../preferences/preferences_junit.html">CodePro
+          &gt; JUnit</a></b> preferences pages.</p>
+      <p>The current selection is used to derive a list of
+          compilation units as follows. Any compilation unit that is selected is
+          added to the list. Any compilation unit defined (directly) in a
+          selected package is included in the list (whether or not it is
+          explicitly selected). Finally, any compilation unit in either a source
+          folder or project that is selected is included in the list. This list
+          of compilation units is then used in the next step.</p>
+      <h2><a name="Targets">Target Selection</a></h2>
+      <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">Given
+      the list of selected compilation units, the next step is to identify a
+      list of target types. A <i style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">target
+      type</i> is a type for which a test case will be generated. Within each
+      target type, we then identify a set of target methods and constructors. A <i style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">target
+      method</i> (or constructor) is a method for which one or more test methods
+      will be generated.</span></p>
+      <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">The
+      <b><a href="../../preferences/preferences_junit.html#CodeUnderTest">CodePro
+      &gt; JUnit &gt; Code Under Test</a></b> preferences allow the user to select which
+      types, and which methods within those types will have test code generated
+      for them. The user can separately control test code generation based on
+      the visibility of the program element and the kind of element.</span></p>
+      <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">We
+      are not currently supporting generating tests for private elements, though
+      that could potentially be added in the future if there is demand for such
+      a feature. (This probably makes more sense for private methods and
+      constructors than for private types.)</span></p>
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">We divide types into three categories (interfaces,
+      abstract classes, and concrete classes) and we divide type members into
+      three categories (static methods, constructors, and instance methods) in
+      order to allow fine-grained selection of targets. We do not currently
+      support generating test code for either fields or initializers, nor do we
+      generate test code for any types other than the primary type (including
+      secondary types, inner types, or nested types).</span><h2><a name="Location">Location
+      of Generated Code</a></h2>
+    <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">The
+    <b><a href="../../preferences/preferences_junit.html#GeneratedCode">CodePro
+    &gt; JUnit &gt; Generated Code</a></b> preferences 
+    </span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">allow the user to specify the location in which
+    the compilation units will be generated. The user can specify the name of
+    the project, source folder, package, and test case.</span></p>
+      <p>These locations are specified as templates with the
+      following variables being available:</p>
+      <ul>
+        <li><span style="font-size:10.0pt;font-family:Arial">project_name</span>
+          - the name of the project containing the target class</li>
+        <li><span style="font-size:10.0pt;font-family:Arial">source_folder</span>
+          - the name of the source folder containing the target class</li>
+        <li><span style="font-size:10.0pt;font-family:Arial">package_name</span>
+          - the name of the package containing the target class</li>
+        <li><span style="font-size:10.0pt;font-family:Arial">class_name</span>
+          - the name of the target class</li>
+      </ul>
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">For example, given the default settings above, if you
+      were to generate a test case for the class </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">junit.samples.money.Money</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"> located in the source folder </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">src</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"> in a project named 'Samples', the generated test
+      case would be named </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:'Courier New';mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">junit.samples.money.MoneyTest</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"> and would be located in the source folder </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA" class="Code">src</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"> in
+      a project named 'SamplesTest'.</span>
+      <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">Likewise,
+      given the &quot;CodePro JUnit Demo&quot; project shown on the left below,
+      the test case generator would generate the &quot;CodePro JUnit DemoTest&quot;
+      project shown on the right below. For every input class, a corresponding
+      test class is generated. Optional <a href="#TestSuites">test suites</a>
+      can also be generated.</span></p>
+      <p><img border="0" src="../../images/test_case_project1.gif" align="top" width="306" height="294">&nbsp;
+      <img border="0" src="../../images/test_case_project2.gif" width="306" height="396"></p>
+      
+    <!-- TestMethods -->  
+      
+    <h2><a name="TestMethods">Generated Test Methods</a></h2>
+    <p><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">A test case is a class that implements, either
+    directly or indirectly, the class </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">junit.framework.TestCase</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">. Such a class consists of three separate groups of
+    members: framework methods such as </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">setUp</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">, fields and methods used to manage the test fixtures
+    (discussed in the next section), and, most importantly, the test methods
+    themselves (also discussed in a later section).</span></p>
+    <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">The
+    <b><a href="../../preferences/preferences_junit.html#Methods">CodePro
+    &gt; JUnit &gt; Generated Code &gt; Methods</a></b> preferences allows the user to control how many test methods
+    can be generated, whether test methods are marked as being unverified,
+    and which framework methods will be generated within a test case.</span></p>
+      <p>The test method count specifies the maximum number of
+      test methods that will be generated for each target method or constructor.
+      Fewer methods will be generated if the method can be thoroughly tested
+      with fewer methods.</p>
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Because the test code generator is not perfect, it is
+      strongly recommended that all generated test methods be marked as needing
+      to be verified for correctness. The third group of options controls
+      whether this will be done and how. Two choices are currently available.
+      The first inserts an invocation of the method </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:'Courier New';mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">fail</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"> into the code to ensure that the method will fail when
+      used, forcing the developer to verify the method. The second inserts a
+      comment into the code to indicate that the method should be verified.
+      Unverified test methods are highlighted in red in the <b><a href="test_case_outline_view.html">JUnit
+      Test Case Outline</a></b> view.</span>
+      <p><img border="0" src="../../images/test_case_sample1.gif" width="390" height="227"></p>
+    <p><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">The user can optionally request the generation of
+    a constructor for the test case (which is no longer needed by the JUnit
+    framework but might be desired for backward compatibility), a </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA" class="Code">setUp</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+    method, a </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA" class="Code">tearDown</span><span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+    method, and a </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA" class="Code">main</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+    method. If a </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA" class="Code">main</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+    method is generated, the code in its body will create a test runner, and the
+    user can choose which style of test runner should be used.</span></p>
+    
+    <!-- Comments -->  
+      
+    <h2><a name="Comments">Generated Test Comments</a></h2>
+    
+    <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">The
+    <b><a href="../../preferences/preferences_junit.html#Comments">CodePro
+    &gt; JUnit &gt; Generated Code &gt; Comments</a></b> preferences allow
+     the user to control how the generated code is commented.</p>
+    
+      <p>There are two kinds of comments that can be
+      generated: Javadoc and inline. Javadoc comments, if selected, get
+      generated for the test case class and all of its members. The options
+      under the top-level check box control the class Javadoc, including whether
+      a copyright notice is included and whether the <span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">author</span>
+      and <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">version</span>
+      tags are generated. The author name is taken from the System's <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;;background:white;
+mso-highlight:white" class="Code">user.name</span> property. The version tag
+      assumes CVS.</p>
+      <p>The copyright text is specified as a template with
+      the following variable being available:</p>
+      <p><span style="font-size:10.0pt;font-family:Arial">year</span>
+      - the four digit integer representing the current year in the Gregorian
+      calendar.</p>
+    
+    <!-- Execution -->
+    
+    <h2><a name="Execution">Execution</a></h2>
+    <p><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">In order to determine the expected result of a
+    target method, the code generator executes that method. The </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><b><a href="../../preferences/preferences_junit.html#Execution">CodePro
+    &gt; JUnit &gt; Test Execution</a></b> preferences</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"> controls the code generator's response when
+    the execution of a method throws an exception.</span></p>
+      <p>There are three options available. The first is to
+      not generate any test methods that cause exceptions to be thrown. This is
+      really only appropriate if the target code should not throw exceptions so
+      that you know in advance that any such test methods would not be testing
+      valid results.</p>
+      <p>The second option is to generate test methods that
+      throw exceptions only when the exception was declared by the target
+      method. In this case, the test method will wrap the invocation of the test
+      method in an exception handler and only succeed if the exception is
+      thrown.</p>
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">The third option is to always generate test methods,
+      even if an exception is thrown. Again, the invocation of the target method
+      will be wrapped in an exception handler. This option is generally only
+      useful if you want to generate tests for unchecked exceptions. One example
+      of an unchecked exception that you might want to test for is the class </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">AssertionError</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">, which is thrown by the </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">assert</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"> statement.</span><h2><a name="Fixtures">Test Fixture
+      Support</a></h2>
+      <p>A <i style="mso-bidi-font-style:normal">test fixture</i>
+      is an object used to invoke an instance method. Test fixtures are,
+      obviously, not needed for either static methods or constructors. <span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">The
+      <b><a href="../../preferences/preferences_junit.html#Fixtures">CodePro
+      &gt; JUnit &gt; Generated Code &gt; Fixtures</a></b> preferences</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"> allow the user to control the generation of code
+      related to test fixtures.</span></p>
+      <p>Test fixtures can either be generated as fields or on
+      a test-by-test basis. If they are generated as fields, then the user can
+      specify whether they want to create accessor methods for each field. When
+      generated as fields, test fixtures show up <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"> in the <b><a href="test_case_outline_view.html">JUnit
+      Test Case Outline</a></b> view.</span>
+      </p>
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">The user can also specify where test fixtures are
+      initialized. There are currently three options for where to place the
+      initialization code: in the initializer for the field, in the accessor
+      method (which is only an option if accessor methods are generated), or in
+      the </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA" class="Code">setUp</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+      method (which, again, is only an option if a </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA" class="Code">setUp</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"> method is to be generated).</span>
+      <p>As an example, assume that the test generator is
+      generating test code for a singleton class whose instance is accessed
+      using the static method <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">getInstance</span>.
+      In this case, there would be a single test fixture for the instance
+      methods. If the 'Generate test fixtures as fields' option is not
+      selected, then the code for each test method would contain a direct call
+      to the <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">getInstance</span>
+      method, similar to the following:</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>public void testIsActive()<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>ConnectionManager fixture = ConnectionManager.getInstance();<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>boolean result = fixture.isActive();<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>assertEqual(result, true);<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p>
+      </o:p>
+      </span></p>
+      <p>If the 'Generate test fixtures as fields' option
+      is selected, then a field would be generated. With the default settings,
+      an accessor would be created for the fixture and the initialization code
+      would be placed within the accessor. In that case, the field would be
+      defined as</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>ConnectionManager fixture1;<o:p>
+      </o:p>
+      </span></p>
+      <p>and the accessor method would be defined as</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>public ConnectionManager getFixture1()<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>if (fixture1 == null) {<br>
+      <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="mso-tab-count:
+1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>fixture1 =
+      ConnectionManager.getInstance();<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>}<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>return fixture1;<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p>
+      </o:p>
+      </span></p>
+      <p>The test method would then be generated as follows:</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>public void testIsActive()<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>boolean result = getFixture1().isActive();<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>assertEqual(result, true);<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p>
+      </o:p>
+      </span></p>
+      <h2><a name="TestMethodGeneration">Test Method Generation</a></h2>
+      <p>As nice as it is to generate all of the boiler-plate
+      for a test case, the real value of the system is in the generation of test
+      methods. Here's how test methods get generated. For each target method,
+      the test generator</p>
+      <ol>
+        <li>
+          <p class="MsoListNumber">generates a list of values for the fixture
+          (if the target method is an instance method) and each of the
+          arguments,</li>
+        <li>
+          <p class="MsoListNumber">determines which combinations of values to
+          use to invoke the method,</li>
+        <li>
+          <p class="MsoListNumber">computes the result of invoking the method,</li>
+        <li>
+          <p class="MsoListNumber">figures out how to validate the result, and
+          finally</li>
+        <li>
+          <p class="MsoListNumber">generates one test method for each
+          combination of values.</li>
+      </ol>
+      <p>We'll look at each step in more detail in the
+      following sections.</p>
+      <blockquote>
+        <h3>Generate Values</h3>
+        <p>The test generator uses a number of heuristics to
+        generate a list of values for a given argument. First, it analyzes the
+        target method to try to determine how the parameter is used within the
+        method and see whether that tells it anything about what values to use.
+        For example, if an integer parameter is used in a switch statement, then
+        it would use each of the values explicitly listed in non-empty case
+        labels as well as some value that isn't in any of the case labels.</p>
+        <p>If it can't determine anything from analyzing the
+        method, then it looks to see if the type of the parameter is well known.
+        This includes primitive types as well as several non-primitive types
+        such as <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">String</span>.
+        For well known types, there is a list of default values.</p>
+        <p>For other classes of objects, as well as for test
+        fixtures, it looks for zero-argument static accessor methods,
+        constructors, and multi-argument static accessor methods, in that order,
+        generating values for their arguments as necessary.</p>
+        <h3>Determine Combinations</h3>
+        <p>The number of combinations of all possible values
+        for fixtures and arguments is usually too high to be practical, so the
+        test generator uses rules for choosing a reasonable number of those
+        combinations.</p>
+        <h3>Compute the Result</h3>
+        <p>Then, for each combination, the test generator
+        computes the expected result of the method. This can either be a value,
+        if the method returns normally, nothing, if the method has a return type
+        of <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">void</span>, or
+        an exception if the method throws an exception.</p>
+        <h3>Validate the Result</h3>
+        <p>If an exception is thrown, it is assumed that the
+        method should throw an exception and the test method will be written to
+        verify that the exception is thrown. If the method returns a value, then
+        the test generator determines how to test the returned value. Some types
+        can be checked directly, while other types require invoking accessing
+        methods or fields to determine the state of the object. If the method
+        does not return a value, then the state of the fixture is tested
+        instead.</p>
+        <h3>Generate Test Methods</h3>
+        <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">Once we know the test fixture, argument values, and
+        validation steps for each test method, generating the code for the test
+        method is quite straightforward. The input values and expected results
+        are also shown in the <b><a href="test_case_outline_view.html">JUnit
+        Test Case Outline</a></b> view</span>
+        <p><img border="0" src="../../images/test_case_sample1.gif" width="390" height="227"></p>
+      </blockquote>
+    <h2><a name="AutoUpdate">Automatic Update</a></h2>
+    <p><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">This </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><b><a href="../../preferences/preferences_junit.html#AutoUpdate">CodePro
+    &gt; JUnit &gt; Auto Update</a></b> preferences</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"> allow you to specify that test classes should be
+    updated whenever the target class is edited. When a target class is updated,
+    new test methods will be added for any untested methods in the target class,
+    but existing code will not be modified. This is true whether the existing
+    code was previously generated or whether it was hand-written.</span></p>
+    <h2><a name="DesignByContract">Design by Contract Support</a></h2>
+      <p>One way to augment the Java source code to improve
+      the quality of the generated code is to include design by contract
+      information. Design by contract is an approach to software development
+      that became somewhat formalized in Eiffel. The idea was to make explicit
+      the contract between client code (code that would invoke some API) and the
+      code being invoked. Specifically, we want to specify</p>
+      <ul>
+        <li>what must be true about an instance of a
+          class in order for it to be in a consistent state (an invariant),</li>
+        <li>what must be true before a method can be
+          invoked (a precondition) including both the state of the object and
+          the limitations on the values of the arguments, and</li>
+        <li>what must be true after the method has
+          returned (a postcondition) including both the state of the object and
+          limitations on the returned value.</li>
+      </ul>
+      <p>In Java, the support for design by contract takes two
+      forms. The first is through the use of additional Javadoc tags. This
+      approach is not standardized, but there are a few conventions that are
+      more popular than others, and we support the more popular forms.</p>
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA">The second is through the use of the </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA" class="Code">assert</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">
+      statement. This is only available in JDK 3.0 and later. Furthermore, it is
+      somewhat ad-hoc both because the assert statement can be used for reasons
+      other than to express contracts and because the interpretation of an
+      assert statement is not always obvious. We take assert statements that
+      occur at the beginning of a method to represent preconditions, and we take
+      assert statements that occur at the end of a method to represent
+      postconditions (even though they might represent invariants; we just
+      can't tell the difference).</span>
+    <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">The
+    <b><a href="../../preferences/preferences_junit.html#DesignByContract">CodePro
+    &gt; JUnit &gt; Design by Contract</a></b> preferences</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"> allow the user to control the handling of the
+    design by contract information.</span></p>
+      <p>There are three basic kinds of tags: invariants,
+      preconditions, and postconditions. In all three cases, the tag is followed
+      by text that must be in one of the following formats:</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>&lt;booleanExpression&gt;<o:p>
+      </o:p>
+      </span></p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>( &lt;booleanExpression&gt; , &lt;messageExpression&gt; )<o:p>
+      </o:p>
+      </span></p>
+      <p>Invariants occur within the Javadoc for a class.
+      There are two common forms for invariant tags: <span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="Code">@invariant</span> and <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">@inv</span>, both
+      of which are recognized. The code in an invariant tag can refer to any
+      visible types and to any fields or methods defined by the target class.
+      The user can optionally specify that the invariants should be tested in
+      every test method.</p>
+      <p>For example, if you had written a class representing
+      a stack of integers in which the values on the stack were stored in an
+      array named <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">elements</span>
+      with an integer field named <span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">index</span>
+      whose value was the index of the slot one past the top of the stack, you
+      might write an invariant like the following:</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>@invariant (index &gt;= 0) &amp;&amp; (index &lt;= elements.length)<o:p>
+      </o:p>
+      </span></p>
+      <p>Both preconditions and postconditions occur within
+      the Javadoc for methods and constructors. Preconditions are represented by
+      the <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">@pre</span>
+      tag; postconditions are represented by the <span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="Code">@post</span> tag. The code in
+      preconditions can refer to everything an invariant can as well as the
+      parameters for the method or constructor, with the exception that
+      preconditions for constructors cannot refer to instance fields or methods
+      (only static members).</p>
+      <p>For example, if you were writing a class to represent
+      an employee, and you wanted to ensure that the employee's name was
+      always a non-empty string, you might add a precondition to the <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">setName</span>
+      method (whose <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">String</span>
+      parameter is named <span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">newName</span>)
+      of the following form:</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>@pre newName != null &amp;&amp; newName.length() &gt; 0<o:p>
+      </o:p>
+      </span></p>
+      <p>In addition, the code for postconditions can contain
+      a couple of special pieces of text. The text <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">$result</span>
+      can be included in the postcondition for any method with a non-void return
+      type to refer to the result of executing the method. Text of the form</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>$pre ( &lt;type&gt; , &lt;expression&gt; )<o:p>
+      </o:p>
+      </span></p>
+      <p>can also be included. This text is interpreted as a
+      reference to the value of the expression (which must have the given type)
+      prior to the invocation of the method. As an example, assume that we had a
+      method that added <span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">1</span>
+      to the value of a field named counter. This method might have a
+      postcondition of the form:</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>@post counter == $pre(int, counter) + 1<o:p>
+      </o:p>
+      </span></p>
+      <p>The user can optionally specify that the
+      postconditions should be tested in every test method for the given target
+      method.</p>
+      
+    <h2><a name="FactoryClasses">Support for Factory Classes</a></h2>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="left">Another way to augment the Java source code to
+      improve the quality of the generated code is to define a factory class for
+      some or all of the target classes. A <i style="mso-bidi-font-style:normal">factory
+      class</i> for a target class is a class that defines one or more factory
+      methods, where a <i style="mso-bidi-font-style:normal">factory method</i>
+      is a static, zero-argument method that returns an instance of the target
+      class. When a factory class can be found, the generator will use the
+      factory methods to create instances of the target class. These instances
+      will then be used as</p>
+      <ul>
+        <li><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 7.0pt; font-family: Times New Roman">&nbsp;</span>test
+          fixtures when writing test methods for instance methods within the
+          target class, and</li>
+        <li><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 7.0pt; font-family: Times New Roman">&nbsp;</span>the
+          values of arguments to constructors and methods invoked within the
+          test methods when the type of the parameter is declared to be the type
+          of the factory class.</li>
+      </ul>
+      		</td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+      <p>For example, if you wrote a class named <b>Customer</b>
+      that held two important pieces of information - the name and zip code - and the class had a single
+      constructor taking a String argument and an integer argument, you might write a factory class
+      like the following to ensure a reasonable selection of instances for
+      testing:</p>
+      <p><img border="0" src="../../images/test_case_customer.gif" width="346" height="155">
+      <img border="0" src="../../images/test_case_customer_factory.gif" width="346" height="155"></p>
+      <p>The test generator would then create a test fixture
+      is for each factory method.</p>
+      <p><img border="0" src="../../images/test_case_outline_view2.gif" width="260" height="316">&nbsp;
+      <img border="0" src="../../images/test_case_customer_test.gif" align="top" width="410" height="240"></p>
+      <p>Those fixtures are then be used in the actual test
+      methods themselves.</p>
+      <p><img border="0" src="../../images/test_case_customer_test2.gif" width="410" height="214"></p>
+	<p>A <b><a href="factory_generation.html">Generate Factory 
+	Classes</a></b> command is available to generate which will generate initial 
+	factory classes for you.</p>
+      <p>As another example, if you wrote a class name Point that
+      represented a two-dimensional point, and the class had a single
+      constructor taking two integer arguments, you might write a factory class
+      like the following to ensure a reasonable selection of instances for
+      testing:</p>
+      <p><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>public class PointFactory<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>public static Point origin()<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>{<br>
+      <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="mso-tab-count:
+1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>return new Point(0, 0);<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>}<br>
+      <br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>public static Point xAxis()<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>{<br>
+      <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="mso-tab-count:
+1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>return new Point(0, 3);<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>}<br>
+      <br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>public static Point yAxis()<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>{<br>
+      <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="mso-tab-count:
+1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>return new Point(5, 0);<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>}<br>
+      <br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>public static Point firstQuadrant()<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>{<br>
+      <span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="mso-tab-count:
+1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>return new Point(7, 11);<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span>}<br>
+      <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p>
+      </o:p>
+      </span></p>
+    <p>The <span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><b><a href="../../preferences/preferences_junit.html#FactoryClasses">CodePro
+    &gt; JUnit &gt; Factory Classes</a></b> preferences</span> allow the user to specify the location of
+    the factory classes. The user can specify the name of the project, source
+    folder, package, and factory class.</p>
+      <p>As with the destination options, these locations are
+      specified as templates with the following variables being available:</p>
+      <ul>
+        <li><span style="font-size:10.0pt;font-family:Arial">project_name</span>
+          - the name of the project containing the target class</li>
+        <li><span style="font-size:10.0pt;font-family:Arial">source_folder</span>
+          - the name of the source folder containing the target class</li>
+        <li><span style="font-size:10.0pt;font-family:Arial">package_name</span>
+          - the name of the package containing the target class</li>
+        <li><span style="font-size:10.0pt;font-family:Arial">class_name</span>
+          - the name of the target class</li>
+      </ul>
+      <p>For example, given the default settings above, if
+      test generator were looking for a factory class for the class <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">junit.samples.money.Money</span>
+      located in the source folder <span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">src</span>
+      in a project named 'Samples', it would look for a class named <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:'Courier New';
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">junit.samples.money.MoneyFactory</span>
+      in the source folder <span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:'Courier New';mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">src</span>
+      in a project named 'SamplesTest'.</p>
+            
+      <h2><a name="TestSuites">Test Suite Generation</a></h2>
+    <p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">The
+    <b><a href="../../preferences/preferences_junit.html#TestSuites">CodePro
+    &gt; JUnit &gt; Generated Code &gt; Suites</a></b> preferences</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"> allow the user to specify the generation of test
+    suites. The user can specify whether test suites should be generated, and,
+    if so, whether test suites should automatically include the tests in test
+    suites defined in subpackages. The user can also specify the name used for
+    test suites.</span></p>
+ </td>
+  </tr>
+</table>
+</body>
+</html>

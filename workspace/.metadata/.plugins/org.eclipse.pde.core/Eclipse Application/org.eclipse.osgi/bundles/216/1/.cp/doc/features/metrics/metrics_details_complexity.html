@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<title>Metrics - Details - Complexity</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+      <b><font face="Verdana" color="#CC0000">Metrics - Details - Complexity</font></b></h1>
+    <p>This group contains metrics that measure the complexity of the code.</p>
+    <h3>Average Block Depth</h3>
+    <blockquote>
+      <p>This audit rule finds methods and constructors that have too many
+      levels of nested blocks. A method with too many levels of nested blocks
+      can be difficult to understand.</p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any method or method container. </p>
+      <p><img src="../../images/metrics/metric_avg_block_depth.gif" width="364" height="73"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Include try statements </dt>
+        <dd>Determines whether try/catch/finally blocks are counted when
+          determining block depth. </dd>
+        <dt>Include synchronized statements </dt>
+        <dd>Determines whether synchronized blocks are counted when
+          determining block depth. </dd>
+        <dt>Maximum average value </dt>
+        <dd>Causes the metric to flag any projects, packages or types with too
+          great an average block depth. </dd>
+      </dl>
+    </blockquote>
+    <h3> Average Cyclomatic Complexity</h3>
+    <blockquote>
+      <p>This is the average of the cyclomatic complexity of each of the methods 
+		defined in the target elements. The cyclomatic complexity of a single 
+		method is a measure of the number of distinct paths of execution within 
+		the method. It is measured by adding the one path for the method with 
+		each of the paths created by conditional statements (such as &quot;if&quot; and 
+		&quot;for&quot;) and operators (such as ?:).. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any method or method container. </p>
+    </blockquote>
+    <blockquote>
+      <p><img src="../../images/metrics/metric_avg_cyclomatic_complexity.gif"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Include instance fields in computation of complexity </dt>
+        <dd>Determines whether instance fields are counted. </dd>
+        <dt>Include instance fields without initializers in computation of complexity </dt>
+        <dd>Determines whether instance fields without initializers are counted. </dd>
+        <dt>Include instance initializers in computation of complexity </dt>
+        <dd>Determines whether instance initializers are counted. </dd>
+        <dt>Include catch clauses in computation of complexity </dt>
+        <dd>Determines whether catch clauses are counted. </dd>
+        <dt>Include uses of conditional operator (?:) </dt>
+        <dd>Determines whether uses of the conditional operator are counted. </dd>
+        <dt>Include uses of conditional-and (&amp;) and conditional-or (||)
+          operators </dt>
+        <dd>Determines whether uses of the conditional-and and conditional-or
+          are counted. </dd>
+        <dt>Maximum average value </dt>
+        <dd>Causes the metric to flag any projects, packages or types with too
+          much complexity per method. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Weigthed Methods</h3>
+    <blockquote>
+      <p>This is the sum of the cyclomatic complexity of each of the methods 
+		defined in the target elements. The cyclomatic complexity of a single 
+		method is a measure of the number of distinct paths of execution within 
+		the method. It is measured by adding the one path for the method with 
+		each of the paths created by conditional statements (such as &quot;if&quot; and 
+		&quot;for&quot;) and operators (such as ?:).. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any method or method container. </p>
+    </blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

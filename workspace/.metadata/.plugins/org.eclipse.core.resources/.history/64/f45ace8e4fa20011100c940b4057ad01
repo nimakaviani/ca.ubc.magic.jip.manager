@@ -1,0 +1,104 @@
+<!--
+  ************************************************
+  Copyright 2006,2007 Jeff Chapman
+  This file is part of Yet Another Swing Lib (YASL).
+  Yet Another Swing Lib (YASL) is free software; you can redistribute it
+  and/or modify it under the terms of the GNU Lesser General Public License
+  as published by the Free Software Foundation; either version 2 of the
+  License, or (at your option) any later version.
+  Yet Another Swing Lib (YASL) is distributed in the hope that it will be
+  useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Lesser General Public License for more details.
+  You should have received a copy of the GNU Lesser General Public License
+  along with jcutils; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  ************************************************
+  $Id: yaslTestAppMenuConfig.xml,v 1.3 2007/04/23 18:19:01 jchapman0 Exp $
+-->
+<yaslMenuConfig>
+  <property key="bundleName" value="org.yasl.testapp.resources.yaslTestAppGuiStrings"/>
+  <!-- file menu -->
+  <menu key="menu_file">
+    <argRBString bundle="$bundleName" key="menu.file"/>
+  </menu>
+  <!-- layout menu -->
+  <menu key="menu_layout">
+    <argRBString bundle="$bundleName" key="menu.test1"/>
+  </menu>
+  <!-- component menu -->
+  <menu key="menu_component">
+    <argRBString bundle="$bundleName" key="menu.test3"/>
+  </menu>
+  <!-- manus menu for testing speical menu items -->
+  <menu key="menu_menus">
+    <argRBString bundle="$bundleName" key="menu.test4"/>
+  </menu>
+  <!-- help menu -->
+  <menu key="menu_help">
+    <argRBString bundle="$bundleName" key="menu.help"/>
+  </menu>
+  <!-- file menu items -->
+  <menuItem attachTo="menu_file">
+    <argKeyedObject keyType="actions" key="yasl_action_application_exit"/>
+  </menuItem>
+  <!-- layout menu items -->
+  <menuItem attachTo="menu_layout">
+    <argKeyedObject keyType="actions" key="multicolumn_layout"/>
+  </menuItem>
+  <!-- component menu items -->
+  <menuItem attachTo="menu_component">
+    <argKeyedObject keyType="actions" key="multilist_selection"/>
+  </menuItem>
+  <menuItem attachTo="menu_component" class="javax.swing.JSeparator"/>
+  <menuItem attachTo="menu_component">
+    <argKeyedObject keyType="actions" key="logging_test"/>
+  </menuItem>
+  <menuItem attachTo="menu_component">
+    <argKeyedObject keyType="actions" key="logging_component"/>
+  </menuItem>
+  <menuItem attachTo="menu_component" class="javax.swing.JSeparator"/>
+  <menuItem attachTo="menu_component">
+    <argKeyedObject keyType="actions" key="appinspector_component"/>
+  </menuItem>
+  <menuItem attachTo="menu_component" class="javax.swing.JSeparator"/>
+  <menuItem attachTo="menu_component">
+    <argKeyedObject keyType="actions" key="jar_inspector"/>
+  </menuItem>
+  <!-- menu item testing items -->
+  <menuItem attachTo="menu_menus" class="javax.swing.JRadioButtonMenuItem" buttonGroup="menusRadioButtonGroup" selected="true">
+    <argKeyedObject keyType="actions" key="radio_menu_item1"/>
+  </menuItem>
+  <menuItem attachTo="menu_menus" class="javax.swing.JRadioButtonMenuItem" buttonGroup="menusRadioButtonGroup">
+    <argKeyedObject keyType="actions" key="radio_menu_item2"/>
+  </menuItem>
+  <menuItem attachTo="menu_menus" class="javax.swing.JRadioButtonMenuItem" buttonGroup="menusRadioButtonGroup">
+    <argKeyedObject keyType="actions" key="radio_menu_item3"/>
+  </menuItem>
+  <menuItem attachTo="menu_menus" class="javax.swing.JSeparator"/>
+  <menuItem attachTo="menu_menus" class="javax.swing.JCheckBoxMenuItem" selected="true">
+    <argKeyedObject keyType="actions" key="checkbox_menu_item"/>
+  </menuItem>
+  <!-- help menu items -->
+  <menuItem attachTo="menu_help">
+    <argKeyedObject keyType="actions" key="help_about"/>
+  </menuItem>
+  <!-- menubar -->
+  <menuBar key="main_menubar"/>
+  <!-- add menus to menubar -->
+  <methodCall keyType="menubars" key="main_menubar" method="add">
+    <argKeyedObject keyType="menus" key="menu_file"/>
+  </methodCall>
+  <methodCall keyType="menubars" key="main_menubar" method="add">
+    <argKeyedObject keyType="menus" key="menu_layout"/>
+  </methodCall>
+  <methodCall keyType="menubars" key="main_menubar" method="add">
+    <argKeyedObject keyType="menus" key="menu_component"/>
+  </methodCall>
+  <methodCall keyType="menubars" key="main_menubar" method="add">
+    <argKeyedObject keyType="menus" key="menu_menus"/>
+  </methodCall>
+  <methodCall keyType="menubars" key="main_menubar" method="add">
+    <argKeyedObject keyType="menus" key="menu_help"/>
+  </methodCall>
+</yaslMenuConfig>

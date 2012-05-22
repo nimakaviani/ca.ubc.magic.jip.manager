@@ -1,0 +1,154 @@
+<html>
+
+<head>
+<title>Metrics</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Metrics</b></font></h1>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top" rowspan="2">
+		<img src="../../images/metrics_menu.gif"
+        align="top"></td>
+        <td valign="top" width="4" rowspan="2">&nbsp;&nbsp;&nbsp; </td>
+        <td valign="top"><p>Each
+        time the menu item <img src="../../images/metrics_icon.gif" width="16" height="16"
+        alt="metrics_icon.gif (156 bytes)">  &quot;Compute Metrics&quot; is selected, the enabled <a
+        href="metrics_details.html">metrics</a>  in the <a href="../../preferences/preferences_metrics.html#MetricSet">
+        default metric set</a>
+        will be run. This produces a metrics result set, which is then displayed in the 
+		<b>Metrics</b> view. Other <a href="../../preferences/preferences_metrics.html#MetricSet">metric
+          sets</a>, may be run using the <img src="../../images/metrics_icon.gif" width="16" height="16"
+        alt="metrics_icon.gif (156 bytes)">  &quot;Compute Metrics Using...&quot; command.&nbsp; </p>
+        <p>Options are provided via a <a href="../../preferences/preferences_metrics.html">preference
+        page</a> to enable or disable individual metrics and set various
+        violation thresholds and trigger points.<br>
+&nbsp;</p>
+        </td>
+        <td valign="top" width="10">&nbsp;</td>
+        <td valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top" colspan="3">
+        <h3>The Metrics Table</h3>
+      <p>The metrics table (shown on the left in the picture below) contains a
+        list of the <a
+        href="metrics_details.html">metrics</a>  that have been run and the
+        results of running those <a href="metrics_details.html">metrics</a> 
+        against the target elements. The name of the metric is shown in the
+        first column. The value of the metric result is shown in the second
+        column. </p>
+        </td>
+      </tr>
+    </table>
+        <p>The individual metrics may be expanded (<a name="drilldown">drill
+      down</a>) to show the value of that
+      metric at each subscope (project, package and type). Any metrics that have
+      exceeded their user defined thresholds and trigger points are
+      shown highlighted in red (or any other color settable via the <a href="../../preferences/preferences_metrics.html#General">preference
+      page</a>).</p>
+	<p><img src="../../images/metrics_view.gif" width="815" height="323"></p>
+        <p>Right-clicking on any metric with show the following menu:</p>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="top"><img border="0" src="../../images/metrics_view_menu.gif"></td>
+          <td valign="top">&nbsp;<img border="0" src="../../images/copy_to_clipboard_menu.gif" align="top" width="173" height="91">
+            <p>&nbsp;</p>
+          </td>
+        </tr>
+      </table>
+    		</td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+    <p>Double clicking on a compilation unit will open it up in an editor.
+    &nbsp;If a subscope is selected within a metric, the
+    &quot;<a name="GoInto">Go Into</a>&quot; command will refocus the entire
+    metrics view on that scope as the top level. The <img src="../../images/backward_nav.gif" valign="bottom"
+    width="16" height="16"> &quot;Go Back&quot; and <img src="../../images/forward_nav.gif" valign="bottom"
+    width="16" height="16"> &quot;Go Forward&quot; buttons may then be used to
+    go forward and backward through the selected scopes.</p>
+        <p align="left">The context menu contains a &quot;Copy to <a name="Clipboard"> Clipboard</a>&quot; item that will allow you to capture the currently visible
+        results on the clipboard so that they can be pasted into e-mail messages, text documents,
+        HTML documents, XML documents or even a spreadsheet application. </p>
+	<p align="left">The &quot;<a name="Export">Export</a>
+        Results&quot; items allows you to save the currently visible results
+        directly to a text file in simple text, tab separated, comma
+        separated, <a name="HTML0" href="metrics_report.html"> HTML</a> or XML format (shown below).</p>
+	<p><img border="0" src="../../images/metrics_report.gif" width="610" height="398"></p>
+        <p>A sample <a name="XML">XML</a> report is shown below.</p>
+        <p><img border="0" src="../../images/metrics_report_xml.gif" width="580" height="402"></p>
+    <p>The &quot;<a name="Email">E-mail Results</a>&quot; items allows you to
+        e-mail the currently visible results
+        as a text file in simple text, tab separated, comma
+        separated, <a name="HTML" href="metrics_report.html"> HTML</a> or XML format
+        <p>The
+    &quot;<a name="Explain">Explain</a>&quot; command will show a description of
+        the selected metric.</p>
+        <p><img border="0" src="../../images/metrics_explain.gif" width="436" height="175"></p>
+      <p>The &quot;<a name="DisableMetric">Disable Metric</a>&quot; command will disable the selected
+      metrics in the current metric set. The &quot;<a name="ConfigureMetric">Configure
+      Metric</a>&quot; command will
+    open up a dialog allowing you to configure the selected metric.</p>
+    <p><img border="0" src="../../images/metrics_configure_metric.gif" width="400" height="138">&nbsp;</p>
+        <h3>The Detail Chooser</h3>
+        <p>Selecting an individual metric result will cause the detail chooser (the drop-down list
+        shown at the top on the right side above) to be populated with a list of the kinds of
+        details available about the selected metric result. The specific list of details that are
+        available depends on the metric.
+    <h3>The Detail View</h3>
+    <p>Selecting a detail will cause the detail view (immediately below the detail chooser) to
+    be populated with a view of the specified details. The detail view is read-only and
+    specific to the selected metric. </p>
+    <p><img src="../../images/metrics_view_graph.gif" width="815" height="323"></p>
+    <p>Some details are shown in table form while others are shown as graphs.</p>
+    <p><img src="../../images/metrics_view.gif" width="815" height="323"></p>
+    <p><img src="../../images/metrics_view_graph3.gif" width="815" height="323"></p>
+      <h3><img src="../../images/backward_nav.gif" valign="bottom"
+    width="16" height="16">   Go Back</h3>
+      <p>Restores the view to the previously visible scoping level, if
+      there was one.</p>
+      <h3><img src="../../images/forward_nav.gif" valign="bottom"
+    width="16" height="16">   Go Forward</h3>
+      <p>Limits the view to the scoping level of the currently selected item.</p>
+      
+    <a name="removeItem"><h3>
+    <a name="removeAll"><img src="../../images/remove_item.gif" width="16" height="16"
+    valign="bottom"> </a>  The Remove Current Metric Button</a> </h3>
+    <p>Clicking on the Remove Current Metric button will cause the currently visible set of
+    results to be discarded. This operation cannot be undone.</p>
+    <a name="removeAll"><h3><img src="../../images/remove_all.gif" width="16" height="16"
+    valign="bottom"> The Remove All Results Button</a> </h3>
+    <p>Clicking on the Remove All Metrics button will cause all of the sets of results to be
+    discarded. This operation cannot be undone.</p>
+    <a name="history"><h3><img src="../../images/history_hover.gif" width="16" height="16"
+    valign="bottom"> The Previous Metric Results Button</a> </h3>
+	<p>
+    <a name="history0">
+	<img src="../../images/metrics_view_prev_result_set_menu.gif" width="206" height="66"
+    valign="bottom"></a></p>
+    <p>Clicking on the arrow beside the Previous Metric Results button will cause a menu
+    containing the most recently run metrics to be displayed. If there are additional sets of
+    metric results available but not included on the menu, a menu item labeled
+    &quot;Other&quot; will also be on the menu. Selecting one of the result sets from the list
+    will make the metrics view show the content of the selected result set.</p>
+    <p>Either clicking on the history icon for the Previous Metric Results button, or
+    selecting &quot;Other&quot; from the drop-down menu, will cause a dialog to open in which
+    you can select the result set that you would like to view. This dialog contains a complete
+    list of all available result sets. </p>
+    <p>Result sets are not persisted beyond a single execution of the workbench. 
+	<p>The &quot;Export&quot; option can be used to export the currently selected result 
+	set to an XML file that can be loaded in later.<p>The &quot;Import&quot; option can be 
+	used to import a result set from an XML file.</td>
+  </tr>
+</table>
+</body>
+</html>

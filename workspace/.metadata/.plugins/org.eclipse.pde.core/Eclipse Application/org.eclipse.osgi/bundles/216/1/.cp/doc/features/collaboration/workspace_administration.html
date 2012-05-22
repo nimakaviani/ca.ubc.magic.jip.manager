@@ -1,0 +1,55 @@
+<html>
+
+<head>
+<title>Workspace Administration</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Workspace Administration</b></font>
+      </h1>
+      <p>CodePro includes two key features necessary to support the
+      remote administration of multiple workspaces via the CodePro <a href="server.html">collaboration
+      server</a>.</p>
+      <ul>
+        <li>Remote Preference Configuration</li>
+        <li>Remote Project Configuration</li>
+      </ul>
+      <h3><a name="Preferences"></a>Remote Preference Configuration</h3>
+      <p>Configuring multiple user's workspaces with common settings (such as code formatting
+    preference, classpath variable settings, etc.) is very difficult due to the
+    difficulty in moving general workspace preferences from one workspace to
+      another. CodePro makes it easy for users to copy workspace preferences in any granularity
+    between multiple workspaces. It also makes it easy for team leaders and administrators to
+    set up common sets of preferences for configuring multiple workspaces.</p>
+      <p><img src="../../images/export_prefs_wizard2.gif" width="470" height="573"></p>
+      <p>To export preferences, open the <font face="Arial"><img src="../../images/export_prefs.gif" width="16" height="16">
+ </font> <a href="../prefs/export_prefs.html">Export Wizard</a>, select &quot;Preferences&quot; and click
+    &quot;Next&quot;. At the top of the wizard is a checkbox tree list showing all of the
+    preferences that may be exported. At the bottom of the wizard page, is an area for selecting the location to which the
+    preference file should be exported. The fourth option, &quot;User&quot;, allows the user to send preferences to other users without intervention
+      by the receiving user. Thus, this option provides a way to silently set
+      preferences in the workbenches of other users. This can only be done for <a href="users_view.html">users</a>
+      and <a href="groups_view.html">groups</a> led by the
+      user, unless the user is the administrator, in which case it can be done
+      for any user or group.</p>
+      <p><img src="../../images/export_prefs_target4.gif" width="446" height="88"></p>
+      <h3><a name="Projects"></a>Remote Project Configuration</h3>
+      <p>Configuring multiple workspaces with the same initial projects is also
+      difficult and manually intensive. CodePro includes a <b><img border="0" src="../../images/solutions/solution_proj_new_wiz.gif" width="16" height="16"></b>
+      <a href="../scheduler/scheduler_load_projects.html">Load Projects</a> task
+      which allows any shared projects to be selected for loading into any
+      target workspace. When this task is used as a <a href="shared_task_view.html">globally
+      shared task</a>, it provides a way to remotely control the project
+      configuration of one or more workspaces. This can only be done for <a href="users_view.html">users</a>
+      and <a href="groups_view.html">groups</a> led by the
+      user, unless the user is the administrator, in which case it can be done
+      for any user or group</p>
+      <p><img src="../../images/scheduler_load_projects.gif" width="454" height="530"></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

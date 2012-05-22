@@ -1,0 +1,226 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+      <h1><font face="Verdana" color="#CC0000"><b>mailAuthors</b></font> <font size="-1">(element)</font></h1>
+      <h3>Description</h3>
+      <p>
+      The <code>mailAuthors</code> element, which must be nested within the
+      <a href="../server/ant/codeAudit/codeAudit.html"><code>instantiations.audit</code></a> 
+		(or <code>
+      <a href="CodeAudit.html">codepro.audit</a>)</code> task, is used to
+      send e-mail to the authors of the resources that contain violations. The
+      body of the e-mail is a report that is filtered to contain only those
+      violations associated with the declared author.
+      </p>
+      <!-- ***************************************************************** -->
+      <h3>Attributes</h3>
+      <p>
+      The following attributes are used to control the both the e-mail and
+      report generation process:
+      </p>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+          <td valign="top"><b>Attribute</b></td>
+          <td valign="top"><b>Description</b></td>
+          <td align="center" valign="top"><b>Required</b></td>
+        </tr>
+        <tr>
+          <td valign="top">addressBook</td>
+          <td valign="top">
+          <p>
+          The absolute or relative path to the file containing the address book
+          that will be used to translate author names into e-mail addresses.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">smtpHost</td>
+          <td valign="top">
+          <p>
+          The name of the SMTP host used to send the mail. If the attribute is
+          not specified, the value of the property named
+          <code>codepro.mail.smtpHost</code> will be used. If the property is
+          not defined, the value <i>localhost</i> will be used.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">smtpPort</td>
+          <td valign="top">
+          <p>
+          The number of the port on which the host is listening. If the
+          attribute is not specified, the value of the property named
+          <code>codepro.mail.smtpPort</code> will be used. If the property is
+          not defined, the value <i>25</i> will be used.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">username</td>
+          <td valign="top">
+          <p>
+          The username used to access the mail server. If the attribute is
+          not specified, the value of the property named
+          <code>codepro.mail.username</code> will be used. It is an error if
+          neither the attribute nor the property are specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">password</td>
+          <td valign="top">
+          <p>
+          The password used to access the mail server. If the attribute is
+          not specified, the value of the property named
+          <code>codepro.mail.password</code> will be used. It is an error if
+          neither the attribute nor the property are specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">from</td>
+          <td valign="top">
+          <p>
+          The address used as the <code>From</code> field of the e-mail. If
+          the attribute is not specified, the value of the property named
+          <code>codepro.mail.from</code> will be used. It is an error if
+          neither the attribute nor the property are specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">defaultAddress</td>
+          <td valign="top">
+          <p>
+          The address to which an e-mail will be sent containing all of the
+          violations that are not associated with any author and any violations
+          associated with an author whose name does not appear in the address
+          book. No e-mail will be sent to this address if all of the violations
+          are associated with at least one author.
+          </p>
+          </td>
+          <td valign="top" valign="middle">Yes</td>
+        </tr>
+        <tr>
+          <td valign="top">sendTo</td>
+          <td valign="top">
+          <p>
+          Used in the cases where there is more than one author tag for a given
+          type to determine which of the author(s) should receive notification.
+          The possible values are
+          </p>
+          <ul>
+            <li><code>first</code> - the first author listed</li>
+            <li><code>last</code> - the last author listed</li>
+            <li><code>all</code> - all of the authors</li>
+          </ul>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>first</i></td>
+        </tr>
+        <!-- Not yet supported
+        <tr>
+          <td valign="top">format</td>
+          <td valign="top">
+          <p>
+          The format in which the audit results will be written. If not specified,
+          then the results will be written in a simple text format. Currently
+          supported formats include:
+          </p>
+          <ul>
+            <li><code>html</code></li>
+            <li><code>text</code></li>
+          </ul>
+          <p>
+          If the <code>html</code> format is specified, the e-mail will contain
+          two MIME parts: an HTML part and a TEXT part for those users whose mail
+          reader cannot or will not display HTML.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>text</i></td>
+        </tr>
+        -->
+        <tr>
+          <td valign="top">groupBy</td>
+          <td valign="top">
+          <p>
+          The way in which the audit violations are grouped in the e-mail. If not
+          specified, then the results will be grouped by <code>audit rule</code>.
+          Currently supported groupings include:
+          </p>
+          <ul>
+            <li><code>audit rule</code></li>
+            <li><code>audit rule group</code></li>
+            <li><code>resource</code></li>
+            <li><code>severity</code></li>
+          </ul>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>audit rule</i></td>
+        </tr>
+        <tr>
+          <td valign="top">filter</td>
+          <td valign="top">
+          <p>
+          The filter used to restrict which violations are included in the e-mail
+          that is generated. Only those violations whose severity level is
+          included in the given list will be included in the e-mail. If this
+          attribute is not specified, all severities of violations will be
+          included in the e-mail.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+      </table>
+      <!-- ***************************************************************** -->
+      <h3>Examples</h3>
+      <p>
+      The following <code>mailAuthors</code> element will generate one e-mail
+      message for each of the authors whose code contains high-severity
+      violations.
+      </p>
+      <blockquote>
+      <pre>&lt;mailAuthors
+      addressBook=&quot;addressBook.xml&quot;
+      defaultAddress=&quot;testManager@company.com&quot;
+      from=&quot;testManager@company.com&quot;
+      groupBy=&quot;audit rule&quot;
+      filter=&quot;high&quot;/&gt</pre>
+      </blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

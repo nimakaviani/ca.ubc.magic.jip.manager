@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<title>Scheduler</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Scheduler</b></font></h1>
+    <p><img src="../../images/scheduler_view.gif" width="701" height="427"></p>
+    <p>The CodePro Task Scheduler provides a facility for scheduling various tasks to
+    occur at startup, at shutdown, at scheduled times or in response to specific
+    events.&nbsp;The Scheduler view may be accessed in several ways - as part of the Resource,
+    Java, Debug, Team or VA Java perspectives or within its own &quot;Scheduler&quot;
+    perspective. </p>
+    <p><img src="../../images/scheduler_perspective.gif" width="732" height="302"></p>
+    <p>Currently, there are twelve task types that may be instantiated: <ul>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_export_set_wiz.gif"
+        width="16" height="16"> <a href="scheduler_export_set.html">Export Set</a> - automate
+        export operations and your build process.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_ant_wiz.gif" width="16"
+        height="16"> <a href="scheduler_ant_build.html">Ant Build</a> - configure and run an Ant
+        build.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_msg_wiz.gif" width="16"
+        height="16"> <a href="scheduler_message.html">Message</a> - trigger an arbitrary,
+        multi-line message to popup.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_java_wiz.gif" width="16"
+        height="16"> <a href="scheduler_java_program.html">Java Program</a> - run any Java program
+        within your workspace (either in normal mode or debug mode). This gives you an easy way,
+        for example, to trigger some Java script at system startup.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_prog_wiz.gif" width="16"
+        height="16"> <a href="scheduler_external_program.html">External Program</a> - trigger any
+        external executable or batch file (actually any command line).</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_refresh_wiz.gif" width="16"
+        height="16"> <a href="scheduler_refresh_workspace.html">Refresh Workspace</a> - refresh
+        the workspace (similar to what the -refresh command line option does). It will also scan
+        for and recognize and new Eclipse projects that were created externally to Eclipse (either
+        by hand or via VA Assist when Eclipse was not running).</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/audit_wiz.gif" width="16"
+        height="16">  <a href="scheduler_audit_code.html">Audit Code</a> - generate a code audit report for a set of
+        resources.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/metrics_wiz.gif" width="16"
+        height="16">  <a href="scheduler_compute_metrics.html">Compute Metrics</a> - generate a metrics report for a set of
+        resources.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_exit_wiz.gif" width="16"
+        height="16" alt="scheduler_exit_wiz.gif (163 bytes)"> <a
+        href="scheduler_exit_workbench.html">Exit Workbench</a> - exit the workbench while
+        optionally saving or discarding any unsaved resources.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_action_wiz.gif" width="16"
+        height="16"> <a href="scheduler_workbench_action.html">Workbench Action</a> - run any
+        arbitrary workbench action.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img border="0" src="../../images/solutions/solution_proj_new_wiz.gif" width="16" height="16">
+        <a href="scheduler_load_projects.html">Load Projects</a> - load a set of
+        projects out of the repository.</p>
+      </li>
+    </ul>
+    <p>The status column has the following icons indicating the current state of the scheduled
+    task:<ul>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_run.gif" width="16"
+        height="16" alt="scheduler_run.gif (122 bytes)"> - the scheduled task is currently
+        running.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_complete.gif" width="16"
+        height="16" alt="scheduler_complete.gif (124 bytes)"> - the scheduled task has completed
+        normally.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_complete_with_results.gif"
+        width="16" height="16" alt="scheduler_complete_with_results.gif (155 bytes)"> - the
+        scheduled task has completed normally and there are results available.&nbsp; The results
+        can be displayed by selecting &quot;Show Last Results...&quot; in the context menu, or
+        ALT-double-click on the task itself.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_cancel.gif" width="16"
+        height="16" alt="scheduler_cancel.gif (166 bytes)"> - the scheduled task was canceled
+        before it could complete.</p>
+      </li>
+      <li><p style="margin-bottom: 8"><img src="../../images/scheduler_fail.gif" width="16"
+        height="16" alt="scheduler_fail.gif (167 bytes)"> - there was an exception during task
+        execution.&nbsp; The exception details can be displayed by selecting &quot;Show Last
+        Results...&quot; in the context menu, or ALT-double-click on the task itself.</p>
+      </li>
+      <li><p style="margin-bottom: 8">blank - the scheduled task has not been run during the
+        current workbench session.</p>
+      </li>
+    </ul>
+    <h3>Scheduling a new task</h3>
+    <p>To schedule a new task, select &quot;New Task&quot; from the popup menu of the
+    scheduler view and then select the type of task to be scheduled.&nbsp; This opens the
+    scheduler wizard, displaying the wizard pages specific to that type of task. New tasks can
+    be created via the standard New wizard by selecting the &quot;Scheduler Tasks&quot;
+    category, or via the popup menus or toolbar within the Scheduler view itself.</p>
+    <p><img src="../../images/scheduler_new_wizard.gif" width="500" height="500"> <img
+    src="../../images/scheduler_new_menu.gif" align="top" width="158" height="354"></p>
+    <p>Tasks may be <a href="scheduler_schedule.html">scheduled to run</a> at a specific time
+    with a specific interval, at startup, at shutdown, after another task, or before a
+    specific class is launched. When triggered, the tasks can prompt the user to continue or
+    not.</p>
+    <p><img src="../../images/scheduler_schedule.gif" width="454" height="522"></p>
+    <p><a name="TaskMenu"></a>Clicking on the &quot;<a href="scheduler_description.html">Show
+    task in Task menu</a>&quot; will cause the task to be added to the top level
+    &quot;Task&quot; menu. This provides a convenient way to access common tasks.</p>
+    <p><img src="../../images/scheduler_task_menu.gif" width="167" height="135" border="1"></p>
+    <h3>Edit an existing task</h3>
+    <p>To edit an existing task, select the task in the scheduler view, then select
+    &quot;Edit&quot; from the popup menu.&nbsp; Alternately, double click on the task in the
+    scheduler view.&nbsp; Either method causes the scheduler wizard to be opened showing the
+    details of the selected task.</p>
+    <h3><a name="RunTask"></a>Run a task</h3>
+    <p>In addition to a task automatically running at a specified time, you can run a task
+    immediately by selecting &quot;Run&quot; in the popup menu.&nbsp; This executes the task
+    immediately without altering the next time that the task is scheduled to run.&nbsp;</p>
+    <h3>Deleting a task</h3>
+    <p>To permanently remove a task from the scheduler view, select the task in the scheduler
+    view and then select &quot;Delete&quot; in the popup menu.<h3>Early Startup</h3>
+    <p>In order for these tasks to be executed at the appropriate times, the 
+    scheduler must be <a href="../early_startup.html">loaded and executed when 
+    Eclipse is launched</a>.</td>
+  </tr>
+</table>
+</body>
+</html>

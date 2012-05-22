@@ -1,0 +1,434 @@
+<html>
+
+<head>
+<title>codepro.audit - deprecated</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">codepro.audit</font></b></h1>
+      <p>
+      <b><i><font size="2" face="Verdana">This function is deprecated and has
+      been replaced by the</font><font size="2" face="Verdana" color="#0000FF">
+      <a href="../server/ant/codeAudit/codeAudit.html">instantiations.audit</a>
+      </font><font size="2" face="Verdana"> Ant Task in </font>
+      <font size="2" face="Verdana" color="#0000FF">
+      CodePro AnalytiX Server</font>
+      <font size="2" face="Verdana">.</font></i></b>
+      </p>
+      <h3>Description</h3>
+      <p>
+      An Ant task that performs a code audit. This is identical to the
+      <a href="../audit/audit.html">Audit Code</a> command available via the
+      Application Developer and Eclipse IDE user interfaces. This can be run
+      inside the Eclipse IDE or as a <a href="headless.html">headless audit</a>
+      with <a href="../audit/audit_project_defaults.html">project defaults</a>.
+      </p>
+      <!-- ***************************************************************** -->
+      <h3>Attributes</h3>
+      <p>
+      The following is a list of the attributes supported for the
+      <code>codepro.audit</code> task.
+      </p>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+          <td valign="top"><b>Attribute</b></td>
+          <td valign="top"><b>Description</b></td>
+          <td align="center" valign="top"><b>Required</b></td>
+        </tr>
+        <tr>
+          <td valign="top">classpath</td>
+          <td valign="top">
+          <p>
+          The classpath used for resources that exist outside of the projects
+          contained by the current Eclipse workspace. The classpath attribute is
+          a <a href="http://ant.apache.org/manual/using.html#path">path-like
+          structure</a> and can also be set via a nested
+          <code>&lt;classpath&gt;</code> element similar to the classpath
+          attribute in the
+          <a href="http://ant.apache.org/manual/CoreTasks/javac.html">javac</a>
+          Ant task.
+          </p>
+          <p>
+          <b>Note:</b> The classpath attribute relies on functionality that
+          exists in <b>Eclipse 2.1</b>, but not in Eclipse 2.0 / Application
+          Developer 5.0. If you want to use this, you will have to download and
+          install Eclipse 2.1. See the notes on the
+          <a href="headless.html">Eclipse headless Ant environment</a>.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">auditRuleSetName</td>
+          <td valign="top">
+          <p>
+          The name of the
+          <a href="../../preferences/preferences_audit.html#AuditRuleSet">audit
+          rule set</a> that will be used to generate audit violations. If the
+          <code>auditRuleSetFile</code> attribute is specified (see below) then
+          the named audit rule set in the specified file is used, otherwise the
+          named audit rule set in the workspace is used. If no audit rule set
+          name is specified then either the first audit rule set in the file or
+          the default audit rule set in the workspace is used depending upon
+          whether or not the <code>auditRuleSetFile</code> attribute is specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">auditRuleSetFile</td>
+          <td valign="top">
+          <p>
+          The absolute or relative path to the file that contains the
+          <a href="../../preferences/preferences_audit.html#AuditRuleSet">audit
+          rule set</a> to be used. If the <code>auditRuleSetName</code> attribute
+          is specified (see above) then the audit rule set located in the
+          specified file with the specified name is used, otherwise the first
+          audit rule set in the file is used. If the <code>auditRuleSetFile</code>
+          attribute is not specified, then an audit rule set from the workspace
+          is used. Either the <a href="../prefs/export_prefs.html">export
+          preferences</a> command or the
+          <a href="../../preferences/preferences_audit.html#Export">export
+          button on the audit preference page</a> can be used to generate a file
+          containing audit rule sets.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top"><a name="storageLocation">storageLocation</a></td>
+          <td valign="top">
+          <p>
+          A designation of the storage location in which the audit result set
+          will be stored. It can be either <code>workspace</code> (the default)
+          or <code>project:</code> followed by the name of a project.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>workspace</i></td>
+        </tr>
+        <tr>
+          <td valign="top">violationCountThreshold</td>
+          <td valign="top">
+          <p>
+          The maximum number of violations that can be found by the audit before the
+          audit is considered to fail, as well as the list of severities that are
+          included in the count. These values are described by an expression composed
+          of a "+" separated list of severity names ("high", "medium" and "low") and
+          an integer threshold value, with the list being separated from the threshold
+          by a greater than ("&gt;"). For example, if the audit should fail if
+          more than 200 high or medium level violations are found, the attribute
+          would be specified as:
+          </p>
+          <blockquote>
+          <code>violationCountThreshold=&quot;high+medium&gt;200&quot;
+          </blockquote>
+          <p>
+          If not specified then the audit will not fail.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">resultProperty</td>
+          <td valign="top">
+          <p>
+          The base name used to compose the names of properties that will be given
+          values after an audit has been run. The following is a list of the
+          properties that will be set (where "result" is assumed to be the value of
+          this property):
+          <blockquote>
+          <dl>
+            <dt><code>result.exceededThreshold</code>
+            <dd><code>&quot;true&quot;</code> if the threshold specified by the
+            <code>violationCountThreshold</code> attribute is exceeded. The property
+            will not be set if the threshold is not exceeded or if the threshold is
+            not set.
+            <dt><code>result.resourceCount.total</code>
+            <dd>The number of resources that were audited.
+            <dt><code>result.violationCount.high</code>
+            <dd>The total number of high severity violations.
+            <dt><code>result.violationCount.low</code>
+            <dd>The total number of low severity violations.
+            <dt><code>result.violationCount.medium</code>
+            <dd>The total number of medium severity violations.
+            <dt><code>result.violationCount.total</code>
+            <dd>The total number of violations.
+          </dl>
+          </blockquote>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">deleteTempProject</td>
+          <td valign="top">
+          <p>
+          This attribute exists for debugging purposes only. If a 
+          <code>classpath</code> attribute is specified, then the
+          <code>codepro.audit</code> ant task creates a temporary project for use
+          during the audit process, and deletes that  project after the audit is
+          complete. If this attribute is set to <code>&quot;false&quot;</code>
+          then the temporary project will not be deleted.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>true</i></td>
+        </tr>
+      </table>
+      <!-- ***************************************************************** -->
+      <h3>Deprecated Attributes</h3>
+      <p>
+      The following attributes are deprecated in favor of more flexible
+      mechanisms. While they are still currently supported, they should be
+      replaced by the newer mechanisms, as described for each attribute.
+      </p>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+          <td valign="top"><b>Attribute</b></td>
+          <td valign="top"><b>Description</b></td>
+          <td align="center" valign="top"><b>Required</b></td>
+        </tr>
+        <tr>
+          <td valign="top">resultFile</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          The absolute or relative path to the file to which audit results will be
+          written. If not specified, then no audit results will be written to any
+          file. Regardless of whether or not the <code>resultFile</code> attribute
+          is specified, if the ant task is being executed inside the IDE user
+          interface, then the audit results will be available from the
+          <a href="../audit/audit.html">Audit view</a>.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">resultFormat</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          The format in which the audit results will be written. If not specified,
+          then the results will be written in a simple text format. Currently
+          supported formats include:
+          </p>
+          <ul>
+          <li><code>commaSeparatedData</code></li>
+          <li><code>csvSummary</code></li>
+          <li><code>html</code></li>
+          <li><code>tabSeparatedData</code></li>
+          <li><code>text</code></li>
+          <li><code>xml</code></li>
+          </ul>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>text</i></td>
+        </tr>
+        <tr>
+          <td valign="top">groupBy</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          The way in which the audit violations are grouped in the result file. If
+          not specified, then the results will be grouped by <code>audit rule</code>.
+          Currently supported groupings include:
+          </p>
+          <ul>
+          <li><code>audit rule</code></li>
+          <li><code>audit rule group</code></li>
+          <li><code>author</code></li>
+          <li><code>resource</code></li>
+          <li><code>severity</code></li>
+          </ul>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>audit rule</i></td>
+        </tr>
+        <tr>
+          <td valign="top">reportFilter</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          The filter used to restrict which violations are included in the report
+          that is generated. Only those violations whose severity level is included
+          in the given list will be included in the generated report. This attribute
+          is ignored if the report file is not specified. If this attribute is not
+          specified, all severities of violations will be included in the report
+          (assuming a report is generated).
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">violationCountProperty</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the <code>resultProperty</code> attribute instead
+          </p>
+          <p>
+          The base name used to compose the names of properties that will be set to
+          the total number of violations and to the number of violations of each
+          severity level by appending a period and the name of the severity level
+          (or &quot;total&quot; for the total number of violations) to the base name.
+          </p><p>
+          For example, if the property name were <code>vCount</code> and there were 4
+          high, 6 medium, and 10 low severity violations, the property named
+          <code>vCount.total</code> would be set to 20, and the properties named
+          <code>vCount.high</code>, <code>vCount.medium</code>, and
+          <code>vCount.low</code>; would be set to 4, 6, and 10, respectively. If
+          not specified then no properties will be set to these values.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">exceededThresholdProperty</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the <code>resultProperty</code> attribute instead
+          </p>
+          <p>
+          The name of the property that will be set to
+          <code>&quot;true&quot;</code> if the threshold specified by the
+          <code>violationCountThreshold</code> attribute is exceeded. The
+          property will not be set if the threshold is not exceeded. This
+          attribute is ignored if the threshold is not set. If this attribute is
+          not specified, but the <code>violationCountThreshold</code> attribute
+          is specified, any audit that exceeds the threshold will cause this
+          task to fail.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+      </table>
+      <!-- ***************************************************************** -->
+      <h3>Nested Elements</h3>
+      <p>
+      The following elements can be nested within the <code>codepro.audit</code>
+      task.
+      </p>
+      <blockquote>
+      <p><code><b>&lt;fileSet&gt;</b></code></p>
+      <p>
+      The standard Ant
+      <a href="http://ant.apache.org/manual/CoreTypes/fileset.html">FileSet</a> 
+      structure is used to specify which files are to be audited. If you specify
+      files outside of the projects contained by the current Eclipse workspace,
+      then you must specify a classpath or those external files will be ignored
+      by the <code>codepro.audit</code> ant task.
+      </p>
+      <p><code><b>&lt;classpath&gt;</b></code></p>
+      <p>
+      The classpath used for resources that exist outside of the projects
+      contained by the current Eclipse workspace. The classpath element is
+      similar to the classpath attribute in the
+      <a href="http://ant.apache.org/manual/CoreTasks/javac.html">javac</a>
+      Ant task.
+      </p>
+      <p><code><b>&lt;report&gt;</b></code></p>
+      <p>
+      The <a href="CodeAuditReportElement.html"><code>report</code></a> element
+      is used to generate a report based on the results of the audit. Multiple
+      reports will be generated if the <code>report</code> element is included
+      multiple times.
+      </p>
+      <p><code><b>&lt;seriesReport&gt;</b></code></p>
+      <p>
+      The <a href="CodeAuditSeriesReportElement.html"><code>seriesReport</code></a>
+      element is used to generate a report based on the results of a series of
+      audits. Multiple reports will be generated if the <code>seriesReport</code>
+      element is included multiple times.
+      </p>
+      <p><code><b>&lt;mailAuthors&gt;</b></code></p>
+      <p>
+      The <a href="CodeAuditMailAuthorsElement.html"><code>mailAuthors</code></a>
+      element is used to send e-mail to the authors of the resources that contain
+      violations. The body of the e-mail is a report that is filtered to contain
+      only those violations associated with the declared author.
+      </p>
+      </blockquote>
+      <!-- ***************************************************************** -->
+      <h3>Additional Notes</h3>
+      <p>
+      Both the <code>report</code> and <code>seriesReport</code> elements can be
+      used to generate reports on the result of running an audit. If you want to
+      make those reports available to a small number of people, both can have a
+      <code>mail</code> element nested within them. But if you want to make the
+      reports available to a larger number of people it might be better to use
+      the optional <code>
+      <a href="http://ant.apache.org/manual/OptionalTasks/ftp.html">ftp</a>
+      </code> Ant task to copy the generated file to an accessible location such
+      as a corporate or departmental web site.
+      </p>
+      <!-- ***************************************************************** -->
+      <h3>Examples</h3>
+      <p>
+      The following Ant task will use the audit rule set named
+      &quot;MyAuditRuleSet&quot; contained in the file named
+      &quot;code_audit.pref&quot; to audit the files in the directory structure
+      rooted at &quot;../MyJavaProject/src&quot;. After the audit is complete,
+      an XML report will be generated to the file named
+      &quot;code_audit_result.xml&quot; with the violations grouped by audit
+      rule. In addition, the report will be e-mailed to the project manager.
+      </p>
+      <blockquote>
+      <pre>&lt;codepro.audit
+      auditRuleSetName=&quot;MyAuditRuleSet&quot;
+      auditRuleSetFile=&quot;code_audit.pref&quot;&gt;
+   &lt;fileSet dir=&quot;../MyJavaProject/src&quot;/&gt;
+   &lt;report
+         file=&quot;code_audit_result.xml&quot;
+         format=&quot;xml&quot;
+         groupBy=&quot;audit rule&quot;&gt;
+      &lt;mail
+            username=&quot;user&quot;
+            password=&quot;password&quot;
+            from=&quot;testManager@company.com&quot;
+            tolist=&quot;projectManager@company.com&quot;/&gt;
+   &lt;/report&gt;
+&lt;/codepro.audit&gt;</pre>
+      </blockquote>
+      <p>
+      The following Ant task will perform the same audit as the previous, but
+      will generate an e-mail message for each of the authors whose code
+      contains high-severity violations.
+      </p>
+      <blockquote>
+      <pre>&lt;codepro.audit
+      auditRuleSetName=&quot;MyAuditRuleSet&quot;
+      auditRuleSetFile=&quot;code_audit.pref&quot;&gt;
+   &lt;fileSet dir=&quot;../MyJavaProject/src&quot;/&gt;
+   &lt;mailAuthors
+         addressBook=&quot;addressBook.xml&quot;
+         defaultAddress=&quot;testManager@company.com&quot;
+         from=&quot;testManager@company.com&quot;
+         groupBy=&quot;audit rule&quot;
+         filter=&quot;high&quot;/&gt;
+&lt;/codepro.audit&gt;</pre>
+      </blockquote>
+      <!-- ***************************************************************** -->
+      <h3>Eclipse 3.0 Usage</h3>
+      <p>
+      Under Eclipse 2.1 and earlier, Ant tasks are run in the same JRE as the
+      IDE and can make use of Eclipse libraries. Under Eclipse 3.0, Ant tasks
+      are normally run in a separate JRE and don't have access to Eclipse
+      libraries. The <b>codepro.audit</b> Ant task requires access to various
+      Eclipse libraries, and therefore cannot run in a separate JRE. In order to
+      use the <b>codepro.audit</b> Ant task within Eclipse, you need to select
+      the <b>Run in the same JRE as the workspace</b> option from the <b>JRE</b>
+      page of the Run Ant dialog.
+      </p>
+      <p><img border="0" src="../../images/runtime_jre.gif" width="513" height="101">
+    </td>
+  </tr>
+</table>
+</body>
+</html>

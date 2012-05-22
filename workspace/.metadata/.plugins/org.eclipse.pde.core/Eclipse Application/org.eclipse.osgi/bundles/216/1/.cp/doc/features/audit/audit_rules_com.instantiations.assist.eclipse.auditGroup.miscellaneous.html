@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Miscellaneous</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Miscellaneous</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that don't fit into any of the other audit rule groups.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.alwaysOverridetoString.alwaysOverrideToString">Always Override toString</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.doNotImplementOutdatedInterfaces">Do Not Implement Outdated Interfaces</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.favorStaticMemberClassesOverNonStatic">Favor Static Member Classes over Non-Static</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.implementIterable">Implement Iterable</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.invalidDBCTagValue">Invalid DBC Tag Value</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.noExplicitExit">No Explicit Exit</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.numericLiterals">Numeric Literals</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.useInterfacesOnlyToDefineTypes">Use Interfaces Only to Define Types</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.useOfRandom">Use of Random</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.alwaysOverridetoString.alwaysOverrideToString">Always Override toString</a></h4><p>
+<b>Summary</b><br/>Every class should override toString().<p><b>Description</b><br/>This audit rule identifies non-abstract classes that do not override the toString method. It ignores classes that cannot be instantiated, and can be configured to ignore other common situations, such as classes that inherit an implementation from a superclass other than Object.<p><b>Example</b><br/>The following class would be flagged as needing an implementation of toString():<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class StringHolder<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private String value;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public StringHolder(String initialValue)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = initialValue;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public String getValue()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return value;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_always_override_tostring.gif"></p><h4><a name="com.instantiations.assist.eclipse.audit.doNotImplementOutdatedInterfaces">Do Not Implement Outdated Interfaces</a></h4><p>
+<b>Summary</b><br/>Outdated interfaces should not be implemented. Instead, implement the ones that superseded them <p><b>Description</b><br/>This audit rule flags classes that implement outdated interface, or extend outdated abstract classes.<p><b>Example</b><br/>The following would be flagged because Iterator could be implemented instead: <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public class Foo extends Enumeration{}</code><h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.favorStaticMemberClassesOverNonStatic">Favor Static Member Classes over Non-Static</a></h4><p>
+<b>Summary</b><br/>Member classes should be defined as static classes when possible.<p><b>Description</b><br/>This rule identifies member classes that are not defined as static classes but that could possibly be defined as such.<h4><a name="com.instantiations.assist.eclipse.audit.implementIterable">Implement Iterable</a></h4><p>
+<b>Summary</b><br/>Classes which define an <code>iterator()</code> method should implement Iterable.<p><b>Description</b><br/>This audit rule checks for classes which define an <code>iterator()</code> method,but do not implement the <code>Iterable</code> interface. Implementing this interface allows the class to be used in an enhanced for loop. In these cases, it takes no extra effort to implement <code>Iterable</code>.<p><b>Example</b><br/>The following class declaration would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class Foo<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public Iterator iterator() {...}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.invalidDBCTagValue">Invalid DBC Tag Value</a></h4><p>
+<b>Summary</b><br/>The value of a DBC tag must have valid syntax.<p><b>Description</b><br/>This audit rule checks the value of all DBC tags (@pre, @post, @inv, and @invariant) to ensure that they have a valid syntax. The value must be either a valid Java expression or two valid Java expressions enclosed in parentheses and separated by a comma.<p><b>Example</b><br/>The following precondition would be flagged as a violation because its value is not a valid Java expression:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;@pre 0 <= value <= 255</code><h4><a name="com.instantiations.assist.eclipse.audit.noExplicitExit">No Explicit Exit</a></h4><p>
+<b>Summary</b><br/>The methods System.exit(int), Runtime.exit(int), and Runtime.halt(int) should not be invoked.<p><b>Description</b><br/>This audit rule checks for invocations of either of the exit methods, System.exit(int) and Runtime.exit(int), or Runtime.halt(int).<p><b>Example</b><br/>The following invocation would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;System.exit(0);</code><p><img src="../../images/auditrules/audit_no_explicit_exit.gif" width="373" height="74"></p><h4><a name="com.instantiations.assist.eclipse.audit.numericLiterals">Numeric Literals</a></h4><p>
+<b>Summary</b><br/>Numeric literals should not appear in code.<p><b>Description</b><br/>This audit rule checks for numeric literals within the code that are not included in a user-defined list of acceptable literal values. The list initially contains only the values "-1", "0", and "1".<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;int answer = 42;</code><p><img src="../../images/auditrules/audit_numeric_literals.gif"></p><h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.useInterfacesOnlyToDefineTypes">Use Interfaces Only to Define Types</a></h4><p>
+<b>Summary</b><br/>Use interfaces to define types, not as places to store constants.<p><b>Description</b><br/>This rule identifies interfaces that do not define any methods. Interfaces that do not define any fields are ignored.<h4><a name="com.instantiations.assist.eclipse.analysis.useOfRandom">Use of Random</a></h4><p>
+<b>Summary</b><br/>The class java.util.Random is not as secure as java.security.SecureRandom.<p><b>Description</b><br/>This audit rule looks for any use of the class java.util.Random, including any classes declared as a subclass of Random, and any instances of Random being instantiated. The class java.security.SecureRandom should be used instead.<p><b>Security Implications</b><br/>By using a cryptographically strong random number generated by SecureRandom, any risks that may be caused by a malicious user being able to anticipate the outcome of a random number, will be prevented.<p><b>Example</b><br/>The following would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class A extends Random {}</code></body>
+</html>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+    	<!-- ======================== Perspectives and Views ================= -->
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="%codeProViewCategoryName"
+            id="com.instantiations.assist.eclipse.views">
+      </category>
+   </extension>
+
+	<!-- ======================== Preferences ================= -->
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="%mainPreferencePageName"
+            class="com.instantiations.assist.eclipse.preferences.MainPreferencePage"
+            id="com.instantiations.assist.eclipse.mainPreferencePage">
+      </page>
+      <page
+            name="%debugLogPreferencePageName"
+            category="com.instantiations.assist.eclipse.mainPreferencePage"
+            class="com.instantiations.assist.eclipse.preferences.DebugLogPreferencePage"
+            id="com.instantiations.assist.eclipse.debugLogPreferencePage">
+      </page>
+      <page
+            name="%acknowledgementsPreferencePageName"
+            category="com.instantiations.assist.eclipse.mainPreferencePage"
+            class="com.instantiations.assist.eclipse.preferences.AcknowledgementsPreferencePage"
+            id="com.instantiations.assist.eclipse.acknowledgementsPreferencePage">
+      </page>
+      <page
+            name="%startupPreferencePageName"
+            category="com.instantiations.assist.eclipse.mainPreferencePage"
+            class="com.instantiations.assist.eclipse.preferences.StartupPreferencePage"
+            id="com.instantiations.assist.eclipse.startupPreferencePage">
+      </page>
+   </extension>
+    
+    
+	<!-- ======================== Popup Menus ================= -->
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+	<!-- ======== Explore ======== -->
+	<!-- TODO: contribute this near one of the Show In, Import, Export context menu items? -->
+      <objectContribution
+            id="com.instantiations.assist.eclipse.eval.action.explorePopup1"
+            objectClass="org.eclipse.jdt.core.IJavaElement">
+         <action
+			id="com.instantiations.assist.eclipse.eval.action.exploreAction1"
+			label="%explore.label"
+			icon="icons/misc/openfolder.gif"
+			menubarPath="codepro/utility"
+			enablesFor="+"
+			helpContextId="browsers_explore_action_context"
+			class="com.instantiations.assist.eclipse.eval.action.ExploreDirectoryAction"/>
+      </objectContribution>
+      <objectContribution
+            id="com.instantiations.assist.eclipse.eval.action.explorePopup2"
+            objectClass="org.eclipse.core.resources.IResource">
+         <action
+			id="com.instantiations.assist.eclipse.eval.action.exploreAction2"
+			label="%explore.label"
+			icon="icons/misc/openfolder.gif"
+			menubarPath="codepro/utility"
+			enablesFor="+"
+			helpContextId="browsers_explore_action_context"
+			class="com.instantiations.assist.eclipse.eval.action.ExploreDirectoryAction"/>
+      </objectContribution>
+   </extension>
+
+	<!-- ======================== Help ===================== -->
+
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="doc_toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+   
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="doc_contexts.xml">
+      </contexts>
+   </extension>
+
+	<!-- ======================== F1 context files ===================== -->
+
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml"
+            plugin="com.instantiations.assist.eclipse">
+      </contexts>
+   </extension>
+   
+   	<!-- ======================== What's New ===================== -->
+   
+   	<!-- $if eclipse.version >= 3.0 $ -->
+   	<extension
+    	point="org.eclipse.ui.intro.configExtension">
+      	
+      	<configExtension
+            content="intro/overview.xml"
+            configId="org.eclipse.ui.intro.universalConfig">
+      	</configExtension>
+      	
+      	<configExtension
+      		content="intro/whatsNew.xml"
+            configId="org.eclipse.ui.intro.universalConfig">
+   		</configExtension>
+   	</extension>
+   	<!-- $endif $ -->
+   
+   <!-- ======================== CodePro Menu ===================== -->
+   <!-- The CodePro menu declarations must be duplicated by each actionSet
+   		that contributes to the CodePro menu. see Bugzilla entries #36389 and #105949 -->
+   <!-- $if eclipse.version >= 3.0 $ -->
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="CodePro Menu"
+            description="The top level CodePro menu visible in all perspectives."
+            visible="true"
+            id="com.instantiations.assist.eclipse.codeproMenu">
+
+         <menu
+               label="&amp;CodePro"
+               path="additions"
+               id="codepro.menu">
+            <separator name="welcome"/>
+            <separator name="views"/>
+            <separator name="explore"/>
+            <separator name="log"/>
+            <separator name="preferences"/>
+            <separator name="additions"/>
+            <separator name="about"/>
+         </menu>
+         <menu
+               label="&amp;Views"
+               path="codepro.menu/views"
+               id="codepro.views">
+            <separator name="analytix"/>
+            <separator name="collaboration"/>
+            <separator name="pluspak"/>
+            <separator name="revised"/>
+            <separator name="additions"/>
+         </menu>
+         <menu
+               label="Pre&amp;ferences"
+               path="codepro.menu/preferences"
+               id="codepro.preferences">
+            <separator name="main"/>
+            <separator name="audit"/>
+            <separator name="test"/>
+            <separator name="browse"/>
+            <separator name="edit"/>
+            <separator name="collaboration"/>
+            <separator name="additions"/>
+         </menu>
+
+         <action
+               label="&amp;Help"
+               class="com.instantiations.assist.eclipse.eval.action.OpenHelpActionDelegate:/com.instantiations.assist.eclipse/doc_toc.xml,/com.instantiations.assist.eclipse/doc/index.html"
+               icon="icons/misc/help.gif"
+               style="push"
+               menubarPath="codepro.menu/welcome"
+               id="codepro.help"/>
+         <action
+               label="&amp;Evaluation Guide"
+               class="com.instantiations.assist.eclipse.eval.action.OpenFileActionDelegate:plugin:com.instantiations.assist.eclipse/CodePro-EvalGuide.pdf"
+               icon="icons/misc/pdf_obj.gif"
+               style="push"
+               menubarPath="codepro.menu/welcome"
+               id="codepro.evaluation.guide"/>
+         <action
+               label="E&amp;xplore Workspace"
+               class="com.instantiations.assist.eclipse.eval.action.ExploreDirectoryAction"
+               icon="icons/misc/openfolder.gif"
+               style="push"
+               menubarPath="codepro.menu/explore"
+               id="codepro.explore"/>
+         <action
+               label="Clear Log"
+               class="com.instantiations.assist.eclipse.eval.action.LogClearActionDelegate"
+               icon="icons/misc/clear.gif"
+               style="push"
+               menubarPath="codepro.menu/explore"
+               id="codepro.log.clear"/>
+         <action
+               label="View &amp;Log"
+               class="com.instantiations.assist.eclipse.eval.action.LogViewActionDelegate"
+               icon="icons/misc/open_log.gif"
+               style="push"
+               menubarPath="codepro.menu/explore"
+               id="codepro.log.view"/>
+         <!-- $endif $ -->
+         <!-- $if eclipse.version >= 3.1 $ -->
+         <action
+               label="&amp;CodePro"
+               class="com.instantiations.assist.eclipse.eval.action.OpenPreferencesActionDelegate:com.instantiations.assist.eclipse.mainPreferencePage"
+               icon="icons/misc/codepro16.gif"
+               style="push"
+               menubarPath="codepro.menu/codepro.preferences/main"
+               id="codepro.pref.main"/>
+         <action
+               label="Debug &amp;Log"
+               class="com.instantiations.assist.eclipse.eval.action.OpenPreferencesActionDelegate:com.instantiations.assist.eclipse.debugLogPreferencePage"
+               icon="icons/misc/debug_exc.gif"
+               style="push"
+               menubarPath="codepro.menu/codepro.preferences/edit"
+               id="codepro.pref.debuglog"/>
+         <!-- $endif $ -->
+         <!-- $if eclipse.version >= 3.0 $ -->
+         <action
+               label="&amp;About"
+               class="com.instantiations.assist.eclipse.eval.action.AboutActionDelegate"
+               style="push"
+               menubarPath="codepro.menu/about"
+               id="codepro.about"/>
+      </actionSet>
+   </extension>
+   <!-- $endif $ -->
+   
+</plugin>

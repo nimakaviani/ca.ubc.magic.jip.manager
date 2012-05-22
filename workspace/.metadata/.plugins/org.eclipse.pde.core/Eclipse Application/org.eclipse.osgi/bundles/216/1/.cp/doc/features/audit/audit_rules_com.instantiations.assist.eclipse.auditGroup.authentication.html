@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Authentication</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Authentication</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for opportunities where malicious users may be able to gain access not intended by the application.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.anonymousLdapBinding">Anonymous Authentication in LDAP</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.authenticationByHostname">Authentication By Hostname</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.base64EncodedPassword">Base64-Encoded Password</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.blankPassword">Blank Password</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.hardcodedPassword">Hardcoded Password</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.passwordInFile">Password in File</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.plainTextPassword">Plain Text Password</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.redirectedWithPassword">Redirected With Password</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.useOfBrokenOrRiskyCryptographicAlgorithm">Use Of Broken Or Risky Cryptographic Algorithm</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.anonymousLdapBinding">Anonymous Authentication in LDAP</a></h4><p>
+<b>Summary</b><br/>Enforces authorized access to LDAP.<p><b>Description</b><br/>This audit rule finds places where the <code>Context.SECURITY_AUTHENTICATION</code> property is set to <code>"none"</code>, resulting in an anonymous binding.<p><b>Security Implications</b><br/>When LDAP data is accessible with anonymous authentication, a malicious user can have access to information that would otherwise be inaccessible.<p><b>Example</b><br/>The following method invocation would be flagged as a violation because it results in an anonymous bind:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;env.put(Context.SECURITY_AUTHENTICATION, "none");</code><h4><a name="com.instantiations.assist.eclipse.audit.authenticationByHostname">Authentication By Hostname</a></h4><p>
+<b>Summary</b><br/>Do not use hostnames to authenticate users.<p><b>Description</b><br/>This rule looks for places where the method <code>getCanonicalHostName()</code> is used in a condition.<p><b>Security Implications</b><br/>When security decisions are made based on trusting certain hostnames, DNS cache poisoning attack can be used to access secured parts of an application.<p><b>Example</b><br/>The following check would be flagged as a violation because the decision is made based on a host name:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (addr.getCanonicalHostName().endsWith("trustme.com")) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trusted = true;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.base64EncodedPassword">Base64-Encoded Password</a></h4><p>
+<b>Summary</b><br/>A password protected with a trivial encoding is as easy for an attacker to read as a plain text one.<p><b>Description</b><br/>This audit rule violates all the usages of Base64 encoding to decode passwords.<p><b>Security Implications</b><br/>Base64 is a common, familiar and easily decrypted encoding. Using it for password encoding provides no real protection. You should use more strong encodings instead.<p><b>Example</b><br/>The following code will be marked as a violation because it uses Base64 to decode a password read from a file:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;String password = props.getProperty("password");<br/>&nbsp;&nbsp;&nbsp;&nbsp;byte[] decodedPassword = Base64.decodeBase64(password.getBytes());</code><h4><a name="com.instantiations.assist.eclipse.audit.blankPassword">Blank Password</a></h4><p>
+<b>Summary</b><br/>Blank passwords are a security threat that can be used by an attacker to access secure information.<p><b>Description</b><br/>This audit rule violates blank password properties in a property files.<p><b>Security Implications</b><br/>A blank password is usually the first one to be tried when trying to guess or brute-force a password protection. It should never be used.<p><b>Example</b><br/>The following entry in the property file will be marked as a violation because it declares a blank password:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;invalidPassword=</code><h4><a name="com.instantiations.assist.eclipse.analysis.hardcodedPassword">Hardcoded Password</a></h4><p>
+<b>Summary</b><br/>Passwords should not be hardcoded.<p><b>Description</b><br/>This audit rule violates any instance where a hardcoded password is passed to <code>java.util.Properties</code> or <code>java.sql.DriverManager</code>. If a such a password is found, and it is also empty, a violation is thrown to create a password.<p><b>Security Implications</b><br/>When a password is hardcoded in an application, not only can other developers see the password, but the password can also be extracted from the java byte code.<p><b>Example</b><br/>The line "properties.setProperty("password", "somePassword");" would be flagged as "somePassword" is a hardcoded password.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Properties properties = new Properties();<br>&nbsp;&nbsp;&nbsp;&nbsp;properties.setProperty("user", "someUserName");<br>&nbsp;&nbsp;&nbsp;&nbsp;properties.setProperty("password", "somePassword");<br>&nbsp;&nbsp;&nbsp;&nbsp;DriverManager.getConnection(..., properties);</code><h4><a name="com.instantiations.assist.eclipse.audit.passwordInFile">Password in File</a></h4><p>
+<b>Summary</b><br/>Storing passwords in a configuration file is a security risk.<p><b>Description</b><br/>This audit rule violates all instances of the password retrieval from a property file.<p><b>Security Implications</b><br/>Storing passwords in a configuration file can provide an attacker with the data that can be used to access a protected resource.<p><b>Example</b><br/>The following code retrieves password from a file and is thus marked as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Properties props = new Properties();<br/>&nbsp;&nbsp;&nbsp;&nbsp;props.load(new FileReader("app.properties"));<br/>&nbsp;&nbsp;&nbsp;&nbsp;String password = props.getProperty("password");</code><h4><a name="com.instantiations.assist.eclipse.audit.plainTextPassword">Plain Text Password</a></h4><p>
+<b>Summary</b><br/>Storing passwords as plain text makes them easily accessible by an attacker.<p><b>Description</b><br/>This audit rule violates all usages of an unencrypted password retrieved from a property file.<p><b>Security Implications</b><br/>Storing passwords in a configuration file as plain text can provide a malicious user or an attacker with a password that can be later used to access secured data. Passwords should be stored in an encoded state and decoded using some strong encryption algorithm.<p><b>Example</b><br/>The following code retrieves a password from a file and uses it directly to access a database without decoding. It is thus marked as a violation:<p></code>&nbsp;&nbsp;&nbsp;&nbsp;Properties props = new Properties();<br/>&nbsp;&nbsp;&nbsp;&nbsp;props.load(new FileReader("security.properties"));<br/>&nbsp;&nbsp;&nbsp;&nbsp;String username = props.getProperty("username");<br/>&nbsp;&nbsp;&nbsp;&nbsp;String password = props.getProperty("password");<br/>&nbsp;&nbsp;&nbsp;&nbsp;Connection c = source.getConnection(username, password);</code><h4><a name="com.instantiations.assist.eclipse.audit.redirectedWithPassword">Redirected With Password</a></h4><p>
+<b>Summary</b><br/>Passwords should not be passed in redirect URLs.<p><b>Description</b><br/>This audit rule violates usage of a password in the construction of a HTTP GET request URL.<p><b>Security Implications</b><br/>Sending redirect to the browser will result in a HTTP GET request. Because the GET request is not considered to be security-sensitive data, it will be easily accessible - it could be sniffed, logged by a proxy, or by an HTTP server itself. This adds more places that could be later used by an attacker to retrieve the password and the data it protects.<p><b>Example</b><br/>The following code sends a password in the redirect and will be marked as a violation.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;resp.sendRedirect(req.getRequestURI() + "&myPassword=" + myPassword);</code><h4><a name="com.instantiations.assist.eclipse.audit.useOfBrokenOrRiskyCryptographicAlgorithm">Use Of Broken Or Risky Cryptographic Algorithm</a></h4><p>
+<b>Summary</b><br/>You should not use old or broken cryptography algorithms.<p><b>Description</b><br/>This audit rule looks for uses of old or broken algorithms such as <code>MD4</code>, <code>MD5</code>, <code>SHA1</code>, <code>DES</code>.<p><b>Security Implications</b><br/>Some older algorithms, once thought to require a billion years of computing time to break, can now be broken in days or hours. This includes <code>MD4</code>, <code>MD5</code>, <code>SHA1</code>, <code>DES</code>, and other algorithms which were once regarded as strong. Periodically check that your algorythm isn't obsolete.<p><b>Example</b><br/>The following code will be flagged as a violation because the <code>MD5</code> algorithm is used:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public void func(...)<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cipher cipher = Cipher.getInstance("MD5");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code></body>
+</html>

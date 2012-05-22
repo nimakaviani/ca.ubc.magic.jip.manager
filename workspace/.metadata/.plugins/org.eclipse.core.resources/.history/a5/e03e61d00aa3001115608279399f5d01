@@ -1,0 +1,9 @@
+package jipplugin;
+
+public class 
+SnapshotsList 
+extends ListViewer
+{
+	
+
+}

@@ -1,0 +1,21 @@
+package jipplugin;
+
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchWindow;
+
+public class DefaultAction 
+extends Action 
+{
+	
+	public DefaultAction(Shell shell){
+		this.shell = shell;
+	}
+	
+	@Override
+	public void run(){
+		Shell shell = this.window.getShell();
+		MessageDialog.openInformation( shell, "First plug-in", "Hello, world!" );
+	}
+}

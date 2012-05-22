@@ -1,0 +1,138 @@
+<strategy>
+	<page label="Provide information about the proxy class." initialFocus="proxyClass">
+		<package 
+			name="package" required="true"
+			folderLabel="Source &amp;Folder:" folderBrowseLabel="B&amp;rowse..." folderTooltip="Specify the default source folder" folderBrowseTooltip="Select the default source folder"
+			packageLabel="&amp;Package:" packageBrowseLabel="Br&amp;owse..." packageTooltip="Specify the default package" packageBrowseTooltip="Select the default package"/>
+		<spacer displayLine="true"/>
+		<class 
+			name="proxyClass" label="Proxy class &amp;name:" tooltip="Specify the name of the proxy class"
+			required="true" missingValue="Please specify the name of the proxy class" style="new"
+			default="Proxy" defaultPackage="package"/>
+		<group label="Modifiers:" numColumns="3">
+			<boolean name="public" label="p&amp;ublic" default="true"/>
+			<boolean name="abstract" label="&amp;abstract" disabledBy="final" default="false"/>
+			<boolean name="final" label="f&amp;inal" disabledBy="abstract" default="false"/>
+		</group>
+		<class 
+			name="superclassType" label="&amp;Superclass:" tooltip="Specify the superclass"
+			required="true" missingValue="Please specify the superclass" style="existing" allowReadOnly="true"
+			default="java.lang.Object" defaultPackage="package" 
+			browseLabel="Bro&amp;wse..." browseTooltip="Select a superclass"/>
+		<spacer displayLine="true"/>
+		<type
+			name="subjectType" label="Su&amp;bject type:" tooltip="Specify the subject type"
+			required="true" missingValue="Please specify the subject type" style="existing" allowReadOnly="true"
+			default="*" defaultPackage="package" 
+			browseLabel="Brows&amp;e..." browseTooltip="Select a subject type"/>
+		<string 
+			name="subjectField" label="Sub&amp;ject field name:" tooltip="Specify the subject field name"
+			required="true" missingValue="Please specify the subject field name"
+			default="subject" list="subject,realSubject,target,adaptee" style="identifier"/>
+		<boolean 
+			name="shouldBeImmutable" label="Pro&amp;xy should be immutable" default="true"
+			tooltip="Determines whether the proxy will be immutable"/>
+		<boolean 
+			name="implementInterfaces" label="Implement interfaces of the subject class" default="true"
+			tooltip="Determines whether the interfaces of the subject class will be implemented"/>
+		<boolean 
+			name="implementPublicMethods" label="Implement selected public methods of the subject class" default="false"
+			tooltip="Determines whether the selected public methods of the subject class will be implemented">
+			<subset
+				name="methods" tooltip="Select the public methods of the subject class"
+				visibility="public" showInherited="user" emptyAllowed="true" 
+				derivedFrom="subjectType" elementType="method"/>
+		</boolean>
+	</page>
+
+	<compilationUnit package="${proxyClass.packageName}" name="${proxyClass.name}" isPrimary="true">
+		<import name="${subjectType.fullName}"/>
+		<import name="${superclassType.fullName}"/>
+		<for variable="interface" in="subjectType.interfaces">
+			<import name="${interface.fullName}"/>
+		</for>
+		<class name="${proxyClass.name}" extends="${superclassType.name}" delegateTo="${subjectField}">
+			<if condition="public">
+				<modifiers modifiers="public"/>
+			</if>
+			<if condition="abstract">
+				<modifiers modifiers="abstract"/>
+			</if>
+			<if condition="final">
+				<modifiers modifiers="final"/>
+			</if>
+			<javadoc>
+				<tag name="pattern" contents="Proxy"/>
+				<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+				<tag name="author" contents="${user}"/>
+				<tag name="version" contents="$$Revision$$"/>
+				The class &lt;code&gt;${proxyClass.name}&lt;/code&gt; acts as a proxy for instances of the class {@link &lt;code&gt;${subjectType.name}&lt;/code&gt;}.
+				<if condition="!copyright.isEmpty">
+					&lt;p&gt;
+					${copyright}
+				</if>
+			</javadoc>
+
+			<field
+				modifiers="private"
+				type="${subjectType.name}"
+				name="${subjectField}">
+				<javadoc>
+					The object that is being wrappered.
+					<tag name="see" contents="${subjectType.fullName}"/>
+				</javadoc>
+			</field>
+
+			<constructor
+				modifiers="public">
+				<param type="${subjectType.name}" name="${subjectField}"/>
+				<javadoc>
+					Create a new proxy for the &lt;code&gt;${subjectType.name}&lt;/code&gt; instance.
+					<tag name="param" contents="${subjectField} the object to be wrappered"/>
+					<tag name="see" contents="${subjectType.fullName}"/>
+				</javadoc>
+				this.${subjectField} = ${subjectField};
+			</constructor>
+
+			<method
+				modifiers="public"
+				returnType="${subjectType.name}"
+				name="get${subjectField.withInitialUppercase}">
+				<javadoc>
+					<tag name="return" contents="${subjectField} the object that is being wrappered"/>
+					<tag name="see" contents="${subjectType.fullName}"/>
+					Return the object that is being wrappered
+				</javadoc>
+				return ${subjectField};
+			</method>
+
+			<if condition="!shouldBeImmutable">
+				<method
+					modifiers="public"
+					returnType="void"
+					name="set${subjectField.withInitialUppercase}">
+					<param type="${subjectType.name}" name="${subjectField}"/>
+					<javadoc>
+						<tag name="param" contents="${subjectField} the object that is being wrappered"/>
+						<tag name="see" contents="${subjectType.fullName}"/>
+						Set the object that is being wrappered
+					</javadoc>
+					this.${subjectField} = ${subjectField};
+				</method>
+			</if>
+
+			<if condition="implementInterfaces">
+				<for variable="interface" in="subjectType.interfaceNames">
+					<implements name="${interface}" createStubs="true" delegateTo="${subjectField}"/>
+				</for>
+			</if>
+
+			<if condition="implementPublicMethods">
+				<for variable="method" in="methods">
+					<method basedOn="method" delegateTo="${subjectField}"/>
+				</for>
+			</if>
+
+		</class>
+	</compilationUnit>
+</strategy>

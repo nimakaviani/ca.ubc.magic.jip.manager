@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td width="700"><h1><font face="Verdana" color="#CC0000"><b>ant, codepro.exportSet</b></font></h1>
+      <p><i>(old task name &quot;ExportSet&quot;)</i></p>
+      <p>In Eclipse 2.0 and Application Developer 5.0, the &quot;<b>ant</b>&quot; Ant task is generated for 
+      nested export sets, while in Application Developer 4.0.3, the &quot;<b>codepro.exportSet</b>&quot; 
+      Ant task is generated instead.&nbsp; The ExportSet wizard will convert one 
+      form to the other as appropriate when editing ExportSets generated in
+      Application Developer 4.0.3 but then edited using Eclipse 2.0 or
+      Application Developer 5.0.&nbsp; The &quot;codepro.exportSet&quot; 
+      task <b>does not work</b> under Eclipse 2.0 and Application Developer 5.0 and 
+      <a href="#convert">must be converted</a> to 
+      the &quot;ant&quot; Ant task.&nbsp; <a href="#convert">More details below...</a></p>
+      <h3>codepro.exportSet <font color="#FF0000">(only for use in Application
+      Developer 4.0.3)</font></h3>
+      <p>Very similar to the Ant task named &quot;Ant&quot; by which one Ant script can call
+      another Ant script in a different file.<br>
+      Example:</p>
+      <blockquote>
+        <pre>&lt;codepro.exportSet path=&quot;/CodePro/export_1.xml&quot; inheritAll=&quot;false&quot;&gt;
+	&lt;property name=&quot;Parameter1&quot; value=&quot;value1&quot;/&gt;
+	&lt;property name=&quot;Parameter2&quot; value=&quot;value2&quot;/&gt;
+&lt;/codepro.exportSet&gt;</pre>
+      </blockquote>
+      <p>In this example, the path attribute (required) specifies the Ant file to be executed,
+      the inheritAll attribute (optional - default true) specifies whether or not the properties
+      defined in the calling Ant script are available to the Ant script being called.&nbsp; If
+      false, then only those property values defined as part of the ExportSet task (e.g.
+      Parameter1 and Parameter2 in the example above) will be available to the Ant script being
+      called.</p>
+      <h3><a name="convert">Convert</a>ing the &quot;codepro.exportSet&quot; Ant task to 
+      the &quot;ant&quot; Ant task</h3>
+      <p>The &quot;codepro.exportSet&quot; task <b>does not work</b> under Eclipse 2.0 and
+      Application Developer 5.0 and <b>must be converted</b> to the &quot;ant&quot; Ant task.&nbsp; If executing an ExportSet or Ant script in Eclipse 2.0 or
+      Application Developer 5.0 results in a build 
+      exception similar to this</p>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+    <pre>    
+    java.lang.NoClassDefFoundError: org/apache/tools/ant/Project
+	at java.lang.ClassLoader.defineClass0(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java(Compiled Code))
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java(Compiled Code))
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java(Compiled Code))
+	at java.net.URLClassLoader$ClassFinder.run(URLClassLoader.java(Compiled Code))
+	at java.net.URLClassLoader$ClassFinder.run(URLClassLoader.java(Compiled Code))
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java(Compiled Code))
+	at org.eclipse.core.internal.plugins.PluginClassLoader.findClassParentsSelf(PluginClassLoader.java(Compiled Code))
+	at org.eclipse.core.internal.boot.DelegatingURLClassLoader.loadClass(Delegating URLClassLoader.java(Compiled Code))
+	at org.eclipse.core.internal.boot.DelegatingURLClassLoader.loadClass(Delegating URLClassLoader.java(Compiled Code))
+	at java.lang.ClassLoader.loadClass(ClassLoader.java(Compiled Code))
+	at com.instantiations.assist.eclipse.core.eclipse20.CodeProCore20.newExportSetCallProjectImpl(CodeProCore20.java:649)
+	at com.instantiations.assist.eclipse.core.CodeProCore.newExportSetCallProject(CodeProCore.java:636)
+	at com.instantiations.assist.eclipse.ant.ExportSetCall.init(ExportSetCall.java: 180)
+</pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="700">then your ExportSet or Ant script may contain the 
+    codepro.exportSet task.&nbsp; To have the script execute  properly, convert the codepro.exportSet task  into the &quot;ant&quot; Ant task using one 
+    of the following approaches...<p>1) Open the ExportSet wizard on the export 
+    set that contains the nested export set call, click &quot;Next&quot; to edit the 
+    script, then &quot;Finish&quot;.&nbsp; This causes the export set to be regenerated 
+    using the &quot;ant&quot; Ant task rather than the &quot;codepro.exportSet&quot; Ant task.</p>
+    <p>2) Manually edit the export set or ant script, changing each occurrence 
+    of codepro.exportSet to ant similar to the example below...</p>
+    <pre>    change
+        &lt;codepro.exportSet path=&quot;/MyProject/export.xml&quot;/&gt;
+
+    to
+        &lt;ant antfile=&quot;../MyProject/export.xml&quot;/&gt;</pre>
+    <p>Make sure to include the .. between the &quot; and the /</p>
+    <p>The antfile attribute is a relative path from the current directory.&nbsp; 
+    If the export set or Ant script that contains the codepro.exportSet Ant task 
+    is not located in the project root or the baseDir used when executing the 
+    script is not a project root directory, then the &quot;..&quot; in the example above 
+    would need to be replaced with the appropriate path to navigate from baseDir 
+    to the eclipse workspace directory. Alternately, an absolute path can be 
+    used.</p>
+    <p>All other aspects of the &quot;codepro.exportSet&quot; Ant task and the &quot;ant&quot; Ant 
+    task are identical</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

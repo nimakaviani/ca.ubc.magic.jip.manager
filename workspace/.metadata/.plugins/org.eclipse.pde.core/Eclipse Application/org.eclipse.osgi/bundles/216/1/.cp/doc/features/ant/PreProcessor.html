@@ -1,0 +1,261 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.preprocessor
+            </b></font></h1>
+      <p>A simple java preprocessor that copies java source files from a source 
+      directory tree to a destination tree directory.&nbsp; Each java source 
+      file is scanned for specifically formatted comments and the source file is 
+      modified based upon those comments before it is saved into the destination 
+      directory tree.</p>
+    <p>There are several Ant properties that must be defined</p>
+    <ul>
+      <li>The &quot;codepro.preprocessor.version.valid&quot; property defines the valid 
+      values for &quot;version&quot; that can appear in the java source code.&nbsp; The 
+      valid version are separated by commas.&nbsp; Some valid versions include 
+      &quot;1.0&quot;, &quot;2.0.1&quot;, &quot;2.1&quot;, etc.<br>
+&nbsp;&nbsp;&nbsp; </li>
+      <li>The &quot;codepro.preprocessor.version.source&quot; property defines the version 
+      for which the current java source files are defined.&nbsp; In other words, 
+      the source files, before preprocessing, are coded for a specific version 
+      and this property defines that version.&nbsp; Valid source versions 
+      include &quot;1.0&quot;, &quot;2.0.1&quot;, &quot;2.1&quot;, etc.<br>
+&nbsp;&nbsp;&nbsp; </li>
+      <li>The &quot;codepro.preprocessor.version.target&quot; property defines the version 
+      for which the preprocessed files are to be generated.&nbsp; In other 
+      words, the source files, after preprocessing, will be modified for a 
+      specific version and this property defines that version.&nbsp; Valid 
+      target versions include &quot;1.0&quot;, &quot;2.0.1&quot;, &quot;2.1&quot;, etc.&nbsp; 
+      Alternately, the target version can be specified via the &quot;targetVersion&quot; 
+      attribute (e.g. &lt;codepro.preprocessor targetVersion=&quot;2.1&quot; dir=....... /&gt;)</li>
+    </ul>
+    <p>There are several attributes that must be defined</p>
+    <ul>
+      <li>The &quot;dir&quot; attribute must be specified indicating the location of the 
+      source file(s).&nbsp; Alternately, one or more
+      <a href="http://ant.apache.org/manual/CoreTypes/fileset.html">FileSets</a> 
+      may be defined specifying the source file(s).<br>
+&nbsp;&nbsp;&nbsp; </li>
+      <li>The &quot;todir&quot; attribute must be specified indicating where destination 
+      files should be placed.&nbsp; If the source location and the destination 
+      location are the same, then only those files whose content changes will be 
+      modified.</li>
+    </ul>
+    <h3>Preprocessor statements in Java source files:</h3>
+    <p>A valid preprocessor comment imbedded in a java source file takes the 
+    following form:</p>
+    <ul>
+      <li>[/*] $codepro.preprocessor.&lt;flowToken&gt;[ version &lt;comparisonToken&gt; 
+      &lt;constant&gt; ]$ [*/]</li>
+    </ul>
+    <p>where</p>
+    <ul>
+      <li>the leading &quot;/*&quot; is required or forbidden based upon the operation and 
+      source version</li>
+      <li>the &quot;&lt;flowToken&gt;&quot; is one of the following: &quot;if&quot;, &quot;elseif&quot;, &quot;endif&quot;</li>
+      <li>the &quot;&lt;comparisonToken&gt;&quot; is one of the following: &quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;==&quot;, 
+      &quot;&lt;=&quot;, &quot;&lt;&quot;, &quot;!=&quot;</li>
+      <li>the &quot;&lt;constant&gt;&quot; is a version identifier such as 2.0 or 2.0.1 
+      or the keyword &quot;dev&quot;</li>
+      <li>the trailing &quot;*/&quot; is required or forbidden based upon the operation 
+      and source version</li>
+    </ul>
+    <p>The &quot;dev&quot; keyword is used to indicate development time artifacts or 
+    non-development time artifacts and can only be used with the &quot;==&quot; and &quot;!=&quot; 
+    comparisonTokens.&nbsp; For example, if there is code that exclusively for 
+    use during development in the runtime workbench and should not exist in the 
+    shipping product, then use &quot;== dev&quot;.&nbsp; In addition, if there is code 
+    that is not for use during development in the runtime workbench and should 
+    exist only in the shipping product, then use &quot;!= dev&quot;.</p>
+    <p>For example, if the source version is &quot;2.0.1&quot; (in other words, the Ant 
+    property &quot;codepro.preprocessor.version.source&quot; has a value of &quot;2.0.1&quot;), then 
+    the following java source code snippet would be legal:</p>
+    <blockquote>
+      <pre>/* $codepro.preprocessor.if version &gt; 2.0.1 $
+... some code for version 2.1 here ...
+
+$codepro.preprocessor.elseif version == 2.0.1 $ */
+... some code for version 2.0.1 here ...
+
+/* $codepro.preprocessor.elseif version &lt; 2.0.1 $
+... some code for version 1.0 here ...
+
+$codepro.preprocessor.endif$ */</pre>
+    </blockquote>
+    <p>Note that in the code snippet above, the section that is uncommented 
+    matches the indicated source version of &quot;2.0.1&quot; and all others are commented 
+    so that they will not compile.&nbsp; In summary, if the version expression 
+    evaluates true for the current source version, then the bracketed source 
+    code must be uncommented, otherwise it must be commented.</p>
+    <h3>Preprocessor statements in XML files:</h3>
+    <p>A valid preprocessor comment imbedded in a xml file takes the 
+    following form:</p>
+    <ul>
+      <li>[&lt;!--] $codepro.preprocessor.&lt;flowToken&gt;[ version &lt;comparisonToken&gt; 
+      &lt;constant&gt; ]$ [--&gt;]</li>
+    </ul>
+    <p>where</p>
+    <ul>
+      <li>the leading &quot;&lt;!--&quot; is required or forbidden based upon the operation and 
+      source version</li>
+      <li>the &quot;&lt;flowToken&gt;&quot; is one of the following: &quot;if&quot;, &quot;elseif&quot;, &quot;endif&quot;</li>
+      <li>the &quot;&lt;comparisonToken&gt;&quot; is one of the following: &quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;==&quot;, 
+      &quot;&lt;=&quot;, &quot;&lt;&quot;, &quot;!=&quot;</li>
+      <li>the &quot;&lt;constant&gt;&quot; is a version identifier such as 2.0 or 2.0.1 
+      or the keyword &quot;dev&quot;</li>
+      <li>the trailing &quot;--&gt;&quot; is required or forbidden based upon the operation 
+      and source version</li>
+    </ul>
+    <p>The &quot;dev&quot; keyword is used to indicate development time artifacts or 
+    non-development time artifacts and can only be used with the &quot;==&quot; and &quot;!=&quot; 
+    comparisonTokens.&nbsp; For example, if there is code that exclusively for 
+    use during development in the runtime workbench and should not exist in the 
+    shipping product, then use &quot;== dev&quot;.&nbsp; In addition, if there is code 
+    that is not for use during development in the runtime workbench and should 
+    exist only in the shipping product, then use &quot;!= dev&quot;.</p>
+    <p>For example, if the source version is &quot;2.0.1&quot; (in other words, the Ant 
+    property &quot;codepro.preprocessor.version.source&quot; has a value of &quot;2.0.1&quot;), then 
+    the following xml snippet would be legal:</p>
+    <blockquote>
+      <pre>&lt;!-- $codepro.preprocessor.if version &gt; 2.0.1 $
+... some code for version 2.1 here ...
+
+$codepro.preprocessor.elseif version == 2.0.1 $ --&gt;
+... some code for version 2.0.1 here ...
+
+&lt;!-- $codepro.preprocessor.elseif version &lt; 2.0.1 $
+... some code for version 1.0 here ...
+
+$codepro.preprocessor.endif$ --&gt;</pre>
+    </blockquote>
+    <p>Note that in the code snippet above, the section that is uncommented 
+    matches the indicated source version of &quot;2.0.1&quot; and all others are commented 
+    so that they will not compile.&nbsp; In summary, if the version expression 
+    evaluates true for the current source version, then the bracketed source 
+    code must be uncommented, otherwise it must be commented.</p>
+    <h3>Limitations:</h3>
+    <ul>
+      <li>Preprocessor statements cannot be nested<br>
+&nbsp;&nbsp;&nbsp; </li>
+      <li>Comments in xml files are not allowed between preprocessor statements, 
+      but are allowed outside preprocessor if / elseif / end statement groups.&nbsp; 
+      For example<br>
+      <br>
+      &lt;!-- ok to have a comment here --&gt;<br>
+      &lt;!-- $codepro.preprocessor.if version &gt; 2.0.1 $<br>
+      <br>
+&nbsp;&nbsp;&nbsp; &lt;!-- cannot have a comment here --&gt;<br>
+&nbsp;&nbsp;&nbsp; ... some code for version 2.1 here ...<br>
+      <br>
+      $codepro.preprocessor.endif$ --&gt;<br>
+      &lt;!-- ok to have a comment here --&gt;<br>
+&nbsp;&nbsp;&nbsp; </li>
+      <li>Single line comments in java source files are allowed between 
+      preprocessor statements, but multiline comments are not allowed.&nbsp; In 
+      other words, multiline comments are allowed before an &quot;if&quot; preprocessor 
+      statement and after an &quot;end&quot; preprocessor statement, but not in between.&nbsp; 
+      For example<br>
+      <br>
+      <b>Valid:</b><pre>/* $codepro.preprocessor.if version &gt; 2.0.1 $
+
+// First comment line
+// Second comment line
+
+... some code for version 2.1 here ...
+
+$codepro.preprocessor.endif$ */</pre>
+      <p><b>Invalid:</b></p>
+      <pre>/* $codepro.preprocessor.if version &gt; 2.0.1 $
+
+/*
+ * First comment line
+ * Second comment line
+ */
+
+... some code for version 2.1 here ...
+
+$codepro.preprocessor.endif$ */</pre>
+      </li>
+    </ul>
+    <h3>Example Ant script snippet:</h3>
+      <blockquote>
+        <pre>&lt;property name=&quot;codepro.preprocessor.version.valid&quot; value=&quot;1.0,2.0.1,2.1&quot;/&gt;
+&lt;property name=&quot;codepro.preprocessor.version.source&quot; value=&quot;2.0.1&quot;/&gt;
+&lt;property name=&quot;codepro.preprocessor.version.target&quot; value=&quot;2.1&quot;/&gt;
+
+&lt;codepro.preprocessor
+	dir=&quot;foo\my_source_directory&quot; 
+	todir=&quot;bar\my_destination_directory&quot;&gt;</pre>
+      </blockquote>
+        <p>Each of the statements in the above snippet of code is described 
+        below:</p>
+      <ul>
+        <li>The &quot;codepro.preprocessor.version.valid&quot; property defines the valid 
+        values for &quot;version&quot; that can appear in the java source code.&nbsp; In 
+        this case, the are &quot;1.0&quot;, &quot;2.0.1&quot;, and &quot;2.1&quot;<br>
+&nbsp;&nbsp;&nbsp; </li>
+        <li>The &quot;codepro.preprocessor.version.source&quot; property defines the 
+        version for which the current java source files are defined.&nbsp; In 
+        this case, the source files are coded for version &quot;2.0.1&quot; indicating 
+        that any block of code bracketed by codepro.preprocessor statements 
+        should be commented out if the version specified does not match &quot;2.0.1&quot; 
+        and should be uncommented if the version specified matches &quot;2.0.1&quot;.<br>
+&nbsp;&nbsp;&nbsp; </li>
+        <li>The &quot;codepro.preprocessor.version.target&quot; property defines the 
+        version for which the preprocessed files are to be generated.&nbsp; In 
+        this case, the existing version 2.0.1 java source is to be preprocessed 
+        into version &quot;2.1&quot; java source.&nbsp; In other words, any statements 
+        bracketed by codepro.preprocessor statements that match version &quot;2.1&quot; 
+        will be modified to be uncommented, while all others will be modified to 
+        be commented.&nbsp; Alternately, the target version can be specified via 
+        the targetVersion attribute, as in the example below</li>
+    </ul>
+        <blockquote>
+          <blockquote>
+            <pre>&lt;codepro.preprocessor
+	targetVersion=&quot;2.1&quot;
+	dir=&quot;foo\my_source_directory&quot; 
+	todir=&quot;bar\my_destination_directory&quot;&gt;</pre>
+          </blockquote>
+    </blockquote>
+      <ul>
+        <li>The &quot;codepro.preprocessor&quot; directive indicates that all *.java files 
+        in &quot;foo\my_source_directory&quot; and its subdirectories should be 
+        preprocessed and copied into the corresponding subfolder in &quot;bar\my_destination_directory&quot;.<br>
+&nbsp;&nbsp;&nbsp; </li>
+        <li>Alternately, a single file can be specified using the &quot;file&quot; 
+        attribute rather than the &quot;dir&quot; attribute.</li>
+    </ul>
+        <h3>Example java source snippet:</h3>
+      <blockquote>
+        <pre>public void myMethod(String arg1) {
+
+	/* $codepro.preprocessor.if version &gt; 2.0.1 $
+	myField = arg1 + &quot; some version greater than 2.0.1&quot;;
+
+	$codepro.preprocessor.elseif version == 2.0.1 $ */
+	myField = arg1 + &quot; version is 2.0.1&quot;;
+
+	/* $codepro.preprocessor.elseif version &lt; 2.0.1 $
+	myField = arg1 + &quot; some version less than 2.0.1&quot;;
+
+	$codepro.preprocessor.endif$ */
+
+}</pre>
+      </blockquote>
+        <p>In the code above, if the target version was &quot;2.1&quot; (in other words, 
+        the Ant property &quot;codepro.preprocessor.version.target&quot; has the value 
+        &quot;2.1&quot;), then preprocessor would uncomment the code segment starting with 
+        &quot;/* $codepro.preprocessor.start: version &gt; 2.0.1 $&quot; and all other 
+        segments would be commented.</td>
+  </tr>
+</table>
+</body>
+</html>

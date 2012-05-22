@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Servlets</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Servlets</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for the correct implementation of servlets within your code.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.missingCatchOfException">Missing Catch of Exception</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.requestParamsInSession">Request Parameters In Session</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.socketsInServlets">Sockets in Servlets</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.missingCatchOfException">Missing Catch of Exception</a></h4><p>
+<b>Summary</b><br/>The methods <code>doGet()</code>, <code>doPost()</code>, and others should catch ALL <code>Exception</code>s.<p><b>Description</b><br/>This audit rule violates HttpServlet serving methods that do not catch all exceptions.<p><b>Security Implications</b><br/>Exceptions thrown from a servlet usually end with a stack trace printed to the end user. This stack trace may contain details of your system's architecture that provide valuable information for the attacker.<p><b>Example</b><br/>The following code would be flagged as a violation because it does not catch Exceptions, including runtime ones, that may possibly be thrown from calcDefaultResponse() method:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class MissingCatchOfExceptionTest extends HttpServlet {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected void doGet(HttpServletRequest req, HttpServletResponse resp)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws ServletException, IOException {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resp.getWriter().write(calcDefaultResponse());<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (IOException e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace();<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.requestParamsInSession">Request Parameters In Session</a></h4><p>
+<b>Summary</b><br/>Request parameters and other tainted data should not be passed into Session without sanitizing.<p><b>Description</b><br/>Sessions should only store trusted data, so that the developer accessing the data stored in a session would not have to decide whether to sanitize it.<p><b>Security Implications</b><br/>Data stored in a session is usually considered by a developer as a safe one to use. If this data is not checked, it could get into the security-sensitive parts of an application, opening it to all kinds of injection attacks.<p><b>Example</b><br/>The following code uses receives data via <code>HttpServletRequest#getParameter()</code> call and does not clean it before putting it into the session:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;login = request.getParameter("login");<br/>&nbsp;&nbsp;&nbsp;&nbsp;session.setAttribute(ATTR_LOGIN, login);</code><p><img src="../../images/auditrules/audit_request_parameters_in_session.gif" width="486" height="116"></p><h4><a name="com.instantiations.assist.eclipse.audit.socketsInServlets">Sockets in Servlets</a></h4><p>
+<b>Summary</b><br/>Sockets should almost never be used in a servlet environment as manual implementations of data transfer protocols compromises security.<p><b>Description</b><br/>According to the J2EE Platform Specification, the only allowed usage of low-level socket interfaces is to establish connections to legacy systems. <p><b>Security Implications</b><br/>Implementing protocols from scratch is error-prone and can easily compromise the security of the application.<p><b>Example</b><br/>The following code uses sockets to establish a connection to the other system and would thus be marked as violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class ProxyRequestServlet extends HttpServlet {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected void doGet(HttpServletRequest req, HttpServletResponse resp)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws ServletException, IOException {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Socket s = new Socket("localhost", 8080);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code></body>
+</html>

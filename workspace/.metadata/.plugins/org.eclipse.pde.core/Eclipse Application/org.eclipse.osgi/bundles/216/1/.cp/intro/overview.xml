@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="comcodeproeclipseintro-introExtension" style="css/intro.css" name="CodePro" path="overview/@">
+		<group style-id="content-group" id="comcodeproeclipseintro-introLink-group">
+       		<link label="CodePro" url="http://org.eclipse.ui.intro/showHelpTopic?id=/com.instantiations.assist.eclipse/doc/analytix.html" id="comcodeproeclipseintro-introLink" style-id="content-link">
+          		<text>Find out more about CodePro features</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+</introContent>

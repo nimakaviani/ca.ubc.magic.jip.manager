@@ -1,0 +1,132 @@
+<html>
+
+<head>
+<title>Memento Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Memento Pattern</b></font></h1>
+    <p><strong>Also known as:</strong>  Token</p>
+    <p>Without violating encapsulation, the <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Memento Pattern captures and externalizes an object's internal state so that
+    the object can be restored to this state later. Sometimes it's necessary to
+    record the internal state of an object. This is required when implementing
+    checkpoints and undo mechanisms that let users back out of tentative
+    operations or recover from errors. You must save state information somewhere
+    so that you can restore objects to their previous states. But objects
+    normally encapsulate some or all of their state, making it inaccessible to
+    other objects and impossible to save externally. Exposing this state would
+    violate encapsulation, which can compromise the application's reliability
+    and extensibility.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/memento_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Memento interface</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the memento interface.</td>
+        <td valign="top" align="left">&lt;Memento&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Concrete memento class</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the concrete memento class.</td>
+        <td valign="top" align="left">&lt;ConcreteMemento&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Originator class</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the originator class.</td>
+        <td valign="top" align="left">&lt;Originator&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Create memento method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          create the memento instance</td>
+        <td valign="top" align="left">&lt;createMemento&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Set memento method</td>
+        <td valign="top" align="left">Type or select the name of the method that
+          will extract the state from the memento instance</td>
+        <td valign="top" align="left">&lt;setMemento&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Memento pattern when<ul>
+      <li>a snapshot of (some portion of) an object's state must be saved so
+        that it can be restored to that state later, <em>and</em> </li>
+    </ul>
+    <ul>
+      <li>a direct interface to obtaining the state would expose implementation
+        details and break the object's encapsulation.</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?MementoPattern">http://c2.com/cgi/wiki?MementoPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Memento_pattern">http://www.wikipedia.org/wiki/Memento_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Memento">http://www.cmcrossroads.com/bradapp/javapats.html#Memento</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_memento.asp">http://www.dofactory.com/patterns/pattern_memento.asp</a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

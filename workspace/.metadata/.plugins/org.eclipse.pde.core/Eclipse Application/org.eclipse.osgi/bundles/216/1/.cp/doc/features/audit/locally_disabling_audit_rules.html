@@ -1,0 +1,68 @@
+<html>
+
+<head>
+<title>Audit - Locally Disabling Audit Rules</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+    <b><font face="Verdana" color="#CC0000">Locally Disabling Audit Rules</font></b></h1>
+    <p><a href="audit.html">Audit rules</a> can be disabled on a line by line basis by adding a 
+    specially formed java comment at the location where the audit rule is to be 
+    disabled.&nbsp; If the comment is at the end of a line of code, then the 
+    audit rule will be disabled for that one line.&nbsp; If the comment is on a 
+    line by itself, then the audit rule will be disabled from that point until 
+    either it is enabled again or the end of the file. You can disable one or 
+    more individual audit rules by specifying either their fully qualified audit 
+    identifier or their short audit identifier or disable all audit rules by not 
+    specifying any audit identifiers. This behavior can be overridden so that 
+    all code is audited using the
+    <a href="../../preferences/preferences_audit.html#IgnoreDisableDirectives">
+    Ignore disable directives</a> option.</p>
+    <p>&nbsp;The general format is</p>
+    <blockquote>
+    <p>[code] // $codepro.audit.[enable | disable] {&lt;audit rule id&gt;}</p>
+    </blockquote>
+    <p>Short audit identifiers may be used for any CodePro-provided audit rules.
+    If the fully qualified name of the rule is</p>
+      <blockquote>
+    <p>com.instantiations.assist.eclipse.audit.fieldJavadoc</p>
+      </blockquote>
+      <p>the short audit identifier will be &quot;fieldJavadoc&quot;. The audit
+      identifier can be found on the Description tab of the audit <a href="../../preferences/preferences_audit.html">preference
+        page</a>.</p>
+    <p>For example:</p>
+    <ul>
+      <li>To disable all audit rules for a particular line<p>String myVar = 0; 
+      // $codepro.audit.disable </p>
+      </li>
+      <li>To disable a single audit rule on one line<p>String myVar = 0; // $codepro.audit.disable 
+      fieldJavadoc </p>
+      </li>
+      <li>To disable three audit rules for a group of lines<p>// $codepro.audit.disable 
+      fieldJavadoc, methodJavadoc, typeJavadoc<br>
+      String myVar = 0; <br>
+      ... more java code ...<br>
+      // $codepro.audit.enable </p>
+      </li>
+      <li>To disable all audit rules for an entire file<p>// $codepro.audit.disable<br>
+      package myPackage;<br>
+      ... more java code ...&nbsp; </p>
+      </li>
+      <li>To disable all audit rules except three for an entire file<p>// $codepro.audit.disable<br>
+      // $codepro.audit.enable fieldJavadoc, methodJavadoc, typeJavadoc<br>
+      package myPackage;<br>
+      ... more java code ...&nbsp; </p>
+      </li>
+    </ul>
+      <p>As an alternative to disabling auditing on a file using disable
+      directives, you can also set up <a href="audit_project_defaults.html">project
+      defaults</a> that will exclude any file based on an exclusion pattern. </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

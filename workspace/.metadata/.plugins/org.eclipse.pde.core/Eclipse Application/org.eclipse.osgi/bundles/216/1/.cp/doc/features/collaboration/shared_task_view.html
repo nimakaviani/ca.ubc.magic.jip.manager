@@ -1,0 +1,69 @@
+<html>
+
+<head>
+<title>Collaboration Shared Task View</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Collaboration Shared Task View</b></font>
+      </h1>
+      <p>This view is for creating <a href="../scheduler/scheduler.html">scheduled
+      tasks</a> and assigning them to users and groups. It is part of the <b>Collaboration Administration</b> perspective.</p>
+      <p>A shared (scheduled)
+      task automatically appears in the <a href="../scheduler/scheduler.html">scheduler
+      view</a> of an assignee's workbench. A shared task may be locked, meaning
+      an assignee cannot delete it. The icons associated with shared tasks are
+      the same as for scheduled tasks, but with a <img border="0" src="../../images/collaboration/shared_dec.gif" width="7" height="8">
+      shared decorator, and possibly a <img border="0" src="../../images/collaboration/locked_dec.gif" width="7" height="8">
+      locked decorator.</p>
+      <p><img border="0" src="../../images/collaboration/shared_task_view.gif" width="643" height="284"></p>
+      <p>Only group leaders and the administrator may assign a shared task to
+      users besides themselves. This view only shows the shared tasks that the
+      current workbench user can delete. For the administrator, this is all of
+      the shared tasks; for a group leader, this is the shared tasks assigned to
+      the groups led.</p>
+      <h3>Tool Bar</h3>
+      <p>The tool bar has the same buttons as in the <a href="../scheduler/scheduler.html">scheduler
+      view</a>, and they too open a wizard. However, this wizard (described
+      below) creates a shared task rather than a scheduled task.</p>
+      <p>The tool bar menu contains the following items</p>
+      <ul>
+        <li><b>Refresh</b> - Refresh this view from the collaboration server. (The view
+          does not update automatically in response to changes on the server.)</li>
+      </ul>
+      <h3>Shared Task List</h3>
+      <p>The columns in this list show the shared task icon and name, the
+      frequency with which it will be run, and who created the task. If open,
+      the properties view shows additional information about the selected task,
+      such as to whom it is assigned.</p>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td valign="top">The context menu contains the following items
+            <ul>
+              <li><b>New Task</b> - This sub-menu gives the types of shared tasks that
+                can be created. These are the same as in the <a href="../scheduler/scheduler.html">scheduled
+                task view</a>.</li>
+              <li><b>Edit</b> - Edit the selected task.</li>
+              <li><b>Delete</b> - Delete the selected tasks.</li>
+            </ul>
+            <p>&nbsp;</td>
+          <td valign="top"><img border="0" src="../../images/collaboration/shared_task_view_menu.gif" width="302" height="306"></td>
+        </tr>
+      </table>
+      <h3>Shared Task Wizard</h3>
+      <p>The wizard for creating shared tasks is almost identical to that for
+      creating <a href="../scheduler/scheduler_schedule.html">scheduled tasks</a>.
+      The only difference is an additional page specifically for setting the
+      attributes of the shared task.</p>
+      <p><img border="0" src="../../images/collaboration/shared_task_wizard.gif" width="485" height="549"></p>
+      <p>The users and groups tabs show the assignees for the task. The <b>Lock
+      task</b> check box specifies whether the task is locked. The <b>Hide task</b>
+      check box specifies whether the task is hidden. A hidden task is not
+      displayed in the scheduled task view of an assignee's workbench.</td>
+  </tr>
+</table>
+</body>
+</html>

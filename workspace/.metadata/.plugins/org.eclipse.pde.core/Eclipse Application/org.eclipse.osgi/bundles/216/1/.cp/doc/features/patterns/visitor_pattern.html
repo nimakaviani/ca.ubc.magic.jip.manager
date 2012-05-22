@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<title>Visitor Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Visitor Pattern</b></font></h1>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Visitor Pattern represents an operation to be performed on the elements of an object
+    structure. Visitor lets you define a new operation without changing the classes of the
+    elements on which it operates.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/visitor_wizard1.gif" width="438" height="571"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center" height="19"><strong>Option</strong></td>
+        <td align="center" height="19"><strong>Description</strong></td>
+        <td align="center" height="19"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Source folder</td>
+        <td valign="top" align="left" height="57">Enter a source folder for the new class. Either
+        type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select
+        a source folder via a dialog.</td>
+        <td valign="top" align="left" height="57">The source folder of the element that was
+        selected when the wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Package</td>
+        <td valign="top" align="left" height="57">Enter a package to contain the new class. Either
+        type a valid package name or click&nbsp;Browse to select a package via a dialog.</td>
+        <td valign="top" align="left" height="57">The package of the element that was selected
+        when the wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Interface name</td>
+        <td valign="top" align="left" height="19">Type or click&nbsp;Browse to select an interface</td>
+        <td valign="top" align="left" height="19">&lt;Visitor&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Use node class names in visit method names</td>
+        <td valign="top" align="left" height="19">Determines whether node class names wil be used
+        in visit method names.</td>
+        <td valign="top" align="left" height="19">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="56">Return a boolean to control whether children are
+        visited</td>
+        <td valign="top" align="left" height="56">Determines whether a boolean is returned to
+        control whether children are visited.</td>
+        <td valign="top" align="left" height="56">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Generate end-of-visit methods</td>
+        <td valign="top" align="left">Determines whether end-of-visit methods should generated.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Generate a concrete implementation</td>
+        <td valign="top" align="left">Determines whether a concrete implementation should be
+        generated<p>.</td>
+        <td valign="top" align="left">&lt;true&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Concrete implementation</td>
+        <td valign="top" align="left">Type or click&nbsp;Browse to select a concrete
+        implementation class.<p>.</td>
+        <td valign="top" align="left">&lt;AbstractVisitor&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/visitor_wizard2.gif" width="438" height="571"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center" height="19"><strong>Option</strong></td>
+        <td align="center" height="19"><strong>Description</strong></td>
+        <td align="center" height="19"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Specify the concrete node classes that are to be visited.</td>
+        <td valign="top" align="left">Click&nbsp;Add Hierarchy to choose a hierarchy of classes to
+        be visited.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Visitor pattern when<ul>
+      <li>an object structure contains many classes of objects with differing interfaces, and you
+        want to perform operations on these objects that depend on their concrete classes.<br>
+        <br>
+      </li>
+      <li>many distinct and unrelated operations need to be performed on objects in an object
+        structure, and you want to avoid &quot;polluting&quot; their classes with these
+        operations. Visitor lets you keep related operations together by defining them in one
+        class. When the object structure is shared by many applications, use Visitor to put
+        operations in just those applications that need them.<br>
+        <br>
+      </li>
+      <li>the classes defining the object structure rarely change, but you often want to define
+        new operations over the structure. Changing the object structure classes requires
+        redefining the interface to all visitors, which is potentially costly. If the object
+        structure classes change often, then it's probably better to define the operations in
+        those classes. </li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?VisitorPattern">http://c2.com/cgi/wiki?VisitorPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Visitor_pattern">http://www.wikipedia.org/wiki/Visitor_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Visitor">http://www.cmcrossroads.com/bradapp/javapats.html#Visitor</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_visitor.asp">http://www.dofactory.com/patterns/pattern_visitor.asp</a></p>
+    <p><a href="http://www.castle-cadenza.demon.co.uk/visitor.htm">http://www.castle-cadenza.demon.co.uk/visitor.htm</a></td>
+  </tr>
+</table>
+</body>
+</html>

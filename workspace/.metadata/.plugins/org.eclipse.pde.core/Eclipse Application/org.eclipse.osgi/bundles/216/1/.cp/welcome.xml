@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<welcomePage 
+	title="CodePro">
+	<intro>This page will help familiarize you with CodePro.
+To get started, read the sections below and click on the related links. </intro>
+
+<item><b>Evaluation Guide </b>
+The <action pluginId="com.instantiations.assist.eclipse"  class="com.instantiations.assist.eclipse.eval.action.OpenEvaluationGuideAction">CodePro Evaluation Guide</action> provides a step-by-step walkthrough of many 
+of the important features of the product.</item>
+
+<item><b>Java Best Practice Tools </b>
+CodePro AnalytiX is a dynamic best practices tool that makes improving Java code 
+quality an integrated part of the development process. CodePro AnalytiX does this 
+by automatically checking hundreds of industry <action pluginId="com.instantiations.assist.eclipse"  class="com.instantiations.assist.eclipse.eval.action.ShowCodeProHelpAuditRulesAction">standard rules</action> and <action pluginId="com.instantiations.assist.eclipse"  class="com.instantiations.assist.eclipse.eval.action.ShowCodeProHelpMetricsDetailsAction">metrics</action> as the 
+code is written. CodePro Advisor lowers the TCO of your software by reducing the 
+time and money spent on code reviews, rework, and maintenance.
+
+To audit code, use the Code Auditor <action pluginId="com.instantiations.assist.eclipse.analysis.ui"  class="com.instantiations.assist.eclipse.analysis.ui.audit.action.OpenAuditViewAction">CodePro > Views > Audit</action>.
+To generate metrics, use the Metrics tool <action pluginId="com.instantiations.assist.eclipse.analysis.ui"  class="com.instantiations.assist.eclipse.analysis.ui.metrics.action.OpenMetricViewAction">CodePro > Views > Metrics</action>.
+To generate a dependency report, use the Dependency Analyzer <action pluginId="com.instantiations.assist.eclipse.analysis.ui"  class="com.instantiations.assist.eclipse.analysis.ui.dependency.action.OpenDependencyViewAction">CodePro > Views > Dependencies</action>.
+To schedule various tasks, use the Task Scheduler <action pluginId="com.instantiations.assist.eclipse.scheduler"  class="com.instantiations.assist.eclipse.scheduler.OpenSchedulerViewAction">CodePro > Views > Scheduler</action>.</item>
+
+<item><b>Learn more </b>
+To learn more you can browse the <topic id="/com.instantiations.assist.eclipse/doc_toc.xml">CodePro Users Guide</topic>.
+
+</welcomePage>

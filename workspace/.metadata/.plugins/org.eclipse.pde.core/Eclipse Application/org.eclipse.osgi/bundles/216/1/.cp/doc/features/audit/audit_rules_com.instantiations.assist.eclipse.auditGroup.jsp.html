@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - JSP</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - JSP</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check the content of JSP files.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.disallowTemporarySessions">Disallow Temporary Sessions</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.disallowHTMLComments">Don't use HTML Comments</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.specifyAnErrorPage">Specify an Error Page</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowTemporarySessions">Disallow Temporary Sessions</a></h4><p>
+<b>Summary</b><br/>JSP pages should not allow temporary sessions.<p><b>Description</b><br/>This audit rule checks for JSP files that do not contain a page directive that explicitly disallows temporary sessions.<h4><a name="com.instantiations.assist.eclipse.audit.disallowHTMLComments">Don't use HTML Comments</a></h4><p>
+<b>Summary</b><br/>JSP pages should not use HTML comments.<p><b>Description</b><br/>This audit rule looks for uses of HTML comments within JSP pages. HTML comments should not be used because they end up being sent to the client, increasing network traffic and potentially making internal implementation details visible.<p><b>Example</b><br/>The following uses of an HTML comment would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Backdoor hack --&gt;</code><h4><a name="com.instantiations.assist.eclipse.audit.specifyAnErrorPage">Specify an Error Page</a></h4><p>
+<b>Summary</b><br/>JSP pages should specify an error page.<p><b>Description</b><br/>This audit rule finds JSP files that do not contain a page directive that specifies the error page to use.<p><img src="../../images/auditrules/audit_jsp_specify_error_page.gif" width="198" height="22"></p></body>
+</html>

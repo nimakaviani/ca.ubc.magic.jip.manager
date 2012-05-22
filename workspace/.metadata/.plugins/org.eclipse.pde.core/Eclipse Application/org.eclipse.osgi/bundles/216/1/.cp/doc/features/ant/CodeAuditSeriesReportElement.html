@@ -1,0 +1,97 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+      <h1><font face="Verdana" color="#CC0000"><b>seriesReport</b></font> <font size="-1">(element)</font></h1>
+      <h3>Description</h3>
+      <p>
+      The <code>seriesReport</code> element, which must be nested within the
+      <a href="../server/ant/codeAudit/codeAudit.html"><code>instantiations.audit</code></a> 
+		(or <code>
+      <a href="CodeAudit.html">codepro.audit</a>)</code> task, is used to
+      generate a report based on the results of a series of audits.
+      </p>
+      <p>
+      <b>Note:</b> In order to make use of this element you must include the
+      <code><a href="../server/ant/codeAudit/codeAudit.html#storageLocation">storageLocation</a></code>
+      attribute in the enclosing
+      <a href="../server/ant/codeAudit/codeAudit.html"><code>instantiations.audit</code></a> 
+		task. The
+      specified location should be the location in which the audit series and
+      individual audit result sets are stored. Further, the audit series should
+      be <a href="../audit/audit_series_editor.html">configured</a> to
+      automatically include all of the result sets in the directory.
+      </p>
+      <!-- ***************************************************************** -->
+      <h3>Attributes</h3>
+      <p>
+      The following attributes are used to control the report generation process:
+      </p>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+          <td valign="top"><b>Attribute</b></td>
+          <td valign="top"><b>Description</b></td>
+          <td align="center" valign="top"><b>Required</b></td>
+        </tr>
+        <tr>
+          <td valign="top">seriesFile</td>
+          <td valign="top">
+            <p>
+            The name of the audit series file within the storage location
+            specified in the enclosing
+            <a href="../server/ant/codeAudit/codeAudit.html"><code>instantiations.audit</code></a> 
+			task.
+            </p>
+          </td>
+          <td valign="top" valign="middle">Yes</td>
+        </tr>
+        <tr>
+          <td valign="top">file</td>
+          <td valign="top">
+            <p>
+            The absolute or relative path to the file to which the audit series
+            report will be written. If this attribute is not specified then the
+            report will not be saved to a file. Omitting the file path makes
+            sense only if the mail sub-element is specified.
+            </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+      </table>
+      <!-- ***************************************************************** -->
+      <h3>Nested Elements</h3>
+      <p>
+      The following elements can be nested within the <code>seriesReport</code>
+      element.
+      </p>
+      <blockquote>
+      <p><code><b>&lt;mail&gt;</b></code></p>
+      <p>
+      The <a href="MailElement.html"><code>mail</code></a> element is used to
+      send the generated report as an attachment in an e-mail message.
+      </p>
+      </blockquote>
+      <!-- ***************************************************************** -->
+      <h3>Examples</h3>
+      <p>
+      The following <code>seriesReport</code> element will generate an HTML
+      report to the file named &quot;audit_series.html&quot; based on the audit
+      series defined in the file &quot;series.aser&quot;.
+      </p>
+      <blockquote>
+      <pre>&lt;seriesReport
+      file=&quot;audit_series.html&quot;
+      seriesFile=&quot;series.aser&quot;/&gt;</pre>
+      </blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

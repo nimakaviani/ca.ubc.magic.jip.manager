@@ -1,0 +1,182 @@
+<html>
+
+<head>
+<title>JUnit Test Case Wizard</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+      <b><font face="Verdana" color="#CC0000"> JUnit Test Case Wizard</font></b></h1>
+    <p>The JUnit Test Case Wizard allows you to create new JUnit Test Cases. New Test Cases
+    can be created via the standard New wizard by selecting the &quot;Java&quot; category or
+    via the popup &quot;New&quot; menu. Test Cases can also be created by selecting the
+    <font face="Arial"> <img src="../../images/generateTestCases_icon.gif" width="16" height="16"></font>
+    Test Case pattern in the <img
+    src="../../images/new_pattern_wiz.gif" width="16" height="16"> <a
+    href="pattern_wizard.html">Java Pattern Wizard</a>.</p>
+    <p>In order to use the Test Case wizard, you should open your project's build path
+    property page and add the junit.jar contained in the org.junit plugin of your Eclipse
+    install as an external JAR. If you want to avoid absolute pathnames on the build classpath
+    you can introduce a class path variable and reference the junit.jar relative to this
+    variable.</p>
+    <p>The tTest Case wizard provides numerous enhancements over the simple JUnit Test
+    case wizard provided in Eclipse 2.0 and Application Developer 5.0:<ul>
+      <li>Better control over which methods have test cases generated for them</li>
+      <li>The ability to specify other arbitrary test cases</li>
+      <li>Better default test code generation - automatically adds assertTrue(...) statements</li>
+      <li>Generates test fixtures with control over:<ul>
+          <li>Test fixture field name</li>
+          <li>Test fixture accessor creation</li>
+          <li>Control over test fixture initialization</li>
+        </ul>
+      </li>
+    </ul>
+    <p><img src="../../images/java_new_wizard.gif" width="500" height="500"> <img
+    src="../../images/junit_menu.gif" align="top" width="181" height="354"></p>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/test_case_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Test case name</td>
+        <td valign="top" align="left">Type a name for the new test case class.</td>
+        <td valign="top" align="left">&lt;Test&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Test class</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the class to be tested.</td>
+        <td valign="top" align="left">The type or the primary type of the compilation unit that
+        was selected when the wizard was started or &lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class. This class must implement the <code>junit.framework.Test
+        </code>interface.</td>
+        <td valign="top" align="left">&lt;junit.framework.TestCase&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">setUp()</td>
+        <td valign="top" align="left">Determines whether a setUp() method is generated</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">tearDown()</td>
+        <td valign="top" align="left">Determines whether a tearDown() method is generated</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">public static void main()</td>
+        <td valign="top" align="left">Determines whether a main() method is generated</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Add TestRunner statements</td>
+        <td valign="top" align="left">Determines whether TestRunner statemenst are generated.
+        Choices include &quot;Text UI&quot;, &quot;Swing UI&quot; and &quot;AWT UI&quot;.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/test_case_wizard2.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Create test methods for all public test class methods</td>
+        <td valign="top" align="left">Determines whether test methods for all public test class
+        methods will be created. If turned off, specific public methods may be selected.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Additional test names</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter the names of additional tests that
+        should be created</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/test_case_wizard3.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Create test fixture</td>
+        <td valign="top" align="left">Determines whether a test fixture is created. A test fixture
+        is an instance of the class to be tested.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Test fixture field name</td>
+        <td valign="top" align="left">Type or select the name of the field that will contain the
+        test fixture.</td>
+        <td valign="top" align="left">&lt;fixture&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Create accessors</td>
+        <td valign="top" align="left">Determines whether test fixture get and set methods are
+        generated.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Lazy initialize the test fixture</td>
+        <td valign="top" align="left">Determines whether the test fixture is lazily initialized.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Where do you want to initialize the test fixture?</td>
+        <td valign="top" align="left">Initialize the test fixture statically, or initialize the
+        test fixture in the setUp() method</td>
+        <td valign="top" align="left">&lt;statically&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Test methods should pass by default</td>
+        <td valign="top" align="left">Determines whether tests should pass (or fail) by default.
+          The final line of the test method will be assertTrue(true) or
+          assertTrue(false) as appropriate.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Call test method in generate code</td>
+        <td valign="top" align="left">Determines whether the method being tested
+          will be called in the generated code. Variables are created to hold
+          the values passed to the method and a result variable captures the
+          results (from non-void methods). If a test fixture has been created,
+          it will be used as the method target. If not, an instance of the test
+          class will be created in the body of the method.</td>
+        <td valign="top" align="left">&lt;true&gt;</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

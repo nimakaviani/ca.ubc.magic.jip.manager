@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Manifest Files</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Manifest Files</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for problems in manifest files.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.includeImplementationVersion">Include Implementation Version</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.missingOrMisplacedManifestVersion">Missing Or Misplaced Manifest Version</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.missingOrMisplacedSectionName">Missing Or Misplaced Section Name</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.includeImplementationVersion">Include Implementation Version</a></h4><p>
+<b>Summary</b><br/>Manifest files should include an implementation version.<p><b>Description</b><br/>This audit rule checks for manifest files that do not include an implementation version, or include an implementation version with the wrong format. An implementation version is specified by defining an attribute with the name "Implementation-Version". The value of the attribute should consist of three integers, separated by periods, representing a major, minor, and micro version, in that order.<p><b>Example</b><br/>The following implementation version would be flagged as a violation because the version number is not well formed:<p><code>Implementation-Version: 2.3a</code><h4><a name="com.instantiations.assist.eclipse.audit.missingOrMisplacedManifestVersion">Missing Or Misplaced Manifest Version</a></h4><p>
+<b>Summary</b><br/>Every manifest file must begin with the manifest version.<p><b>Description</b><br/>This audit rule finds manifest files that do not contain an attribute named "Manifest-Version", or in which the manifest version is not the first attribute listed in the file.<h4><a name="com.instantiations.assist.eclipse.audit.missingOrMisplacedSectionName">Missing Or Misplaced Section Name</a></h4><p>
+<b>Summary</b><br/>Every section in a manifest file must begin with a name.<p><b>Description</b><br/>This audit rule finds manifest file sections that do not contain an attribute named "Name", or in which the name is not the first attribute listed in the file.</body>
+</html>

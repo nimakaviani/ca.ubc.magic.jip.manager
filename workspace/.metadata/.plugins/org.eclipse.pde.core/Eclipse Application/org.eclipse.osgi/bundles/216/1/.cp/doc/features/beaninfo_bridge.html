@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<title>BeanInfo Bridge</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">BeanInfo Bridge</font> </h1><img
+    src="../images/windows.gif" width="32" height="32" align="absbottom"> Windows Only 
+	- Deprecated in CodePro 4.0</small></small>
+    <p><em> This feature requires that VA
+    Assist be installed into VisualAge Java. VA Assist is can be
+    downloaded and installed from here.</em></p>
+    <p><img src="../images/edit_beaninfo_menu.gif" width="185" height="240">&nbsp; <img
+    src="../images/beaninfo_bridge.gif" width="596" height="404" align="top"></p>
+      <p>Neither WebSphere Studio Application Developer 4.0 nor Eclipse 2.x includes a BeanInfo editor. The BeanInfo Bridge feature allows you
+    to access the VA Java BeanInfo editor from within Application
+      Developer/Eclipse by simply clicking on a class or
+    compilation unit and selecting the &quot;Edit BeanInfo&quot; command. Technically, this
+    involves quite a bit of cooperative magic between Application
+      Developer/Eclipse and VA Java.</p>
+    <blockquote>
+      <p>1) If VA Java isn't running, Eclipse will start it up in &quot;slave mode&quot;<ul>
+        <li>any version of VA Java will do, so you could install VA Java Entry for this purpose
+          alone</li>
+        <li>VA Assist
+          needs to be installed in VA Java for all of the VA Java pieces to work. VA Assist should
+          be configured
+          to point to your Application Developer/Eclipse root directory</li>
+      </ul>
+      <p>2) Once started, a bi-directional socket connection is established between VA Java and
+      Application Developer/Eclipse<ul>
+        <li>if VAJ was already running, it will establish communications with that VA Java instance</li>
+      </ul>
+      <p>3) Application Developer/Eclipse sends the code for the class to VA Java</p>
+      <p>4) The VA Java BeanInfo editor opens up on the code<ul>
+        <li>the matching *BeanInfo class is sent over to VAJ as well</li>
+      </ul>
+      <p>5) You edit the class using the normal BeanInfo editor tools<ul>
+        <li>the tool is presented &quot;standalone&quot; and doesn't provide access to any other VA
+          Java facilities/browsers</li>
+      </ul>
+      <p>6) When you are done editing, the new code is generated and sent back over to
+      Application Developer/Eclipse</p>
+      <p>7) When Application Developer/Eclipse shuts down, it will automatically shutdown VA Java as well</p>
+    </blockquote>
+      <p>All of the CodePro / VA Assist integration features may be configured via the
+    &quot;<a href="../preferences/preferences_vaassist.html">CodePro | VA Assist</a>&quot;
+    options page. On the VA Java side, the Application Developer/Eclipse integration features may be configured
+    via the &quot;VA Assist | Application Developer/Eclipse&quot; options page.<br>
+    <br>
+    </td>
+  </tr>
+  <tr>
+    <th valign="top" align="left" style="padding-right: 20" bgcolor="#C0C0C0">Are there any
+    special considerations when using ClearCase?</th>
+  </tr>
+  <tr>
+    <td valign="top" align="left" style="padding-right: 20">Yes. ClearCase
+    uses a pessimistic &quot;check-in/check-out&quot; model. Many operations in
+      Application Developer/Eclipse will
+    fail unless a type is properly checked out before editing (refactoring, for example). The
+    same is true for specific CodePro features such as the <a href="vce_bridge.html">VCE
+    Bridge</a> and BeanInfo Bridge. In order for the &quot;Edit GUI&quot; and &quot;Edit
+    BeanInfo&quot; commands to work, make sure that the class that you plan to edit has been
+    properly checked out from ClearCase.<br>
+    <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

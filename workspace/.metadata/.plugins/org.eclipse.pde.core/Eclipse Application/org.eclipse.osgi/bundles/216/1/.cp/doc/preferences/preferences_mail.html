@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<title>Preferences - Mail</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">Preferences - Mail</font></h1>
+    <p>
+    This page allows you to configure the settings used to send e-mail.
+    </p>
+    
+    
+    <p><img src="../images/preferences_mail_connection.gif"></p>
+    <p>
+    The SMTP host is the name of the machine on which SMTP server is running.
+    The SMTP port is the port on that machine that SMTP has been configured to
+    listen to.
+    </p>
+    <p>
+    The username and password are used to authenticate with the SMTP server.
+    </p>
+    <p>
+    The from address is the return address used when sending e-mail.
+    </p>
+    
+    
+    <p><img src="../images/preferences_mail_addresses.gif"></p>
+    <p>
+    The default domain is used to compose an e-mail address based on an author
+    name taken from the Javadoc author tag.
+    </p>
+    <p>
+    The default address is the address to which reports will be sent concerning
+    code for which an author is not known.
+    </p>
+    <p>
+    The table contains a mapping from author names to e-mail addresses. If an
+    author name is not in this table, an attempt will be made to construct an
+    e-mail address using the default domain. You can use the Add... and Remove
+    buttons to edit the table.
+    </p>
+    <p>
+    The Import... and Export... buttons can be used to import and export the
+    address information as an XML formatted address book. This can be used to
+    share addresses between developers. An exported address book can also be
+    referenced from the <a href="../features/ant/CodeAuditMailAuthorsElement.html">mailAuthors</a> tag
+    within the <a href="../features/ant/CodeAudit.html">code audit</a> Ant task.
+    </p>
+    
+    </td>
+  </tr>
+</table>
+</body>
+</html>

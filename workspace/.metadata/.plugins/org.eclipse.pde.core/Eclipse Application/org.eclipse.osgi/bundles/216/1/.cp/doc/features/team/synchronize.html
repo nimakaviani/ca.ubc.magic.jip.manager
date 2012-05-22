@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<title>CVS Synchronization</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>CVS
+    Synchronization</b></font></h1>
+    <p><i>Note: This feature is not available under Eclipse 3.0 and above</i></p>
+    <p><img src="../../images/synchronize.gif" width="213" height="137" border="1"></p>
+    <p>The standard Application Developer/Eclipse CVS synchronize commands are very manually intensive and
+    cumbersome to use. If you want to synchronize a large number of items (possibly across
+    multiple projects), you are forced to control/shift-click each item, select the &quot;Team
+    | Synchronize with Stream&quot; command, wait for the analysis to take place and then
+    manually catch up and release any items that have changed.</p>
+    <p>CodePro adds a number of enhanced, fast-path synchronize options based on
+    working sets. <a href="../wizards/working_set.html">Working sets</a> are simply
+    pre-defined collections of arbitrary resources. Rather than individually selecting each
+    element every time you want to synchronize, you can define a working set representing
+    those elements and then synchronize that set of elements with a single click. Not only do
+    these options make it easier to specify the set of items that are synchronized, they also
+    stream-line the actual synchronization process. Updated resources are automatically either
+    released or caught up as necessary with the results shown in a simple details dialog.</p>
+    <p><img src="../../images/synchronize_results.gif" width="516" height="229"
+    alt="synchronize_results.gif (14275 bytes)"></p>
+    <p>If no changes are detected, you will receive the standard notification to that effect.</p>
+    <p><img src="../../images/synchronize_results_same.gif" width="438" height="127"
+    alt="synchronize_results_same.gif (7660 bytes)"></p>
+    <p>In the event of a conflict, you will be presented with the standard Team perspective
+    Synchronize view where you can review the conflict manually. If you would prefer to always
+    see the Synchronize view so you can catch up/release changes manually, you can configure that via
+    a <a href="../../preferences/preferences_team.html">preference page</a>.</p>
+    <div align="center"><center><table border="0" cellpadding="0" width="95%" cellspacing="5">
+      <tr>
+        <td valign="top"><img src="../../images/catchup.gif" width="16" height="16"
+        alt="catchup.gif (137 bytes)"></td>
+        <td valign="top">The &quot;Catch up Working Set&quot; tool bar button catches up a working
+        set to the latest versions from the repository</td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="../../images/catchuprelease.gif" width="16" height="16"
+        alt="catchuprelease.gif (169 bytes)"></td>
+        <td valign="top">The &quot;Catch up and Release Working Set&quot; tool bar button does
+        the same, but then releases modified resources.</td>
+      </tr>
+    </table>
+    </center></div><p>With either, clicking on the tool bar button itself uses the working set
+    that was last caught up/released, or opens a Resource/Working Set selection
+      dialog, if there is no last working set. An arbitrary collection of
+      resources may be selected on the Resources page. </p>
+      <p><img src="../../images/select_resources.gif" width="546" height="462"> </p>
+      <p>A working set on the Working Set page. Clicking the
+      &quot;New/Browse&quot; button opens a <a href="../wizards/working_set.html">working
+    set selection/creation dialog</a>  . </p>
+      <p><img src="../../images/select_workingset.gif" width="546" height="462"> </p>
+    <p>Clicking the drop-down arrow displays the most recently used working sets, along with
+    an &quot;Other...&quot; choice that opens a <a href="../wizards/working_set.html">working
+    set selection/creation dialog</a> to allow other working sets to be used or created.</p>
+    <p><img src="../../images/synchronize_menu.gif" width="163" height="100"
+    alt="synchronize_menu.gif (2035 bytes)">&nbsp; <img
+    src="../../images/synchronize_menu_other.gif" width="163" height="100"
+    alt="synchronize_menu_other.gif (1982 bytes)"></p>
+    <p>You can also schedule <a href="../scheduler/scheduler_catchup.html">catch up</a> or <a
+    href="../scheduler/scheduler_catchup_release.html">catch up/release</a> operations to
+    occur at specific times (like startup or shutdown) using the <a
+    href="../scheduler/scheduler.html">Scheduler view</a>.</td>
+  </tr>
+</table>
+</body>
+</html>

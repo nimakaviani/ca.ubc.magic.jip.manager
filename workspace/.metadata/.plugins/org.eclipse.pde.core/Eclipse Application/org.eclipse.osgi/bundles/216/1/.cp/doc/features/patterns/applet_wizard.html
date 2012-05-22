@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<title>Java Applet Wizard</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>
+      Java Applet Wizard</b></font></h1>
+    <p>The Java Applet Wizard allows you to create new Java applets subclassed from either
+    java.applet.Applet or javax.swing.JApplet. New Applets can be created via the standard New
+    wizard by selecting the &quot;Java&quot; category, or via the popup &quot;New&quot; menu
+    or the <img src="../../images/new_applet_wiz.gif" width="16" height="16"> icon on the main
+    toolbar. Applets can also be created by selecting the <img src="../../images/applet.gif"
+    width="16" height="16" alt="applet.gif (163 bytes)">&nbsp; Applet pattern in the <img
+    src="../../images/new_pattern_wiz.gif" width="16" height="16"> <a
+    href="pattern_wizard.html">Java Pattern Wizard</a>.</p>
+    <p><img src="../../images/java_new_wizard.gif" width="500" height="500"> <img
+    src="../../images/applet_menu.gif" align="top" width="181" height="354"></p>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/applet_wizard1.gif" width="438" height="571"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Applet name</td>
+        <td valign="top" align="left">Type a name for the new applet class.</td>
+        <td valign="top" align="left">&lt;Applet&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;javax.swing.JApplet&gt; or &lt;java.awt.Applet&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Applet info</td>
+        <td valign="top" align="left">Enter the description of the applet</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/applet_wizard2.gif" width="438" height="571"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Would you like the wizard to generate a main() method and
+        other support so that the applet can be run as a stand-alone application?</td>
+        <td valign="top" align="left">Select &quot;Yes&quot; to create an applet which can be run
+        by itself or in an applet viewer, or select &quot;No&quot; to create an applet which can
+        be only be run in an applet viewer</td>
+        <td valign="top" align="left">&lt;No&gt;.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Would you like the applet to run in a thread? This will
+        allow the applet to perform tasks in the background, such as animation.</td>
+        <td valign="top" align="left">Select &quot;Yes&quot; to create an applet which runs in a
+        thread, or select &quot;No&quot; to not us a thread<p>.</td>
+        <td valign="top" align="left">&lt;No&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/applet_wizard3.gif" width="438" height="571"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Keyboard events</td>
+        <td valign="top" align="left">Determines whether the applet will register itself as a
+        listerner of keyboard events</td>
+        <td valign="top" align="left">&lt;false&gt;.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Mouse events.</td>
+        <td valign="top" align="left">Determines whether the applet will register itself as a
+        listerner of mouse events</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Mouse movement events</td>
+        <td valign="top" align="left">Determines whether the applet will register itself as a
+        listerner of mouse motion events</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/applet_wizard4.gif" width="438" height="571"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Write example</td>
+        <td valign="top" align="left">Determines whether example code is generated</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Banner text.</td>
+        <td valign="top" align="left">Enter the banner text</td>
+        <td valign="top" align="left">&lt;Welcome to CodePro&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">destroy()</td>
+        <td valign="top" align="left">Determines whether a destroy() method is generated</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">start()</td>
+        <td valign="top" align="left">Determines whether a start() method is generated</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">stop()</td>
+        <td valign="top" align="left">Determines whether a stop() method is generated</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/applet_wizard5.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Parameters</td>
+        <td valign="top" align="left">Specify the name, type and description of the
+          applet parameters</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

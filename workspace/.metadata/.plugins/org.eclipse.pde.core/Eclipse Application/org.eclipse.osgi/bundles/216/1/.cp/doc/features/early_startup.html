@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<title>Explore</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">Early Startup</font></h1>
+        <p>Eclipse is based upon the lazy loading principal, meaning that the 
+        plugins that comprise Eclipse and Eclipse add-ons are not loaded until 
+        explicitly needed by Eclipse. For example, if a plugin A provides 
+        function X tied to menu item Y, then plugin A is not loaded until the 
+        user selects menu item Y.</p>
+        <p>Some plugins provide functionality that needs to be loaded and 
+        executed when Eclipse is launched to function properly. For example, if 
+        a plugin provides a scheduler service that executes tasks at predefined 
+        intervals, then it must be loaded and executed when Eclipse is launched 
+        so that scheduled tasks will be run at the appropriate times. To this 
+        end, Eclipse provides the org.eclipse.ui.startup extension point for 
+        early startup. Any plugin extending to this extension point will be 
+        loaded and executed when Eclipse is launched.</p>
+        <p>CodePro provides several features that, if enabled, need to be loaded 
+        and executed when Eclipse itself is launched. In order to minimize the 
+        startup time and only load necessary plugins, CodePro has a very small 
+        startup plugin extending the Eclipse org.eclipse.ui.startup extension 
+        point so that it is loaded and executed when Eclipse is launched. This 
+        very small startup plugin in turn loads and executes other CodePro 
+        plugins if they are needed when Eclipse is launched. This approach 
+        minimizes the impact of CodePro on startup time and memory footprint for 
+        functionality that is not required.</p>
+        <h2><a href="scheduler/scheduler.html">Scheduler</a></h2>
+        <p>The CodePro Task Scheduler provides a facility for scheduling various 
+        tasks to occur at startup, at shutdown, at scheduled times or in 
+        response to specific events. In order for these tasks to be executed at 
+        the appropriate times, this plugin must be loaded and executed. If at 
+        least one scheduled task exists, then this plugin notifies the CodePro 
+        startup plugin that it needs to be loaded and executed whenever Eclipse 
+        is launched. If there are no scheduled tasks or all scheduled tasks have 
+        been deleted, then this plugin notifies the CodePro startup plugin that 
+        it does <b>not </b>need to be loaded and executed when Eclipse is 
+        launched.</p>
+        <h2><a href="collaboration/configuration_wizard.html">Collaboration</a></h2>
+        <p dir="ltr">The Collaboration Configuration Wizard is used to establish 
+        a connection to a collaboration server and choose (or create) an 
+        identity on that collaboration server. CodePro communicates with the 
+        collaboration server via polling. In order for this communication to 
+        occur at the appropriate time, the collaboration plugin must be loaded 
+        and executed when Eclipse is launched. If a collaboration server is 
+        specified, then this plugin notifies the CodePro startup plugin that it 
+        needs to be loaded and executed whenever Eclipse is launched. If no 
+        collaboration server is specified then this plugin notifies the CodePro 
+        startup plugin that it does <b>not </b>need to be loaded and executed 
+        when Eclipse is launched.</p>
+        <h2 dir="ltr"><a href="java_history.html">Java History</a> and
+        <a href="modified_types.html">Modified Types</a></h2>
+        <p dir="ltr">The CodePro Java History and Modified Type views track all 
+        types that have been accessed and all modifications or additions made to 
+        various types within the workspace. In order that CodePro track modified 
+        types, this plugin must be loaded and executed when Eclipse is launched. 
+        If either the <a href="../preferences/preferences_history.html"><b>Track 
+        modified elements</b> or <b>Track history</b> preferences</a> are turned 
+        on, then this plugin notifies the CodePro startup plugin that it needs 
+        to be loaded and executed whenever Eclipse is launched. If neither of 
+        these preferences are selected then this plugin notifies the CodePro 
+        startup plugin that it does <b>not </b>need to be loaded and executed 
+        when Eclipse is launched.</p>
+ </td>
+  </tr>
+</table>
+</body>
+</html>

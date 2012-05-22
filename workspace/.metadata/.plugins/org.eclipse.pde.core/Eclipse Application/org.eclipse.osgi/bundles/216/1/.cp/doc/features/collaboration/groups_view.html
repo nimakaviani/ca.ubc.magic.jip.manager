@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<title>Collaboration Groups View</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Collaboration Groups View</b></font>
+      </h1>
+      <p>This view is for adding, modifying, and deleting groups from the
+      collaboration server. It is part of the <b>Collaboration Administration</b>
+      perspective.</p>
+      <p><img border="0" src="../../images/collaboration/groups_view.gif" width="443" height="162"></p>
+      <p>A group essentially consists of users and other groups. A group may or
+      may not be public. A public group is visible to everyone; that is, it is
+      included in every list of groups displayed for selection. In contrast, a
+      non-public group is only visible if the current user is a member of the
+      group (or is the administrator).</p>
+      <p>A group also may have zero or more leaders. A leader has special
+      privileges with respect to the group, such as the ability to add and
+      remove members. A leader need not be a member of the group.</p>
+      <p>Only the administrator may add and delete groups unless the <a href="server.html">server</a>
+      allows open enrollment, in which case anyone may add a group, and group
+      leaders may delete the groups they lead. In any case, group leaders may
+      modify a group.</p>
+      <h3>Tool Bar</h3>
+      <p>The tool bar has the following buttons</p>
+      <ul>
+        <li><img border="0" src="../../images/collaboration/group-add.gif" width="19" height="17">
+          Add a group using the group wizard (described below).</li>
+        <li><img border="0" src="../../images/collaboration/delete.gif" width="16" height="16">
+          Delete the selected groups.</li>
+      </ul>
+      <p>The tool bar menu contains the following items</p>
+      <ul>
+        <li><b>Refresh</b> - Refresh this view from the collaboration server.
+          (The view does not update automatically in response to changes on the
+          server.)</li>
+        <li><b>Import Groups</b> - Add groups described in an XML file produced
+          by the Export Groups item.</li>
+        <li><b>Export Groups</b> - Export the groups to an XML file suitable for
+          use by the Import Groups item.</li>
+      </ul>
+      <h3>Group List</h3>
+      <p>The columns in this list show the group name, identifier and number of
+      members. If it is open, the properties view shows additional information
+      about the selected group, such as the leaders.</p>
+      <p>The context menu contains the following items</p>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="75%">
+            <ul>
+              <li><img border="0" src="../../images/collaboration/group-add.gif" width="19" height="17">
+                <b>New</b> - Add a group using the group wizard (described
+                below).</li>
+              <li><b>Edit</b> - Edit the selected group.</li>
+              <li><img border="0" src="../../images/collaboration/delete.gif" width="16" height="16">
+                <b>Delete</b> - Delete the selected groups.</li>
+            </ul>
+          </td>
+          <td width="25%"><img border="0" src="../../images/collaboration/groups_menu.gif" width="100" height="86"></td>
+        </tr>
+      </table>
+      <h3><a name="GroupWizard">Group Wizard</a></h3>
+      <p>The group wizard is for adding or editing a user.</p>
+      <p><img border="0" src="../../images/collaboration/new_group_wizard.gif" width="438" height="405"></p>
+      <p>The <b>name</b> is used for display purposes. It must be unique.</p>
+      <p>The <b>identifier</b> is used internally to identify a group. It must
+      be unique, and is typically some portion of the group name.</p>
+      <p>The <b>Everyone</b> radio button makes the group visible to everyone
+      (in other words, public). The Only <b>Members</b> radio button makes the
+      group visible only to group members (in other words, non-public).</p>
+      <p><img border="0" src="../../images/collaboration/new_group_wizard_members.gif" width="438" height="405"></p>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td valign="top" width="75%">The <b>Users</b> list shows the users
+            that are members of the group. The context menu allows users to be
+            added and removed from the group.</td>
+          <td valign="top" width="25%">&nbsp;<img border="0" src="../../images/collaboration/add_user_menu.gif" width="108" height="49"></td>
+        </tr>
+        <tr>
+          <td valign="top" width="75%">The <b>Group</b> list shows the groups
+            that are members of the group. The context menu allows groups to be
+            added and removed from the group.</td>
+          <td valign="top" width="25%">&nbsp;<img border="0" src="../../images/collaboration/add_group_menu.gif" width="115" height="49"></td>
+        </tr>
+      </table>
+      <p>
+		<img border="0" src="../../images/collaboration/new_group_wizard_leaders.gif"></p>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="75%" valign="top">The list shows the leaders of the group.
+            The context menu allows leaders to be added and removed from the
+            group</td>
+          <td width="25%" valign="top">&nbsp;<img border="0" src="../../images/collaboration/add_leader_menu.gif" width="163" height="66"></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <p>.</td>
+  </tr>
+</table>
+</body>
+</html>

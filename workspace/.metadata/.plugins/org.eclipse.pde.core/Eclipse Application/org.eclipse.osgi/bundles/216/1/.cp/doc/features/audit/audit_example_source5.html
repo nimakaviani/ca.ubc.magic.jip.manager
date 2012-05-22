@@ -1,0 +1,570 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="../../../stylesheets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../stylesheets/prettify/prettify.js"></script>
+ 
+<title>MissingBlockAuditRule</title>
+
+</head>
+
+<body onload="prettyPrint()">
+
+<pre class="prettyprint">
+package com.instantiations.assist.eclipse.analysis.audit.rule;
+ 
+import com.instantiations.assist.eclipse.analysis.audit.core.*;
+import com.instantiations.assist.eclipse.analysis.engine.core.*;
+import org.eclipse.jdt.core.dom.*;
+ 
+/**
+ * Instances of the class <code>MissingBlockAuditRule</code> implement an audit
+ * rule used to find structured statements (such as <code>if</code>,
+ * <code>while</code>, and <code>for</code> statements) whose bodies contain a
+ * single statement rather than a block.
+ * 
+ * Copyright (c) 2002-2003, Google, Inc.<br>
+ * All Rights Reserved
+ *
+ * @author Brian Wilkerson
+ * @version $Revision: 1.0 $
+ */
+public class MissingBlockAuditRule extends CompilationUnitAuditRule
+{
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Preference Constants
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * The suffix added to the preferences identifier to compose the name of
+     * the preference indicating whether a block is to be required as the body
+     * of a <code>do</code> statement.
+     */
+    protected static final String REQUIRED_FOR_DO_PREFERENCE_SUFFIX = ".requiredForDo";
+ 
+    /**
+      * The suffix added to the preferences identifier to compose the name of
+     * the preference indicating whether a block is to be required as the body
+     * of a <code>for</code> statement.
+     */
+	protected static final String REQUIRED_FOR_FOR_PREFERENCE_SUFFIX = ".requiredForFor";
+ 
+	/**
+     * The suffix added to the preferences identifier to compose the name of
+     * the preference indicating whether a block is to be required as the body
+	 * of both the then and else portions of an <code>if</code> statement.
+	 */
+	protected static final String REQUIRED_FOR_IF_PREFERENCE_SUFFIX = ".requiredForIf";
+ 
+	/**
+	 * The suffix added to the preferences identifier to compose the name of
+	 * the preference indicating whether a block is to be required as the body
+	 * of a <code>while</code> statement.
+	 */
+	protected static final String REQUIRED_FOR_WHILE_PREFERENCE_SUFFIX = ".requiredForWhile";
+ 
+	/**
+	 * The suffix added to the preferences identifier to compose the name of
+	 * the preference indicating whether single statements on the same line
+	 * should be ignored
+	 */
+	protected static final String IGNORE_SINGLE_STATEMENTS_ON_SAME_LINE_PREFERENCE_SUFFIX = ".ignoreSingleStatementsOnSameLine";
+ 
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Constructors
+	//
+	////////////////////////////////////////////////////////////////////////////
+ 
+	/**
+	 * Initialize a newly created audit rule.
+	 */
+	public MissingBlockAuditRule()
+	{
+	    super();
+	}
+ 
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Accessing
+	//
+	////////////////////////////////////////////////////////////////////////////
+ 
+	/**
+	 * Return <code>true</code> if a block is required for the body of a
+	 * <code>do</code> statement.
+	 *
+	 * @return <code>true</code> if a block is required for a <code>do</code>
+	 *         statement
+	 */
+	public boolean getRequiredForDo()
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + REQUIRED_FOR_DO_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setDefault(preferenceName, true);
+	    return getPreferenceStore().getBoolean(preferenceName);
+	}
+ 
+	/**
+	 * Set whether a block is required for the body of a <code>do</code> statement
+	 * to the given value.
+	 *
+	 * @param required <code>true</code> if a block is required for a <code>do</code>
+	 *        statement
+	 */
+	public void setRequiredForDo(boolean required)
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + REQUIRED_FOR_DO_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setValue(preferenceName, required);
+	}
+ 
+	/**
+	 * Return <code>true</code> if a block is required for the body of a
+	 * <code>for</code> statement.
+	 *
+	 * @return <code>true</code> if a block is required for a <code>for</code>
+	 *         statement
+	 */
+	public boolean getRequiredForFor()
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + REQUIRED_FOR_FOR_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setDefault(preferenceName, true);
+	    return getPreferenceStore().getBoolean(preferenceName);
+	}
+ 
+	/**
+	 * Set whether a block is required for the body of a <code>for</code> statement
+	 * to the given value.
+	 *
+	 * @param required <code>true</code> if a block is required for a <code>for</code>
+	 *        statement
+	 */
+	public void setRequiredForFor(boolean required)
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + REQUIRED_FOR_FOR_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setValue(preferenceName, required);
+	}
+ 
+	/**
+	 * Return <code>true</code> if a block is required for the then and else
+	 * portions of an <code>if</code> statement.
+	 *
+	 * @return <code>true</code> if a block is required for an <code>if</code>
+	 *         statement
+	 */
+	public boolean getRequiredForIf()
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + REQUIRED_FOR_IF_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setDefault(preferenceName, true);
+	    return getPreferenceStore().getBoolean(preferenceName);
+	}
+ 
+	/**
+	 * Set whether a block is required for the then and else portions of an
+	 * <code>if</code> statement to the given value.
+	 *
+	 * @param required <code>true</code> if a block is required for an <code>if</code>
+	 *        statement
+	 */
+	public void setRequiredForIf(boolean required)
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + REQUIRED_FOR_IF_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setValue(preferenceName, required);
+	}
+ 
+	/**
+	 * Return <code>true</code> if a block is required for the body of a
+	 * <code>while</code> statement.
+	 *
+	 * @return <code>true</code> if a block is required for a <code>while</code>
+	 *         statement
+	 */
+	public boolean getRequiredForWhile()
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + REQUIRED_FOR_WHILE_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setDefault(preferenceName, true);
+	    return getPreferenceStore().getBoolean(preferenceName);
+	}
+ 
+	/**
+	 * Set whether a block is required for the body of a <code>while</code> statement
+	 * to the given value.
+	 *
+	 * @param required <code>true</code> if a block is required for a <code>while</code>
+	 *        statement
+	 */
+	public void setRequiredForWhile(boolean required)
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + REQUIRED_FOR_WHILE_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setValue(preferenceName, required);
+	}
+ 
+	/**
+	 * Return <code>true</code>  if single statements on the same line should be ignored
+	 *
+	 * @return <code>true</code> if single statements on the same line should be ignored
+	 */
+	public boolean getIgnoreSingleStatementsOnSameLine()
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + IGNORE_SINGLE_STATEMENTS_ON_SAME_LINE_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setDefault(preferenceName, true);
+	    return getPreferenceStore().getBoolean(preferenceName);
+	}
+ 
+	/**
+	 * Set whether single statements on the same line should be ignored
+	 *
+	 * @param ignore <code>true</code> if single statements on the same line should be ignored
+	 */
+	public void setIgnoreSingleStatementsOnSameLine(boolean ignore)
+	{
+	    String preferenceName;
+ 
+	    preferenceName = getPreferenceIdentifier() + IGNORE_SINGLE_STATEMENTS_ON_SAME_LINE_PREFERENCE_SUFFIX;
+	    getPreferenceStore().setValue(preferenceName, ignore);
+	}
+ 
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Analyzer Creation
+	//
+	////////////////////////////////////////////////////////////////////////////
+ 
+	/**
+	 * Create an analyzer that can perform the analysis implied by this analysis
+	 * item.
+	 *
+	 * @param context the context in which the analysis will be performed
+	 *
+	 * @return the analyzer that was created
+	 */
+	public Analyzer createAnalyzer(AnalysisContext context)
+	{
+	    return new MissingBlockCodeAuditor(context, this);
+	}
+ 
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Inner Classes
+	//
+	////////////////////////////////////////////////////////////////////////////
+ 
+	/**
+	 * Instances of the class <code>MissingBlockCodeAuditor</code> implement a
+	 * code auditor used to find missing blocks in structured statements.
+	 *
+	 * Copyright (c) 2002, Google, Inc.<br>
+	 * All Rights Reserved
+	 *
+	 * @author Brian Wilkerson
+	 */
+	public class MissingBlockCodeAuditor extends AbstractCodeAuditor
+	{
+	    ////////////////////////////////////////////////////////////////////////
+	    //
+	    // Constructors
+	    //
+	    ////////////////////////////////////////////////////////////////////////
+ 
+	    /**
+	     * Initialize a newly created analyzer to perform an analysis in the
+	     * given context for the given analysis item.
+	     *
+	     * @param context the context in which the analysis is to be performed
+	     * @param item the analysis item for which the analysis is being
+	     *        performed
+	     */
+	    public MissingBlockCodeAuditor(AnalysisContext context, AnalysisItem item)
+	    {
+	    	super(context, item);
+	    }
+ 
+	    ////////////////////////////////////////////////////////////////////////
+	    //
+	    // Visiting
+	    //
+	    ////////////////////////////////////////////////////////////////////////
+ 
+	    public boolean visit(DoStatement node)
+	    {
+	    	Statement body;
+	    	int startIndex, endIndex;
+	    	AuditViolationImpl violation;
+ 
+	    	if (getRequiredForDo()) {
+	    	    body = node.getBody();
+	    	    if (body != null && !(body instanceof Block)) {
+	    	    	if (getIgnoreSingleStatementsOnSameLine()
+	    	    	    && !hasLineTerminatorBefore(body)) {
+	    	    	    return true;
+	    	    	}
+	    	    	startIndex = body.getStartPosition();
+	    	    	endIndex = startIndex + body.getLength();
+	    	    	violation = new AuditViolationImpl(
+	    	    	    "com.instantiations.assist.eclipse.audit.missingBlock.statement",
+	    	    	    MissingBlockAuditRule.this,
+	    	    	    getContext().getCurrentTarget(),
+	    	    	    startIndex,
+	    	    	    endIndex,
+	    	    	    new String[] {
+	    	    	    	"do",
+	    	    	    	getSource(body),
+	    	    	    });
+	    	    	violation.setResolutionParameter(
+	    	    	    RECOMMENDATION_PARAM1,
+	    	    	    "do");
+	    	    	addViolation(violation);
+	    	    }
+	    	}
+	    	return true;
+	    }
+ 
+	    public boolean visit(ForStatement node)
+	    {
+	    	Statement body;
+	    	int startIndex, endIndex;
+	    	AuditViolationImpl violation;
+ 
+	    	if (getRequiredForFor()) {
+	    	    body = node.getBody();
+	    	    if (body != null && !(body instanceof Block)) {
+	    	    	if (getIgnoreSingleStatementsOnSameLine()
+	    	    	    && !hasLineTerminatorBefore(body)) {
+	    	    	    return true;
+	    	    	}
+	    	    	startIndex = body.getStartPosition();
+	    	    	endIndex = startIndex + body.getLength();
+	    	    	violation = new AuditViolationImpl(
+	    	    	    "com.instantiations.assist.eclipse.audit.missingBlock.statement",
+	    	    	    MissingBlockAuditRule.this,
+	    	    	    getContext().getCurrentTarget(),
+	    	    	    startIndex,
+	    	    	    endIndex,
+	    	    	    new String[] {
+	    	    	    	"for",
+	    	    	    	getSource(body),
+	    	    	    });
+	    	    	violation.setResolutionParameter(
+	    	    	    RECOMMENDATION_PARAM1,
+	    	    	    "for");
+	    	    	addViolation(violation);
+	    	    }
+	    	}
+	    	return true;
+	    }
+ 
+	    public boolean visit(IfStatement node)
+	    {
+	    	Statement statement;
+	    	int conditionEnd, startIndex, endIndex;
+	    	String source;
+	    	AuditViolationImpl violation;
+ 
+	    	if (getRequiredForIf()) {
+	    	    statement = node.getThenStatement();
+	    	    if (statement != null && !(statement instanceof Block)) {
+	    	    	if (getIgnoreSingleStatementsOnSameLine()
+	    	    	    && !hasLineTerminatorBefore(statement)) {
+	    	    	    return true;
+	    	    	}
+	    	    	if (statement instanceof EmptyStatement) {
+	    	    	    conditionEnd = node.getExpression().getStartPosition() + node.getExpression().getLength() + 1;
+	    	    	    source = getAuditContext().getSource();
+	    	    	    if (source == null) {
+	    	    	    	startIndex = conditionEnd;
+	    	    	    	endIndex = conditionEnd;
+	    	    	    } else {
+	    	    	    	startIndex = source.indexOf(';', conditionEnd);
+	    	    	    	if (startIndex < 0) {
+	    	    	    	    startIndex = conditionEnd;
+	    	    	    	    endIndex = conditionEnd;
+	    	    	    	} else {
+	    	    	    	    endIndex = startIndex + 1;
+	    	    	    	}
+	    	    	    }
+	    	    	    violation = new AuditViolationImpl(
+	    	    	    	"com.instantiations.assist.eclipse.audit.missingBlock.clause",
+	    	    	    	MissingBlockAuditRule.this,
+	    	    	    	getContext().getCurrentTarget(),
+	    	    	    	startIndex,
+	    	    	    	endIndex,
+	    	    	    	new String[] {
+	    	    	    	    "if",
+	    	    	    	    "(empty statement)",
+	    	    	    	});
+	    	    	    violation.setResolutionParameter(
+	    	    	    	RECOMMENDATION_PARAM1,
+	    	    	    	"if");
+	    	    	    addViolation(violation);
+	    	    	} else {
+	    	    	    startIndex = statement.getStartPosition();
+	    	    	    endIndex = startIndex + statement.getLength();
+	    	    	    violation = new AuditViolationImpl(
+	    	    	    	"com.instantiations.assist.eclipse.audit.missingBlock.clause",
+	    	    	    	MissingBlockAuditRule.this,
+	    	    	    	getContext().getCurrentTarget(),
+	    	    	    	startIndex,
+	    	    	    	endIndex,
+	    	    	    	new String[] {
+	    	    	    	    "if",
+	    	    	    	    getSource(statement),
+	    	    	    	});
+	    	    	    violation.setResolutionParameter(
+	    	    	    	RECOMMENDATION_PARAM1,
+	    	    	    	"if");
+	    	    	    addViolation(violation);
+	    	    	}
+	    	    }
+	    	    statement = node.getElseStatement();
+	    	    if (statement != null && !((statement instanceof Block) || (statement instanceof IfStatement))) {
+	    	    	if (getIgnoreSingleStatementsOnSameLine()
+	    	    	    && !hasLineTerminatorBefore(statement)) {
+	    	    	    return true;
+	    	    	}
+	    	    	if (statement instanceof EmptyStatement) {
+	    	    	    conditionEnd = node.getExpression().getStartPosition() + node.getExpression().getLength() + 1;
+	    	    	    source = getAuditContext().getSource();
+	    	    	    if (source == null) {
+	    	    	    	startIndex = conditionEnd;
+	    	    	    	endIndex = conditionEnd;
+	    	    	    } else {
+	    	    	    	startIndex = source.indexOf(';', conditionEnd);
+	    	    	    	if (startIndex < 0) {
+	    	    	    	    startIndex = conditionEnd;
+	    	    	    	    endIndex = conditionEnd;
+	    	    	    	} else {
+	    	    	    	    endIndex = startIndex + 1;
+	    	    	    	}
+	    	    	    }
+	    	    	    violation = new AuditViolationImpl(
+	    	    	    	"com.instantiations.assist.eclipse.audit.missingBlock.clause",
+	    	    	    	MissingBlockAuditRule.this,
+	    	    	    	getContext().getCurrentTarget(),
+	    	    	    	startIndex,
+	    	    	    	endIndex,
+	    	    	    	new String[] {
+	    	    	    	    "else",
+	    	    	    	    "(empty statement)",
+	    	    	    	});
+	    	    	    violation.setResolutionParameter(
+	    	    	    	RECOMMENDATION_PARAM1,
+	    	    	    	"else");
+	    	    	    addViolation(violation);
+	    	    	} else {
+	    	    	    startIndex = statement.getStartPosition();
+	    	    	    endIndex = startIndex + statement.getLength();
+	    	    	    violation = new AuditViolationImpl(
+	    	    	    	"com.instantiations.assist.eclipse.audit.missingBlock.clause",
+	    	    	    	MissingBlockAuditRule.this,
+	    	    	    	getContext().getCurrentTarget(),
+	    	    	    	startIndex,
+	    	    	    	endIndex,
+	    	    	    	new String[] {
+	    	    	    	    "else",
+	    	    	    	    getSource(statement),
+	    	    	    	});
+	    	    	    violation.setResolutionParameter(
+	    	    	    	RECOMMENDATION_PARAM1,
+	    	    	    	"while");
+	    	    	    addViolation(violation);
+	    	    	}
+	    	    }
+	    	}
+	    	return true;
+	    }
+ 
+	    public boolean visit(WhileStatement node)
+	    {
+	    	Statement body;
+	    	int startIndex, endIndex;
+	    	AuditViolationImpl violation;
+ 
+	    	if (getRequiredForWhile()) {
+	    	    body = node.getBody();
+	    	    if (body != null && !(body instanceof Block)) {
+	    	    	if (getIgnoreSingleStatementsOnSameLine()
+	    	    	    && !hasLineTerminatorBefore(body)) {
+	    	    	    return true;
+	    	    	}
+	    	    	startIndex = body.getStartPosition();
+	    	    	endIndex = startIndex + body.getLength();
+	    	    	violation = new AuditViolationImpl(
+	    	    	    "com.instantiations.assist.eclipse.audit.missingBlock.statement",
+	    	    	    MissingBlockAuditRule.this,
+	    	    	    getContext().getCurrentTarget(),
+	    	    	    startIndex,
+	    	    	    endIndex,
+	    	    	    new String[] {
+	    	    	    	"while",
+	    	    	    	getSource(body),
+	    	    	    });
+	    	    	violation.setResolutionParameter(
+	    	    	    RECOMMENDATION_PARAM1,
+	    	    	    "while");
+	    	    	addViolation(violation);
+	    	    }
+	    	}
+	    	return true;
+	    }
+ 
+	    ////////////////////////////////////////////////////////////////////////
+	    //
+	    // Utilities
+	    //
+	    ////////////////////////////////////////////////////////////////////////
+ 
+	    /**
+	     * Answer whether there is a line terminator before the node, but after
+	     * any preceeding non-whitespace.
+	     *
+	     * @param firstNode the AST node just before the source to be checked
+	     * @param secondNode the AST node just after the source to be checked
+	     *
+	     * @return  whether there is a line terminator between the two nodes.
+	     */
+	    protected boolean hasLineTerminatorBefore(ASTNode node)
+	    {
+	    	String source;
+	    	int index;
+               
+	    	source = getAuditContext().getSource();
+	    	if (source == null) {
+	    	    return false;
+	    	}
+	    	index = node.getStartPosition() - 1;
+	    	while (index >= 0) {
+	    	    if (isLineTerminator(source.charAt(index))) {
+	    	    	return true;
+	    	    } else if (!Character.isWhitespace(source.charAt(index))) {
+	    	    	return false;
+	    	    }
+	    	    index--;
+	    	}
+	    	return false;
+	    }
+	}
+}
+</pre>
+</body>
+</html>
+

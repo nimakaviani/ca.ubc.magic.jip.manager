@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Dead Code</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Dead Code</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for code that is not being used or cannot be reached.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.constantCondition">Constant Condition</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.invocationOfDefaultConstructor">Invocation of Default Constructor</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.unnecessaryCatchBlock">Unnecessary Catch Block</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.unnecessaryDefaultConstructor">Unnecessary Default Constructor</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.unnecessaryOverride">Unnecessary Override</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.unusedField">Unused Field</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.unusedLabel">Unused Label</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.unusedMethod">Unused Method</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.constantCondition">Constant Condition</a></h4><p>
+<b>Summary</b><br/>A constant expression in a conditional statement indicates either dead or debugging code.<p><b>Description</b><br/>Using a constant as a conditional expression could indicate either debugging code or dead code.<p><b>Security Implications</b><br/>Both variants are a potential security risk and should be avoided.<p><b>Example</b><br/>The following statement was inserted as a way to skip a block of business code below it and should be removed: <p><code>if (true) return null;</code><h4><a name="com.instantiations.assist.eclipse.audit.invocationOfDefaultConstructor">Invocation of Default Constructor</a></h4><p>
+<b>Summary</b><br/>Default constructors should not be invoked within subclass constructors.<p><b>Description</b><br/>This audit rule looks for invocations of the default constructor for a superclass within a constructor in the subclass. The invocation is unnecessary because the compiler will automatically add such a call.<p><b>Example</b><br/>The following constructor invocation would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public Point(int x, int y) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryCatchBlock">Unnecessary Catch Block</a></h4><p>
+<b>Summary</b><br/>Catch blocks should do more than rethrow the exception.<p><b>Description</b><br/>This audit rule looks for catch blocks whose body consists only of a throw of the exception that was just caught. Unless there is another catch block in the same try statement that catches a superclass of the exception's class, such catch blocks only serve to clutter the code.<p><b>Example</b><br/>The following catch clause would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;try {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;} catch (NullPointerException exception) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw exception;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryDefaultConstructor">Unnecessary Default Constructor</a></h4><p>
+<b>Summary</b><br/>Default constructors should not be declared unless necessary.<p><b>Description</b><br/>This audit rule looks for declarations of default (zero-argument) constructors in classes with no other constructors, whose body is either empty or contains only an invocation of the superclass' default constructor.<p><b>Example</b><br/>The following constructor would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public UnnecessaryConstructor() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super();<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryOverride">Unnecessary Override</a></h4><p>
+<b>Summary</b><br/>Methods that override other methods should do more than invoke the overridden method.<p><b>Description</b><br/>This audit rule looks for methods whose body consists only of an invocation of the overridden method with the same argument values. Such methods can safely be removed.<br><br><b>Example</b><br/>The following method would be flagged as a violation because it only invokes the method it overrides:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public void clear() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.clear();<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.unusedField">Unused Field</a></h4><p>
+<b>Summary</b><br/>Fields that are not used should be removed.<p><b>Description</b><br/>This audit rule checks for any private instance fields that are not referenced within their declaring class.<p><b>Example</b><br/>The following field would be flagged as a violation if it is not used within its declaring class:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private int unused;</code><h4><a name="com.instantiations.assist.eclipse.audit.unusedLabel">Unused Label</a></h4><p>
+<b>Summary</b><br/>Labels that are not used should be removed.<p><b>Description</b><br/>This audit rule checks for any labeled statements whose labels are not used in either a break or continue statement within the scope of the labeled statement.<p><b>Example</b><br/>The following label would be flagged as a violation because it is not used within the body of the for loop:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;int sum = 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;sumElements: for (int i = 0; i &lt; array.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum = sum + array[i];<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.unusedMethod">Unused Method</a></h4><p>
+<b>Summary</b><br/>Methods that are not used should be removed.<p><b>Description</b><br/>This audit rule checks for any private instance methods that are not referenced within their declaring class.<p><b>Example</b><br/>The following method would be flagged as a violation if it is not used within its declaring class:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private int unused()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code></body>
+</html>

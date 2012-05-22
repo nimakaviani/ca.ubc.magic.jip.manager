@@ -1,0 +1,150 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+   <title>State Pattern</title>
+</head>
+<body>
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="700" >
+<tr>
+<td>
+<h1><font face="Verdana" color="#CC0000"><b>Data Access Object Pattern</b></font></h1>
+<p>The&nbsp;<img SRC="../../images/j2ee.gif" height=16 width=16> Data Access
+Object pattern separates a data resource's client interface from its data access
+mechanisms, and adapts a specific data resource's access API to a generic client
+interface.
+<blockquote><a href="#Wizard">Wizard</a>
+<br><a href="#Applicability">Applicability</a>
+<br><a href="#AdditionalResources">Additional Resources</a></blockquote>
+
+<h3>
+<a NAME="Wizard"></a>Wizard</h3>
+<img SRC="../../images/patterns/data_access_object_wizard1.gif" height=572 width=438>
+<br>&nbsp;
+<table BORDER="1" CELLSPACING=0 WIDTH="71%" >
+<tr>
+<td ALIGN=CENTER HEIGHT="19"><b>Option</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Description</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Default</b></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Interface source folder</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a source folder for the data access
+  object interface. Either type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span>
+to select a source folder via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The source folder of the element
+that was selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Interface package</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a package to contain the data access
+  object interface. Either type a valid package name or click&nbsp;<span CLASS="Label">Browse</span>
+to select a package via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The package of the element that was
+selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Interface&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Enter a name for the data access object
+  interface.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;DAO&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Exception source folder</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a source folder for the data access
+  object exception class. Either type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span>
+to select a source folder via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The source folder of the element
+that was selected when the wizard was started.</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Exception package</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a package to contain the data access
+  object exception class. Either type a valid package name or click&nbsp;<span CLASS="Label">Browse</span>
+to select a package via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The package of the element that was
+selected when the wizard was started.</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Exception class&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Enter a name for the data access object
+  exception class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;DAOException&gt;</td>
+</tr>
+
+<tr>
+<td>Create factory class</td>
+
+<td>Determines whether to create a factory class for manufacturing instances of
+  the data access object.</td>
+
+<td>&lt;true&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Factory source folder</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a source folder for the data access
+  object factory class. Either type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span>
+to select a source folder via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The source folder of the element
+that was selected when the wizard was started.</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Factory package</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a package to contain the data access
+  object factory class. Either type a valid package name or click&nbsp;<span CLASS="Label">Browse</span>
+to select a package via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The package of the element that was
+selected when the wizard was started.</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Factory class&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Enter a name for the data access object
+  factory class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;DAOFactory&gt;</td>
+</tr>
+</table>
+
+<h3>
+<a NAME="Applicability"></a>Applicability</h3>
+Use the Data Access Object pattern when
+<ul>
+  <li>Components need to be transparent to the actual persistent store or data
+    source implementation to provide easy migration to different vendor
+    products, different storage types, and different data source types.
+</ul>
+
+<h3>
+<a NAME="AdditionalResources"></a>Additional Resources</h3>
+<a href="http://java.sun.com/blueprints/corej2eepatterns/Patterns/DataAccessObject.html">http://java.sun.com/blueprints/corej2eepatterns/Patterns/DataAccessObject.html</a>
+<p><a href="http://java.sun.com/blueprints/patterns/DAO.html">http://java.sun.com/blueprints/patterns/DAO.html</a>
+</tr>
+</table>
+
+</body>
+</html>

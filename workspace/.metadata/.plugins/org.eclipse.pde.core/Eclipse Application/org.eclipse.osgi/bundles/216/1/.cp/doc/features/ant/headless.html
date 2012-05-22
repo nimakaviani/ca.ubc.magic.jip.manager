@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Ant Enhancements</title>
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tbody><tr>
+    <td><h1><font color="#cc0000" face="Verdana"><b>Headless Ant
+            <br>
+            </b></font><b><i><font face="Verdana" size="2"><br>
+	This function is deprecated and has been replaced by the </font>
+	<font color="#0000ff" face="Verdana" size="2">
+	<a href="../server/ant/codeAudit/codeAudit.html">instantiations.audit Ant Task</a></font><font face="Verdana" size="2"> 
+	in </font><font color="#0000ff" face="Verdana" size="2">
+	CodePro AnalytiX Server<font face="Verdana" size="2">.</font></font></i></b></h1>
+    <p>"Headless" Ant refers to executing Ant scripts without any user interface 
+    other than a command line.&nbsp; There are several
+    <a href="enhancements.html">CodePro Ant task types</a> that can be executed 
+    in a headless environment. Below are some headless Ant examples. Each 
+    example assumes that you have already downloaded and installed </p>
+    <ul>
+      <li>JDK 1.3 or better</li>
+      <li>Eclipse 2.1 or better. </li>
+    </ul>
+    <h3 dir="ltr">Rational Application Developer 6.0:</h3>
+    <p dir="ltr">Several of the headless examples below refer to </p>
+    <blockquote>
+      <pre>&lt;property name="jreDir" location="C:/Programs/jdk1.5.0_05/jre"/&gt;</pre>
+    </blockquote>
+    <p dir="ltr">and</p>
+    <blockquote>
+      <pre>&lt;classpath&gt;<br>  &lt;pathelement location="${jreDir}/lib/rt.jar"/&gt;<br>&lt;/classpath&gt;</pre>
+    </blockquote>
+    <p dir="ltr">If you are using RAD 6.0, then the JRE directory is something 
+    like</p>
+    <blockquote>
+      <pre dir="ltr">C:\Program Files\IBM\Rational\SDP\6.0\eclipse\jre</pre>
+    </blockquote>
+    <p dir="ltr">and the "rt.jar" has been renamed to "core.jar" and is found at</p>
+    <blockquote>
+      <pre dir="ltr">${jreDir}\lib\core.jar</pre>
+    </blockquote>
+    <h3><a href="#eclipse_21">WebSphere Application Developer 5.1:</a></h3>
+    <p>See the section at the bottom of this page if you are using Eclipse 2.1 
+    or Application Developer 5.1. </p>
+    <h3><a href="#eclipse_2.0">WebSphere Application Developer 5.0:</a></h3>
+    <p>See the section at the bottom of this page if you are using Eclipse 2.0 
+    or Application Developer 5.0. </p><hr>
+    <h3>Example - headless_arbitrary_src_1</h3>
+    <p>This example demonstrates generating audit and metric results using a 
+    headless Ant script on some arbitrary java source files located in an 
+    arbitrary source folder. Given this situation, this example generates a new 
+    temporary workspace, a new temporary project linking to the arbitrary source 
+    tree, compiles the source and generates the audit and metric reports. To run 
+    this example:</p>
+    <ul>
+      <li>download and unzip the appropriate example file&nbsp;into a clean directory</li><ul><li><a href="example/headless_arbitrary_src_1_32.zip">headless_arbitrary_src_1_32.zip for Eclipse 3.2</a></li><li><a href="example/headless_arbitrary_src_1_33.zip">headless_arbitrary_src_1_33.zip for Eclipse 3.3 and above</a></li></ul>
+      <li>modify the <b>Local Environment Variables</b> section of the <b>
+      run_headless.bat</b> script to specify<ul>
+        <li>The JRE java.exe to be used</li>
+        <li>The Eclipse startup.jar</li>
+        <li>The location of your workspace (does not need to exist)</li>
+      </ul>
+      </li>
+      <li>modify the <b>jreDir </b>property in the <b>headless.xml </b>file to 
+      specify<ul>
+        <li>The location of the JRE directory</li>
+      </ul>
+      </li>
+      <li>execute the <b>run_headless.bat</b> script</li>
+    </ul>
+    <p>Once you get this example working, modify the <b>headless.xml </b>file to 
+    try different <a href="CodeAudit.html">codepro.audit</a> and <a href="ComputeMetrics.html">codepro.metrics</a> 
+    Ant task attributes so that you get a feel for the various possibilities.</p>
+    <hr>
+    <h3>Example - headless_arbitrary_src_metric_set</h3>
+    <p>This example demonstrates generating  metric results using a 
+    headless Ant script on some arbitrary java source files located in an 
+    arbitrary source folder. In addition, the headless.xml Ant script specifies 
+    a specific metric set to be used. Given this situation, this example generates a new 
+    temporary workspace, a new temporary project linking to the arbitrary source 
+    tree, compiles the source and generates the  metric report. To run 
+    this example:</p>
+    <ul>
+      <li>download and unzip the appropriate example 
+      file into a clean directory</li><ul><li><a href="example/headless_arbitrary_src_metric_set_32.zip">headless_arbitrary_src_metric_set_32.zip for Eclipse 3.2</a></li><li><a href="example/headless_arbitrary_src_metric_set_33.zip">headless_arbitrary_src_metric_set_33.zip for Eclipse 3.3 and above</a></li></ul></ul><ul><li>modify the <b>Local Environment Variables</b> section of the <b>
+      run_headless.bat</b> script to specify<ul><li>The JRE java.exe to be used</li><li>The Eclipse startup.jar</li><li>The location of your workspace (does not need to exist)</li></ul>
+      </li><li>modify the <b>jreDir </b>property in the <b>headless.xml </b>file to 
+      specify<ul><li>The location of the JRE directory</li></ul>
+      </li><li>execute the <b>run_headless.bat</b> script</li></ul><p>Notice that the metric report generated only contains the metrics 
+    specified in the specified metric set and not all of the metrics specified 
+    in the default metric set. Once you get this example working, modify the <b>headless.xml </b>file to 
+    try different <a href="ComputeMetrics.html">codepro.metrics</a> 
+    Ant task attributes so that you get a feel for the various possibilities.</p>
+    <hr>
+    <h3>Example - headless_arbitrary_src_callgraph</h3>
+    <p>This example demonstrates generating a call graph using a 
+    headless Ant script on some arbitrary java source files located in an 
+    arbitrary source folder. Given this situation, this example generates a new 
+    temporary workspace, a new temporary project linking to the arbitrary source 
+    tree, compiles the source and generates the callgraph report. To run 
+    this example:</p>
+    <ul>
+      <li>download and unzip the appropriate example 
+      file into a clean directory</li><ul><li><a href="example/headless_arbitrary_src_callgraph_32.zip">headless_arbitrary_src_callgraph_32.zip for Eclipse 3.2</a></li><li><a href="example/headless_arbitrary_src_callgraph_33.zip">headless_arbitrary_src_callgraph_33.zip for Eclipse 3.3 and above</a></li></ul></ul><ul><li>modify the <b>Local Environment Variables</b> section of the <b>
+      run_headless.bat</b> script to specify<ul>
+        <li>The JRE java.exe to be used</li>
+        <li>The Eclipse startup.jar</li>
+        <li>The location of your workspace (does not need to exist)</li>
+      </ul>
+      </li>
+      <li>modify the <b>jreDir </b>property in the <b>headless.xml </b>file to 
+      specify<ul>
+        <li>The location of the JRE directory</li>
+      </ul>
+      </li>
+      <li>execute the <b>run_headless.bat</b> script</li>
+    </ul>
+    <p>Once you get this example working, modify the <b>headless.xml </b>file to 
+    try different codepro.callgraph Ant task attributes so that you get a feel for the various possibilities.</p>
+    <hr>
+    <h3>Example - headless_arbitrary_src_multi_audit</h3>
+    <p>This example demonstrates generating a multiple audit results using a 
+    headless Ant script on some arbitrary java source files located in an 
+    arbitrary source folder. In the Ant script, the first audit specifies a 
+    classpath and the deleteTempProject attribute. This generates a new 
+    temporary project linking to the arbitrary source tree, compiles the source, 
+    generates the first audit report, and does <b>not </b>delete the temporary 
+    project. The second audit specifies the same source path as the first audit, 
+    but does <b>not</b> specify a classpath causing the second audit to reuse 
+    the existing temporary project generated by the first audit. To run 
+    this example:</p>
+    <ul>
+      <li>download and unzip the
+      appropriatae example 
+      file into a clean directory</li><ul><li><a href="example/headless_arbitrary_src_multi_audit_32.zip">headless_arbitrary_src_multi_audit_32.zip for Eclipse 3.2</a></li><li><a href="example/headless_arbitrary_src_multi_audit_33.zip">headless_arbitrary_src_multi_audit_33.zip for Eclipse 3.3 and above</a></li></ul></ul><ul><li>modify the <b>Local Environment Variables</b> section of the <b>
+      run_headless.bat</b> script to specify<ul>
+        <li>The JRE java.exe to be used</li>
+        <li>The Eclipse startup.jar</li>
+        <li>The location of your workspace (does not need to exist)</li>
+      </ul>
+      </li>
+      <li>modify the <b>jreDir </b>property in the <b>headless.xml </b>file to 
+      specify<ul>
+        <li>The location of the JRE directory</li>
+      </ul>
+      </li>
+      <li>execute the <b>run_headless.bat</b> script</li>
+    </ul>
+    <p>Once you get this example working, modify the <b>headless.xml </b>file to 
+    try different <a href="CodeAudit.html">codepro.audit</a> Ant task attributes so that you get a feel for the various possibilities.</p>
+    <hr>
+    <h3>Example - headless_existing_workspace</h3>
+    <p>This example demonstrates generating audit and metric results using a 
+    headless Ant script on a workspace and project that already exist. All of 
+    the java files in the project are audited using the default audit rule set 
+    of the existing workspace. To run this example:</p>
+    <ul>
+      <li>download and unzip the appropriate example<span style="text-decoration: underline;"></span> 
+      file into a clean directory</li><ul><li><a href="example/headless_existing_workspace_32.zip">headless_existing_workspace_32.zip for Eclipse 3.2</a></li></ul><ul><li><a href="example/headless_existing_workspace_33.zip">headless_existing_workspace_33.zip for Eclipse 3.3 and above</a></li></ul>
+      <li>launch Eclipse specifying the <b>existing-workspace</b> directory that 
+      is part of this example</li>
+      <li>import the <b>Test </b>project directory located in the <b>
+      existing-workspace</b> directory<ul>
+        <li>select <b>File &gt; Import...</b> </li>
+        <li>select <b>Existing Project into Workspace</b></li>
+        <li>click the <b>Browse </b>button and locate the <b>Test </b>project 
+        directory in the <b>existing-workspace</b> directory</li>
+        <li>click <b>Finish</b></li>
+      </ul>
+      </li>
+      <li>wait until Eclipse has finished building the workspace</li>
+      <li>exit Eclipse</li>
+      <li>modify the <b>Local Environment Variables</b> section of the <b>
+      run_headless.bat</b> script to specify<ul>
+        <li>The JRE java.exe to be used</li>
+        <li>The Eclipse startup.jar</li>
+        <li>The location of the <b>existing-workspace </b>directory that is part 
+        of this example</li>
+      </ul>
+      </li>
+      <li>execute the <b>run_headless.bat</b> script</li>
+    </ul>
+    <p>Once you get this example working, modify the <b>headless.xml </b>file to 
+    try different <a href="CodeAudit.html">codepro.audit</a> and <a href="ComputeMetrics.html">codepro.metrics</a> 
+    Ant task attributes so that you get a feel for the various possibilities.</p>
+    <hr>
+    <h3>Example - headless_existing_workspace_with_audit_file</h3>
+    <p>This example demonstrates generating audit and metric results using a 
+    headless Ant script on a workspace and project that already exist. In 
+    addition, the existing project contains a .audit file that specifies which 
+    files are to be included and excluded and which audit rule set should be 
+    applied. To run this example:</p>
+    <ul>
+      <li>download and unzip the appropriate example 
+      file into a clean directory</li><ul><li><a href="example/headless_existing_workspace_with_audit_file_32.zip">headless_existing_workspace_with_audit_file_32.zip for Eclipse 3.2</a></li></ul><ul><li><a href="example/headless_existing_workspace_with_audit_file_33.zip">headless_existing_workspace_with_audit_file_33.zip for Eclipse 3.3 and above</a></li></ul>
+      <li>launch Eclipse specifying the <b>existing-workspace</b> directory that 
+      is part of this example</li>
+      <li>import the <b>Test </b>project directory located in the <b>
+      existing-workspace</b> directory<ul>
+        <li>select <b>File &gt; Import...</b> </li>
+        <li>select <b>Existing Project into Workspace</b></li>
+        <li>click the <b>Browse </b>button and locate the <b>Test </b>project 
+        directory in the <b>existing-workspace</b> directory</li>
+        <li>click <b>Finish</b></li>
+      </ul>
+      </li>
+      <li>wait until Eclipse has finished building the workspace</li>
+      <li>exit Eclipse</li>
+      <li>modify the <b>Local Environment Variables</b> section of the <b>
+      run_headless.bat</b> script to specify<ul>
+        <li>The JRE java.exe to be used</li>
+        <li>The Eclipse startup.jar</li>
+        <li>The location of the <b>existing-workspace </b>directory that is part 
+        of this example</li>
+      </ul>
+      </li>
+      <li>execute the <b>run_headless.bat</b> script</li>
+    </ul>
+    <p>The audit report generated only includes violations for audit rules 
+    specified in the <b>SimpleAuditRuleSet.xml </b>file (as opposed to the 
+    default audit rule set) and violations for one file (the other was excluded 
+    by the filter specified in the .audit file). Once you get this example 
+    working, modify the <b>headless.xml </b>file to try different <a href="CodeAudit.html">codepro.audit</a> 
+    and <a href="ComputeMetrics.html">codepro.metrics</a> Ant task attributes so 
+    that you get a feel for the various possibilities.</p>
+    <hr>
+    <h3>Example - headless_existing_workspace_with_complex_audit_file</h3>
+    <p>This example demonstrates generating audit and metric results using a 
+    headless Ant script on a workspace and project that already exist. In 
+    addition, the existing project contains a .audit file that references two 
+    different audit rule sets and specifies which 
+    files are subject to which audit rule sets. To run this example:</p>
+    <ul>
+      <li>download and unzip the appropriate example 
+      file&nbsp;into a clean directory</li><ul><li><a href="example/headless_existing_workspace_with_complex_audit_file_32.zip">headless_existing_workspace_with_complex_audit_file_32.zip for Eclipse 3.2</a></li><li><a href="example/headless_existing_workspace_with_complex_audit_file_33.zip">headless_existing_workspace_with_complex_audit_file_33.zip for Eclipse 3.3 and above</a></li></ul></ul><ul><li>launch Eclipse specifying the <b>existing-workspace</b> directory that 
+      is part of this example</li>
+      <li>import the <b>Test </b>project directory located in the <b>
+      existing-workspace</b> directory<ul>
+        <li>select <b>File &gt; Import...</b> </li>
+        <li>select <b>Existing Project into Workspace</b></li>
+        <li>click the <b>Browse </b>button and locate the <b>Test </b>project 
+        directory in the <b>existing-workspace</b> directory</li>
+        <li>click <b>Finish</b></li>
+      </ul>
+      </li>
+      <li>wait until Eclipse has finished building the workspace</li>
+      <li>exit Eclipse</li>
+      <li>modify the <b>Local Environment Variables</b> section of the <b>
+      run_headless.bat</b> script to specify<ul>
+        <li>The JRE java.exe to be used</li>
+        <li>The Eclipse startup.jar</li>
+        <li>The location of the <b>existing-workspace </b>directory that is part 
+        of this example</li>
+      </ul>
+      </li>
+      <li>execute the <b>run_headless.bat</b> script</li>
+    </ul>
+    <p>The audit report generated only includes violations for audit rules 
+    specified in the <b>SimpleAuditRuleSet.xml </b>file (for one set of files) 
+    and the <b>OtherAuditRuleSet.xml </b>file (for another set of files). Once you get this example 
+    working, modify the <b>headless.xml </b>file to try different <a href="CodeAudit.html">codepro.audit</a> 
+    and <a href="ComputeMetrics.html">codepro.metrics</a> Ant task attributes so 
+    that you get a feel for the various possibilities.</p><hr>
+    <h3 dir="ltr"><a name="eclipse_21">Eclipse 2.1 / WebSphere Application Developer v5.1</a></h3>
+    <p>The "-clean" option that appears in the various run_headless.bat scripts 
+    does not apply to Eclipse 2.1 and WebSphere Application Developer v5.1 and 
+    should be removed.</p><p>For WebSphere
+Application Developer v5.1, if you encounter problems running
+headlessly and it works within the IDE environment, in your Ant script
+make sure to use the JRE within the WSAD itself located in your&nbsp;
+<span style="font-weight: bold;">[WSAD_HOME]\Application Developer\v5.1.2\_jvm\</span> directory instead of the
+JRE within the eclipse directory. If&nbsp; you have to use the eclipse
+JRE, please specify <span style="font-weight: bold;">-Xj9</span> switch to tell the VM *not* to run in Classic Mode.</p><p>If you encounter the following error:</p><p>
+BUILD FAILED<br>
+file:c:/Documents and
+Settings/username/Desktop/headless_for_Eclipse_2.0/headless.xml:9:
+Could not create task or type of type: codepro.audit.</p><p>1. Download and unzip this&nbsp;"<a href="example/clean-workspace.zip">clean-workspace.zip</a>" file (it contains an empty workspace that has the linked resources option enabled).<br>
+</p><p>2. Change the value of the "WORKSPACE" variable in the
+"run_headless.bat" file to point to the clean workspace you just
+unzipped.</p><p>3. Remove the -clean option from the "run_headless.bat" file. </p>
+    <hr>
+    <h3><a name="eclipse_2.0">Eclipse 2.0 / WebSphere Application Developer 5.0</a></h3>
+    <p>Some of the new
+    <a href="enhancements.html">CodePro Ant task types</a> build upon functionality 
+    that is not available in Eclipse 2.0.&nbsp; Specifically, the classpath 
+    attribute of the <a href="CodeAudit.html">codepro.audit</a> and
+    <a href="ComputeMetrics.html">codepro.metrics</a> ant tasks require 
+    functionality provided in Eclipse 2.1 or better, or any WebSphere Studio IDE 
+    based upon it (such as WSAD 5.1.2).</p>
+    <p>Also, the "-clean" option that appears in the various run_headless.bat 
+    scripts does not apply to Eclipse 2.0 and WebSphere Application Developer 
+    v5.0 and should be removed.</p>
+    <h3>
+    Problem with Eclipse "headless" Ant environment <br>
+&nbsp;&nbsp;&nbsp; in Eclipse 2.0 /
+    Application Developer 5.0</h3>
+    <p>The Eclipse "headless" Ant environment aggressively loads all Ant tasks 
+    and the plug-ins that define them regardless of whether or not that task is 
+    referenced in the Ant script being executed.&nbsp; This means whenever the 
+    Eclipse internal "headless" Ant runner encounters an Ant task designed to 
+    run inside the IDE but not in a "headless" environment, the Eclipse internal 
+    "headless" Ant runner will fail rather than degrading gracefully.&nbsp; This 
+    is covered fully in the Eclipse bugzilla report</p><p>&nbsp;&nbsp;&nbsp;
+    <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=29572">
+    http://bugs.eclipse.org/bugs/show_bug.cgi?id=29572</a></p><p>This Eclipse 
+    bug is fixed as part of Eclipse 2.1, but not in Eclipse 2.0.&nbsp; To 
+    workaround this problem, we have introduced a new <b>
+    cpsws-enable-headless.bat</b> script to disable all CodePro plugins except 
+    those that can be utilized in a headless Ant environment.&nbsp; Simply 
+    execute this script before executing a headless Ant script, and then execute
+    <b>cpsws-enable.bat</b> afterward to re-enable all of the CodePro plugins so 
+    that CodePro can be used normally within the Eclipse / Application Developer IDE.&nbsp; Both of 
+    these scripts are located in the &lt;CODEPRO&gt;\eclipse directory in a
+      Application Developer installation or the root directory of an Eclipse installation.</p>
+    <p><u>Example for Eclipse 2.0:</u>&nbsp;&nbsp;&nbsp;&nbsp; (Eclipse 2.0 or 2.1)<br>
+&nbsp;&nbsp;&nbsp; The <a href="example/headless_for_Eclipse_2.0.zip">
+    example/headless_for_Eclipse_2.0.zip</a> 
+    file 
+    contains a simple example of Ant script that can be run in "headless" mode 
+    on resources existing inside an Eclipse workspace. This example will work in 
+    Eclipse 2.0 and 2.1.</p>
+    <ul>
+      <li>create a new java project in your workspace with java sources placed 
+      in a folder with the name "src"</li>
+      <li>unzip the files in <a href="example/headless_for_Eclipse_2.0.zip">
+      example/headless_for_Eclipse_2.0.zip</a> file into your new project</li>
+      <li>modify the <b>Local Environment Variables</b> section of the <b>
+      run_headless.bat</b> script to specify<ul>
+        <li>The JRE java.exe to be used</li>
+        <li>The Eclipse startup.jar</li>
+        <li>The location of your workspace (does not need to exist)</li>
+      </ul>
+      </li>
+      <li>exit the Eclipse / Application Developer IDE</li>
+      <li>if you are using Application Developer 5.0 or Eclpse 2.0, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then execute the <b>
+    cpsws-enable-headless.bat</b> script</li>
+      <li>execute the <b>run_headless.bat</b> script</li>
+      <li>check the <b>headless_out.txt</b> file 
+      generated by the <b>run_headless.bat</b> script <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to see if the script executed 
+      correctly</li>
+      <li>if you are using Application Developer 5.0 or Eclpse 2.0, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then execute the <b>
+    cpsws-enable.bat</b> script to re-enable CodePro</li>
+    </ul>
+    <p>&nbsp;</p></td>
+  </tr>
+</tbody></table>
+
+
+
+
+</body></html>

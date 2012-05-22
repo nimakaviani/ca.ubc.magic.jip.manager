@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - XML Files</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - XML Files</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for problems in XML files.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.validateXML">Validate XML</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.validateXML">Validate XML</a></h4><p>
+<b>Summary</b><br/>All XML data entering the program should be validated by a parser against a DTD or XML Schema. <p><b>Description</b><br/>Validating incoming data against a predefined model leaves less space for errors that could be exploited by an attacker. All XML data entering the program should be validated either against a DTD (using factory's <code>setValidating(true)</code> method), or against an XML Scheme (using factory's <code>setSchema(Schema schema)</code> method), or using Java 5 <code>javax.xml.validation</code> facilities.<p><b>Security Implications</b><br/>Exploits in the data model can be used by an attacker to perform an injection attack.<p><b>Example</b><br/>The following code does not use any of validation techniques before accessing and using DOM data and would thus be marked as violation:<p>&nbsp;&nbsp;&nbsp;&nbsp;<code>DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(url).getDocumentElement();</code></body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Audit</title>
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tbody><tr>
+    <td><h1>
+    <b><font color="#cc0000" face="Verdana">Code Audit</font></b></h1>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+        <td valign="top"><img src="../../images/audit_menu.gif" align="top"></td>
+        <td valign="top" width="8">&nbsp;&nbsp;&nbsp; </td>
+        <td valign="top">
+		<ul>
+			<li><b><font face="Arial"><a href="#Manual">Manually Auditing Code</a></font></b></li>
+			<li><b><font face="Arial"><a href="#Dynamic">Dynamically Auditing 
+			Code</a></font></b></li>
+			<li><a href="#AuditView"><b><font face="Arial">T</font></b></a><b><font face="Arial"><a href="#AuditView">he 
+			Audit View</a></font></b></li>
+			<li><b><font face="Arial"><a href="#AuditViewContextMenu">The Audit 
+			View Context Menu</a></font></b></li>
+			<li><b><font face="Arial"><a href="#Reports">Generating Reports</a></font></b></li>
+			<li><b><font face="Arial"><a href="audit_report.html">Sample Report</a></font></b></li>
+			<li><b><font face="Arial"><a href="#Export">Exporting Result Data</a></font></b></li>
+			<li><b><font face="Arial"><a href="#FixViolation">Quick Fix</a></font></b></li>
+			<li><b><font face="Arial"><a href="#history">Switching Between 
+			Result Sets</a></font></b></li>
+			<li><b><font face="Arial"><a href="audit_explorer.html">Tracking 
+			Historical Results</a></font></b></li>
+			<li><b><font face="Arial"><a href="audit_series_editor.html">
+			Graphing Historical Results</a></font></b></li>
+			<li><b><font face="Arial"><a href="audit_series_report.html">Sample 
+			Management Report</a></font></b></li>
+		</ul>
+        </td>
+        <td valign="top">
+		<ul>
+			<li><b><font face="Arial"><a href="audit_details.html">Audit Rules &amp; 
+			Categories</a></font></b></li>
+			<li><b><font face="Arial">
+			<a href="../../preferences/preferences_audit.html#AuditRuleSet">
+			Configuring Audit Rules</a></font></b></li>
+			<li><b><font face="Arial">
+			<a href="../../preferences/preferences_audit.html#FindRule">Finding 
+			Audit Rules</a></font></b></li>
+			<li><b><font face="Arial">
+			<a href="../../preferences/preferences_audit.html#Manage">Creating New 
+			Audit Rule Sets</a></font></b></li>
+			<li><b><font face="Arial">
+			<a href="../../preferences/preferences_audit.html#Export">Sharing 
+			Audit Rule Sets</a></font></b></li>
+			<li><b><font face="Arial">
+			<a href="audit_predefined_audit_rule_sets.html">Predefined Audit 
+			Rule Sets</a></font></b></li>
+			<li><b><font face="Arial"><a href="audit_adding_new_rules.html">
+			Creating New Audit Rules</a></font></b></li>
+			<li><b><font face="Arial"><a href="audit_rule_wizard.html">Audit 
+			Rule Creation Wizard</a></font></b></li>
+			<li><a href="locally_disabling_audit_rules.html"><b>
+			<font face="Arial">Locally Disabling Rules</font></b></a></li>
+			<li><a href="audit_project_defaults.html"><b><font face="Arial">
+			Project Level Defaults</font></b></a></li>
+			<li><b><font face="Arial">
+			<a href="../../preferences/preferences_audit.html#Annotations">
+			Configuring Editor Annotations</a></font></b></li>
+			<li><b><font face="Arial">
+			<a href="../../preferences/preferences_audit.html">Code Audit 
+			Preferences</a></font></b></li>
+			<li><b><font face="Arial"><a href="audit_rad_integration.html">
+			Rational Integration</a></font></b></li>
+		</ul>
+        </td>
+      </tr>
+    </tbody></table>
+        <h3><a name="Manual"></a>Running a Manual Code Audit</h3>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">Each
+        time the menu item <img src="../../images/audit_icon.gif" height="16" width="16">
+        "Audit Code" is selected, the enabled <a href="audit_details.html">audit rules</a> 
+        in the <a href="../../preferences/preferences_audit.html#AuditRuleSet">
+        default audit rule set</a>
+        will be run. This produces a <b> audit violation result set</b>, which is then displayed in the 
+		<b>Audit </b>view. A violation result set is the result of running a
+          specific audit rule set on a collection of resources. The <b>Audit</b> 
+		view can
+          manage multiple violation result sets simultaneously, but only one can
+          be active and visible at one time.<p> Other 
+        <a href="../../preferences/preferences_audit.html#AuditRuleSet">audit rule 
+        sets</a>, such as the pre-defined "<a href="ElementsOfJavaStyle.html">The Elements of Java
+          Style</a>" and "<a href="EffectiveJava.html">Effective
+          Java</a>", may be run using the <img src="../../images/audit_icon.gif" height="16" width="16">
+          "Audit Code Using..." command.&nbsp;<br>
+&nbsp;</p>
+	<h3> <a name="Dynamic"></a>Dynamically Auditing Code</h3></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>An option is also provided to 
+        <a href="../../preferences/preferences_audit.html#DynamicAudit">dynamically audit code</a> in specific
+        packages (specified by inclusion and exclusion patterns). When dynamic
+        auditing is turned on for a package, opening a class in that package will result in it
+        being automatically scanned for audit violations and the results added
+        to the Audit view (to the "Violations in Open Files" audit
+        violation set). Note that if the dynamic audit violation set is not
+        active, you would not see any dynamic audit results.<p> The dynamic code audit
+        facility is invaluable to catching problems as the developer is writing
+        code, rather than after the code is written. A single naming violation,
+        for example, might be propagated through dozens of source files before a
+        nightly build/audit would flag the problem. Dynamic audit flags the
+        problem as it occurs as close to the actual event as possible. The cost
+        to fix many coding problems is often in direct proportion to the time
+        between when the problem was created and when it was caught. Dynamic
+        code audit is the equivalent of having a personal code reviewer sitting
+        on your shoulder all day silently making suggestions as necessary.</p>
+      		</td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+      <p>Audit rules can be <a href="locally_disabling_audit_rules.html">
+        locally disabled</a> for one or more lines in a file. You may also
+      establish <a href="audit_project_defaults.html">project defaults</a> that
+      determine which files are included and excluded from the audit process and
+      which
+        <a href="../../preferences/preferences_audit.html#AuditRuleSet">audit rule 
+        sets</a> are used for different packages or files.</p>
+        <p>Options are provided via a <a href="../../preferences/preferences_audit.html">preference
+        page</a> to create new
+        <a href="../../preferences/preferences_audit.html#AuditRuleSet">audit rule 
+        sets</a>, to enable or disable individual audit rules, and to enable or disable 
+        <a href="../../preferences/preferences_audit.html#DynamicAudit">dynamic
+        auditing</a>.</p>
+        <h3><a name="AuditView"></a>Audit View</h3>
+        <p><img src="../../images/audit_view.gif"></p>
+        <p>The <b>Audit </b>view (shown in the picture above) contains a list of the <a href="audit_details.html">audit rule</a> violations that resulted from running those <a href="audit_details.html">audit rules</a> against the target elements. The name of each
+        audit rule with a violation is shown at the root of the tree. Expanding any audit rule
+        will show the list of individual violations (with their locations). Selected violations can be removed from the
+        set and copied to the clipboard.</p>
+        <p>Each audit violation is shown with an icon indicating its severity level:</p>
+        <blockquote>
+          <p><img src="../../images/high_severity.gif" height="16" width="16"> High severity<br>
+          <img src="../../images/medium_severity.gif" height="16" width="16"> Medium severity<br>
+          <img src="../../images/low_severity.gif" height="16" width="16"> Low severity</p>
+        </blockquote>
+    <p><a name="Sort"></a>The audit tree can also be configured to show the audit violations
+    grouped by <img src="../../images/group_by_rule.gif" border="0" height="16" width="16">
+    audit rule, <img src="../../images/group_by_rule_group.gif" border="0" height="16" width="16">
+    category, <img src="../../images/group_by_severity.gif" border="0" height="16" width="16">
+    severity, <img src="../../images/group_by_resource.gif" border="0" height="16" width="16">
+    resource or 
+	<img src="../../images/group_by_author.gif" border="0" height="16" width="16">
+    author.</p>
+    
+    <p>Double clicking on any violation will open up the corresponding compilation unit and
+    position it at the specific violation.&nbsp; 
+	<a href="../../preferences/preferences_audit.html#Annotations">Annotations</a> 
+	for each violation are shown in the Java Editor.</p>
+	<p>Audit rules can be
+    <a href="locally_disabling_audit_rules.html">locally disabled</a> for one or 
+    more lines in a file.</p>
+    <p><img src="../../images/audit_tags.gif" height="279" width="570"></p>
+    <h3><a name="AuditViewContextMenu"></a>Audit View Context Menu</h3>
+	<p>Right-clicking on any violation, rule or resource with show the following menu:</p>
+    <p><img src="../../images/audit_view_menu.gif" align="top" border="0"></p>
+    <p>The "<b>Go to File</b>" command will open up the corresponding compilation unit and
+    position it at the specific violation.&nbsp;</p>
+    <p> The "<a name="Clipboard"><b>Copy to Clipboard</b></a>" item will allow you to capture the currently
+    selected violations on the clipboard so that they can be pasted into e-mail messages, text documents,
+    HTML documents, XML documents or even a spreadsheet application.</p>
+    <p><img src="../../images/export_report_menu.gif" align="top" border="0"></p>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">The "<a name="Reports"><b>Generate Report</b></a>" item will allow you to save the currently visible 
+	results to an HTML report. The results may be grouped by audit rule, 
+	category (audit rule group), severity, resource or author.<p>
+	<img src="../../images/audit_menu_generate_report.gif" align="top" border="0" height="91" width="152"></p>
+    		</td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+    <p> A sample <a name="HTML" href="audit_report.html"> HTML report </a> is shown
+    below. The audit violations will be listed grouped by <img src="../../images/group_by_rule.gif" border="0" height="16" width="16">
+    audit rule, <img src="../../images/group_by_rule_group.gif" border="0" height="16" width="16">
+    category, <img src="../../images/group_by_severity.gif" border="0" height="16" width="16">
+    severity or <img src="../../images/group_by_resource.gif" border="0" height="16" width="16">
+    resource depending on the choice made in the audit view. Clicking on the links in the <span style="font-weight: bold;">Details</span> column of the report will jump to the violations and show them in context in teh actual source.</p>
+	<div align="left">
+		<table id="table1" border="2" cellpadding="0" cellspacing="0" height="600" width="1125">
+			<tbody><tr>
+				<td>
+				<iframe name="I1" src="audit_report.html" marginwidth="1" marginheight="1" border="0" frameborder="0" height="100%" scrolling="yes" width="100%">
+	&lt;img&gt;
+	</iframe></td>
+			</tr>
+		</tbody></table>
+	</div>
+    <p>The "<a name="Email"><b>E-mail Report</b></a>" item will allow you to e-mail the currently visible 
+	results as an HTML report. The results may be grouped by audit rule, 
+	category (audit rule group), severity, resource or author.</p>
+    <p>
+	<img src="../../images/audit_menu_generate_report.gif" align="top" border="0" height="91" width="152"></p>
+    <p>&nbsp;The "<b><a name="Export">Export</a>
+    Violations</b>" item allows you to save the currently visible results
+    directly to a text file in simple text, tab separated, comma separated (full
+    report or summary), HTML
+    or XML format (holding down the Ctrl key will save only the violations that
+    you have selected).</p>
+    <p><img src="../../images/export_report_menu.gif" align="top" border="0"></p>
+    <p>A sample <a name="XML">XML</a> report is shown below.</p>
+    <p><img src="../../images/audit_report_xml.gif" border="0" height="478" width="674"></p>
+    <p>The
+    "<b><a name="Explain">Explain</a></b>" command will show an explanation of what caused the
+    selected audit violation or a description of the selected audit rule. If
+    their are any recommendations for fixing the problem, they will be shown as
+    well.</p>
+    <p><img src="../../images/audit_explain.gif" border="0" height="188" width="436"></p>
+    <p><img src="../../images/audit_explain2.gif" border="0" height="214" width="436"></p>
+      <p>The "<b><a name="FixViolation">Fix Violation</a></b>" command will
+      list any specific resolutions supplied by the audit facility. Clicking on
+      a fix will cause it to be applied the selected violations. In some cases,
+      ignoring the violation is the correct course of action, so several options
+      for <a href="locally_disabling_audit_rules.html">
+        locally disabling</a> the rule are also supplied. Note that some
+      resolutions may be applied to multiple violations at one time while other
+      may only be applied to a single violation at a time.</p>
+    <p><img src="../../images/fix_violation_menu.gif" align="top" border="0" height="100" width="167"></p>
+    <p>The "<b>Disable Rule</b>" command will disable the selected audit
+    rules in the current audit set.&nbsp; Alternately, audit rules can be
+    <a href="locally_disabling_audit_rules.html">locally disabled</a> for one or 
+    more lines in a file.&nbsp; The "<a name="ConfigureRule">Configure Rule</a>" command will
+    open up a dialog allowing you to configure the selected audit rule.</p>
+    <p><img src="../../images/audit_configure_rule.gif" border="0" height="233" width="279">&nbsp;</p>
+    <p>The "<b><a name="CreateTask">Create Task</a></b>" command will create
+    tasks out of any selected audit violations.</p>
+    <p><img src="../../images/audit_tasks.gif" border="0" height="163" width="672"></p>
+    <p>The "<b>Remove Violations</b>" command will remove the selected audit
+    violations from the currently visible
+    set of results.</p>
+      <h3><img src="../../images/refresh.gif" valign="bottom" height="16" width="16"> <a name="refresh">Refresh Button</a></h3>
+    <p>Clicking on the <b>Refresh</b> button will cause the current set of results to
+    be refreshed in case any of the violations may have changed or been fixed or
+    any new violations created.</p>
+      <h3><img src="../../images/filter_hover.gif" valign="bottom" height="16" width="16">  Filter Button</h3>
+      <p>Clicking on the <b>Filter</b> button will open a dialog where you can select
+      which violation severities should be visible in the audit view.</p>
+      <p><img src="../../images/audit_view_filter.gif" border="0" height="200" width="300"></p>
+    <a name="removeItem"></a><h3><a name="removeItem"><img src="../../images/remove_item.gif" valign="bottom" height="16" width="16"> Remove Current Violation Set Button</a> </h3>
+    <p>Clicking on the <b> Remove Current Violation Set</b> button will cause the currently visible
+    set of results to be discarded. This operation cannot be undone. If the
+    current violation set is still in process, this button will stop the process
+    and discard any violations that have been found. </p>
+    <a name="removeAll"></a><h3><a name="removeAll"><img src="../../images/remove_all.gif" valign="bottom" height="16" width="16"> Remove All Violation Sets Button</a> </h3>
+    <p>Clicking on the <b> Remove All Violation Sets</b> button will cause all of the sets of results
+    to be discarded. This operation cannot be undone. If any of the current
+    violation sets are still in process, this button will stop them and discard
+    any violations that have been found.</p>
+    <a name="history"></a><h3><a name="history"><img src="../../images/history_hover.gif" valign="bottom" height="16" width="16"> Previous Violation Set Button</a> </h3>
+    <p>
+	<img src="../../images/audit_view_prev_result_set_menu.gif" border="0"></p>
+	<p>Clicking on the arrow beside the <b> Previous Violation Set </b> button will cause a
+    menu containing the most recently run audit violation results to be displayed. If there are
+    additional sets of audit results available but not included on the menu, a menu item
+    labeled "Other" will also be on the menu. Selecting one of the result sets from
+    the list will make the audit view show the content of the selected result set. </p>
+<p>Either clicking on the history icon for the <b> Previous Violation Set</b> button, or
+    selecting "Other" from the drop-down menu, will cause a dialog to open in which
+    you can select the result set that you would like to view. This dialog contains a complete
+    list of all available result sets. </p>
+    <p>When dynamic auditing is in effect, a special "Violations in Open Files"
+    audit set will be included in the list. If the "Violations in Open
+    Files" violation set is not active, you would not see any dynamic audit
+    results.</p>
+    <p>Result sets are not persisted beyond a single execution of the workbench.</p><p>
+	The "Export" option can be used to export the currently selected result set 
+	to an XML file that can be loaded in later.</p><p>The "Import" option can be 
+	used to import a result set from an XML file.</p><p>The "Hide Violations" option 
+	hides the current result set so that no flags are shown in the editors.</p><h3><img src="../../images/audit_view_detail_icon.gif" border="0" height="16" width="16">
+    <a name="ShowExplanation">Show Explanation Pane Menu Item</a></h3>
+<p>Selecting the <b>Show Explanation Pane</b> menu item toggles the explanation pane
+on and off. When the explanation pane is visible, clicking on an audit rule or
+violation shows a detailed description of that item.</p>
+    <p><img src="../../images/audit_view_detail.gif" border="0"></p>
+   <h3>Adding New Audit Rules</h3>
+<p>The Code Audit facility defines an Eclipse extension point for <a href="audit_adding_new_rules.html">
+adding new audit rules</a>. See:</p>
+<blockquote>
+  <p><b>&lt;CODEPRO&gt;\eclipse\plugins\com.instantiations.assist.eclipse.analysis_X.X.X\plugin.xml</b></p>
+</blockquote>
+<p>All of CodePro's audit rules are defined using this extension point.</p>
+ </td>
+  </tr>
+</tbody></table>
+
+</body></html>

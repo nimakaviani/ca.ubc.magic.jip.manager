@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<title>Export Set</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Export Set
+            </b></font></h1>
+    <p><img src="../../images/export_wizard.gif" width="470" height="550"></p>
+    <p>CodePro facilitates naming and saving File system, JAR file and Zip file export
+    configurations (&quot;Export Sets&quot;) to be executed repeatedly.&nbsp; Multiple export
+    sets can be grouped together as a Batch Export Set and executed as a single unit. Export
+    sets are <a href="export_set_and_ANT.html">saved in XML format</a> as standard ANT
+    scripts. Export Sets may also be scheduled to execute at various times and in response to
+    certain events by creating an <a href="../scheduler/scheduler_export_set.html">Export Set
+    task</a> with the <a href="../scheduler/scheduler.html">scheduler</a>.</p>
+    <h3><a name="Selecting"></a>Creating, editing and running Export Sets</h3>
+    <p>To create a new Export Set, edit or run an existing one, open the Export Wizard, select
+    &quot;Export Set&quot; and click &quot;Next&quot;. The first page of the Export Set wizard
+    provides options for creating a new Export Set or accessing existing ones.</p>
+    <p><img src="../../images/export_set.gif" width="470" height="550"></p>
+    <h3>Running an Export Set</h3>
+    <p>To run an existing Export Set, select it in the list and click &quot;Finish&quot;. If
+    the Export Set is not listed, click the &quot;Browse&quot; button to select it in the
+    project hierarchy or the &quot;Scan&quot; button to perform an exhaustive search of the
+    loaded projects to find and Export Set files. You can also run an Export Set at any time
+    by right-clicking on it in the workbench window and selecting the <a
+    href="export_set_and_ANT.html">&quot;Run Ant...&quot;</a> command.</p>
+    <h3><a name="Editing"></a>Creating or editing an Export Set</h3>
+    <p>Export sets are saved as part of a project. To create a new Export Set, select the
+    project in which to save the Export Set, give it a file name and click &quot;Next&quot;.
+    To edit an existing Export Set, select it in the list and click the &quot;Next&quot;
+    button. The next page of the Export Set wizard shows the various export operations that
+    make up the export set as well as the description of the export set. </p>
+    <p><img src="../../images/export_set_create.gif" width="470" height="550"></p>
+    <p>Export operations may be added to the end of the list, inserted before an existing
+    operation, edited or removed. The execution order of the export operations may also be
+    changed using the &quot;Top&quot;, &quot;Up&quot;, &quot;Down&quot; and &quot;Bottom&quot;
+    buttons. At the bottom of the page, the &quot;Execute on Finish&quot; checkbox controls
+    whether the export set is executed when the &quot;Finish&quot; button is clicked or simply
+    saved.</p>
+    <h3><a name="Adding"></a>Adding or inserting and export operation</h3>
+    <p>Clicking the &quot;Add&quot; or &quot;Insert&quot; button will open the &quot;Add
+    Export Operation&quot; wizard.</p>
+    <p><img src="../../images/export_set_add.gif" width="470" height="550"></p>
+    <p>Supported export operations include:<ul>
+      <li><img src="../../images/exportnested_wiz.gif" width="16" height="16"> <a
+        href="export_set_nested.html">(Nested) Export Set</a></li>
+      <li><img src="../../images/exportdir_wiz.gif" width="16" height="16"> <a
+        href="export_set_file.html">File
+        system</a></li>
+      <li><img src="../../images/exportjar_wiz.gif" width="16" height="16"> <a
+        href="export_set_jar.html">JAR
+        file</a></li>
+      <li><img src="../../images/exportzip_wiz.gif" width="16" height="16"> <a
+        href="export_set_zip.html">Zip
+        file</a></li>
+    </ul>
+      <p>Supported WebSphere Studio Application Developer 5.x export operations include:<ul>
+      <li><img src="../../images/export_op_appclient_jarfile.gif" width="16" height="16"> <a
+        href="export_set_app_client_jar.html">App Client JAR File</a></li>
+      <li><img src="../../images/export_op_earfile.gif" width="16" height="16"
+        alt="export_op_earfile.gif (182 bytes)"> <a href="export_set_ear.html">EAR File</a></li>
+      <li><img src="../../images/export_op_ejb_jarfile.gif" width="16" height="16"
+        alt="export_op_ejb_jarfile.gif (236 bytes)"> <a href="export_set_ejb.html">EJB JAR File</a></li>
+      <li><img src="../../images/export_op_ftp.gif" width="16" height="16"
+        alt="export_op_ftp.gif (137 bytes)"> <a href="export_set_ftp.html">FTP</a></li>
+      <li>
+      <img src="../../images/export_op_rarfile.gif" width="16" height="16"
+        alt="export_op_rarfile.gif (137 bytes)"> <a href="export_set_rar.html">
+      RAR File</a></li>
+      <li><img src="../../images/export_op_warfile.gif" width="16" height="16"
+        alt="export_op_warfile.gif (360 bytes)"> <a href="export_set_war.html">WAR File</a></li>
+    </ul>
+      <p>Additional CodePro AnalytiX export operations include:</p>
+      <ul>
+      <li><font face="Arial"> <img src="../../images/audit_icon.gif" width="16" height="16"> </font>
+        <a href="export_set_audit_code.html">Audit Code</a></li>
+      <li><font face="Arial"><img src="../../images/metrics_icon.gif" width="16" height="16"> </font>
+        <a href="export_set_compute_metrics.html">Compute Metrics</a></li>
+    </ul>
+    <p>Select any of the export operation types and click the &quot;Next&quot; button. The
+    following wizard pages should be identical to those one would find in the standard export
+    wizard if one were starting any of the standard export operations manually. The only
+    difference is that the &quot;Finish&quot; button that would be present in the standard
+    export wizard has been replaced by a &quot;Save&quot; button indicating that the export
+    operation is to be saved to the export set rather than immediately executed. You can also
+    add <a href="export_set_and_ANT.html">any standard ANT operation</a> by manually editing
+    the Export Set file.</p>
+    <h3><a name="Params"></a>Defining parameters and properties</h3>
+    <p>The last page of the wizard is used to define export set parameters and properties.</p>
+    <p><img src="../../images/export_set_parameters.gif" width="470" height="550"></p>
+    <h3>Parameters</h3>
+    <p>The top half of the page is used to define parameters that are passed into this export
+    set when it is nested inside another export set.&nbsp; Each parameter may either have a
+    default value or be &quot;required&quot;.&nbsp; During execution, the value for a
+    parameter is determined as follows:<ol>
+      <li>If the outer export set defines a value for the parameter, then that value is used by
+        the inner export set</li>
+      <li>If the outer export set does not define a value and the inner export set defines a
+        default value, then the default value is used by the inner export set</li>
+      <li>If the outer export set does not define a value and the inner export set specifies that
+        the parameter is &quot;required&quot;, then a BuildException is thrown indicating that a
+        required parameter is not defined</li>
+    </ol>
+    <h3>Properties</h3>
+    <p>The bottom half of the page is used to define properties that are defined and used
+    entirely within this export set.&nbsp; Each defined property must have a value, and in the
+    scope of this export set, overrides any identically named property that is defined outside
+    this export set.</p>
+    <p>Clicking the &quot;Add&quot; button in either the parameters or properties list will
+    open the Add dialog.&nbsp; Clicking Edit will open a similar dialog for modifying the
+    value of an existing parameter or property.&nbsp; Selecting one or more parameters or
+    properties and clicking remove will delete those parameters or properties from the
+    respective list.</p>
+    <p><img src="../../images/export_set_add_paramater.gif" width="213" height="183"
+    alt="export_set_add_paramater.gif (5348 bytes)">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="../../images/export_set_add_property.gif" width="213" height="160"
+    alt="export_set_add_property.gif (5185 bytes)" align="top"></p>
+    <h3>Saving and Executing an Export Set</h3>
+    <p>Once all of the export operations have been added or edited, clicking the
+    &quot;Finish&quot; button on the Export Set wizard will cause the export set to be saved
+    in XML format to the filename specified earlier. If the &quot;Execute on Finish&quot;
+    checkbox is checked, then the export set will be executed after it is saved.</td>
+  </tr>
+</table>
+</body>
+</html>

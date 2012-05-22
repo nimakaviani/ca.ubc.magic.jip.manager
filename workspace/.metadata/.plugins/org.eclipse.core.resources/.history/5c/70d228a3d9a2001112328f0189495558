@@ -1,0 +1,23 @@
+package actions;
+
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Shell;
+
+public class 
+FinishAction 
+extends Action 
+{
+	Shell shell;
+	
+	public
+	FinishAction()
+	{
+		this.shell = new Shell();
+	}
+	@Override
+	public void run()
+	{
+		MessageDialog.openInformation( this.shell, "First plug-in", "Finish!" );
+	}
+}

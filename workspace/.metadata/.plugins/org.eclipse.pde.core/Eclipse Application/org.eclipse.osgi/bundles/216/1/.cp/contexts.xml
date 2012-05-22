@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contexts>
+
+<!-- ****************************** Actions ******************************** -->
+
+	<context  id="vce_bridge_action_context" >
+		<description>This command opens the VA Java VCE on the selected Java class.</description>
+		<topic label="VCE Bridge" href="doc/features/vce_bridge.html"/>
+		<topic label="Preferences - CodePro - VA Assist" href="doc/preferences/preferences_vaassist.html"/>
+	</context>
+ 
+	<context  id="bean_info_bridge_action_context" >
+		<description>This command opens the VA Java BeanInfo Editor on the selected Java class.</description>
+		<topic label="BeanInfo Bridge" href="doc/features/beaninfo_bridge.html"/>
+		<topic label="Preferences - CodePro - VA Assist" href="doc/preferences/preferences_vaassist.html"/>
+	</context>
+  
+	<context  id="create_metrics_action_context" >
+		<description>This command computes the enabled metrics for the selected program elements.</description>
+		<topic label="Metrics" href="doc/features/metrics/metrics.html"/>
+		<topic label="Preferences - CodePro - Metrics" href="doc/preferences/preferences_metrics.html"/>
+	</context>
+  
+	<context  id="metrics_view_remove_item_action" >
+		<description>This command removes the currently visible metric result set.</description>
+		<topic label="Remove Current Metric" href="doc/features/metrics/metrics.html#removeItem"/>
+	</context>
+  
+	<context  id="metrics_view_remove_all_action" >
+		<description>This command removes all of the metric result sets.</description>
+		<topic label="Remove All Results" href="doc/features/metrics/metrics.html#removeAll"/>
+	</context>
+  
+	<context  id="metrics_view_history_action" >
+		<description>This command changes which metric result set is being viewed.</description>
+		<topic label="Previous Metric Results" href="doc/features/metrics/metrics.html#history"/>
+	</context>
+
+	<context  id="memory_monitor_action_context" >
+		<description>This command opens the Memory Monitor view.</description>
+		<topic label="Memory Monitor" href="doc/features/memory_monitor.html"/>
+	</context>
+	
+
+	<context  id="resource_filter_action_context" >
+		<description>This filter causes the task list to only show the tasks associated with a specific resource and its children.</description>
+		<topic label="Resource Quick Filter" href="doc/features/task/quick_filters.html#ResourceQuickFilter"/>
+		<topic label="Task Quick Filters" href="doc/features/task/quick_filters.html"/>
+	</context>
+ 
+	<context  id="java_filter_action_context" >
+		<description>This filter causes the task list to only show Java-related problems.</description>
+		<topic label="Java Quick Filter" href="doc/features/task/quick_filters.html#JavaQuickFilter"/>
+		<topic label="Task Quick Filters" href="doc/features/task/quick_filters.html"/>
+	</context>
+ 
+	<context  id="severity_filter_action_context" >
+		<description>This filter causes the task list to only show errors and hide warnings and info messages.</description>
+		<topic label="Severity Quick Filter" href="doc/features/task/quick_filters.html#SeverityQuickFilter"/>
+		<topic label="Task Quick Filters" href="doc/features/task/quick_filters.html"/>
+	</context>
+ 
+<!-- ****************************** Dialogs ******************************** -->
+
+	<context  id="add_parameter_dialog_context" >
+		<description>This dialog helps you add a parameter to a method.</description>
+		<topic label="Add Parameter Dialog" href="doc/features/wizards/add_parameter.html"/>
+	</context>
+
+	<context  id="add_exception_dialog_context" >
+		<description>This dialog helps you add an exception to a method.</description>
+		<topic label="Add Exception" href="doc/features/wizards/add_exception.html"/>
+	</context>
+	
+<!-- ****************************** Editors ******************************** -->
+
+	<context id="team_task_editor">
+		<description>This editor allows you to edit a team task.</description>
+		<topic label="Team Task Editor" href="doc/features/collaboration/team_task_editor.html"/>
+		<topic label="Team Task View" href="doc/features/collaboration/team_task_view.html"/>
+	</context>
+
+<!-- ************************** Preference Pages *************************** -->
+
+	<context  id="main_preference_page_context" >
+		<description>On this page, you can view the product version number and build date.</description>
+		<topic label="Preferences - CodePro" href="doc/preferences/preferences.html"/>
+	</context>
+
+	<context  id="acknowledgements_preference_page_context" >
+		<description>On this page, you can see the names of all of the people involved in building CodePro.</description>
+		<topic label="Preferences - CodePro - Acknowledgements" href="doc/preferences/preferences_acknowledgements.html"/>
+	</context>
+
+	<context  id="audit_preference_page_context" >
+		<description>On this page, you can you can specify which audit tests are to be run.</description>
+		<topic label="Preferences - CodePro - Audit" href="doc/preferences/preferences_audit.html"/>
+		<topic label="Audit View" href="doc/features/audit/audit.html"/>
+		<topic label="Audit Rules" href="doc/features/audit/audit_details.html"/>
+	</context>
+
+	<context id="code_coverage_preference_page_context">
+		<description>This page allows you to control the code coverage engine.</description>
+		<topic label="Preferences - CodePro - Code Coverage" href="doc/preferences/preferences_code_coverage.html"/>
+		<topic label="Code Coverage View" href="doc/features/codecoverage/code_coverage_view.html"/>
+		<topic label="Code Coverage" href="doc/features/codecoverage/code_coverage.html"/>
+	</context>
+
+	<context id="code_coverage_data_locations_preference_page_context">
+		<description>This page allows you to control where the code coverage engine looks for coverage files.</description>
+		<topic label="Preferences - CodePro - Code Coverage" href="doc/preferences/preferences_code_coverage.html"/>
+		<topic label="Code Coverage View" href="doc/features/codecoverage/code_coverage_view.html"/>
+		<topic label="Code Coverage" href="doc/features/codecoverage/code_coverage.html"/>
+	</context>
+	
+	<context id="collaboration_preference_page_context">
+		<description>This page allows you to control the connection between the workbench and the server.</description>
+		<topic label="Preferences - CodePro - Collaboration" href="doc/preferences/preferences_collaboration.html"/>
+	</context>
+
+	<context id="collaboration_broadcast_preference_page_context">
+		<description>This page allows you to control whether information about events in your workbench are broadcast to other users.</description>
+		<topic label="Preferences - CodePro - Collaboration" href="doc/preferences/preferences_collaboration.html"/>
+	</context>
+
+	<context id="collaboration_messages_preference_page_context">
+		<description>This page allows you to control how messages are handled.</description>
+		<topic label="Preferences - CodePro - Collaboration" href="doc/preferences/preferences_collaboration.html"/>
+	</context>
+
+	<context id="collaboration_team_task_preference_page_context">
+		<description>This page allows you to control how team tasks are displayed and edited.</description>
+		<topic label="Preferences - CodePro - Collaboration" href="doc/preferences/preferences_collaboration.html"/>
+	</context>
+
+	<context  id="debug_log_preference_page_context" >
+		<description>On this page, you can view either the CodePro log or the Eclipse log.</description>
+		<topic label="Preferences - CodePro - Debug Log" href="doc/preferences/preferences_debug_log.html"/>
+	</context>
+
+	<context  id="dependency_preference_page_context" >
+		<description>On this page, you can you can specify the colors used in the dependency view.</description>
+		<topic label="Preferences - CodePro - Dependencies" href="doc/preferences/preferences_dependencies.html"/>
+		<topic label="Dependencies View" href="doc/features/dependencies/dependencies.html"/>
+	</context>
+
+
+	<context  id="formatting_preference_page_context" >
+		<description>On this page, you can configure various formatting options.</description>
+		<topic label="Preferences - CodePro - Formatting" href="doc/preferences/preferences_formatting.html"/>
+	</context>
+
+	<context  id="history_preference_page_context" >
+		<description>On this page, you can configure various history and modified element tracking options.</description>
+		<topic label="Preferences - CodePro - History" href="doc/preferences/preferences_history.html"/>
+		<topic label="Modified Members View" href="doc/features/modified_members.html"/>
+		<topic label="Modified Types View" href="doc/features/modified_types.html"/>
+		<topic label="Java History View" href="doc/features/java_history.html"/>
+	</context>
+
+	<context  id="javadoc_preference_page_context" >
+		<description>On this page, you can you can specify formatting and visibility options for the Javadoc Repair tool.</description>
+		<topic label="Preferences - CodePro - Javadoc" href="doc/preferences/preferences_javadoc.html"/>
+		<topic label="Javadoc Repair" href="doc/features/javadoc.html"/>
+	</context>
+
+	<context id="junit_preference_page_context">
+		<description>This page allows you to control the functionality of the test code generator.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_auto_update_preference_page_context">
+		<description>This page allows you to control whether test cases are automatically updated after editing the target class.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_design_by_contract_preference_page_context">
+		<description>This page allows you to control the handling of Design by Contract tags.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_factory_classes_preference_page_context">
+		<description>This page allows you to control the usage of factory classes.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_test_suites_preference_page_context">
+		<description>This page allows you to control the generation of test suites that can be used to run your test cases.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_mock_objects_preference_page_context">
+		<description>This page allows you to control the generation of mock objects.</description>
+		<topic label="Mock Object Support" href="doc/features/junit/mock_objects.html"/>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_execution_preference_page_context">
+		<description>This page allows you to control the execution of code under test when generating JUnit tests.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_location_preference_page_context">
+		<description>This page allows you to control the location of where tests are generated.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_targets_preference_page_context">
+		<description>This page allows you to choose for which types and members tests will be generated.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_methods_preference_page_context">
+		<description>This page allows you to control which methods are generated and to control the characteristics of generated tests.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_fixtures_preference_page_context">
+		<description>This page allows you to control how test fixtures are generated.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context id="junit_comments_preference_page_context">
+		<description>This page allows you to control what comments are generated for test cases and tests.</description>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+	
+	<context id="junit_spring_preference_page_context">
+		<description>This page allows you to enable generation of Spring unit tests.</description>
+		<topic label="Spring Support" href="doc/features/junit/spring_support.html"/>
+		<topic label="Preferences - CodePro - JUnit" href="doc/preferences/preferences_junit.html"/>
+		<topic label="Test Case Generation" href="doc/features/junit/test_case_generation.html"/>
+	</context>
+
+	<context  id="memory_monitor_preference_page_context" >
+		<description>On this page, you can you can specify the update frequency and colors of the memory monitor.</description>
+		<topic label="Preferences - CodePro - Memory Monitor" href="doc/preferences/preferences_memory_monitor.html"/>
+		<topic label="Memory Monitor" href="doc/features/memory_monitor.html"/>
+	</context>
+
+	<context  id="metrics_preference_page_context" >
+		<description>On this page, you can you can specify which metrics are to be computed.</description>
+		<topic label="Preferences - CodePro - Metrics" href="doc/preferences/preferences_metrics.html"/>
+		<topic label="Metrics View" href="doc/features/metrics/metrics.html"/>
+	</context>
+
+	<context  id="pattern_preference_page_context" >
+		<description>On this page, you can you can specify various code generation options for patterns.</description>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+	</context>
+
+	<context  id="startup_preference_page_context" >
+		<description>On this page, you can configure various startup options.</description>
+		<topic label="Preferences - CodePro - Startup" href="doc/preferences/preferences_startup.html"/>
+		<topic label="Refresh Workspace Task" href="doc/features/scheduler/scheduler_refresh_workspace.html"/>
+	</context>
+
+	<context  id="team_preference_page_context" >
+		<description>On this page, you can configure various Team and CVS options</description>
+		<topic label="Preferences - CodePro - Team" href="doc/preferences/preferences_team.html"/>
+	 	<topic label="CVS Synchronize" href="doc/features/cvs/synchronize.html"/>
+	</context>
+
+	<context  id="templates_preference_page_context" >
+		<description>On this page, you can define macros and keyword completions.</description>
+		<topic label="Preferences - CodePro - Templates" href="doc/preferences/preferences_templates.html"/>
+		<topic label="Templates" href="doc/features/templates.html"/>
+	</context>
+
+	<context  id="vaassist_preference_page_context" >
+		<description>On this page, you can configure various VA Assist communications options.</description>
+		<topic label="Preferences - CodePro - VA Assist" href="doc/preferences/preferences_vaassist.html"/>
+		<topic label="VCE Bridge" href="doc/features/vce_bridge.html"/>
+		<topic label="BeanInfo Bridge" href="doc/features/beaninfo_bridge.html"/>
+	</context>
+
+
+<!-- **************************** Perspectives ***************************** -->
+
+
+<!-- ******************************* Views ********************************* -->
+
+	<context  id="scheduler_view_context" >
+		<description>This view provides a facility for scheduling various tasks to occur at startup, shutdown or scheduled times.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Ant Build Task" href="doc/features/scheduler/scheduler_ant_build.html"/>
+		<topic label="Export Set Task" href="doc/features/scheduler/scheduler_export_set.html"/>
+		<topic label="External Program Task" href="doc/features/scheduler/scheduler_external_program.html"/>
+		<topic label="Java Program Task" href="doc/features/scheduler/scheduler_java_program.html"/>
+		<topic label="Message Task" href="doc/features/scheduler/scheduler_message.html"/>
+		<topic label="Refresh Workspace Task" href="doc/features/scheduler/scheduler_refresh_workspace.html"/>
+		<topic label="Exit Workbench Task" href="doc/features/scheduler/scheduler_exit_workbench.html"/>
+		<topic label="Workbench Action Task" href="doc/features/scheduler/scheduler_workbench_action.html"/>
+		<topic label="Catch Up Task" href="doc/features/scheduler/scheduler_catchup.html"/>
+		<topic label="Catch Up and Release Task" href="doc/features/scheduler/scheduler_catchup.html"/>
+	</context>
+
+	<context  id="modified_member_view_context" >
+		<description>This view tracks all modifications or additions made to various types within the workspace.</description>
+		<topic label="Modified Members View" href="doc/features/modified_members.html"/>
+		<topic label="Preferences - CodePro - History" href="doc/preferences/preferences_history.html"/>
+	</context>
+
+	<context  id="modified_type_view_context" >
+		<description>This view tracks all modifications or additions made to various types within the workspace.</description>
+		<topic label="Modified Types View" href="doc/features/modified_types.html"/>
+		<topic label="Preferences - CodePro - History" href="doc/preferences/preferences_history.html"/>
+	</context>
+
+	<context  id="java_history_view_context" >
+		<description>This view tracks all types that have been accessed within the workspace.</description>
+		<topic label="Java History View" href="doc/features/java_history.html"/>
+		<topic label="Preferences - CodePro - History" href="doc/preferences/preferences_history.html"/>
+	</context>
+
+	<context  id="metrics_view_context" >
+		<description>This view displays the results of computing metrics for one or more target elements.</description>
+		<topic label="Metrics View" href="doc/features/metrics/metrics.html"/>
+		<topic label="Preferences - CodePro - Metrics" href="doc/preferences/preferences_metrics.html"/>
+	</context>
+
+	<context  id="audit_view_context" >
+		<description>This view displays the results of running audit tests for one or more target elements.</description>
+		<topic label="Audit View" href="doc/features/audit/audit.html"/>
+		<topic label="Audit Rules" href="doc/features/audit/audit_details.html"/>
+		<topic label="Preferences - CodePro - Audit" href="doc/preferences/preferences_audit.html"/>
+	</context>
+
+	<context  id="code_coverage_view_context" >
+		<description>This view displays the code coverage data that has been gathered.</description>
+		<topic label="Code Coverage View" href="doc/features/codecoverage/code_coverage_view.html"/>
+		<topic label="Code Coverage" href="doc/features/codecoverage/code_coverage.html"/>
+	</context>
+
+	<context  id="dependency_view_context" >
+		<description>This view displays the results of running a dependency analysis.</description>
+		<topic label="Dependencies View" href="doc/features/dependencies/dependencies.html"/>
+		<topic label="Preferences - CodePro - Dependencies" href="doc/preferences/preferences_dependencies.html"/>
+	</context>
+
+	<context  id="groups_view_context" >
+		<description>This view displays the groups that are defined on the server.</description>
+		<topic label="Groups View" href="doc/features/collaboration/groups_view.html"/>
+	</context>
+
+	<context  id="javadoc_view_context" >
+		<description>This view displays the Javadoc changes proposed by the Javadoc Repair tool.</description>
+		<topic label="Javadoc Repair" href="doc/features/javadoc.html"/>
+		<topic label="Preferences - CodePro - Javadoc" href="doc/preferences/preferences_javadoc.html"/>
+	</context>
+
+	<context  id="memory_monitor_view_context" >
+		<description>This view displays the amount of memory used in the environment.</description>
+		<topic label="Memory Monitor" href="doc/features/memory_monitor.html"/>
+		<topic label="Preferences - CodePro - Memory Monitor" href="doc/preferences/preferences_memory_monitor.html"/>
+	</context>
+
+	<context  id="messages_view_context" >
+		<description>This view displays the messages stored on the server for the current user.</description>
+		<topic label="Messages View" href="doc/features/collaboration/messages_view.html"/>
+	</context>
+
+	<context  id="shared_tasks_view_context" >
+		<description>This view displays the shared tasks that are defined on the server.</description>
+		<topic label="Shared Task View" href="doc/features/collaboration/shared_task_view.html"/>
+	</context>
+
+	<context id="team_task_list_view_context">
+		<description>This view allows you to manage the team tasks that have been defined.</description>
+		<topic label="Team Task View" href="doc/features/collaboration/team_task_view.html"/>
+		<topic label="Team Task Editor" href="doc/features/collaboration/team_task_editor.html"/>
+	</context>
+
+	<context  id="test_case_outline_view_context" >
+		<description>This view displays an outline of a test case.</description>
+		<topic label="Test Case Outline View" href="doc/features/junit/test_case_outline_view.html"/>
+	</context>
+
+	<context  id="test_generation_view_context" >
+		<description>This view displays the results of test generation.</description>
+		<topic label="Test Generation View" href="doc/features/junit/test_generation_view.html"/>
+	</context>
+
+	<context  id="users_view_context" >
+		<description>This view displays the users that are defined on the server.</description>
+		<topic label="Users View" href="doc/features/collaboration/users_view.html"/>
+	</context>
+
+
+
+
+<!-- **************************** Wizard Pages ***************************** -->
+
+	<context  id="scheduler_start_page_context" >
+		<description>On this page, you can schedule when the task will start and how often it will repeat.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Schedule the task" href="doc/features/scheduler/scheduler_schedule.html"/>
+	</context>
+
+	<context  id="scheduler_description_page_context" >
+		<description>On this page, you can give the task a name and a description.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Name and describe the task" href="doc/features/scheduler/scheduler_description.html"/>
+	</context>
+
+	<context  id="scheduler_ant_build_task_page_context" >
+		<description>On this page, you can schedule an Ant build to run at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Ant Build Task" href="doc/features/scheduler/scheduler_ant_build.html"/>
+	</context>
+
+	<context  id="scheduler_export_set_task_page_context" >
+		<description>On this page, you can schedule an Export Set to run at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Export Set Task" href="doc/features/scheduler/scheduler_export_set.html"/>
+	</context>
+
+	<context  id="scheduler_external_program_task_page_context" >
+		<description>On this page, you can schedule an external program to run at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="External Program Task" href="doc/features/scheduler/scheduler_external_program.html"/>
+	</context>
+
+	<context  id="scheduler_java_program_task_page_context" >
+		<description>On this page, you can schedule a Java program to run at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Java Program Task" href="doc/features/scheduler/scheduler_java_program.html"/>
+	</context>
+
+	<context  id="scheduler_message_task_page_context" >
+		<description>On this page, you can schedule a message to be displayed at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Message Task" href="doc/features/scheduler/scheduler_message.html"/>
+	</context>
+
+	<context  id="scheduler_refresh_workspace_task_page_context" >
+		<description>On this page, you can schedule the workspace to be refreshed at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Refresh Workspace Task" href="doc/features/scheduler/scheduler_refresh_workspace.html"/>
+	</context>
+
+	<context  id="scheduler_exit_workbench_task_page_context" >
+		<description>On this page, you can schedule the exit of the workbench at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Exit Workbench Task" href="doc/features/scheduler/scheduler_exit_workbench.html"/>
+	</context>
+
+	<context  id="scheduler_workbench_action_task_page_context" >
+		<description>On this page, you can schedule a workbench action at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Workbench Action Task" href="doc/features/scheduler/scheduler_workbench_action.html"/>
+	</context>
+
+	<context  id="scheduler_catchup_task_page_context" >
+		<description>On this page, you can schedule a CVS catchup working set operation to run at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Catch Up Task" href="doc/features/scheduler/scheduler_catchup.html"/>
+	</context>
+
+	<context  id="scheduler_catchup_release_task_page_context" >
+		<description>On this page, you can schedule a CVS catchup and release working set operation to run at a specific time.</description>
+		<topic label="Scheduler View" href="doc/features/scheduler/scheduler.html"/>
+		<topic label="Catch Up and Release Task" href="doc/features/scheduler/scheduler_catchup.html"/>
+	</context>
+
+<!-- ****************************** Wizards ******************************** -->
+
+	<context  id="new_method_wizard_context" >
+		<description>Wizard to assist in creating a new method.</description>
+		<topic label="New Method Wizard" href="doc/features/wizards/new_method.html"/>
+		<topic label="Define Method" href="doc/features/wizards/new_method.html#DefineMethod"/>
+		<topic label="Add Parameters" href="doc/features/wizards/new_method.html#AddParameters"/>
+		<topic label="Add Exceptions" href="doc/features/wizards/new_method.html#AddExceptions"/>
+	</context>
+
+	<context  id="new_field_wizard_context" >
+		<description>Wizard to assist in creating a new field.</description>
+		<topic label="New Field Wizard" href="doc/features/wizards/new_field.html"/>
+		<topic label="Define Field" href="doc/features/wizards/new_field.html#DefineField"/>
+		<topic label="Create Field Accessors" href="doc/features/wizards/new_field.html#CreateFieldAccessors"/>
+	</context>
+
+	<context  id="pattern_wizard_pattern_selection_page" >
+		<description>Wizard to assist in creating classes implementing various design patterns.</description>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+		<topic label="Abstract Factory" href="doc/features/patterns/abstract_factory_pattern.html"/>
+		<topic label="Adapter" href="doc/features/patterns/adapter_pattern.html"/>
+		<topic label="Applet" href="doc/features/patterns/applet_wizard.html"/>
+		<topic label="Application" href="doc/features/patterns/application_wizard.html"/>
+		<topic label="Bridge" href="doc/features/patterns/bridge_pattern.html"/>
+		<topic label="Builder" href="doc/features/patterns/builder_pattern.html"/>
+		<topic label="Chain of Responsibility" href="doc/features/patterns/chain_of_responsibility_pattern.html"/>
+		<topic label="Command" href="doc/features/patterns/command_pattern.html"/>
+		<topic label="Composite" href="doc/features/patterns/composite_pattern.html"/>
+		<topic label="Data Access Object" href="doc/features/patterns/data_access_object_pattern.html"/>
+		<topic label="Decorator" href="doc/features/patterns/decorator_pattern.html"/>
+		<topic label="Facade" href="doc/features/patterns/facade_pattern.html"/>
+		<topic label="Factory Method" href="doc/features/patterns/factory_method_pattern.html"/>
+		<topic label="Flyweight" href="doc/features/patterns/flyweight_pattern.html"/>
+		<topic label="Front Controller" href="doc/features/patterns/front_controller_pattern.html"/>
+		<topic label="Implement Interface" href="doc/features/patterns/implement_interface_pattern.html"/>
+		<topic label="Interpreter" href="doc/features/patterns/interpreter_pattern.html"/>
+		<topic label="Iterator" href="doc/features/patterns/iterator_pattern.html"/>
+		<topic label="JUnit Test Case" href="doc/features/patterns/junit_testcase_wizard.html"/>
+		<topic label="JUnit Test Suite" href="doc/features/patterns/junit_test_suite_pattern.html"/>
+		<topic label="Mediator" href="doc/features/patterns/mediator_pattern.html"/>
+		<topic label="Memento" href="doc/features/patterns/memento_pattern.html"/>
+		<topic label="Observer" href="doc/features/patterns/observer_pattern.html"/>
+		<topic label="Prototype" href="doc/features/patterns/prototype_pattern.html"/>
+		<topic label="Proxy" href="doc/features/patterns/proxy_pattern.html"/>
+		<topic label="Service Locator" href="doc/features/patterns/service_locator_pattern.html"/>
+		<topic label="Session Facade" href="doc/features/patterns/session_facade_pattern.html"/>
+		<topic label="Servlet" href="doc/features/patterns/servlet_pattern.html"/>
+		<topic label="Singleton" href="doc/features/patterns/singleton_pattern.html"/>
+		<topic label="State" href="doc/features/patterns/state_pattern.html"/>
+		<topic label="Strategy" href="doc/features/patterns/strategy_pattern.html"/>
+		<topic label="Template Method" href="doc/features/patterns/template_method_pattern.html"/>
+		<topic label="Transfer Object" href="doc/features/patterns/transfer_object_pattern.html"/>
+		<topic label="Transfer Object Assembler" href="doc/features/patterns/transfer_object_assembler_pattern.html"/>
+		<topic label="Type Safe Enumeration" href="doc/features/patterns/type_safe_enumeration_pattern.html"/>
+		<topic label="Visitor" href="doc/features/patterns/visitor_pattern.html"/>
+	</context>
+
+	<context  id="pattern_wizard_strategy_selection_page" >
+		<description>On this page, you can select the strategy for implementing the chosen pattern.</description>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+<!-- ****************************** Patterns ******************************* -->
+
+	<context  id="abstract_factory_pattern" >
+		<description>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</description>
+		<topic label="Abstract Factory" href="doc/features/patterns/abstract_factory_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="adapter_pattern" >
+		<description>Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.</description>
+		<topic label="Adapter" href="doc/features/patterns/adapter_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="applet_wizard" >
+		<description>Create an Java Applet subclassed from java.applet.Applet or javax.swing.JApplet</description>
+		<topic label="Applet" href="doc/features/patterns/applet_wizard.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="application_wizard" >
+		<description>Create an Java Application subclassed from java.awt.Frame or javax.swing.JFrame</description>
+		<topic label="Application" href="doc/features/patterns/application_wizard.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="bridge_pattern" >
+		<description>Decouple an abstraction from its implementation so that the two can vary independently.</description>
+		<topic label="Bridge" href="doc/features/patterns/bridge_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="builder_pattern" >
+		<description>Separate the construction of a complex object from its representation so that the same construction process can create different representations.</description>
+		<topic label="Builder" href="doc/features/patterns/builder_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="chain_of_responsibility_pattern" >
+		<description>Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.</description>
+		<topic label="Chain of Responsibility" href="doc/features/patterns/chain_of_responsibility_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="command_pattern" >
+		<description>Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.</description>
+		<topic label="Command" href="doc/features/patterns/command_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="composite_pattern" >
+		<description>Compose objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.</description>
+		<topic label="Composite" href="doc/features/patterns/composite_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="data_access_object_pattern" >
+		<description>Separates a data resource's client interface from its data access mechanisms, and adapts a specific data resource's access API to a generic client interface.</description>
+		<topic label="Data Access Object" href="doc/features/patterns/data_access_object_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="decorator_pattern" >
+		<description>Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.</description>
+		<topic label="Decorator" href="doc/features/patterns/decorator_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="facade_pattern" >
+		<description>Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.</description>
+		<topic label="Facade" href="doc/features/patterns/facade_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="factory_method_pattern" >
+		<description>Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.</description>
+		<topic label="Factory Method" href="doc/features/patterns/factory_method_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="flyweight_pattern" >
+		<description>Use sharing to support large numbers of fine-grained objects efficiently.</description>
+		<topic label="Flyweight" href="doc/features/patterns/flyweight_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="front_controller_pattern" >
+		<description>Provides a dispatching servlet that invokes commands provided as arguments, thus eliminating duplicate code and simplifying content retrieval and error handling mechanisms.</description>
+		<topic label="Front Controller" href="doc/features/patterns/front_controller_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="implement_interface_pattern" >
+		<description>Create a class implementing one or more interfaces.</description>
+		<topic label="Implement Interface" href="doc/features/patterns/implement_interface_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="interpreter_pattern" >
+		<description>Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.</description>
+		<topic label="Interpreter" href="doc/features/patterns/interpreter_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="iterator_pattern" >
+		<description>Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</description>
+		<topic label="Iterator" href="doc/features/patterns/iterator_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="junit_testcase_wizard" >
+		<description>Create a JUnit test case.</description>
+		<topic label="JUnit Test Case" href="doc/features/patterns/junit_testcase_wizard.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="junit_test_suite_pattern" >
+		<description>Create a JUnit test suite.</description>
+		<topic label="JUniit Test Suite" href="doc/features/patterns/junit_test_suite_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="mediator_pattern" >
+		<description>Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.</description>
+		<topic label="Mediator" href="doc/features/patterns/mediator_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="memento_pattern" >
+		<description>Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.</description>
+		<topic label="Memento" href="doc/features/patterns/memento_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="observer_pattern" >
+		<description>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</description>
+		<topic label="Observer" href="doc/features/patterns/observer_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="prototype_pattern" >
+		<description>Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.</description>
+		<topic label="Prototype" href="doc/features/patterns/prototype_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="proxy_pattern" >
+		<description>Provide a surrogate or placeholder for another object to control access to it. Options are provided to implement all interfaces of the subject class as well as all of the public methods of the subject class.</description>
+		<topic label="Proxy" href="doc/features/patterns/proxy_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="service_locator_pattern" >
+		<description>Centralizes distributed service object lookups, provides a centralized point of control, and may act as a cache that eliminates redundant lookups. It also encapsulates any vendor-specific features of the lookup process. </description>
+		<topic label="Service Locator" href="doc/features/patterns/service_locator_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="session_facade_pattern" >
+		<description>Encapsulates the complexity of interactions between the business objects participating in a workflow.</description>
+		<topic label="Session Facade" href="doc/features/patterns/session_facade_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="servlet_pattern" >
+		<description>Creates an Servlet subclassed from javax.servlet.http.HttpServlet.</description>
+		<topic label="Servlet" href="doc/features/patterns/servlet_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="singleton_pattern" >
+		<description>Ensure a class only has one instance, and provide a global point of access to it.</description>
+		<topic label="Singleton" href="doc/features/patterns/singleton_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="state_pattern" >
+		<description>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</description>
+		<topic label="State" href="doc/features/patterns/state_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="strategy_pattern" >
+		<description>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</description>
+		<topic label="Strategy" href="doc/features/patterns/strategy_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="template_method_pattern" >
+		<description>Defines the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses refine certain steps of an algorithm without changing the algorithm's structure.</description>
+		<topic label="Template Method" href="doc/features/patterns/template_method_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="transfer_object_pattern" >
+		<description>Encapsulates business data returned by an enterprise bean in response to a client request.</description>
+		<topic label="Transfer Object" href="doc/features/patterns/transfer_object_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="transfer_object_assembler_pattern" >
+		<description>Assembles Transfer Objects for retrieving data from various business objects and other objects that define the model or part of the model.</description>
+		<topic label="Transfer Object Assembler" href="doc/features/patterns/transfer_object_assembler_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="type_safe_enumeration_pattern" >
+		<description>Create a class that approximates an equivalent Pascal enumeration or C enum. A specific enumeration will be represented by a class with specific instances corresponding to each element of the enumerations and public static final fields to access the instances.</description>
+		<topic label="Type Safe Enumeration" href="doc/features/patterns/type_safe_enumeration_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+	<context  id="visitor_pattern" >
+		<description>Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.</description>
+		<topic label="Visitor" href="doc/features/patterns/visitor_pattern.html"/>
+		<topic label="Pattern Wizard" href="doc/features/patterns/pattern_wizard.html"/>
+		<topic label="Preferences - CodePro - Patterns" href="doc/preferences/preferences_patterns.html"/>
+	</context>
+
+<!-- **********************************||*********************************** -->
+</contexts>

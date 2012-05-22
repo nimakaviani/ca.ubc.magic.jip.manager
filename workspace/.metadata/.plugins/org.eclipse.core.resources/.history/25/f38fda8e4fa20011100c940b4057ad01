@@ -1,0 +1,30 @@
+#************************************************
+#   Copyright 2008 Jeff Chapman
+#
+#   This file is part of Yet Another Swing Lib (YASL).
+#
+#   Yet Another Swing Lib (YASL) is free software; you can redistribute it
+#   and/or modify it under the terms of the GNU Lesser General Public License
+#   as published by the Free Software Foundation; either version 2 of the
+#   License, or (at your option) any later version.
+#
+#   Yet Another Swing Lib (YASL) is distributed in the hope that it will be
+#   useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU Lesser General Public License for more details.
+#
+#   You should have received a copy of the GNU Lesser General Public License
+#   along with jcutils; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+#************************************************
+# $Id: yaslAppConfig.properties,v 1.2 2008/06/05 17:59:24 jchapman0 Exp $
+
+yasl.app.type=Swing
+
+yasl.app.config=/org/yasl/helloworld/config/yaslHelloWorldConfig.xml
+
+yasl.splash=org.yasl.helloworld.HelloWorldSplash
+yasl.splash.duration=2
+yasl.splash.width=300
+yasl.splash.height=200

@@ -1,0 +1,135 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+   <title>State Pattern</title>
+</head>
+<body>
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="700" >
+<tr>
+<td>
+<h1><font face="Verdana" color="#CC0000"><b>Transfer Object Pattern</b></font></h1>
+<p>The&nbsp;<img SRC="../../images/j2ee.gif" height=16 width=16>  Transfer Object pattern
+encapsulates the business data returned by an enterprise bean<br>
+in response to a client request.
+<blockquote><a href="#Wizard">Wizard</a>
+<br><a href="#Applicability">Applicability</a>
+<br><a href="#AdditionalResources">Additional Resources</a></blockquote>
+
+<h3>
+<a NAME="Wizard"></a>Wizard</h3>
+<img SRC="../../images/patterns/transfer_object_wizard1.gif" height=572 width=438>
+<br>&nbsp;
+<table BORDER="1" CELLSPACING=0 WIDTH="71%" >
+<tr>
+<td ALIGN=CENTER HEIGHT="19"><b>Option</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Description</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Default</b></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Source folder</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a source folder for the transfer object
+  class. Either type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span>
+to select a source folder via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The source folder of the element
+that was selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Package</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a package to contain the transfer object
+  class. Either type a valid package name or click&nbsp;<span CLASS="Label">Browse</span>
+to select a package via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The package of the element that was
+selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Class&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Enter a name for the transfer object class.
+  Either type a valid class name or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a class via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;TransferObject&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Superclass</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a name for the superclass of the
+  transfer object class. Either type a valid class name or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a class via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">&lt;java.lang.Object&gt;</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Fields</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Specify the fields of the transfer object
+  class, including short descriptions to be included in the javadoc, as in
+  &quot;@param field1 the &lt;description&gt;&quot;.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">&lt;none&gt;</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Make fields public?&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19"><font size="3">Indicate whether to make the specified
+  fields public or private.</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;true&gt;</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Define constructor?&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19"><font size="3">Indicate whether to define
+  a constructor that initializes the specified fields.</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;true&gt;</td>
+</tr>
+
+<tr>
+<td>Define setter methods?</td>
+
+<td><font size="3">Indicate whether to define setter methods for the specified
+  fields.</font></td>
+
+<td>&lt;false&gt;</td>
+</tr>
+
+<tr>
+<td>Define getter methods?</td>
+
+<td><font size="3">Indicate whether to define getter methods for the specified
+  fields.</font></td>
+
+<td>&lt;false&gt;</td>
+</tr>
+
+</table>
+
+<h3>
+<a NAME="Applicability"></a>Applicability</h3>
+Use the Transfer Object pattern when
+<ul>
+  <li>The number of calls made by the client to the enterprise bean impacts
+    network performance.</li>
+</ul>
+
+<h3>
+<a NAME="AdditionalResources"></a>Additional Resources</h3>
+<a href="http://java.sun.com/blueprints/corej2eepatterns/Patterns/TransferObject.html">http://java.sun.com/blueprints/corej2eepatterns/Patterns/TransferObject.html</a>
+</tr>
+</table>
+
+</body>
+</html>

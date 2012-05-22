@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<title>Factory Method Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Factory Method Pattern</b></font></h1>
+    <p><strong>Also known as:</strong>  Virtual Constructor</p>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Factory Method Pattern defines an interface for creating an object, but let
+    subclasses decide which class to instantiate. Factory Method lets a class
+    defer instantiation to subclasses.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/factory_method_wizard1.gif"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Creator class</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the creator class.</td>
+        <td valign="top" align="left">&lt;Creator&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Factory method</td>
+        <td valign="top" align="left">Type or select the name of the factory
+          method</td>
+        <td valign="top" align="left">&lt;factoryMethod&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Parameters</td>
+        <td valign="top" align="left">Specify the parameters for the factory
+          method</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/factory_method_wizard2.gif"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Product interface</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the product interface</td>
+        <td valign="top" align="left">&lt;Product&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Concrete product classes</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of concrete
+          product classes that
+        should be created.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Factory Method pattern when<ul>
+      <li>a class can't anticipate the class of objects it must create. </li>
+    </ul>
+    <ul>
+      <li>a class wants its subclasses to specify the objects it creates.</li>
+    </ul>
+    <ul>
+      <li>classes delegate responsibility to one of several helper subclasses,
+        and you want to localize the knowledge of which helper subclass is the
+        delegate.</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?FactoryMethodPattern">http://c2.com/cgi/wiki?FactoryMethodPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/FactoryMethod_pattern">http://www.wikipedia.org/wiki/FactoryMethod_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#FactoryMethod">http://www.cmcrossroads.com/bradapp/javapats.html#FactoryMethod</a></p>
+    <p><a href="http://www.dofactory.com/Patterns/pattern_factory.asp">http://www.dofactory.com/Patterns/pattern_factory.asp</a></p></td>
+  </tr>
+</table>
+</body>
+</html>

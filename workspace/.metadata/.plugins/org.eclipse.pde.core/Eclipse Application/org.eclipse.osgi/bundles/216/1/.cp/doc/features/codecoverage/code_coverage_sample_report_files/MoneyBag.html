@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>MoneyBag.java</title>
+
+	<meta name="GENERATOR" content="CodePro AnalytiX"/>
+
+	<style type="text/css">
+	table.code {border-spacing: 0; border-collapse: collapse; border-width: 1px 0 1px 1px; }
+table.code td {padding-left: 0.25em; padding-right: 0.25em; font-family: courier,monospace; font-size: 10pt; border-style: solid; border-color: black;}
+tr.first td.lineNumber {border-width: 1px 1px 0 1px; text-align: right;}
+tr.first td.sourceLine {border-width: 1px 1px 0 1px; background-color: #F0F0FF;}
+tr.first td.covered {border-width: 1px 1px 0 1px; background-color: #9fdb9f;}
+tr.first td.partiallycovered {border-width: 1px 1px 0 1px; background-color: #fffe9b;}
+tr.first td.uncovered {border-width: 1px 1px 0 1px; background-color: #fb8a7b;}
+tr.middle td.lineNumber {border-width: 0 1px 0 1px; text-align: right;}
+tr.middle td.sourceLine {border-width: 0 1px 0 1px; background-color: #F0F0FF;}
+tr.middle td.covered {border-width: 0 1px 0 1px; background-color: #9fdb9f;}
+tr.middle td.partiallycovered {border-width: 0 1px 0 1px; background-color: #fffe9b;}
+tr.middle td.uncovered {border-width: 0 1px 0 1px; background-color: #fb8a7b;}
+tr.last td.lineNumber {border-width: 0 1px 1px 1px; text-align: right;}
+tr.last td.sourceLine {border-width: 0 1px 1px 1px; background-color: #F0F0FF;}
+tr.last td.covered {border-width: 0 1px 1px 1px; background-color: #9fdb9f;}
+tr.last td.partiallycovered {border-width: 0 1px 1px 1px; background-color: #fffe9b;}
+tr.last td.uncovered {border-width: 0 1px 1px 1px; background-color: #fb8a7b;}
+.threshold { color: #FF0000; }
+	</style>
+
+	<style type="text/css">
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+p  {margin-top:  3px; line-height: 1.5em}
+h1 {margin-top:  0px; margin-bottom: 6px; font: bold 175% verdana,arial,helvetica}
+h2 {margin-top: 12px; margin-bottom: 6px; font: bold 150% verdana,arial,helvetica}
+h3 {margin-top: 12px; margin-bottom: 6px; font: bold 125% verdana,arial,helvetica}
+h4 {margin-top: 12px; margin-bottom: 6px; font: bold 125% verdana,arial,helvetica}
+.rounded_page{display:block}
+.rounded_page *{display:block; height:1px; overflow:hidden; font-size:.01em; background:#7799DD}
+.rounded_page1{ margin-left:3px; margin-right:3px; padding-left:1px; padding-right:1px; border-left:1px solid #c4d3ef; border-right:1px solid #c4d3ef; background:#99b2e5}
+.rounded_page2{ margin-left:1px; margin-right:1px; padding-right:1px; padding-left:1px; border-left:1px solid #f1f4fa; border-right:1px solid #f1f4fa; background:#90ace3}
+.rounded_page3{ margin-left:1px; margin-right:1px; border-left:1px solid #90ace3; border-right:1px solid #90ace3;}
+.rounded_page4{ border-left:1px solid #c4d3ef; border-right:1px solid #c4d3ef}
+.rounded_page5{ border-left:1px solid #99b2e5; border-right:1px solid #99b2e5}
+.rounded_pagefg{ background:#7799DD}
+.rounded_section{display:block}
+.rounded_section *{display:block; height:1px; overflow:hidden; font-size:.01em; background:#C3D9FF}
+.rounded_section1{ margin-left:3px; margin-right:3px; padding-left:1px; padding-right:1px; border-left:1px solid #e5eefe; border-right:1px solid #e5eefe; background:#d2e2fe}
+.rounded_section2{ margin-left:1px; margin-right:1px; padding-right:1px; padding-left:1px; border-left:1px solid #f9fbfe; border-right:1px solid #f9fbfe; background:#cee0fe}
+.rounded_section3{ margin-left:1px; margin-right:1px; border-left:1px solid #cee0fe; border-right:1px solid #cee0fe;}
+.rounded_section4{ border-left:1px solid #e5eefe; border-right:1px solid #e5eefe}
+.rounded_section5{ border-left:1px solid #d2e2fe; border-right:1px solid #d2e2fe}
+.rounded_sectionfg{ background:#C3D9FF}
+.page-title { color: #FFFFFE; font-weight: bold; font-size: large; margin-left: 8px}
+.page-title-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.page-footer { color: #FFFFFE; font-weight: bold; margin-left: 8px}
+.page-footer-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.majorsection-title { color: #FFFFFE; font-weight: bold; margin-left: 8px}
+.majorsection-title-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.majorsection-contents { margin: 0px 0px 15px 16px; }
+.section-title { color: #1F4F8F; font-weight: bold; margin-left: 6px}
+.section-title-details { font-weight: bold; margin-left: 6px; margin-right: 6px; }
+.section-contents { margin: 6px 0px 15px 14px; }
+.statsTable { border: 1px solid #777777; width:300px; border-collapse: collapse; }
+.statsTable th { border: 1px solid #777777; background-color: #EEEEEE; padding-left: 3px; padding-right: 3px; }
+.statsTable td { border: 1px solid #777777; white-space:nowrap; padding-left: 3px; padding-right: 3px; }
+	</style>
+
+</head>
+
+<body>
+
+<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+			<span class="majorsection-title"><a name="top">/CodePro Analytix Evaluation/src/com/instantiations/example/money/MoneyBag.java</a></span>
+			</td><td align="right" valign="middle">
+			<span class="majorsection-title-details"></span></td></tr></table>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+	<div class="majorsection-contents">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td width="50%" valign="top">
+		&nbsp;
+		<div>
+			<b class="rounded_section"><b class="rounded_section1"><b></b></b><b class="rounded_section2"><b></b></b><b class="rounded_section3"></b><b class="rounded_section4"></b><b class="rounded_section5"></b></b>
+			<div class="rounded_sectionfg">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+				<span class="section-title">Code Coverage Summary</span>
+				</td><td align="right" valign="middle">
+				<span class="section-title-details">96.1% coverage</span></td></tr></table>
+			</div>
+			<b class="rounded_section"><b class="rounded_section5"></b><b class="rounded_section4"></b><b class="rounded_section3"></b><b class="rounded_section2"><b></b></b><b class="rounded_section1"><b></b></b></b>
+		</div>
+		<div class="section-contents">
+			<table class="statsTable">
+				<tr><td>Executable Lines</td><td align="right">
+				76</td></tr>
+				<tr><td>Line Coverage</td><td align="right">
+				96.1%</td></tr>
+				<tr><td>Block Coverage</td><td align="right">
+				93.7%</td></tr>
+				<tr><td>Instruction Coverage</td><td align="right">
+				97.4%</td></tr>
+			</table>
+		</div>
+		</td><td width="15">&nbsp;&nbsp;</td><td width="50%" valign="top">
+		&nbsp;
+		<div>
+			<b class="rounded_section"><b class="rounded_section1"><b></b></b><b class="rounded_section2"><b></b></b><b class="rounded_section3"></b><b class="rounded_section4"></b><b class="rounded_section5"></b></b>
+			<div class="rounded_sectionfg">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+				<span class="section-title">Legend</span>
+				</td><td align="right" valign="middle">
+				<span class="section-title-details"></span></td></tr></table>
+			</div>
+			<b class="rounded_section"><b class="rounded_section5"></b><b class="rounded_section4"></b><b class="rounded_section3"></b><b class="rounded_section2"><b></b></b><b class="rounded_section1"><b></b></b></b>
+		</div>
+		<div class="section-contents">
+			<table class="statsTable">
+				<tr><td bgcolor="#9fdb9f">Line is fully covered</td></tr>
+				<tr><td bgcolor="#fffe9b">Line is partially covered</td></tr>
+				<tr><td bgcolor="#fb8a7b">Line is not covered</td></tr>
+			</table>
+		</div>
+		</td></tr></table>
+	</div>
+	<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+			<span class="majorsection-title">Source</span>
+			</td><td align="right" valign="middle">
+			<span class="majorsection-title-details"></span></td></tr></table>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+	<div class="section-contents">
+		<table width="100%" class="code">
+		<tr class="first">
+		<td class="lineNumber"><a name="line1">1</a></td>
+		<td class="sourceLine" width="100%">package&nbsp;com.instantiations.example.money;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line2">2</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line3">3</a></td>
+		<td class="sourceLine" width="100%">import&nbsp;java.util.*;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line4">4</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line5">5</a></td>
+		<td class="sourceLine" width="100%">/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line6">6</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;A&nbsp;MoneyBag&nbsp;defers&nbsp;exchange&nbsp;rate&nbsp;conversions.&nbsp;For&nbsp;example&nbsp;adding&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line7">7</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;12&nbsp;Swiss&nbsp;Francs&nbsp;to&nbsp;14&nbsp;US&nbsp;Dollars&nbsp;is&nbsp;represented&nbsp;as&nbsp;a&nbsp;bag&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line8">8</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;containing&nbsp;the&nbsp;two&nbsp;Monies&nbsp;12&nbsp;CHF&nbsp;and&nbsp;14&nbsp;USD.&nbsp;Adding&nbsp;another</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line9">9</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;10&nbsp;Swiss&nbsp;francs&nbsp;gives&nbsp;a&nbsp;bag&nbsp;with&nbsp;22&nbsp;CHF&nbsp;and&nbsp;14&nbsp;USD.&nbsp;Due&nbsp;to&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line10">10</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;the&nbsp;deferred&nbsp;exchange&nbsp;rate&nbsp;conversion&nbsp;we&nbsp;can&nbsp;later&nbsp;value&nbsp;a&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line11">11</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;MoneyBag&nbsp;with&nbsp;different&nbsp;exchange&nbsp;rates.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line12">12</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line13">13</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;A&nbsp;MoneyBag&nbsp;is&nbsp;represented&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Monies&nbsp;and&nbsp;provides&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line14">14</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;different&nbsp;constructors&nbsp;to&nbsp;create&nbsp;a&nbsp;MoneyBag.&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line15">15</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line16">16</a></td>
+		<td class="covered" width="100%">class&nbsp;MoneyBag&nbsp;implements&nbsp;IMoney&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line17">17</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Vector&nbsp;fMonies=&nbsp;new&nbsp;Vector(5);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line18">18</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line19">19</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line20">20</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line21">21</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;IMoney&nbsp;create(IMoney&nbsp;m1,&nbsp;IMoney&nbsp;m2)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line22">22</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MoneyBag&nbsp;result=&nbsp;new&nbsp;MoneyBag();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line23">23</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line24">24</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m1.appendTo(result);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line25">25</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m2.appendTo(result);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line26">26</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line27">27</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;$if&nbsp;eclipse.version&nbsp;&lt;&nbsp;3.5&nbsp;$&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line28">28</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;foo&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line29">29</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;$endif&nbsp;$&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line30">30</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line31">31</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;$if&nbsp;eclipse.version&nbsp;==&nbsp;3.5&nbsp;$</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line32">32</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;foo&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line33">33</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$else&nbsp;$&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line34">34</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;bar&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line35">35</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;$endif&nbsp;$&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line36">36</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line37">37</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;$if&nbsp;eclipse.version&nbsp;!=&nbsp;3.5&nbsp;$&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line38">38</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;foo&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line39">39</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;$else&nbsp;$</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line40">40</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;bar&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line41">41</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$endif&nbsp;$&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line42">42</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line43">43</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;result.simplify();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line44">44</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line45">45</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;IMoney&nbsp;add(IMoney&nbsp;m)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line46">46</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m.addMoneyBag(this);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line47">47</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line48">48</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;IMoney&nbsp;addMoney(Money&nbsp;m)&nbsp;{&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line49">49</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;MoneyBag.create(m,&nbsp;this);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line50">50</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line51">51</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;IMoney&nbsp;addMoneyBag(MoneyBag&nbsp;s)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line52">52</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;MoneyBag.create(s,&nbsp;this);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line53">53</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line54">54</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;appendBag(MoneyBag&nbsp;aBag)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line55">55</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Enumeration&nbsp;e=&nbsp;aBag.fMonies.elements();&nbsp;e.hasMoreElements();&nbsp;)</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line56">56</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appendMoney((Money)e.nextElement());</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line57">57</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line58">58</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;appendMoney(Money&nbsp;aMoney)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line59">59</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(aMoney.isZero())&nbsp;return;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line60">60</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMoney&nbsp;old=&nbsp;findMoney(aMoney.currency());</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line61">61</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(old&nbsp;==&nbsp;null)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line62">62</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fMonies.addElement(aMoney);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line63">63</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line64">64</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line65">65</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fMonies.removeElement(old);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line66">66</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMoney&nbsp;sum=&nbsp;old.add(aMoney);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line67">67</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(sum.isZero())&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line68">68</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line69">69</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fMonies.addElement(sum);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line70">70</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line71">71</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;boolean&nbsp;equals(Object&nbsp;anObject)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line72">72</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isZero())</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line73">73</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(anObject&nbsp;instanceof&nbsp;IMoney)</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line74">74</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;((IMoney)anObject).isZero();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line75">75</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line76">76</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(anObject&nbsp;instanceof&nbsp;MoneyBag)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line77">77</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MoneyBag&nbsp;aMoneyBag=&nbsp;(MoneyBag)anObject;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line78">78</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(aMoneyBag.fMonies.size()&nbsp;!=&nbsp;fMonies.size())</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line79">79</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line80">80</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line81">81</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Enumeration&nbsp;e=&nbsp;fMonies.elements();&nbsp;e.hasMoreElements();&nbsp;)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line82">82</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;m=&nbsp;(Money)&nbsp;e.nextElement();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line83">83</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!aMoneyBag.contains(m))</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line84">84</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line85">85</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line86">86</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line87">87</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line88">88</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line89">89</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line90">90</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Money&nbsp;findMoney(String&nbsp;currency)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line91">91</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Enumeration&nbsp;e=&nbsp;fMonies.elements();&nbsp;e.hasMoreElements();&nbsp;)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line92">92</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;m=&nbsp;(Money)&nbsp;e.nextElement();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line93">93</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(m.currency().equals(currency))</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line94">94</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line95">95</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line96">96</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;null;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line97">97</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line98">98</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;boolean&nbsp;contains(Money&nbsp;m)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line99">99</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;found=&nbsp;findMoney(m.currency());</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line100">100</a></td>
+		<td class="partiallycovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(found&nbsp;==&nbsp;null)&nbsp;return&nbsp;false;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line101">101</a></td>
+		<td class="partiallycovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;found.amount()&nbsp;==&nbsp;m.amount();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line102">102</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line103">103</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;int&nbsp;hashCode()&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line104">104</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;hash=&nbsp;0;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line105">105</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Enumeration&nbsp;e=&nbsp;fMonies.elements();&nbsp;e.hasMoreElements();&nbsp;)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line106">106</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object&nbsp;m=&nbsp;e.nextElement();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line107">107</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hash^=&nbsp;m.hashCode();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line108">108</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line109">109</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;hash;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line110">110</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line111">111</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;boolean&nbsp;isZero()&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line112">112</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;fMonies.size()&nbsp;==&nbsp;0;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line113">113</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line114">114</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;IMoney&nbsp;multiply(int&nbsp;factor)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line115">115</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MoneyBag&nbsp;result=&nbsp;new&nbsp;MoneyBag();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line116">116</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(factor&nbsp;!=&nbsp;0)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line117">117</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Enumeration&nbsp;e=&nbsp;fMonies.elements();&nbsp;e.hasMoreElements();&nbsp;)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line118">118</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;m=&nbsp;(Money)&nbsp;e.nextElement();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line119">119</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.appendMoney((Money)m.multiply(factor));</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line120">120</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line121">121</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line122">122</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;result;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line123">123</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line124">124</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;IMoney&nbsp;negate()&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line125">125</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MoneyBag&nbsp;result=&nbsp;new&nbsp;MoneyBag();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line126">126</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Enumeration&nbsp;e=&nbsp;fMonies.elements();&nbsp;e.hasMoreElements();&nbsp;)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line127">127</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;m=&nbsp;(Money)&nbsp;e.nextElement();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line128">128</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.appendMoney((Money)m.negate());</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line129">129</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line130">130</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;result;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line131">131</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line132">132</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;IMoney&nbsp;simplify()&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line133">133</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(fMonies.size()&nbsp;==&nbsp;1)</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line134">134</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(IMoney)fMonies.elements().nextElement();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line135">135</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line136">136</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line137">137</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;IMoney&nbsp;subtract(IMoney&nbsp;m)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line138">138</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;add(m.negate());</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line139">139</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line140">140</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;String&nbsp;toString()&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line141">141</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StringBuffer&nbsp;buffer&nbsp;=&nbsp;new&nbsp;StringBuffer();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line142">142</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer.append(&apos;{&apos;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line143">143</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Enumeration&nbsp;e=&nbsp;fMonies.elements();&nbsp;e.hasMoreElements();&nbsp;)</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line144">144</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer.append(e.nextElement());</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line145">145</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer.append(&quot;}&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line146">146</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;buffer.toString();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line147">147</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line148">148</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;appendTo(MoneyBag&nbsp;m)&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line149">149</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m.appendBag(this);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line150">150</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line151">151</a></td>
+		<td class="sourceLine" width="100%">}</td>
+		</tr>
+		<tr class="last">
+		<td class="lineNumber"><a name="line152">152</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		</table>
+	</div>
+	<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+			<span class="page-footer"></span>
+			</td><td align="right" valign="middle">
+			<span class="page-footer-details">Powered by CodePro AnalytiX</span></td></tr></table>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.exportEARToEarFile</b></font><br>
+      <small><font size="4">(Application Developer only... replaced in Rational 
+	Application Developer 6.x 
+    by <a href="RAD60/EARExport.html">EARExport</a>)</font></small></h1>
+    <p><i>(old task name &quot;ExportEARToEarFile&quot;) </i></p>
+    <p>codepro.exportEARToEarFile performs an export identical to one that would 
+    be performed manually using the standard Application Developer EAR file Export Wizard.&nbsp; 
+    The various options for this Ant task type include:</p>
+    <ul>
+      <li>destination (required) - the path to the jar file into which the code 
+      will be exported.&nbsp; The path may either be an absolute path, or 
+      relative to the Application Developer workspace directory</li>
+      <li>exportSource (optional - default false)</li>
+      <li>overwrite (optional - default false)</li>
+      <li>project (required) - the name of the  project to be exported</li>
+    </ul>
+      <p>Example:</p>
+      <blockquote>
+        <pre>&lt;codepro.exportEARToEarFile 
+    project=&quot;WSAssistTestEAR&quot; 
+    destination=&quot;../export-test/testEAR.ear&quot; 
+    overwrite=&quot;true&quot; 
+    exportSource=&quot;true&quot;/&gt;</pre>
+      </blockquote>
+      <p style="margin-bottom: 8">&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

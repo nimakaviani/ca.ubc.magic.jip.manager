@@ -1,0 +1,151 @@
+<html>
+
+<head>
+<title>Mediator Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Mediator Pattern</b></font></h1>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Mediator Pattern define an object that encapsulates how a set of objects
+    interact. Mediator promotes loose coupling by keeping objects from referring
+    to each other explicitly, and it lets you vary their interaction
+    independently.</p>
+    <p>A mediator is responsible for controlling and coordinating the
+    interactions of a group of objects. The mediator serves as an intermediary
+    that keeps objects in the group from referring to each other explicitly. The
+    objects only know the mediator, thereby reducing the number of
+    interconnections.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/mediator_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Mediator interface</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a mediator interface.</td>
+        <td valign="top" align="left">&lt;Mediator&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Changed method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          be called when something has changed.</td>
+        <td valign="top" align="left">&lt;changed&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Colleague interface</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a colleague class.</td>
+        <td valign="top" align="left">&lt;Colleague&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Mediator field</td>
+        <td valign="top" align="left">Type or select the name of the field that will contain the
+        instance of the mediator class</td>
+        <td valign="top" align="left">&lt;mediator&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Get mediator method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          return the
+        instance of the mediator class</td>
+        <td valign="top" align="left">&lt;getMediator&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/mediator_wizard2.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Concrete mediator classes</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of concrete
+          mediator classes that
+        should be created.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Concrete colleague classes</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of concrete
+          colleague classes that
+        should be created.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Method names</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of sample
+          methods that
+        should be created in the concrete colleague classes&nbsp;</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Mediator pattern when<ul>
+      <li>a set of objects communicate in well-defined but complex ways. The
+        resulting interdependencies are unstructured and difficult to
+        understand. </li>
+    </ul>
+    <ul>
+      <li>reusing an object is difficult because it refers to and communicates
+        with many other objects.</li>
+    </ul>
+    <ul>
+      <li>a behavior that's distributed between several classes should be
+        customizable without a lot of subclassing.</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?MediatorPattern">http://c2.com/cgi/wiki?MediatorPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Mediator_pattern">http://www.wikipedia.org/wiki/Mediator_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Mediator">http://www.cmcrossroads.com/bradapp/javapats.html#Mediator</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_mediator.asp">http://www.dofactory.com/patterns/pattern_mediator.asp</a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Collaboration Server</title>
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tbody><tr>
+    <td><h1><font color="#cc0000" face="Verdana"><b>Collaboration Server</b></font></h1><font size="2"><span style="font-family: sans-serif;">Not available in CodePro AnalytiX Rational Edition</span></font>
+      <p>The <i> collaboration server</i> is a machine accessible by collaboration
+      clients over a network, and that is running an instance of the Eclipse
+      platform (the <font face="Courier New" size="2"> eclipse.exe</font> executable)
+      that in turn is running the
+      CodePro collaboration server application (using the <font face="Courier New" size="2">-application</font>
+      argument) . The clients send requests to this machine,
+      which the collaboration server application processes, returning the
+      desired results to the clients.</p>
+      <p>For brevity, in what follows the term "server" will often be used instead of
+      the phrase "collaboration server application" except where that would cause confusion.</p>
+      <h3>System Requirements</h3>
+      <p>The collaboration server will comfortably support 25 simultaneous users
+      on a machine with the following characteristics:</p>
+      <ul>
+        <li>Processor speed: 500 MHz</li>
+        <li>Memory size: 256 Mb</li>
+        <li>Disk capacity: 20 Gb (100Mb free space needed)</li>
+      </ul>
+      <p>Larger user populations may require a correspondingly more powerful
+      machine. Supporting more simultaneously active users will tend to require
+      more memory and higher processor speed. Supporting more user accounts will
+      tend to require more disk capacity.</p>
+      <h3>Installation</h3>
+      <p>A server installation consists of an Eclipse 2.1 installation and the
+      server components:</p>
+      <ul>
+        <li>the CodePro collaboration server plug-in(s);</li>
+        <li>the open-source Koi plug-ins that implement the underlying services;</li>
+        <li>batch files for initializing and running the server</li>
+      </ul>
+      <p>These components are in the file CodeProCollaborationServer_for_Eclipse2.1.zip.</p>
+      <p>Note that the collaboration server can communicate with clients using
+      any version of Eclipse including 3.0 and 3.1.</p>
+      <p>If the Eclipse installation will only be used to execute the server,
+      then a number of Eclipse plug-ins are not needed (the JDT plug-ins, for
+      example). The file CodeProCollaborationServer_complete.zip
+      contains
+      such a stripped-down Eclipse 2.1 installation together with the server
+      components. Thus, it is a complete server installation.</p>
+      <p>To install the server, either</p>
+      <ul>
+        <li>unzip CodeProCollaborationServer_for_Eclipse2.1.zip
+          into the
+          root directory of an Eclipse 2.1 installation (C\eclipse, for
+          example); or</li>
+        <li>unzip CodeProCollaborationServer_complete.zip into any
+          directory (<font face="Courier New" size="2">C:\</font>, for example)</li>
+      </ul>
+      <p>The <font face="Courier New" size="2">eclipse\cpsws-server</font>
+      directory contains the files related to starting the server.</p>
+      <h3>Configuration</h3>
+      <p>The <font face="Courier New" size="2">.conf</font> files in <font face="Courier New" size="2">eclipse\cpsws-server\conf</font>
+      provide the server configuration information. They specify how to start
+      Eclipse running the server. As described in this section, very little in
+      these files should need to be changed to set up the server. However,
+      sophisticated users may have reasons to alter them more extensively. See <a href="http://sourceforge.net/projects/wrapper">http://sourceforge.net/projects/wrapper</a>
+      for more information on them.</p>
+      <p>The supplied server configuration assume a Java interpreter (<font face="Courier New" size="2">java.exe</font>)
+      is on the system path. If that is not the case, set the value of the <font face="Courier New" size="2">wrapper.java.command</font>
+      property to the location of the desired Java interpreter in the
+      configuration files.</p>
+      <h3>Execution</h3>
+      <p>Using the batch files in the <font face="Courier New" size="2">eclipse\cpsws-server</font>
+      directory, the server can either be run manually, or set up as a Windows
+      service to run automatically whenever the machine is booted.</p>
+      <p>To run the server manually, execute the <font face="Courier New" size="2">run.bat</font>
+      script. A console window will appear to indicate the server is running. Closing
+      this window stops the server. The console shows the last time a user's
+      workspace contacted the server. It also displays a rolling list of
+      transactions which can give a good indication whether the server is
+      operating properly or if a user's workspace is properly communicating with
+      the server.</p>
+      <p><img src="../../images/collaboration/console.jpg" border="0" height="550" width="518"></p>
+      <p>To install the server as a Windows service, execute the <font face="Courier New" size="2">install.bat</font>
+      script. To start the server, either reboot the machine, or use the
+      services administration utility (typically invoked by the <b>Start</b>
+      button menu item <b>Programs/Administrative Tools/Services</b>). To
+      uninstall the service, execute the <font face="Courier New" size="2">uninstall.bat</font>
+      script, or use the services administration utility. When the server is
+      running, a window is displayed. Closing this window stops the server,
+      although the same result can be achieved using the services administration
+      utility.</p>
+      <p>It is often desirable to run the server in <i> open enrollment mode</i>.
+      In this mode, the server allows people to
+      create user and group accounts for themselves, thus easing the burden on
+      the administrator, who would otherwise have to perform this task. On the
+      client side, the collaboration preferences <a href="configuration_wizard.html">configuration
+      wizard</a> can take advantage of open enrollment mode by providing the
+      opportunity for users to add themselves. To make the server run in open
+      enrollment mode, simply use the "open" versions of the scripts
+      named above: <font face="Courier New" size="2">run-open.bat</font>, <font face="Courier New" size="2">install-open.bat</font>,
+      and <font face="Courier New" size="2">uninstall-open.bat</font>.</p>
+      <p>Because there is no way to specify the port to use, having more than
+      one server instance running on a machine at a time is not currently
+      possible. This restriction will be lifted in future releases.</p>
+      <h3>Miscellaneous</h3>
+      <p>The server keeps the database files and other items it uses in an
+      Eclipse workspace, which by default is <font face="Courier New" size="2">eclipse\cpsws-server-data</font>.
+      This is specified by the argument to the Eclipse <font face="Courier New" size="2">-data</font>
+      option, which corresponds to the <font size="2"><font face="Courier New">wrapper.app.parameter.5</font></font>
+      property in the configuration files<font size="2">.</font></p>
+      <p>Those wishing to run the collaboration server on non-Windows platforms such as Linux can use the
+      <font face="Courier New" size="2">basic.bat</font> script as a model. It shows the
+      basic Windows
+      command line for starting the server.</p>
+    </td>
+  </tr>
+</tbody></table>
+
+</body></html>

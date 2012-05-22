@@ -1,0 +1,159 @@
+<html>
+
+<head>
+<title>VCE Bridge</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">VCE
+    Bridge</font></h1> <img src="../images/windows.gif"
+    width="32" height="32" align="absbottom"> Windows Only - Deprecated in 
+	CodePro 4.0</small></small>
+    <p><em> This feature requires that VA
+    Assist be installed into VisualAge Java. VA Assist can be
+    downloaded and installed from here.</em></p>
+    <p><img src="../images/edit_gui_menu.gif" width="185" height="240" align="top">&nbsp; <img
+    src="../images/vce_bridge.gif" width="636" height="504"></p>
+    <p>Eclipse does not include a GUI builder. The VCE Bridge feature allows you to access the VA Java VCE (Visual
+    Composition Editor) from within Application Developer or
+    Eclipse by simply clicking on a class or
+    compilation unit and selecting the &quot;Edit GUI&quot; command. Technically, this
+    involves quite a bit of cooperative magic between Application Developer/Eclipse and VA Java.</p>
+    <blockquote>
+      <p>1) If VA Java isn't running, Application Developer/Eclipse will start it up in &quot;slave mode&quot;<ul>
+        <li>any version of VA Java will do, so you could install VA Java Entry for this purpose
+          alone</li>
+        <li>VA Assist
+          needs to be installed in VA Java for all of the VA Java pieces to work. VA Assist should
+          be configured
+          to point to your Application Developer/Eclipse root directory</li>
+      </ul>
+      <p>2) Once started, a bi-directional socket connection is established between VA Java and
+      Application Developer/Eclipse<ul>
+        <li>if VAJ was already running, it will establish communications with that VA Java instance</li>
+      </ul>
+      <p>3) Eclipse sends the code for the class to VA Java</p>
+      <p>4) The VA Java VCE opens up on the code<ul>
+        <li>the layout info is retrieved from the class's <strong>getBuilderData()</strong> method</li>
+      </ul>
+      <p>5) You edit the class using the normal VCE tools<ul>
+        <li>you are limited to widgets known to VA Java 3.x/4.x (and JDK 1.2.2 features)</li>
+        <li>the tool is presented &quot;standalone&quot; and doesn't provide access to any other VA
+          Java facilities/browsers</li>
+      </ul>
+      <p>6) When you are done editing, the new code is generated and sent back over to
+      Application Developer/Eclipse</p>
+      <p>7) If you click on the VCE run or debug buttons, the code will be generated, sent to
+      Application Developer/Eclipse and then run in that context</p>
+      <p>8) When Application Developer/Eclipse shuts down, it will automatically shutdown VA Java as well</p>
+    </blockquote>
+    <p>The obvious limitation here is that you are limited to JDK 1.2.2 features. Since this
+    facility is meant to &quot;bridge&quot; folks from VA Java into Application
+    Developer/Eclipse until the
+    corresponding Eclipse facility is released, it should be viewed as short term and tactical
+    in nature. Once an Application Developer/Eclipse native VCE is released, you would no longer need to use
+    this VCE Bridge feature.</p>
+      <p>All of the CodePro / VA Assist integration features may be configured via the
+    &quot;<a href="../preferences/preferences_vaassist.html">CodePro | VA Assist</a>&quot;
+    options page. On the VA Java side, the Application Developer/Eclipse integration features may be configured
+    via the &quot;VA Assist | Application Developer/Eclipse&quot; options page.<br>
+    <br>
+    </td>
+  </tr>
+  <tr>
+    <th valign="top" align="left" style="padding-right: 20" bgcolor="#C0C0C0">When I edit my
+    GUI using the VCE Bridge, why don't I see my layout?</th>
+  </tr>
+  <tr>
+    <td valign="top" align="left" style="padding-right: 20">VA Java does not
+    recreate the VCE layout information from the source of the class. Rather, it stores that
+    meta data within the repository. VA Java does provide a source code generation option for
+    generating that meta data into a special <strong>getBuilderData()</strong> method. That
+    method must be present in any exported class for it to be properly edited using the VA
+    Java VCE and, consequently, the VCE Bridge. Rather than forcing you to go back an
+    regenerate all of the source for your GUI classes, VA Assist provides a convenient &quot;Generate
+    missing meta data methods on export&quot; option that will cause those missing methods
+    to be generated any time a class is exported either to a directory
+    or directly to Application Developer/Eclipse.<br>
+    <br>
+    </td>
+  </tr>
+  <tr>
+    <th valign="top" align="left" bgcolor="#C0C0C0">If my GUI references any
+      custom components, do those components need to be loaded into VA Java
+      before editing the class with the VCE Bridge?</th>
+  </tr>
+  <tr>
+    <td valign="top" align="left">Yes. Any custom parts or nested components
+      need to be present within VA Java. All you need to do is load the VA Java
+      project containing the referenced components before invoking the <a href="vce_bridge.html">VCE Bridge</a>.
+      One of the basic assumptions of the <a href="vce_bridge.html">VCE Bridge</a>
+      is that you are editing GUI classes originally created in VA Java so you
+      would have those pieces available already in VA Java. If you load your VA
+      Java projects into VA Java, that should solve any dependency problems that
+      you might have.
+      <p>The VA Java GUI builder only knows about types within its environment.
+      If you want to use classes that you have created in Eclipse, you will need
+      to import them into the VA Java environment you want to use. The direct
+      import from Eclipse option that has been added to the Import
+      Wizard by VA Assist
+      should make that easy. If you plan to do this frequently, you might want
+      to set up an Eclipse
+      Import set on the VA Java side and use the Task
+      Scheduler to have it run automatically at VA Java startup. That way,
+      whenever you invoke the <a href="vce_bridge.html">VCE Bridge</a> it will
+      automatically import your new/changed beans and make them available for
+      use.<br>
+      <br>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th valign="top" align="left" bgcolor="#C0C0C0">I having problems getting
+      the VCE Bridge to work; what should I do?</th>
+  </tr>
+  <tr>
+    <td valign="top" align="left">Here are some questions to ask yourself and
+      some suggestions:
+      <ol>
+        <li>Do you have VA Assist installed into VA Java. What version of VA
+          Assist are you using?</li>
+        <li>Is CodePro configured to talk to your VA Java installation?<br>
+          <a href="../preferences/preferences_vaassist.html">../preferences/preferences_vaassist.html</a></li>
+        <li>Is VA Assist in VAJ configured to know about your Eclipse
+          installation?</li>
+      </ol>
+      <p>Sending us a screen shot of both of the above screens in your
+      environment might help us identify the problem. Are any exceptions
+      recorded either into the VA Java &quot;ide\program\va-debug.log&quot;
+      file, the Eclipse &quot;&lt;workspace&gt;\.metadata\.log&quot; file or the
+      &quot;&lt;workspace&gt;\.metadata\.plugins\com.instantiations.assist.eclipse.core\ws-debug.log&quot;
+      file? If so, please send us those files. If none are recorded, you can try
+      turning on the &quot;log communications&quot; options in both products
+      which will cause communication status messages to be recorded to the log
+      files which should help us analyze the problem.<br>
+      <br>
+    </td>
+  </tr>
+  <tr>
+    <th valign="top" align="left" style="padding-right: 20" bgcolor="#C0C0C0">Are there any
+    special considerations when using ClearCase?</th>
+  </tr>
+  <tr>
+    <td valign="top" align="left" style="padding-right: 20">Yes. ClearCase
+    uses a pessimistic &quot;check-in/check-out&quot; model. Many operations in
+      Application Developer/Eclipse will
+    fail unless a type is properly checked out before editing (refactoring, for example). The
+    same is true for specific CodePro features such as the VCE Bridge and <a
+    href="beaninfo_bridge.html">BeanInfo Bridge</a>. In order for the &quot;Edit GUI&quot; and
+    &quot;Edit BeanInfo&quot; commands to work, make sure that the class that you plan to edit
+    has been properly checked out from ClearCase.<br>
+    <br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

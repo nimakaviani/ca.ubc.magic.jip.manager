@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.initExport</b></font></h1>
+    <p><i>(old task name &quot;InitExportProperties&quot;)</i></p>
+    <h3><a name="InitExportProperties">codepro.initExport</a></h3>
+    <blockquote>
+      <p>Does everything that <a href="InitEclipseProperties.html">
+      codepro.initProperties</a> does,
+      plus defines parameters and properties as specified in the ExportSet wizard.</p>
+      <p>Example:</p>
+      <blockquote>
+        <pre>&lt;codepro.initExport&gt;
+	&lt;ExportParameters&gt;
+		Parameter1
+		Parameter2=&quot;aDefValue&quot;
+	&lt;/ExportParameters&gt;
+	&lt;ExportProperties&gt;
+		Property1=&quot;myValue&quot;
+	&lt;/ExportProperties&gt;
+&lt;/codepro.initExport&gt;</pre>
+      </blockquote>
+      <p>In this example, there are two parameters defined and one property.&nbsp; Parameters
+      and properties are very similar to Ant properties.&nbsp; Each parameter and property are
+      defined on a separate line.&nbsp; When this example Ant task is executed, the following
+      steps will be taken<ul>
+        <li><p style="margin-bottom: 8">If an Ant property with the name &quot;Parameter1&quot; is
+          not defined, then a BuildException will be thrown.&nbsp; If it is already defined, then
+          its value is not changed.</p>
+        </li>
+        <li><p style="margin-bottom: 8">If an Ant property with the name &quot;Parameter2&quot; is
+          not defined, then this task defines it with the specified default value.&nbsp; If it is
+          already defined, then its value is not changed.</p>
+        </li>
+        <li><p style="margin-bottom: 8">The Ant property named &quot;Proprty1&quot; is defined to
+          have the specified value regardless of whether it existed before or not</p>
+        </li>
+      </ul>
+      <p style="margin-bottom: 8">The ExportParameters and ExportProperties sub xml elements are
+      optional and may be omitted.</p>
+    </blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

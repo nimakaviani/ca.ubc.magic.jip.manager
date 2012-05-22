@@ -1,0 +1,183 @@
+<html>
+
+<head>
+<title>Audit Rule Wizard</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><b><font face="Verdana" color="#CC0000">Audit Rule Wizard</font></b></h1>
+    <p>The Audit Rule Wizard allows you to create new <a href="audit.html">audit
+    rules</a>. New audit rules can be created via the standard New wizard by selecting the &quot;Java&quot; category.
+    Audit rules can also be created by selecting the <img
+    src="../../images/audit_icon.gif" width="16" height="16"> Audit Rule pattern in the <img
+    src="../../images/new_pattern_wiz.gif" width="16" height="16"> <a
+    href="../patterns/pattern_wizard.html">Java Pattern Wizard</a>.</p>
+    <p>In order to use the Audit Rule wizard, you should open your project's build path
+    property page and add the CodeProAnalysis.jar contained in the com.instantiations.assist.eclipse.analysis plugin as an external JAR. If
+    your audit rule will need an editor, also add the CodeProAnalysisUI.jar
+    contained in the com.instantiations.assist.eclipse.analysis.ui plugin. If you want to avoid absolute pathnames on the build classpath
+    you can introduce a class path variable and reference the
+    CodeProAnalysis.jar relative to this
+    variable.</p>
+    <p>&nbsp;<img src="../../images/audit_rule_new_wizard.gif" width="500" height="500"></p>
+    <p>The wizard will create an audit rule class as a subclass of
+    AbstractAuditRule and optionally an editor class as a subclass of
+    BasicAuditRuleEditor. A plugin.xml and plugin.properties fragment will also
+    be created. Those fragments should be copied into your plugin.xml and
+    plugin.properties files respectively.&nbsp;</p>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/audit_rule_wizard1.gif" width="500" height="607"></p>
+    <table border="1" cellspacing="0" width="100%" height="493">
+      <tr>
+        <td align="center" height="19"><strong>Option</strong></td>
+        <td align="center" height="19"><strong>Description</strong></td>
+        <td align="center" height="19"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Source folder</td>
+        <td valign="top" align="left" height="57">Enter a source folder for the new
+          audit rule class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left" height="57">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Package</td>
+        <td valign="top" align="left" height="57">Enter a package to contain the new
+          audit rule class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left" height="57">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Plugin ID</td>
+        <td valign="top" align="left" height="19">Type the ID of the plugin to
+          define this rule</td>
+        <td valign="top" align="left" height="19">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Name</td>
+        <td valign="top" align="left" height="19">Type a name for the audit
+          rule.</td>
+        <td valign="top" align="left" height="19">&lt;Audit Something&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Group</td>
+        <td valign="top" align="left" height="19">Select the group to contain
+          the audit rule.</td>
+        <td valign="top" align="left" height="19">&lt;Miscellaneous&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Default Severity</td>
+        <td valign="top" align="left" height="19">Select the default severity
+          for the audit rule.</td>
+        <td valign="top" align="left" height="19"> &lt;Medium&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Summary</td>
+        <td valign="top" align="left" height="19">Enter a short description of
+          the audit rule.</td>
+        <td valign="top" align="left" height="19">&lt;Insert the audit rule's
+          summary here&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Description</td>
+        <td valign="top" align="left" height="38">Enter a long description of
+          the audit rule.</td>
+        <td valign="top" align="left" height="38">&lt;Insert the audit rule's
+          description here&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Enabled by default</td>
+        <td valign="top" align="left" height="38">Determines whether the audit
+          rule is enabled by default.</td>
+        <td valign="top" align="left" height="38">&lt;true&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Violations</td>
+        <td valign="top" align="left">Specify the violations thrown by the audit
+          rule. For each violation, specify its name, description (the text to
+          be shown in the audit view) and explanation (the text to be shown in
+          the explain dialog).</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <p><img src="../../images/patterns/audit_rule_wizard2.gif" width="500" height="586"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Method Declaration</td>
+        <td valign="top" align="left" height="38">Determines whether visitor
+          code is generated for MethodDeclaration AST nodes.</td>
+        <td valign="top" align="left" height="38">&lt;true&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Method Declaration</td>
+        <td valign="top" align="left" height="38">Determines whether visitor
+          code is generated for MethodInvocation AST nodes.</td>
+        <td valign="top" align="left" height="38">&lt;true&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Field Declaration</td>
+        <td valign="top" align="left" height="38">Determines whether visitor
+          code is generated for FieldDeclaration AST nodes.</td>
+        <td valign="top" align="left" height="38">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="38">Type Declaration</td>
+        <td valign="top" align="left" height="38">Determines whether visitor
+          code is generated for TypeDeclaration AST nodes.</td>
+        <td valign="top" align="left" height="38">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Settings</td>
+        <td valign="top" align="left">Specify the settings needed by the audit
+          rule. For each setting, specify its name, type (boolean, String or int),
+          default value, and label (which will be shown in the editor).</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Create an editor class</td>
+        <td valign="top" align="left">Determines whether an editor class should
+          be created.</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Source folder</td>
+        <td valign="top" align="left" height="57">Enter a source folder for the new
+          audit rule editor. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left" height="57">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="57">Package</td>
+        <td valign="top" align="left" height="57">Enter a package to contain the new
+          audit rule editor. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left" height="57">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left" height="19">Plugin ID</td>
+        <td valign="top" align="left" height="19">Type the ID of the plugin to
+          define this audit rule editor</td>
+        <td valign="top" align="left" height="19">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

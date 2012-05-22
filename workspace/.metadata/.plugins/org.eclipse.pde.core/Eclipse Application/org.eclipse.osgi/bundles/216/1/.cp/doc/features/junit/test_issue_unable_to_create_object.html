@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Test Generation Issue: Unable to create object</title>
+		<link type="text/css" rel="stylesheet" href="../../book.css"/>
+	</head>
+	<body>
+		<h1>Test Generation Issue: Unable to create object</h1>
+		<p>The 
+			<strong>Unable to create object</strong> test generation issue occurs when CodePro is unable to create an instance of a particular class. This can occur for many reasons. It could be that the class is an interface or an abstract class with no implementations. It could be that the implementations are not accessable from the test code. Or it could be that CodePro was unable to invoke the constructors of the class. In any case, there are generally two automatic resolutions that CodePro offers for this issue.
+		</p>
+		<ol style="list-style: none;">
+			<li>
+				<a href="test_issue_unable_to_create_object.html#CreateMockObject">Create Mock Object</a>
+			</li>
+			<li>
+				<a href="test_issue_unable_to_create_object.html#CreateFactoryClass">Create Factory Class</a>
+			</li>
+			<li>
+				<a href="test_issue_unable_to_create_object.html#WhichresolutionshouldIchoose">Which resolution should I choose?</a>
+			</li>
+		</ol>
+		<p>
+			<img border="0" src="unable_to_create_object.gif"/>
+		</p>
+		<h2 id="CreateMockObject">Create Mock Object</h2>
+		<p>The 
+			<strong>Create Mock Object</strong> resolution adjusts CodePro&#8217;s mock object preferences to indicate that CodePro should create a mock object for this class. This resolution will affect all places where CodePro attempts to instantiate this class. If mock object support is not enabled, the user will be given the option of enabling it. See the <a href="mock_objects.html">mock object</a> documentation for more information.
+		</p>
+		<h2 id="CreateFactoryClass">Create Factory Class</h2>
+		<p>The 
+			<strong>Create Factory Class</strong> resolution creates a factory class for this type of object. This resolution is not available in all situations, like when the class in question is loaded from a jar library. CodePro will use the factory class to create instances of the object when they are required. Like 
+			<strong>Create Mock Object</strong>, this resolution will affect all places where CodePro attempts to instantiate this class.
+		</p>
+		<h2 id="WhichresolutionshouldIchoose">Which resolution should I choose?</h2>
+		<p>Mock objects are quick to use and work well in many situations. Factory classes give you a high degree of control over the created objects. The best choice of resolution depends on the situation and your particular programming style.</p>
+	</body>
+</html>

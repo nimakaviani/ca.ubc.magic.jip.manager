@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Mock Object Support</title>
+		<link type="text/css" rel="stylesheet" href="../../book.css"/>
+	</head>
+	
+	<body>
+		<h1>Spring Test Generation</h1>
+		<p>CodePro can now generate tests for the Spring Framework (
+			<a href="http://www.springframework.org/">www.springframework.org</a>). Spring is a popular web framework and an alternative to J2EE. It is a lightweight, non-invasive container and makes heavy use of the dependency injection and model-view-controller patterns.
+		</p>
+		<ol style="list-style: none;">
+			<li>
+				<a href="spring_support.html#Setup">Setup</a>
+			</li>
+			<li>
+				<a href="spring_support.html#HelloWorldExample">Hello World Example</a>
+			</li>
+			<li>
+				<a href="spring_support.html#Features">Features</a>
+				<ol style="list-style: none;">
+					<li>
+						<a href="spring_support.html#BuiltinSpringMockObjects">Built-in Spring Mock Objects</a>
+					</li>
+					<li>
+						<a href="spring_support.html#UseofModelAndViewAssertions">Use of ModelAndView Assertions</a>
+					</li>
+					<li>
+						<a href="spring_support.html#EasyMockMockObjectsforServices">EasyMock Mock Objects for Services</a>
+					</li>
+					<li>
+						<a href="spring_support.html#AnnotationBasedControllers">Annotation Based Controllers</a>
+					</li>
+					<li>
+						<a href="spring_support.html#InterceptorSupport">Interceptor Support</a>
+					</li>
+					<li>
+						<a href="spring_support.html#Validators">Validators</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<a href="spring_support.html#DetailedExample">Detailed Example</a>
+			</li>
+		</ol>
+		<hr/>
+		<h2 id="Setup">Setup</h2>
+		<p>In order to get ready to generate Spring tests, you need to configure CodePro with information about your Spring installation. Open Eclipse&#8217;s Preference dialog, and navigate to the 
+			<strong>CodePro > JUnit > Spring MVC</strong> preference page. Select 
+			<strong>Enable generation of Spring tests</strong>, then select 
+			<strong>Browse...</strong> and navigate to the location of the 
+			<code>spring-test.jar</code> library. This library can normally be found in the 
+			<code>dist/modules</code> subdirectory of your Spring Framework distribution. The library contains necessary test classes from Spring, and is automatically added to the classpath of your test projects by CodePro.
+		</p>
+		<p>
+			<img border="0" src="../../images/preferences_junit_spring.gif"/>
+		</p>
+		<h2 id="HelloWorldExample">Hello World Example</h2>
+		<p>Let&#8217;s start out with a simple Hello World example of a Spring controller:</p>
+		<pre><code>public class HelloWorldController 
+    implements Controller
+{
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
+        throws Exception
+    {
+        return new ModelAndView("helloWorld");
+    }
+}
+</code></pre>
+		<p>In order to generate tests for this controller, right click on the class in the Package Explorer and choose 
+			<strong>CodePro Tools > Generate Test Cases</strong>. This will create and open a new test case called 
+			<code>HelloWorldControllerTest</code>. 
+		</p>
+		<p>
+			<img border="0" src="generate_test_case.gif"/>
+		</p>
+		<pre><code>public class HelloWorldControllerTest extends TestCase {
+    /**
+     * Run the ModelAndView handleRequest(HttpServletRequest,HttpServletResponse) method test.
+     *
+     * @generatedBy CodePro at 11/24/08 9:53 AM
+     */
+    public void testHandleRequest_1()
+        throws Exception {
+        HelloWorldController fixture = new HelloWorldController();
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+
+        ModelAndView result = fixture.handleRequest(request, response);
+
+        // add additional test code here
+        assertNotNull("ModelAndView should not be null", result);
+        ModelAndViewAssert.assertViewName(result, "helloWorld");
+        assertEquals(200, response.getStatus());
+    }
+}
+</code></pre>
+		<p></p>
+		<p>Like CodePro&#8217;s normal test generation, we create a fixture of the class under test, execute the method under test, and make assertions on the results. For Spring tests, we use Spring&#8217;s existing mock objects for certain method parameters (like 
+			<code>HttpServletRequest</code>). We also use some Spring specific assertions on the results of the test method.
+		</p>
+		<h2 id="Features">Features</h2>
+		<h3 id="BuiltinSpringMockObjects">Built-in Spring Mock Objects</h3>
+		<p>CodePro uses Spring&#8217;s built-in mock objects when possible. Spring&#8217;s mock objects are a group of about two dozen web and portlet related mocks. They allow you to test your code in isolation of actual web services. Where CodePro sees uses of 
+			<code>HttpServletRequest</code>, we create fill out instances of 
+			<code>MockHttpServletRequest</code>. In cases where we can determine which parameters the method under test asks for from the 
+			<code>HttpServletRequest</code>, we&#8217;ll add those parameters to the 
+			<code>MockHttpServletRequest</code>.
+		</p>
+		<pre><code>MockHttpServletRequest request = new MockHttpServletRequest();
+request.setParameter("username", "testuser");
+request.setParameter("forwardAction", (String) null);
+request.setParameter("password", "testpass");
+</code></pre>
+		<p>Similarly, if the method under test uses 
+			<code>HttpServletResponse</code>, we&#8217;ll create and pass in a 
+			<code>MockHttpServletResponse</code> instance. If the code modifies the 
+			<code>HttpServletResponse</code>, for instance by setting up a HTTP redirect, we&#8217;ll create an assertion for the test case with that information.
+		</p>
+		<pre><code>MockHttpServletResponse response = new MockHttpServletResponse();
+...
+assertEquals(200, response.getStatus());
+assertEquals("woot", response.getRedirectedUrl());
+</code></pre>
+		<p>
+			<strong>Web mocks</strong>
+		</p>
+		<ul>
+			<li>MockExpressionEvaluator</li>
+			<li>MockFilterConfig</li>
+			<li>MockHttpServletRequest</li>
+			<li>MockHttpServletResponse</li>
+			<li>MockHttpSession</li>
+			<li>MockMultipartFile</li>
+			<li>MockMultipartHttpServletRequest</li>
+			<li>MockPageContext</li>
+			<li>MockServletConfig</li>
+			<li>MockServletContext</li>
+		</ul>
+		<p>
+			<strong>Portlet mocks</strong>
+		</p>
+		<ul>
+			<li>MockActionRequest</li>
+			<li>MockActionResponse</li>
+			<li>MockMultipartActionRequest</li>
+			<li>MockPortalContext</li>
+			<li>MockPortletConfig</li>
+			<li>MockPortletContext</li>
+			<li>MockPortletPreferences</li>
+			<li>MockPortletRequest</li>
+			<li>MockPortletResponse</li>
+			<li>MockPortletSession</li>
+			<li>MockRenderRequest</li>
+			<li>MockRenderResponse</li>
+		</ul>
+		<p>
+			<strong>Miscellaneous mocks</strong>
+		</p>
+		<ul>
+			<li>ExtendedModelMap</li>
+			<li>ExpectedLookupTemplate</li>
+			<li>SimpleNamingContext</li>
+			<li>SimpleNamingContextBuilder</li>
+		</ul>
+		<h3 id="UseofModelAndViewAssertions">Use of ModelAndView Assertions</h3>
+		<p>CodePro&#8217;s generated tests make use of the Spring 
+			<code>ModelAndViewAssert</code> class for testing the 
+			<code>ModelAndView</code> class. This class is returned as the result of executing a Spring controller class. The 
+			<code>ModelAndView</code> class holds both the model and the view information; they&#8217;re contained in one object to make it possible for a controller to return both model and view in a single return value. CodePro will generate assertions for the view name, and model keys and values if there are any.
+		</p>
+		<pre><code>ModelAndViewAssert.assertViewName(result, "cartView");
+ModelAndViewAssert.assertModelAttributeValue(result, "message", "7 items in cart");
+ModelAndViewAssert.assertAndReturnModelAttributeOfType(result, "cart", Cart.class);
+</code></pre>
+		<h3 id="EasyMockMockObjectsforServices">EasyMock Mock Objects for Services</h3>
+		<p>When generating unit tests for Spring controllers, it is important to test them in isolation of the rest of the classes in the application. In Spring applications, your controller classes generally depend on other services to preform their work. These services could access databases, send emails to customers, or generally perform work that you don&#8217;t really want to do in the context of a unit test. In order to isolate your controller classes, when CodePro see them using a service it will create a mock of that service for the test. So if you have an 
+			<code>AccountManagement</code> interface and an 
+			<code>AccountManagementImpl</code> concrete implementation, instead of creating an instance of 
+			<code>AccountManagementImpl</code> (which would modify an actual database), CodePro will use EasyMock to create a mock implementation of 
+			<code>AccountManagement</code>. 
+		</p>
+		<pre><code>
+    MyController fixture = new MyController();
+    AccountManagement service = EasyMock.createNiceMock(AccountManagement.class);
+    fixture.setAccountManagement(service);
+    fixture.handleRequest(...);
+</code></pre>
+		<p></p>
+		<p>These mock objects will allow any method to be called. If a method has a return type, the mock object will by default return 
+			<code>null</code> or 
+			<code>0</code> as appropriate. In order to return other values, the user must set up the proper expectations on the mock object, and then switch the mock over to replay mode. For example:
+		</p>
+		<pre><code>
+    MyController fixture = new MyController();
+    
+    AccountManagement service = EasyMock.createNiceMock(AccountManagement.class);
+    EasyMock.expect(service.deleteUser("testUser")).andReturn((boolean) true);
+    EasyMock.replay(service);
+    
+    fixture.setAccountManagement(service);
+    fixture.handleRequest(...);
+</code></pre>
+		<p></p>
+		<p>For more information on using EasyMock mock objects, see 
+			<a href="http://easymock.org/EasyMock2_4_Documentation.html">easymock.org</a>.
+		</p>
+		<h3 id="AnnotationBasedControllers">Annotation Based Controllers</h3>
+		<p>As of Spring 2.5 it is possible to define your controller classes through the use of Java annotations. CodePro recognizes controller classes that use these annotations and generates the appropriate tests. For instance, for the following controller:</p>
+		<pre><code>
+@Controller
+public class ImageController {
+
+    private final ImageDatabase imageDatabase;
+
+    @Autowired
+    public ImageController(ImageDatabase imageDatabase) {
+        this.imageDatabase = imageDatabase;
+    }
+
+    @RequestMapping("/imageList")
+    public String showImageList(Model model1) {
+        model1.addAttribute("images", this.imageDatabase.getImages());
+        return "imageList";
+    }
+</code></pre>
+		<p></p>
+		<p>CodePro will generate the test case:</p>
+		<pre><code>
+    public void testShowImageList_1()
+        throws Exception {
+        ImageController fixture = new ImageController(EasyMock.createNiceMock(ImageDatabase.class));
+        ExtendedModelMap model1 = new ExtendedModelMap();
+
+        String result = fixture.showImageList(model1);
+
+        // add additional test code here
+        assertEquals("imageList", result);
+        assertEquals(1, model1.size());
+        assertEquals(null, model1.get("images"));
+    }
+</code></pre>
+		<p></p>
+		<p>Both the <code>@Controller</code> and <code>@RequestParam</code> annotations are supported.</p>
+		<h3 id="InterceptorSupport">Interceptor Support</h3>
+		<p>CodePro recognizes and generates tests for classes which implement the 
+			<code>org.springframework.web.servlet.HandlerInterceptor</code> interface.
+		</p>
+		<h3 id="Validators">Validators</h3>
+		<p>CodePro recognizes and generates tests for classes which implement the 
+			<code>org.springframework.validation.Validator</code> interface.
+		</p>
+		<h2 id="DetailedExample">Detailed Example</h2>
+		<p>The following example demonstrates a generated test that uses EasyMock mock objects, Spring mock objects, 
+			<code>MockHttpServletRequest</code> parameters, and 
+			<code>ModelAndView</code> assertions. This example is taken from the JPetStore example from the 
+			<a href="http://www.springframework.org/">www.springframework.org</a> site. 
+		</p>
+		<pre><code>
+public class SignonController implements Controller {
+
+	private PetStoreFacade petStore;
+
+	public void setPetStore(PetStoreFacade petStore) {
+		this.petStore = petStore;
+	}
+
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		Account account = this.petStore.getAccount(username, password);
+		if (account == null) {
+			return new ModelAndView("Error", "message", "Invalid username or password.  Signon failed.");
+		}
+		else {
+			UserSession userSession = new UserSession(account);
+			PagedListHolder myList = new PagedListHolder(this.petStore.getProductListByCategory(account.getFavouriteCategoryId()));
+			myList.setPageSize(4);
+			userSession.setMyList(myList);
+			request.getSession().setAttribute("userSession", userSession);
+			String forwardAction = request.getParameter("forwardAction");
+			if (forwardAction != null) {
+				response.sendRedirect(forwardAction);
+				return null;
+			}
+			else {
+				return new ModelAndView("index");
+			}
+		}
+	}
+
+}
+</code></pre>
+		<p></p>
+		<p>CodePro will generate four tests for this method, one for each flow path. Here is one of those tests:</p>
+		<pre><code>
+	public void testHandleRequest_1()
+		throws Exception {
+		SignonController fixture = new SignonController();
+		fixture.setPetStore(EasyMock.createNiceMock(PetStoreFacade.class));
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.setParameter("username", "testuser");
+		request.setParameter("forwardAction", (String) null);
+		request.setParameter("password", "testpass");
+		HttpServletResponse response = new MockHttpServletResponse();
+
+		ModelAndView result = fixture.handleRequest(request, response);
+
+		// add additional test code here
+		assertNotNull("ModelAndView should not be null", result);
+		ModelAndViewAssert.assertViewName(result, "Error");
+		ModelAndViewAssert.assertModelAttributeValue(result, "message", "Invalid username or password.  Signon failed.");
+	}
+</code></pre>
+		<p></p>
+	</body>
+</html>

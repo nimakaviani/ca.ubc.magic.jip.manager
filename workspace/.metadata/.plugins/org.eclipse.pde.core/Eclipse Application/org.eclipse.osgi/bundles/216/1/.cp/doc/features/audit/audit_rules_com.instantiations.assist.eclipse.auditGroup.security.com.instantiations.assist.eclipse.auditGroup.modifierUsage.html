@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Modifier Usage</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Modifier Usage</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check your code for incorrect uses of modifiers.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.avoidPackageScopeAuditRule">Avoid Package Scope</a></li>
+      <li><a href="#com.instantiations.eclipse.analysis.audit.security.classShouldBeFinal">Class Should Be Final</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.avoidPackageScopeAuditRule">Avoid Package Scope</a></h4><p>
+<b>Summary</b><br/>Only use public, protected or private scopes.<p><b>Description</b><br/>This audit flags all inner classes, constructors, methods, and fields that have a package scope.<p>Note: non-inner classes and interfaces cannot syntactically be declared protected or private, thus since a non-inner class/ interface isn't more secure if it has package scope instead of a public scope, this audit does not flag interfaces or non-inner classes that have a package scope.<p>Also note: the resolutions (fixes) for flagged instances of this audit include the insertion of the "public" modifier as well as "private" and "protected" modifiers. However, changing a modifier from package scope to a public scope does not make the code more secure, and is included only because it is expected that the public modifier is used.<p><b>Security Implications</b><br/>Classes, methods and fields with package scope (default scope) can be accessed from all code within the same package, including code written by adversaries.<p><b>Example</b><br/>The following will all be flagged since they all have a package scope: the constructor "Example", the class "InnerClass", the method "some_method", and the integer "x":<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class Example {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example(){super();}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class InnerClass{}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static void some_method(){/* do nothing */}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int x;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.eclipse.analysis.audit.security.classShouldBeFinal">Class Should Be Final</a></h4><p>
+<b>Summary</b><br/>Classes that do not have subclasses should be <code>final</code>.<p><b>Description</b><br/>This audit rule looks for classes that do not have any subclasses but are not marked as <code>final</code>. Note that this rule is only useful if all of the classes in the product are loaded into the development environment.<p><b>Security Implications</b><br/>The ability to extend classes can be abused by a malicious user. They can be used to obtain access to information contained in the parent class.<p><b>Example</b><br/>The following class would be flagged as a violation because it does not have any subclasses, and it isn't marked as <code>final</code>:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class MyClass<br/>&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code></body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<title>Audit - Predefined Audit Rule Sets</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+    <b><font face="Verdana" color="#CC0000">Audit - Predefined Audit Rule Sets</font></b></h1>
+      <p>The product includes a number of pre-defined audit <a href="../../preferences/preferences_audit.html"> rules
+      sets</a>.</p>
+      <blockquote>
+        <ul>
+			<li><a href="ElementsOfJavaStyle.html"><b><font face="Arial">The Elements of Java Style</font></b></a></li>
+			<li><a href="EffectiveJava.html"><b><font face="Arial">Effective Java</font></b></a></li>
+			<li><a href="PotentialErrorsAndRefactorings.html"><b>
+			<font face="Arial">Potential Errors and
+    Refactorings</font></b></a></li>
+			<li><b><font face="Arial"><a href="Security.html">Security</a></font></b></li>
+			<li><b><font face="Arial"><a href="Spelling.html">Spelling</a></font></b></li>
+		</ul>
+      </blockquote>
+    <h3>Defining New Predefined Audit Rule Sets</h3>
+<p>The Code Audit facility defines an Eclipse extension point for
+adding new audit rule sets. See:</p>
+<blockquote>
+  <p><b>&lt;CODEPRO&gt;\eclipse\plugins\com.instantiations.assist.eclipse.analysis_X.X.X\plugin.xml</b></p>
+</blockquote>
+      <p>The CodePro audit rule set location extension point allows new
+      audit rule sets to be read in at Eclipse startup time. These rule sets
+      automatically become locked so the user can make no changes to them. It is
+      supported by the &quot;ruleSetLocation&quot; tag, which defines the
+      following attributes:</p>
+      <blockquote>
+        <p><b>directory<br>
+        </b>The path name of the directory in which rule set files will be
+        found. Either fully qualified or relative to the Eclipse plugin
+        directory. </p>
+      </blockquote>
+      <p>For example:</p>
+      <blockquote>
+        <p>&lt;extension point=&quot;com.instantiations.assist.eclipse.audit_rule_set_location&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp; &lt;ruleSetLocation directory=&quot;myPlugin/myRuleSets&quot;/&gt;<br>
+        &lt;/extension&gt;</p>
+      </blockquote>
+ </td>
+  </tr>
+</table>
+</body>
+</html>

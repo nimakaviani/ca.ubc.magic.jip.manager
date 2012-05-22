@@ -1,0 +1,201 @@
+<strategy>
+	<page label="Provide information about the decorator class." initialFocus="wrapperClass">
+		<package 
+			name="package" required="true"
+			folderLabel="&amp;Source Folder:" folderBrowseLabel="B&amp;rowse..." folderTooltip="Specify the default source folder" folderBrowseTooltip="Select the default source folder"
+			packageLabel="&amp;Package:" packageBrowseLabel="Br&amp;owse..." packageTooltip="Specify the default package" packageBrowseTooltip="Select the default package"/>
+		<spacer displayLine="true"/>
+		<multipleChoice name="abstractStyle" label="Abstract service" default="0">
+			<choice name="classBased" label="&amp;Class based" tooltip="Create the abstract wrapper class as a subclass of the abstract service class">
+				<class 
+					name="superclassType" tooltip="Specify the abstract service class"
+					required="true" missingValue="Please specify the abstract service class" style="existing" allowReadOnly="true"
+					default="*,java.lang.Object" defaultPackage="package" 
+					browseLabel="Brows&amp;e..." browseTooltip="Select an abstract service class"/>
+			</choice>
+			<choice name="interfaceBased" label="&amp;Interface based" tooltip="Create the abstract wrapper class as an implementor of the abstract service interface">
+				<interface 
+					name="interface" tooltip="Specify the abstract service interface"
+					required="true" missingValue="Please specify the abstract service interface" style="existing" allowReadOnly="true"
+					default="*" defaultPackage="package" 
+					browseLabel="Brows&amp;e..." browseTooltip="Select an abstract service interface"/>
+			</choice>
+		</multipleChoice>
+		<group label="Abstract wrapper class">
+			<class 
+				name="wrapperClass" label="&amp;Wrapper class:" tooltip="Specify the name of the wrapper class"
+				required="true" missingValue="Please specify the name of the wrapper class" style="new"
+				default="AbstractWrapper" defaultPackage="package"/>
+			<group label="Modifiers:" numColumns="2">
+				<boolean name="public" label="p&amp;ublic" default="true"/>
+				<boolean name="abstract" label="&amp;abstract" default="true"/>
+			</group>
+			<string 
+				name="componentField" label="Component &amp;field:" tooltip="Specify the component field name"
+				required="true" missingValue="Please specify the component field name"
+				default="component" list="component,_component,wrappee,target" style="identifier"/>
+			<boolean 
+				name="generateAccessors" label="&amp;Generate component accessors" default="false" 
+				tooltip="Determines whether accessors are created for the component field"/>
+		</group>
+		<label text="Specify the concrete wrapper classes that should be created"/>
+		<list 
+			name="concreteClasses" tooltip="Enter the names of the concrete wrapper classes that should be created"
+			elementType="string" emptyAllowed="true" style="name" orientation="horizontal"
+			addLabel="A&amp;dd.." addTooltip="Add a concrete wrapper class"
+			removeLabel="Remo&amp;ve" removeTooltip="Remove the selected concrete wrapper class"/>
+	</page>
+	<page label="Provide information about the delegated methods" initialFocus="classMethods" enabledBy="classBased">
+		<subset
+			name="classMethods" label= "Select the methods that should delegate to the component instance" 
+			tooltip="Select the methods that should delegate to the component instance"
+			visibility="public,protected" showInherited="user" emptyAllowed="true" 
+			derivedFrom="superclassType" elementType="method"/>
+	</page>
+	<page label="Provide information about the delegated methods" initialFocus="interfaceMethods" enabledBy="interfaceBased">
+		<subset
+			name="interfaceMethods" label= "Select the methods that should delegate to the component instance" 
+			tooltip="Select the methods that should delegate to the component instance"
+			visibility="public" showInherited="user" emptyAllowed="true" 
+			derivedFrom="interface" elementType="method"/>
+	</page>
+
+	<compilationUnit package="${wrapperClass.packageName}" name="${wrapperClass.name}" isPrimary="true">
+		<import name="${superclassType.fullName}"/>
+		<if condition="interfaceBased">
+			<import name="${interface.fullName}"/>
+		</if>
+		<class name="${wrapperClass.name}" extends="${superclassType.name}">
+			<if condition="interfaceBased">
+				<implements name="${interface.name}"/>
+			</if>
+			<if condition="public">
+				<modifiers modifiers="public"/>
+			</if>
+			<if condition="abstract">
+				<modifiers modifiers="abstract"/>
+			</if>
+			<javadoc>
+				<tag name="pattern" contents="Decorator (role=abstractWrapperClass)"/>
+				<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+				<tag name="author" contents="${user}"/>
+				<tag name="version" contents="$$Revision$$"/>
+				<if condition="classBased">
+					The class &lt;code&gt;${wrapperClass.name}&lt;/code&gt; acts as a wrapper for subclasses of the class {@link &lt;code&gt;${superclassType.name}&lt;/code&gt;}.
+				</if>
+				<if condition="interfaceBased">
+					The class &lt;code&gt;${wrapperClass.name}&lt;/code&gt; acts as a wrapper for implementors of the interface {@link &lt;code&gt;${interface.name}&lt;/code&gt;}.
+				</if>
+				<if condition="!copyright.isEmpty">
+					&lt;p&gt;
+					${copyright}
+				</if>
+			</javadoc>
+
+			<field
+				modifiers="private"
+				type="${classBased ? superclassType.name : interface.name}"
+				name="${componentField}">
+				<javadoc>
+					The object that is being wrappered.
+					<tag name="see" contents="${classBased ? superclassType.fullName : interface.fullName}"/>
+				</javadoc>
+			</field>
+
+			<constructor
+				modifiers="public">
+				<param type="${classBased ? superclassType.name : interface.name}" name="${componentField}"/>
+				<javadoc>
+					Create a new wrapper for the &lt;code&gt;${classBased ? superclassType.name : interface.name}&lt;/code&gt; instance.
+					<tag name="param" contents="${componentField} the object that is being wrappered"/>
+					<tag name="see" contents="${classBased ? superclassType.fullName : interface.fullName}"/>
+				</javadoc>
+				this.${componentField} = ${componentField};
+			</constructor>
+
+			<if condition="generateAccessors">
+				<method
+					modifiers="public"
+					returnType="${classBased ? superclassType.name : interface.name}"
+					name="get${componentField.withInitialUppercase}">
+					<javadoc>
+						<tag name="return" contents="${componentField} the object that is being wrappered"/>
+						<tag name="see" contents="${classBased ? superclassType.fullName : interface.fullName}"/>
+						Return the object that is being wrappered
+					</javadoc>
+					return ${componentField};
+				</method>
+				<method
+					modifiers="public"
+					returnType="void"
+					name="set${componentField.withInitialUppercase}">
+					<param type="${classBased ? superclassType.name : interface.name}" name="${componentField}"/>
+					<javadoc>
+						<tag name="param" contents="${componentField} the object that is being wrappered"/>
+						<tag name="see" contents="${classBased ? superclassType.fullName : interface.fullName}"/>
+						Set the object that is being wrappered
+					</javadoc>
+					this.${componentField} = ${componentField};
+				</method>
+			</if>
+
+			<for variable="method" in="classMethods">
+				<method basedOn="method" delegateTo="${componentField}"/>
+			</for>
+			<for variable="method" in="interfaceMethods">
+				<method basedOn="method" delegateTo="${componentField}"/>
+			</for>
+
+		</class>
+	</compilationUnit>
+
+	<for variable="concreteClassName" in="concreteClasses">
+		<compilationUnit package="${package}" name="${concreteClassName.withInitialUppercase}">
+			<class name="${concreteClassName.withInitialUppercase}" extends="${wrapperClass.name}">
+				<if condition="public">
+					<modifiers modifiers="public"/>
+				</if>
+				<javadoc>
+					<tag name="pattern" contents="Decorator (role=concreteWrapperClass)"/>
+					<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+					<tag name="author" contents="${user}"/>
+					<tag name="version" contents="$$Revision$$"/>
+					<if condition="classBased">
+						The class &lt;code&gt;${wrapperClass.name}&lt;/code&gt; acts as a wrapper for subclasses of the class {@link &lt;code&gt;${superclassType.name}&lt;/code&gt;}.
+					</if>
+					<if condition="interfaceBased">
+						The class &lt;code&gt;${wrapperClass.name}&lt;/code&gt; acts as a wrapper for implementors of the interface {@link &lt;code&gt;${interface.name}&lt;/code&gt;}.
+					</if>
+					<if condition="!copyright.isEmpty">
+						&lt;p&gt;
+						${copyright}
+					</if>
+     			</javadoc>
+
+				<for variable="method" in="classMethods">
+					<method basedOn="method">
+						// insert the code to implement the wrapper behavior here
+						<if condition="method.returnType == &quot;void&quot;">
+							super.${method.name}(${method.parameterNames});
+						</if>
+						<if condition="method.returnType != &quot;void&quot;">
+							return super.${method.name}(${method.parameterNames});
+						</if>
+					</method>
+				</for>
+				<for variable="method" in="interfaceMethods">
+					<method basedOn="method">
+						// insert the code to implement the wrapper behavior here
+						<if condition="method.returnType == &quot;void&quot;">
+							super.${method.name}(${method.parameterNames});
+						</if>
+						<if condition="method.returnType != &quot;void&quot;">
+							return super.${method.name}(${method.parameterNames});
+						</if>
+					</method>
+				</for>
+
+			</class>
+		</compilationUnit>
+	</for>
+</strategy>

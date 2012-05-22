@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Code Coverage</title>
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tbody><tr>
+    <td><h1>
+      <b><font color="#cc0000" face="Verdana">Code Coverage</font></b></h1>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+        <td valign="top" rowspan="2"><img src="../../images/code_coverage_menu.gif" align="top"></td>
+        <td valign="top" width="4" rowspan="2">&nbsp;&nbsp;&nbsp; </td>
+        <td valign="top">
+          The Code Coverage tools allow you to measure how much of your code is
+          being executed. Probably the most common reason for measuring code
+          coverage is to evaluate the effectiveness of test code at exercising
+          all possible paths through the code.
+          <p></p><p>
+          There are two different mechanisms provided. Deciding which one is
+          right for your needs depends primarily on the complexity of the code
+          being run. The first is designed for use with stand-alone Java
+          applications that run in a single VM and do not make use of
+          specialized class loaders.
+          </p></td>
+        <td width="10" valign="top">
+          &nbsp;</td>
+        <td valign="top">&nbsp;</td>
+      </tr>
+    	<tr>
+        <td valign="top" colspan="3">
+          The second mechanism is designed for arbitrary applications, but might
+          require a bit more work to get it set up initially, again depending on
+          just how complex the code is. Both mechanisms are described in
+          separate sections below.
+        </td>
+      </tr>
+    </tbody></table>
+      <h2><a name="Simple"></a>Simple Code Coverage</h2>
+      <p>
+      You can measure the code coverage for a particular piece of code by
+      selecting a class that defines a main method and then selecting
+      "Run Code Coverage" from the "CodePro Tools"
+      submenu. The selected class will then be executed and the results will
+      be displayed in the <a href="code_coverage_view.html"><b>Coverage View</b></a>.
+      From within the <a href="code_coverage_view.html"><b>Coverage View</b></a>,
+      the results may also be exported to various report formats including
+      <a href="code_coverage_sample_report.html">HTML</a>, XML and text.
+      </p><p>
+      The information about how the class is to be run and what kind of coverage
+      information to gather is captured in a special kind of
+      <a href="code_coverage_launch_configuration.html">launch configuration</a>.
+      You can also create the launch configuration manually, but the "Run
+      Code Coverage" menu item makes that process easier.
+      </p><p>
+      Once a launch configuration has been created, you can measure the coverage
+      of your code either by using the "Run Code Coverage" menu item
+      or by directly executing the
+      <a href="code_coverage_launch_configuration.html">launch configuration</a>
+      from the "Run" menu.
+      </p>
+      <h2><a name="FullFeatured"></a>Full Featured Code Coverage</h2>
+      <p>
+      Code coverage works by instrumenting the bytecodes being loaded by the VM
+      to collect data about which bytecodes have been executed. Code run using
+      the code coverage launch configuration is instrumented dynamically as it
+      is loaded by using a specialized class loader. This class loader becomes
+      the default class loader for the VM that is initially executed. If
+      additional class loaders are created by the application, or if additional
+      VM's are run, they will not perform the dynamic instrumentation necessary
+      to collect code coverage information.
+      </p>
+      
+      <p>
+      <img src="../../images/code_coverage_menu2.gif" align="left">The alternative is to statically instrument the code before executing the
+      application. CodePro provides support for instrumenting the code on a
+      project-by-project basis. Each project has a
+      <a href="code_coverage_properties.html">Code Coverage property sheet</a>.
+      This property sheet allows you to control whether the class files are
+      to be instrumented. It also allows you to control which class files are
+      instrumented. As a convenience, the "Instrument Code" and
+      "Uninstrument Code" menu items on the "CodePro Tools"
+      submenu will turn instrumentation on and off while leaving the other
+      project-related settings unchanged.
+      </p>
+      
+      <p>
+      Once your projects have been instrumented, you will collect code coverage
+      information any time the code is run, using any launch configuration that
+      you have created. In other words, you do not need to, and should not, use
+      the Code Coverage launch configuration to run pre-instrumented code.
+      </p><p>
+      There are two other implications of using this mechanism that you need to
+      be aware of. The first is that if you want to run the code without
+      gathering code coverage data, you will need to uninstrument all of the
+      projects containing code that will be executed.
+      </p><p>
+      The second implication is similar. If you are going to distribute the
+      class files from your local machine, you need to be careful to
+      uninstrument the code before you package it for delivery. Otherwise the
+      code will be collecting code coverage data whenever it is executed.
+      </p><h2>Viewing the Results</h2>
+      <p>
+      Each time you measure a particular class, a coverage report will be
+      generated. If you measure the same class multiple times, past versions of
+      the report will be remembered so that those versions can be compared. The
+      <a href="../../preferences/preferences_code_coverage.html">number
+      of versions</a> to be remembered can be configured. Coverage reports are
+      stored on disk, so they are available even after Eclipse is closed and
+      then re-opened.</p>
+      <p><img src="../../images/code_coverage_view_history.gif" border="0">
+      </p>
+
+      <h2>Understanding the Results</h2>
+      <p>
+      The code coverage data that is gathered measures the number of times each
+      basic block has been executed. A <i>basic block</i> is a sequence of one
+      or more bytecodes (Java Virtual Machine instructions) that contains at
+      most one branch instruction, which must be at the end of the block. The
+      important thing about basic blocks is that if one instruction in the block
+      is executed, then <b>all</b> of the instructions in the block will be
+      executed.
+      </p>
+      <p>
+      In addition, we keep track of the number of bytecodes in each basic block
+      and enough information to be able to map each bytecode back to the class,
+      method, and even line of code from which it was compiled.
+      </p>
+      <p>
+      Given this data, we can compute the code coverage at several interesting
+      levels of granularity, resulting in the following coverage measures:
+      </p>
+      <dl>
+      <dt>class coverage</dt>
+        <dd>
+        The number of classes containing at least one basic block that was
+        executed at least once, divided by the total number of classes.
+        </dd>
+      <dt>method coverage</dt>
+        <dd>
+        The number of methods containing at least one basic block that was
+        executed at least once, divided by the total number of methods.
+        </dd>
+      <dt>line coverage</dt>
+        <dd>
+        The number of lines of code containing at least one basic block that was
+        executed at least once, divided by the total number of lines of code.
+        </dd>
+      <dt>block coverage</dt>
+        <dd>
+        The number of basic blocks that were executed at least once, divided by
+        the total number of basic blocks.
+        </dd>
+      <dt>instruction coverage</dt>
+        <dd>
+        The number of instructions in basic blocks that were executed at least
+        once, divided by the total number of instructions.
+        </dd>
+      </dl>
+      <p>
+      Line coverage is probably the most easily misunderstood measure, because
+      while all of the rest of the measured elements (classes, methods, blocks,
+      and instructions) all map cleanly to blocks, lines do not necessarily. It
+      all depends on how the code is formatted. Each line of code can contain
+      either some or all of one or more basic blocks, and every basic block can
+      map to one or more lines of code.
+      </p>
+
+      <h2>Acknowledgements</h2>
+      <p>The Code Coverage tool is based on the <a href="http://emma.sourceforge.net"><b>EMMA</b></a>
+      code coverage engine. Detailed information on using EMMA is available from
+      the EMMA web site:
+      </p><ul>
+        <li><a href="http://emma.sourceforge.net/intro.html">Quick Start</a></li>
+        <li><a href="http://emma.sourceforge.net/userguide_single/userguide.html">User
+          Guide</a></li>
+        <li><a href="http://emma.sourceforge.net/reference_single/reference.html">Reference
+          Documentation</a></li>
+        <li><a href="http://emma.sourceforge.net/samples.html">Sample Reports</a></li>
+        <li><a href="http://emma.sourceforge.net/faq.html">FAQ</a></li>
+      </ul>
+      <p align="center"><b><font face="Verdana">This feature is based on technology from the EMMA
+      Project.<a href="http://emma.sourceforge.net"><br>
+      http://emma.sourceforge.net<br>
+      </a>Copyright &copy; 2001-2005&nbsp;Vlad Roubtsov</font></b>
+    </p></td>
+  </tr>
+</tbody></table>
+
+</body></html>

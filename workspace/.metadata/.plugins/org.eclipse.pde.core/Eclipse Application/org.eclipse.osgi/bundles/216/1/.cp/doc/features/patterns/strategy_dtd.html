@@ -1,0 +1,1662 @@
+<html>
+
+<head>
+<title>Adding New Patterns</title>
+</head>
+
+<body>
+
+<dl>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!--****************************************************************************<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">* General
+    Tags.<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*****************************************************************************--&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    strategy (include | compilationUnit | classExtension | xmlFile | file |
+    page)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    include EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    include<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>file CDATA #REQUIRED&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!--****************************************************************************<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">* Realizable
+    Tags.<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*****************************************************************************--&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    compilationUnit (import | class | interface | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    compilationUnit<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>package CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>isPrimary (false | true) &quot;false&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    classExtension (import | javadoc | initializer | field | constructor |
+    method | class | interface | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    classExtension<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>class CDATA #REQUIRED&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    import EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    import<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt>&nbsp;<span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    class (javadoc | modifier | implements | initializer | field | constructor |
+    method | class | interface | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    class<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>modifiers CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>extends CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>delegateTo CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>stubStyle (returnDefault | unsupportedOperation) &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    interface (javadoc | modifier | field | method | class | interface | if |
+    for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    interface<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>modifiers CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>extends CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    modifiers EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    modifiers<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>modifiers CDATA #REQUIRED&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    implements EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    implements<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>createStubs (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;</span>delegateTo CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>stubStyle (returnDefault | unsupportedOperation) &quot;returnDefault&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    initializer (#PCDATA | javadoc | modifier | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    initializer<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>modifiers CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    field (javadoc | modifier | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    field<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>modifiers CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>type CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>initializer CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    constructor (#PCDATA | javadoc | modifier | param | throws | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    constructor<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>modifiers CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>basedOn CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>&lt;!--<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>The &quot;returnType&quot; and &quot;name&quot; attributes are only
+    optional if the<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>&quot;basedOn&quot; attribute is provided.<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>--&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    method (#PCDATA | javadoc | modifier | param | throws | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    method<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>modifiers CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>returnType CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>basedOn CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>delegateTo CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>stubStyle (returnDefault | unsupportedOperation) &quot;returnDefault&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    param EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    param<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>modifiers CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>type CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    javadoc (#PCDATA | tag | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>&lt;!--<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>When the &quot;tag&quot; tag appears as a child of a
+    &quot;javadoc&quot; tag, it cannot have<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>any children. When it appears as a child of either an &quot;xmlFile&quot;
+    or<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>&quot;deploymentDescriptor&quot; tag, it cannot have a
+    &quot;contents&quot; attribute.<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>--&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    tag (attribute | tag | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    tag<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>contents CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    xmlFile (tag | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    xmlFile<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>directory CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>package CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>docType CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>isPrimary (false | true) &quot;false&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    deploymentDescriptor (tag | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    deploymentDescriptor<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>type (web | ejb | client | application) #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>isPrimary (false | true) &quot;false&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    attribute EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    attribute<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>value CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>isKey (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>replace (false | true) &quot;false&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    file (#PCDATA | if | for)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    file<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>directory CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;</span>package CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>isPrimary (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>replace (false | true) &quot;false&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>&lt;!--<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>The children of the &quot;if&quot; tag are limited to being valid
+    children of the<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>parent of the &quot;if&quot; tag.<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>--&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    if ANY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    if<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>condition CDATA #REQUIRED&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>&lt;!--<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>The children of the &quot;for&quot; tag are limited to being valid
+    children of the<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>parent of the &quot;for&quot; tag.<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>--&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    for ANY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    for<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>variable CDATA
+    #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>index CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>in CDATA #REQUIRED&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!--****************************************************************************<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">* User
+    Interface Tags.<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">*****************************************************************************--&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    page (group | label | spacer | boolean | string | multipleChoice |
+    sourceFolder | package | type | class | interface | list | table | subset |
+    callOut)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    page<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;</span>initialFocus CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    group (group | label | spacer | boolean | string | multipleChoice |
+    sourceFolder | package | type | class | interface | list | table | subset |
+    callOut)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    group<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>numColumns CDATA &quot;1&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    label (group | label | spacer | boolean | string | multipleChoice |
+    sourceFolder | package | type | class | interface | list | table | subset |
+    callOut)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    label<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>text CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    spacer EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    spacer<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>displayLine (false | true) &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;</span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    boolean (group | label | spacer | boolean | string | multipleChoice |
+    sourceFolder | package | type | class | interface | list | table | subset |
+    callOut)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    boolean<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>default (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>trueLabel CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>trueTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>falseLabel CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>falseTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    string EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    string<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>style (any | identifier | name) &quot;any&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>required (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>default CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>numLines CDATA &quot;1&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>list CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>derivedFrom CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>editable (false | true) &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    multipleChoice (choice, choice+)&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    multipleChoice<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>numColumns CDATA &quot;1&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>default CDATA &quot;0&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    choice (group | label | spacer | boolean | string | multipleChoice |
+    sourceFolder | package | type | class | interface | list | table | subset |
+    callOut)*&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    choice<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>value CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    sourceFolder EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    sourceFolder<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseLabel CDATA &quot;Browse...&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseMessage CDATA &quot;Choose a folder:&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>required (false | true) &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>missingValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>allowReadOnly (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>mustBeEditable CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>default CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    package EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    package<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>folderLabel CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>folderTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>folderBrowseLabel CDATA &quot;Browse...&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>folderBrowseTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>folderBrowseMessage CDATA &quot;Choose a folder:&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>packageLabel CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>packageTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>packageBrowseLabel CDATA &quot;Browse...&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>packageBrowseTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>packageBrowseMessage CDATA &quot;Choose a package:&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>required CDATA &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>missingValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>allowReadOnly (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>mustBeEditable CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>defaultFolder CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>defaultPackage CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>disabledBy CDATA
+    &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    type EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    type<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseLabel CDATA &quot;Browse...&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseMessage CDATA &quot;Choose a type:&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>required CDATA &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>missingValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>invalidValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>allowReadOnly (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>mustBeEditable CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>style (new | existing | newOrExisting) &quot;newOrExisting&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>rootType CDATA &quot;java.lang.Object&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>default CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>defaultPackage CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    class EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    class<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseLabel CDATA &quot;Browse...&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseMessage CDATA &quot;Choose a type:&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>required CDATA &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>missingValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>invalidValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>allowReadOnly (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>mustBeEditable CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>style (new | existing | newOrExisting) &quot;newOrExisting&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>rootType CDATA &quot;java.lang.Object&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;</span>default CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>defaultPackage CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    interface EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    interface<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseLabel CDATA &quot;Browse...&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>browseMessage CDATA &quot;Choose a type:&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>required CDATA &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>missingValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>invalidValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>allowReadOnly (false | true)
+    &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>mustBeEditable CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>style (new | existing | newOrExisting) &quot;newOrExisting&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>rootType CDATA &quot;java.lang.Object&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>default CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>defaultPackage CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>computedBy CDATA
+    &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    list EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    list<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>addLabel CDATA &quot;Add...&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>addTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>removeLabel CDATA &quot;Remove&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>removeTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>orientation (vertical | horizontal) &quot;vertical&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>emptyAllowed (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>userOrdered (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;</span>missingValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>default CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>elementType (string | package | type | class | interface) #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>allowReadOnly (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>mustBeEditable CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>rootType CDATA &quot;java.lang.Object&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>style (simple | hierarchical | any | identifier | name) &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>list CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>editable (false | true) &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    table (column+ | default*)&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    table<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>addLabel CDATA &quot;Add...&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>addTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>removeLabel CDATA &quot;Remove&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>removeTooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>orientation (vertical | horizontal) &quot;vertical&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>emptyAllowed (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>userOrdered (false | true) &quot;true&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>missingValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;</span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    column EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    column<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>default CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>elementType CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>weight CDATA &quot;1&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>allowReadOnly (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>mustBeEditable CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>rootType CDATA &quot;java.lang.Object&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>allowPrimitive (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>allowVoid (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>style (any | identifier | name) &quot;any&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    default EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    default<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>columns CDATA #REQUIRED&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    subset EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    subset<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>label CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>tooltip CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>orientation (vertical | horizontal) &quot;vertical&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>visibility CDATA &quot;public, package, protected, private&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>showInherited (never | user | always) &quot;always&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>emptyAllowed (false | true) &quot;false&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>missingValue CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>elementType (method | field) #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>derivedFrom CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>computedBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>enabledBy CDATA &quot;&quot;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>disabledBy CDATA &quot;&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&nbsp;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ELEMENT
+    callOut EMPTY&gt;<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;">&lt;!ATTLIST
+    callOut<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>name CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>type CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><span style="mso-spacerun:
+yes">&nbsp;</span>handler CDATA #REQUIRED<o:p>
+    </o:p>
+    </span></dt>
+  <dt><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>runOnce (false | true) &quot;false&quot;&gt;<o:p>
+    </o:p>
+    </span></dt>
+</dl>
+</body>
+</html>

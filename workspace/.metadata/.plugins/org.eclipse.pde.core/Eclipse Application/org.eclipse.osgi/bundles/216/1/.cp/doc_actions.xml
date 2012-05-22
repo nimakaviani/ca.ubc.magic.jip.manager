@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Actions for the CodePro User's Guide -->
+<!-- that cause the topics defined in topics.xml -->
+<!-- to appear in the infoview defined in infoview.xml -->
+
+<actions
+	infoview="com.instantiations.assist.eclipse.infoview"> 
+	<insert 
+		from="com.instantiations.assist.eclipse.topics" 
+		to="com.instantiations.assist.eclipse.infoview"
+		as="child" /> 
+</actions>

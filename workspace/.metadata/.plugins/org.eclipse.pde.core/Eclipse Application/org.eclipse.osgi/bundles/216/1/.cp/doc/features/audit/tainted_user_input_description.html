@@ -1,0 +1,184 @@
+<html>
+
+<head>
+<title>A Description of the Tainted User Input Rules</title>
+</head>
+
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">A Description of the Tainted User Input Rules</font></b></h1>
+      <p>
+      The purpose of this document is to discuss how the Tainted User Input
+      rules work, the kinds of violations they produce, and some possible
+      resolution strategies for those violations.
+      </p>
+      <h3>General Description</h3>
+      <p>
+      All of the Tainted User Input rules work in essentially the same way:
+      they look for potential execution paths from a source to a sink. It is
+      important to note that the paths it finds are <i>potential</i> in the
+      sense that CodePro is performing a static analysis and therefore cannot
+      know whether a specific execution path is ever followed in practice.
+      </p>
+      <p>
+      A source is a location at which (possibly tainted) user entered data
+      becomes available to the application. The list of sources is shared
+      between all of the rules and can be edited. One example of a source is
+      the method <code>getText()</code> defined for text widgets. Another
+      example is the method <code>getParameter(String)</code> defined for a
+      servlet request.
+      </p>
+      <p>
+      A sink is a method that could create a security problem if invoked with
+      carefully constructed user input. The list of sinks is specific to each
+      of the Tainted User Input rules. These lists can also be edited. The
+      classic example of s sink method is the <code>executeQuery(String)</code>
+      method defined for SQL statements. If the user can control the content of
+      the string they might be able to get far more information from the
+      database than they ought to be able to get, or might even be able to
+      destroy the integrity of the database.
+      </p>
+      <h3>Violations and Resolutions</h3>
+      <p>
+      There are three possible violations that a Tainted User Input rule can
+      create: direct path violations, path too long violations, and too many
+      sources violations. Each is discussed below.
+      </p>
+      <h4>Direct Path Violations</h4>
+      <p>
+      A <i>direct path</i> violation occurs when CodePro has identified a direct
+      path from a source to a sink. If this is a path that can be followed in
+      the shipping application, then it probably represents a very real security
+      hole and needs to be treated as a serious security risk.
+      </p>
+      <p>
+      The first step to take when one of these violations occurs is to identify
+      whether or not the path can ever be followed in the shipping application.
+      If you cannot prove that the path cannot be followed, you should assume
+      that it can.
+      </p>
+      <p>
+      If the path can be followed, you then need to verify whether there is any
+      code in place to validate the user input before it is used. For example,
+      if the user has entered a postal code in order to locate a store near them
+      then the input should be validated as having the right form for postal
+      codes in whatever locales you support. If there is no such validation
+      being done, then you should add validation code to your application.
+      </p>
+      <h4>Path Too Long Violations</h4>
+      <p>
+      A <i>path too long</i> violation occurs when, in the process of trying to
+      trace the possible sources of a value passed to a sink method, the path
+      got to be too long. If a long path is found the rules will stop following
+      the path. (This is a necessary optimization so that the rules will run in
+      a reasonable amount of time). Such a violation doesn't necessarily
+      indicate a problem; the rule is just reporting that it couldn't prove that
+      there is no problem.
+      </p>
+      <p>
+      As an example of how this kind of violation can occur, consider the Path
+      Manipulation rule, which looks for places where user provided data is used
+      to access a file in the file system. Let's assume you have a method that
+      takes, among others, an argument that is the name of the file to be created:
+      </p>
+      <blockquote><code><pre>
+public void saveFile0(..., String fileName, ...)
+{
+    ...
+    File file = new File(fileName);
+    ...
+}
+      </pre></code></blockquote>
+      <p>
+      The Path Manipulation rule would look at this file creation as a possible
+      violation. Let's further assume that <code>saveFile0</code> is invoked
+      from another method that looks like the following:
+      </p>
+      <blockquote><code><pre>
+public void saveFile1(..., String fileName, ...)
+{
+   ...
+   saveFile0(fileName);
+   ...
+}
+      </pre></code></blockquote>
+      <p>
+      The path to discover the source of the file name is now at least two
+      invocations long: the invocation of <code>saveFile0</code> and the
+      invocation of <code>saveFile1</code>. If the name is passed along through
+      enough methods it will eventually result in a path that is considered to
+      be too long.
+      </p>
+      <p>
+      The reason the path is so long is that we have used a programming style
+      of passing "unwrapped" objects into a method.
+      One way to solve this problem would be to "wrap" the file name by passing
+      along the File rather than the name of the file. This would cause the
+      creation of the File object to be much closer to the point at which the
+      file name was first obtained. Not only would this make it easier for the
+      audit rule to determine whether the file name could be tainted, but it
+      would also make it easier for human readers to discover and correct the
+      problem if it could be tainted.
+      </p>
+      <p>
+      Sometimes it will be hard to eliminate long paths like this, but it is
+      well worth the effort. Long paths like this not only make it harder for
+      static analysis tools like CodePro to figure out whether the application
+      is secure, they also make it harder for developers to understand the code.
+      </p>
+      <h4>Too Many Sources Violations</h4>
+      <p>
+      A <i>too many sources</i> violation occurs when a rule detects too many
+      possible sources for a given piece of information and decides that it
+      cannot follow all of those paths; another necessary optimization. Again,
+      it doesn't necessarily indicate a problem, the rule is just reporting that
+      it couldn't prove that there is no problem.
+      </p>
+      <p>
+      For example, using the Path Manipulation rule again let's assume you have
+      code like the following:
+      </p>
+      <blockquote><code><pre>
+File file = new File(customer.getUniqueId() + ".xml");
+      </pre></code></blockquote>
+      <p>
+      The rule would look at this and decide that the <code>getUniqueId()</code>
+      method in the class Customer needed to be examined to see whether it could
+      ever return a tainted value. Let's assume that it's implemented by
+      returning the value of a field:
+      </p>
+      <blockquote><code><pre>
+public String getUniqueId()
+{
+    return uniqueId;
+}
+      </pre></code></blockquote>
+      <p>
+      The rule would then look for places where the field's value could be
+      changed, such as setter:
+      </p>
+      <blockquote><code><pre>
+public void setUniqueId(String id)
+{
+    uniqueId = id;
+}
+      </pre></code></blockquote>
+      <p>
+      It would then look for all the places where <code>setUniqueId</code> was
+      invoked to see whether the arguments to any of the invocations could ever
+      contain tainted data. If the method <code>setUniqueId</code> were invoked
+      in too many places, the rule would decide that it couldn't trace back all
+      of those possible paths and would generate a "too many sources" violation.
+      </p>
+      <p>
+      The first question that needs to be asked is why there are so many places
+      that can set the id. It might be appropriate, but it might also be a poor
+      design or implementation choice that needs to be re-examined.
+      </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

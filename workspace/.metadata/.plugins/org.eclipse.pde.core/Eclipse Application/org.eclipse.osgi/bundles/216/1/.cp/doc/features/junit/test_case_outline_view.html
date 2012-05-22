@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<title>JUnit Test Case Outline View</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+    <b><font face="Verdana" color="#CC0000">JUnit Test Case Outline View</font></b></h1>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top">
+		<img border="0" src="../../images/test_case_outline_view.gif"></td>
+        <td valign="top" width="4">&nbsp;&nbsp;&nbsp; </td>
+        <td valign="top">
+          <p class="MsoNormal">The <b>JUnit Test Case Outline</b> view shows the
+          contents of a <a href="test_case_generation.html">JUnit Test Case</a>
+          structured in a way that is more convenient for certain kinds of
+          browsing.</p>
+          <p class="MsoNormal">One of the primary advantages of this view is
+          that it groups each of the test methods based on the target method
+          that is being tested. This not only makes it easier to see which
+          target methods are being tested and how many test methods there are
+          for each one, it also helps you find all of the test methods that are
+          testing each target method, no matter where they are located in the
+          file and no matter what they might be named.</p>
+          <p class="MsoNormal">In addition, this view helps you locate several
+          vital pieces of information about each test method, such as the
+          fixture being used, the values being passed in to the target method,
+          and the tests that will be applied to the resulting value.</p>
+          <h2>Outline Structure</h2>
+          <p class="MsoNormal">The top level elements in the tree represent
+          individual classes that are, either directly or indirectly, subclasses
+          of <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="Code">junit.framework.TestCase</span>.
+          The children of these test classes are either test fixtures or groups
+          of test methods.</p>
+          <p class="MsoNormal">A test fixture is a field whose type is the same
+          as the target type (the type being tested). Its children include the
+          accessor method used to get its value, if there is one, and the value
+          assigned to the field.
+        </td>
+      </tr>
+    </table>
+      <p class="MsoNormal">As stated previously, test methods are grouped
+      together based on the target method being tested. The label for the groups
+      contains the name of the target method and the number of test methods
+      within the group. The children are individual test methods.</p>
+      <p class="MsoNormal">Each test method has two children representing the
+      inputs to the test method, including the test fixture on which the method
+      will be invoked, and the results of the test. The results consist of
+      either the exception that is expected to be thrown by the test method or
+      the sequence of assertions that will be tested after the method has
+      returned.</p>
+      <p class="MsoNormal">Test methods are marked (currently by being displayed
+      in a red font) if the results of the test have not been verified.</p>
+      <p class="MsoNormal"><img border="0" src="../../images/test_case_sample1.gif" width="390" height="227">
+      </p>
+      <p class="MsoNormal">Deleting or commenting out the <b>fail</b> line will
+      mark the method as verified.</p>
+      <p class="MsoNormal"><img border="0" src="../../images/test_case_sample2.gif" width="390" height="227"></p>
+      <h2>Menu Items</h2>
+      <p class="MsoNormal">
+		<img border="0" src="../../images/test_case_mark_verified.gif" width="126" height="28"><p class="MsoNormal">
+	The <b>Mark Verified</b> menu item (and a corresponding
+      action bar button) will automatically remove from a test method the
+      marker used to indicate that the method has not yet been verified. This
+      will make it easier for developers to mark tests as having been verified.
+ </td>
+  </tr>
+</table>
+</body>
+</html>

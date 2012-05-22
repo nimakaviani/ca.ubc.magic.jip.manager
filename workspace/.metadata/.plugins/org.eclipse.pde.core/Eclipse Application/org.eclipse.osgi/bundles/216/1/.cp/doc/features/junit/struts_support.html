@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Struts2 Test Generation</title>
+		<link type="text/css" rel="stylesheet" href="../../book.css"/>
+	</head>
+	<body>
+		<h1 id="Struts2TestGeneration">Struts2 Test Generation</h1>
+		<p>CodePro can now generate tests for the Struts2 Framework (
+			<a href="http://struts.apache.org/">struts.apache.org</a>). Struts2 is an elegant, extensible framework for creating enterprise-ready Java web applications. The framework is designed to streamline the full development cycle, from building, to deploying, to maintaining applications over time.
+		</p>
+		<ol style="list-style: none;">
+			<li>
+				<a href="struts_support.html#Struts2TestGeneration">Struts2 Test Generation</a>
+			</li>
+			<li>
+				<a href="struts_support.html#ActionSupport">Action Support</a>
+				<ol style="list-style: none;">
+					<li>
+						<a href="struts_support.html#MessageActionExample">Message Action Example</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<a href="struts_support.html#Features">Features</a>
+				<ol style="list-style: none;">
+					<li>
+						<a href="struts_support.html#EasyMockMockObjectsforServices">EasyMock Mock Objects for Services</a>
+					</li>
+				</ol>
+			</li>
+		</ol>
+		<p><hr/></p>
+		<h2 id="ActionSupport">Action Support</h2>
+		<p>CodePro recognizes and generates tests for classes which implement the 
+			<code>com.opensymphony.xwork2.Action</code> interface, or extends the  
+			<code>com.opensymphony.xwork2.ActionSupport</code> class.
+		</p>
+		<h3 id="MessageActionExample">Message Action Example</h3>
+		<p>Let&#8217;s start out with a simple Create Message example of a Struts2 ActionSupport class:</p>
+		<pre><code>public class CreateMessageAction extends ActionSupport {
+
+    private String guest;
+    private String message;
+	
+
+    public String execute() {
+	Message msg = new Message();
+	msg.setGuest(guest);
+	msg.setMessage(message);
+	msg.setWhen(new Date());	
+	return SUCCESS;
+    }	
+
+    public String getGuest() {
+	return guest;
+    }
+
+    public void setGuest(String guest) {
+	this.guest = guest;
+    }
+
+    public String getMessage() {
+  	return message;
+    }
+
+    public void setMessage(String message) {
+ 	this.message = message;
+    }
+}
+
+</code></pre>
+		<p></p>
+		<p>In order to generate tests for this controller, right click on the class in the Package Explorer and choose 
+			<strong>CodePro Tools > Generate Test Cases</strong>. This will create and open a new test case called 
+			<code>CreateMessageActionTest</code>. 
+		</p>
+		<p>
+			<img border="0" src="generate_test_case.gif"/>
+		</p>
+		<pre><code>public class CreateMessageActionTest extends TestCase {
+    /**
+     * Run the String execute() method test.
+     *
+     * @generatedBy CodePro at 12/18/08 2:45 PM
+     */
+    public void testExecute_1()
+	throws Exception {
+	CreateMessageAction fixture = new CreateMessageAction();
+	fixture.setMessage("a");
+	fixture.setGuest("a");
+	String result = fixture.execute();
+	// add additional test code here
+	assertEquals("success", result);
+    }
+}
+
+</code></pre>
+		<p></p>
+		<p>Like CodePro&#8217;s normal test generation, we create a fixture of the class under test, execute the method under test, and make assertions on the results.</p>
+		<h2 id="Features">Features</h2>
+		<h3 id="EasyMockMockObjectsforServices">EasyMock Mock Objects for Services</h3>
+		<p>When generating unit tests for Struts2 Actions, it is important to test them in isolation of the rest of the classes in the application. In a Struts application, your action class may depend on other services to perform its work. These services could access databases, send emails to customers, or generally perform work that you don&#8217;t really want to do in the context of a unit test. In order to isolate your action, when CodePro sees  a service it will create a mock of that service in the test. So if you have an 
+			<code>PortfolioServiceInterface</code> interface and an 
+			<code>PortfolioServiceImpl</code> concrete implementation, instead of creating an instance of 
+			<code>PortfolioServiceImpl</code> (which would modify an actual database), CodePro will use EasyMock to create a mock implementation of 
+			<code>PortfolioServiceInterface</code>. 
+		</p>
+		<pre><code>
+    MyAction fixture = new MyActionr();
+    PortfolioServiceInterface service = EasyMock.createNiceMock(PortfolioServiceInterface.class);
+    fixture.setPortfolioService(service);
+    fixture.execute();
+</code></pre>
+		<p></p>
+		<p>These mock objects will allow any method to be called. If a method has a return type, the mock object will by default return 
+			<code>null</code> or 
+			<code>0</code> as appropriate. In order to return other values, the user must set up the proper expectations on the mock object, and then switch the mock over to replay mode. For example:
+		</p>
+		<pre><code>
+    MyAction fixture = new MyAction();
+    
+    PortfolioServiceInterface  service = EasyMock.createNiceMock(PortfolioServiceInterface.class);
+    EasyMock.expect(service.persist("testPortfolio")).andReturn((boolean) true);
+    EasyMock.replay(service);
+    
+    fixture.setPortfolioService(service);
+    fixture.execute();
+</code></pre>
+		<p></p>
+		<p>For more information on using EasyMock mock objects, see 
+			<a href="http://easymock.org/EasyMock2_4_Documentation.html">easymock.org</a>.
+		</p>
+	</body>
+</html>

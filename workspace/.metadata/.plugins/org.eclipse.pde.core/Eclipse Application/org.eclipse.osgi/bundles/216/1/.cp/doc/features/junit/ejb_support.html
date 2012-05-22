@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link type="text/css" rel="stylesheet" href="../../book.css"/>
+		<title>EJB3 Test Generation</title>
+		
+	</head>
+	<body>
+		<h1 id="EJB3TestGeneration">EJB3 Test Generation</h1>
+		<p>CodePro can now generate tests for classes that implement the EJB3 Interface (
+			<a href="http://java.sun.com/products/ejb/">java.sun.com/ejb</a>). Enterprise JavaBeans (EJB) technology is the server-side component architecture for Java Platform, Enterprise Edition (Java EE). EJB technology enables rapid and simplified development of distributed, transactional, secure and portable applications based on Java technology. The tests that are generated use the EJB3Unit Testing framework, (
+			<a href="http://ejb3unit.sourceforge.net/">EJB3unit</a>) which is an out of container testing framework for EJB3.
+		</p>
+		<ol style="list-style: none;">
+			<li>
+				<a href="ejb_support.html#EJB3TestGeneration">EJB3 Test Generation</a>
+			</li>
+			<li>
+				<a href="ejb_support.html#EntitySupport">Entity Support</a>
+				<ol style="list-style: none;">
+					<li>
+						<a href="ejb_support.html#AsimpleEntityexample">A simple Entity example</a>
+					</li>
+					<li>
+						<a href="ejb_support.html#TestingEntitybeanswithrelations">Testing Entity beans with relations</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<a href="ejb_support.html#SessionBeanSupport">Session Bean Support</a>
+				<ol style="list-style: none;">
+					<li>
+						<a href="ejb_support.html#APlaceBidBeanExample">A PlaceBidBean Example</a>
+					</li>
+				</ol>
+			</li>
+		</ol>
+		<p><hr/></p>
+		<h2 id="EntitySupport">Entity Support</h2>
+		<p>CodePro recognizes Entities as classes which are annotated with the 
+			<code>javax.persistence.Entity</code> annotation and generates tests for them.
+		</p>
+		<h4 id="AsimpleEntityexample">A simple Entity example</h4>
+		<p>Let&#8217;s start out with a simple example of an entity User :</p>
+		<pre><code>@Entity
+@Table(name = "USERS")
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String userId;
+    private String firstName;
+    private String lastName;
+	
+    public User() {
+    }
+    
+    public User(String firstName, String lastName, String userId) {
+	this.userId = userId;
+	this.firstName = firstName;
+	this.lastName = lastName;
+    }
+
+    @Id
+    @Column(name = "USER_ID", nullable = false)
+     public String getUserId() {
+	return userId;
+    }
+
+    public void setUserId(String userId) {
+	this.userId = userId;
+    }
+
+    @Column(name = "FIRST_NAME", nullable = false)
+    public String getFirstName() {
+ 	return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+	this.firstName = firstName;
+    }
+
+    @Column(name = "LAST_NAME", nullable = false)
+    public String getLastName() {
+	return lastName;
+    }
+
+    public void setLastName(String lastName) {
+	this.lastName = lastName;
+    }
+}
+
+</code></pre>
+		<p></p>
+		<p>In order to generate tests for this entity, right click on the class in the Package Explorer and choose 
+			<strong>CodePro Tools > Generate Test Cases</strong>. 
+		</p>
+		<p>
+			<img border="0" src="generate_test_case.gif"/>
+		</p>
+		<p>This will create and open a new test case called 
+			<code>UserTest</code>. 
+		</p>
+		<pre><code>
+ public class UserTest extends BaseEntityFixture&lt;User> 
+ {
+    /**
+     * Initialize a newly create test instance to have the given name.
+     *
+     * @param name the name of the test
+     *
+     * @generatedBy CodePro 
+     */
+     public UserTest() {
+	super(User.class);
+    }
+}
+
+</code></pre>
+		<p></p>
+		<p>The generated test uses the 
+			<code>BaseEntityFixture</code> from the EJB3Unit framework to test the entity. Right click on the test class and choose 
+			<strong>Run as > JUnit Test</strong> to execute the test. 
+		</p>
+		<p>
+			<img border="0" src="execute_test.gif"/>
+		</p>
+		<p>The JUnit View shows the tests that were executed &#8211; the framework automatically generates tests that </p>
+		<ul>
+			<li>Check if n randomly generated instances can be written to the database 
+				<ul>
+					<li>Try to write ban instances with max. length fields (e.g. a string with the length 255 chars &#8211; if the max length definition of this field is 255 characters)</li>
+					<li>Try to write null values to nullable fields.</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Check if n randomly generated instances can be read from the database. The read operation will:
+				<ul>
+					<li>Check if the read entity bean instance is equals to the generated instance (based on the persistent fields)</li>
+					<li>Check if the equals() implementation is correct. This mends that two entity beans representing the same database row are equal. And two beans representing different rows in the database are never equal.</li>
+					<li>Check if the hashCode() implementation is correct. This means that two beans which are equal must have the same hashCode. And n different beans should have a hashCode variation.</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="TestingEntitybeanswithrelations">Testing Entity beans with relations</h3>
+		<p>CodePro generates tests for entities which have the following relations &#8211; OneToMany, ManyToOne and OneToOne.</p>
+		<p>The 
+			<code>User</code> entity in the above example is modified to contain a OneToOne and a OneToMany relation. 
+		</p>
+		<pre><code>
+    @OneToOne(cascade = CascadeType.ALL)
+    public ContactInfo getContactInfo() {
+ 	return contactInfo;
+    }
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    public Set&lt;Category> getCategories() {
+	return categories;
+    }
+
+</code></pre>
+		<p></p>
+		<p>The generated test 
+			<code>UserTest</code> is shown below.
+		</p>
+		<pre><code>
+public class UserTest extends BaseEntityFixture&lt;User> 
+{
+    /**
+     * All entities referenced in &lt;code>{@link User}&lt;/code>.
+     */
+    private static final Class[] USED_ENTITIES = {
+	Item.class, Bid.class, Bidder.class, Category.class, ContactInfo.class, Seller.class
+    };
+    
+    /**
+     * Generators to generate the entities specified in the mapping.
+     */
+    private static final Generator[] SPECIAL_GENERATORS = { 
+	 new MyContactInfoCreator(), new MyCategoryCreator()
+     };
+	
+    /**
+     * Initialize a newly create test instance to have the given name.
+     */
+    public UserTest() {
+	super(User.class, SPECIAL_GENERATORS, USED_ENTITIES);
+     }
+
+    /**
+     * Bean Generator Class
+     */
+    @GeneratorType(className = ContactInfo.class)
+    private static final class MyContactInfoCreator extends SingleBeanGenerator&lt;ContactInfo>
+    {
+          private MyContactInfoCreator() 
+          {
+              super(ContactInfo.class);
+          }
+    }
+
+     /**
+     * Bean Generator Class
+     */
+    @GeneratorType(className = Set.class,field = "categories")
+    private static final class MyCategoryCreator extends BeanCollectionGenerator&lt;Category>
+    {
+          private MyCategoryCreator() 
+          {
+              super(Category.class, 10);
+          }
+    }
+}
+</code></pre>
+		<p></p>
+		<p>The test has special generators for the entities specified in the relationships &#8211; a 
+			<code>SingleBeanGenerator</code> for the OneToOne relation and a 
+			<code>BeanCollectionGenerator</code> for the OneToMany relation. More information and the generators and the test framework can be found at 
+			<a href="http://ejb3unit.sourceforge.net/">EJB3Unit</a>.
+		</p>
+		<h2 id="SessionBeanSupport">Session Bean Support</h2>
+		<p>CodePro recognizes classes that have the 
+			<code>javax.ejb.Stateless</code> or 
+			<code>javax.ejb.Stateful</code> annotations as Session Beans and generates tests for them. The 
+			<a href="http://ejb3unit.sourceforge.net/">EJB3Unit</a> test framework is used in order to facilitate out of container testing.
+		</p>
+		<h4 id="APlaceBidBeanExample">A PlaceBidBean Example</h4>
+		<p>An example of a Session Bean that allows a user to place a bid.</p>
+		<pre><code>
+@Stateless(name = "PlaceBid")
+public class PlaceBidBean implements PlaceBid {
+    @PersistenceContext
+    private EntityManager em;
+	
+    public Bid addBid(Bid bid) {
+	System.out.println("Adding bid, bidder ID=" + bid.getBidder()
+		+ ", item ID=" + bid.getItem() + ", bid amount="
+		+ bid.getBidPrice() + ".");
+	return save(bid);
+   }
+
+    private Bid save(Bid bid) {
+	em.persist(bid);
+	System.out.println("Your bid item id: " + bid.getItem()
+               + " was successful.");
+	System.out.println("Your bid id is: " + bid.getBidId());
+	return bid;
+    }
+}
+</code></pre>
+		<p></p>
+		<p>Right click on the class in the Package Explorer and choose 
+			<strong>CodePro Tools > Generate Test Cases</strong>. This will create and open a new test case called 
+			<code>PlaceBidBeanTest</code>. 
+		</p>
+		<pre><code>
+
+public class PlaceBidBeanTest extends BaseSessionBeanFixture&lt;PlaceBidBean> {
+    /**
+     * All entities referenced in &lt;code>{@link PlaceBidBean}&lt;/code>.
+     */
+    private static final Class[] usedBeans = 
+	{ Bid.class, Bidder.class, Item.class, Category.class, User.class, ContactInfo.class, Seller.class};
+	
+    /**
+     * An instance of the class being tested.
+     *
+     * @see PlaceBidBean
+     */
+    private PlaceBidBean fixture;
+
+    /**
+     * Initialize a newly create test instance to have the given name.
+     *
+     * @param name the name of the test
+     */
+    public PlaceBidBeanTest() {
+	super(PlaceBidBean.class, usedBeans);
+    }
+
+    /**
+     * Return an instance of the class being tested.
+     *
+     * @return an instance of the class being tested
+     *
+     * @see PlaceBidBean
+    */
+    public PlaceBidBean getFixture()
+      throws Exception {
+        if (fixture == null) {
+             fixture = getBeanToTest();
+        }
+        return fixture;
+    }
+
+    /**
+     * Run the Bid addBid(Bid) method test.
+     */
+    public void testAddBid_fixture_1()
+      throws Exception {
+	PlaceBidBean fixture2 = getFixture();
+	Bid bid = new Bid(new Bidder(), new Item(), new Double(-1.0));
+	Bid result = fixture2.addBid(bid);
+	assertNotNull(result);
+    }
+}
+
+</code></pre>
+		<p>
+			<br/>Like CodePro&#8217;s normal test generation, we create a fixture of the class under test, execute the method under test, and make assertions on the results. 
+		</p>
+	</body>
+</html>

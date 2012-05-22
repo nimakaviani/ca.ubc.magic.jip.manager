@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<title>Java Field Wizard</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Java Field Wizard</b></font></h1>
+    <p>The Java Field Wizard allows you to add a field (with optional accessors) to a type.
+    The field will be added to the primary type in the currently active compilation unit. </p>
+    <p><img src="../../images/field_wizard_results.gif" width="294" height="337"></p>
+    <p>New fields can be created via the standard New wizard by selecting the &quot;Java&quot;
+    category, or via the popup &quot;New&quot; menu or the <img
+    src="../../images/new_field_wiz.gif" width="16" height="16"> icon on the main toolbar.</p>
+    <p><img src="../../images/java_new_wizard.gif" width="500" height="500"> <img
+    src="../../images/field_wizard_menu.gif" align="top" width="181" height="354"></p>
+    <p>The Java Field Wizard contains the following steps: <ol>
+      <li><a href="#DefineField">Define Field</a> -- specify all of the details about the field to
+        be created. </li>
+      <li><a href="#CreateFieldAccessors">Create Field Accessors</a> -- specify which, if any,
+        accessors should be created for the field once it has been created. </li>
+    </ol>
+    <h1><a name="DefineField">Define Field</a></h1>
+    <p>This page of the Java Field Wizard allows you to specify all of the details about the
+    field to be created.</p>
+    <p><img src="../../images/field_wizard.gif" width="627" height="521"></p>
+    <h3>Enclosing Type</h3>
+    <p>The enclosing type field allows you to specify the type to be extended. You must supply
+    a fully qualified type name. If a type is currently being edited, this field will be
+    pre-populated with the name of that type. You can also click on the button labeled
+    &quot;Browse...&quot; to open a Select Type Dialog from which you can select any object
+    type.</p>
+    <p><img src="../../images/method_wizard_select_type.gif" width="296" height="469"></p>
+    <h3>Field name</h3>
+    <p>The field name field allows you to enter the name of the field to be created. You must
+    supply a name that is a valid Java identifier. </p>
+    <h3>Field type</h3>
+    <p>The field type field allows you to specify the type of the field. The type can be any
+    of the primitive types or any object type. </p>
+    <p>You can enter the name of the type directly, or you can select the type. All of the
+    primitive types are available on the drop-down list. You can also click on the button
+    labeled &quot;Browse...&quot; to open a Select Type Dialog from which you can select any
+    object type. </p>
+    <p>To enter a type that is an array type, select the check box labeled &quot;Array&quot;.
+    This will cause the type entered in the field type field to be the base type for the array
+    type. You can specify the number of dimensions in the array by entering a positive integer
+    into the field labeled &quot;Dimensions&quot;. </p>
+    <h3>Initial value</h3>
+    <p>The initial value field can be used to enter the expression that will be used to
+    initialize the field. If you do not want the field to be initialized, simply leave this
+    field blank. </p>
+    <h3>Access Modifiers</h3>
+    <p>The access modifiers group allows you to specify the visibility of the field. You must
+    choose one of the four possible modifiers (&quot;none&quot; implies package visibility). </p>
+    <h3>Other Modifiers</h3>
+    <p>The other modifiers group allows you to specify any additional modifiers for the field.
+    </p>
+    <h3>Comment</h3>
+    <p>The comment field allows you to enter a descriptive comment for the field. This comment
+    will be included as a Javadoc comment when the field is created. It should <b>not</b>
+    include the Javadoc comment delimiters. The comment will automatically be formatted and
+    surrounded by comment delimiters for you.</p>
+    <h1><a name="CreateFieldAccessors">Create Field Accessors</a></h1>
+    <p>This page of the Java Field Wizard allows you to specify which, if any, accessors
+    should be created for the field once it has been created.. </p>
+    <p><img src="../../images/field_wizard_accessors.gif" width="627" height="527"></p>
+    <h3>Create getter</h3>
+    <p>The create getter check box allows you to control whether a getter method will be
+    created for the field. If this check box is selected, the controls within the Getter group
+    box can be used to select the visibility of the method. You can also specify whether @see
+    tags should be generated.</p>
+    <p>The name of the getter method is computed by taking the name of the field, after it has
+    been processed as described below, replacing the first character by its uppercase
+    equivalent, and prefixing it with the word &quot;get&quot;. </p>
+    <h3>Create setter</h3>
+    <p>The create setter check box allows you to control whether a setter method will be
+    created for the field. If this check box is selected, the controls within the Setter group
+    box can be used to select the visibility of the method. You can also specify whether @see
+    tags should be generated and what the parameter name should be.</p>
+    <p>The name of the setter method is computed by taking the name of the field, after it has
+    been processed as described below, replacing the first character by its uppercase
+    equivalent, and prefixing it with the word &quot;set&quot;. </p>
+    <h3>Parameter name</h3>
+    <p>The name of the parameter is initially computed just like the name of the setter
+    method, except without capitalizing the first letter and adding the prefix of
+    &quot;set&quot;. The parameter name field allows you to override this default name. </p>
+    <h3>Remove prefix from field names</h3>
+    <p>The remove prefix from field names check box allows you to control how the name of the
+    method will be derived from the name of the field. If this check box is selected, the
+    longest matching prefix in the list below will be removed from the field name before it is
+    used to build the method names. If this check box is not selected, none of the leading
+    characters will be removed.</p>
+    <h3>Prefix list</h3>
+    <p>This field contains a comma-separated list of the prefixes that should be looked for
+    and removed.</p>
+    <h3>Remove suffix from field names</h3>
+    <p>The remove suffix from field names check box also allows you to control how the name of
+    the method will be derived from the name of the field. If this check box is selected, the
+    longest matching suffix in the list below will be removed from the field name before it is
+    used to build the method names. If this check box is not selected, none of the leading
+    characters will be removed.</p>
+    <h3>Suffix list</h3>
+    <p>This field contains a comma-separated list of the suffixes that should be looked for
+    and removed.
+    <h3>Setter argument prefix</h3>
+    <p>This field contains an optional prefix that will be added to create the
+    name of the setter argument.
+    <h3>Setter argument suffix</h3>
+    <p>This field contains an optional suffix that will be added to create the
+    name of the setter argument.</td>
+  </tr>
+</table>
+</body>
+</html>

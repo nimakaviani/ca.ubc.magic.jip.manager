@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Priority.java</title>
+
+	<meta name="GENERATOR" content="CodePro AnalytiX"/>
+
+	<style type="text/css">
+	table.code {border-spacing: 0; border-collapse: collapse; border-width: 1px 0 1px 1px; }
+table.code td {padding-left: 0.25em; padding-right: 0.25em; font-family: courier,monospace; font-size: 10pt; border-style: solid; border-color: black;}
+tr.first td.lineNumber {border-width: 1px 1px 0 1px; text-align: right;}
+tr.first td.sourceLine {border-width: 1px 1px 0 1px; background-color: #F0F0FF;}
+tr.first td.covered {border-width: 1px 1px 0 1px; background-color: #9fdb9f;}
+tr.first td.partiallycovered {border-width: 1px 1px 0 1px; background-color: #fffe9b;}
+tr.first td.uncovered {border-width: 1px 1px 0 1px; background-color: #fb8a7b;}
+tr.middle td.lineNumber {border-width: 0 1px 0 1px; text-align: right;}
+tr.middle td.sourceLine {border-width: 0 1px 0 1px; background-color: #F0F0FF;}
+tr.middle td.covered {border-width: 0 1px 0 1px; background-color: #9fdb9f;}
+tr.middle td.partiallycovered {border-width: 0 1px 0 1px; background-color: #fffe9b;}
+tr.middle td.uncovered {border-width: 0 1px 0 1px; background-color: #fb8a7b;}
+tr.last td.lineNumber {border-width: 0 1px 1px 1px; text-align: right;}
+tr.last td.sourceLine {border-width: 0 1px 1px 1px; background-color: #F0F0FF;}
+tr.last td.covered {border-width: 0 1px 1px 1px; background-color: #9fdb9f;}
+tr.last td.partiallycovered {border-width: 0 1px 1px 1px; background-color: #fffe9b;}
+tr.last td.uncovered {border-width: 0 1px 1px 1px; background-color: #fb8a7b;}
+.threshold { color: #FF0000; }
+	</style>
+
+	<style type="text/css">
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+p  {margin-top:  3px; line-height: 1.5em}
+h1 {margin-top:  0px; margin-bottom: 6px; font: bold 175% verdana,arial,helvetica}
+h2 {margin-top: 12px; margin-bottom: 6px; font: bold 150% verdana,arial,helvetica}
+h3 {margin-top: 12px; margin-bottom: 6px; font: bold 125% verdana,arial,helvetica}
+h4 {margin-top: 12px; margin-bottom: 6px; font: bold 125% verdana,arial,helvetica}
+.rounded_page{display:block}
+.rounded_page *{display:block; height:1px; overflow:hidden; font-size:.01em; background:#7799DD}
+.rounded_page1{ margin-left:3px; margin-right:3px; padding-left:1px; padding-right:1px; border-left:1px solid #c4d3ef; border-right:1px solid #c4d3ef; background:#99b2e5}
+.rounded_page2{ margin-left:1px; margin-right:1px; padding-right:1px; padding-left:1px; border-left:1px solid #f1f4fa; border-right:1px solid #f1f4fa; background:#90ace3}
+.rounded_page3{ margin-left:1px; margin-right:1px; border-left:1px solid #90ace3; border-right:1px solid #90ace3;}
+.rounded_page4{ border-left:1px solid #c4d3ef; border-right:1px solid #c4d3ef}
+.rounded_page5{ border-left:1px solid #99b2e5; border-right:1px solid #99b2e5}
+.rounded_pagefg{ background:#7799DD}
+.rounded_section{display:block}
+.rounded_section *{display:block; height:1px; overflow:hidden; font-size:.01em; background:#C3D9FF}
+.rounded_section1{ margin-left:3px; margin-right:3px; padding-left:1px; padding-right:1px; border-left:1px solid #e5eefe; border-right:1px solid #e5eefe; background:#d2e2fe}
+.rounded_section2{ margin-left:1px; margin-right:1px; padding-right:1px; padding-left:1px; border-left:1px solid #f9fbfe; border-right:1px solid #f9fbfe; background:#cee0fe}
+.rounded_section3{ margin-left:1px; margin-right:1px; border-left:1px solid #cee0fe; border-right:1px solid #cee0fe;}
+.rounded_section4{ border-left:1px solid #e5eefe; border-right:1px solid #e5eefe}
+.rounded_section5{ border-left:1px solid #d2e2fe; border-right:1px solid #d2e2fe}
+.rounded_sectionfg{ background:#C3D9FF}
+.page-title { color: #FFFFFE; font-weight: bold; font-size: large; margin-left: 8px}
+.page-title-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.page-footer { color: #FFFFFE; font-weight: bold; margin-left: 8px}
+.page-footer-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.majorsection-title { color: #FFFFFE; font-weight: bold; margin-left: 8px}
+.majorsection-title-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.majorsection-contents { margin: 0px 0px 15px 16px; }
+.section-title { color: #1F4F8F; font-weight: bold; margin-left: 6px}
+.section-title-details { font-weight: bold; margin-left: 6px; margin-right: 6px; }
+.section-contents { margin: 6px 0px 15px 14px; }
+.statsTable { border: 1px solid #777777; width:300px; border-collapse: collapse; }
+.statsTable th { border: 1px solid #777777; background-color: #EEEEEE; padding-left: 3px; padding-right: 3px; }
+.statsTable td { border: 1px solid #777777; white-space:nowrap; padding-left: 3px; padding-right: 3px; }
+	</style>
+
+</head>
+
+<body>
+
+<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+			<span class="majorsection-title"><a name="top">/CodePro Analytix Evaluation/src/com/instantiations/example/pattern/Priority.java</a></span>
+			</td><td align="right" valign="middle">
+			<span class="majorsection-title-details"></span></td></tr></table>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+	<div class="majorsection-contents">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td width="50%" valign="top">
+		&nbsp;
+		<div>
+			<b class="rounded_section"><b class="rounded_section1"><b></b></b><b class="rounded_section2"><b></b></b><b class="rounded_section3"></b><b class="rounded_section4"></b><b class="rounded_section5"></b></b>
+			<div class="rounded_sectionfg">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+				<span class="section-title">Code Coverage Summary</span>
+				</td><td align="right" valign="middle">
+				<span class="section-title-details">100.0% coverage</span></td></tr></table>
+			</div>
+			<b class="rounded_section"><b class="rounded_section5"></b><b class="rounded_section4"></b><b class="rounded_section3"></b><b class="rounded_section2"><b></b></b><b class="rounded_section1"><b></b></b></b>
+		</div>
+		<div class="section-contents">
+			<table class="statsTable">
+				<tr><td>Executable Lines</td><td align="right">
+				19</td></tr>
+				<tr><td>Line Coverage</td><td align="right">
+				100.0%</td></tr>
+				<tr><td>Block Coverage</td><td align="right">
+				100.0%</td></tr>
+				<tr><td>Instruction Coverage</td><td align="right">
+				100.0%</td></tr>
+			</table>
+		</div>
+		</td><td width="15">&nbsp;&nbsp;</td><td width="50%" valign="top">
+		&nbsp;
+		<div>
+			<b class="rounded_section"><b class="rounded_section1"><b></b></b><b class="rounded_section2"><b></b></b><b class="rounded_section3"></b><b class="rounded_section4"></b><b class="rounded_section5"></b></b>
+			<div class="rounded_sectionfg">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+				<span class="section-title">Legend</span>
+				</td><td align="right" valign="middle">
+				<span class="section-title-details"></span></td></tr></table>
+			</div>
+			<b class="rounded_section"><b class="rounded_section5"></b><b class="rounded_section4"></b><b class="rounded_section3"></b><b class="rounded_section2"><b></b></b><b class="rounded_section1"><b></b></b></b>
+		</div>
+		<div class="section-contents">
+			<table class="statsTable">
+				<tr><td bgcolor="#9fdb9f">Line is fully covered</td></tr>
+				<tr><td bgcolor="#fffe9b">Line is partially covered</td></tr>
+				<tr><td bgcolor="#fb8a7b">Line is not covered</td></tr>
+			</table>
+		</div>
+		</td></tr></table>
+	</div>
+	<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+			<span class="majorsection-title">Source</span>
+			</td><td align="right" valign="middle">
+			<span class="majorsection-title-details"></span></td></tr></table>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+	<div class="section-contents">
+		<table width="100%" class="code">
+		<tr class="first">
+		<td class="lineNumber"><a name="line1">1</a></td>
+		<td class="sourceLine" width="100%">package&nbsp;com.instantiations.example.pattern;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line2">2</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line3">3</a></td>
+		<td class="sourceLine" width="100%">import&nbsp;java.util.HashMap;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line4">4</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line5">5</a></td>
+		<td class="sourceLine" width="100%">/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line6">6</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;Instances&nbsp;of&nbsp;the&nbsp;class&nbsp;&lt;code&gt;Priority&lt;/code&gt;&nbsp;represent&nbsp;the&nbsp;priority&nbsp;of&nbsp;an</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line7">7</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;issue.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line8">8</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;@author&nbsp;Albert&nbsp;Adams</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line9">9</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line10">10</a></td>
+		<td class="covered" width="100%">public&nbsp;final&nbsp;class&nbsp;Priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line11">11</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;implements&nbsp;Comparable</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line12">12</a></td>
+		<td class="sourceLine" width="100%">{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line13">13</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line14">14</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line15">15</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line16">16</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;final&nbsp;String&nbsp;printName;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line17">17</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line18">18</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line19">19</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;ordinal&nbsp;value&nbsp;of&nbsp;the&nbsp;priority,&nbsp;used&nbsp;for&nbsp;comparison&nbsp;purposes.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line20">20</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line21">21</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;final&nbsp;int&nbsp;ordinal;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line22">22</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line23">23</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line24">24</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;A&nbsp;table&nbsp;mapping&nbsp;the&nbsp;names&nbsp;of&nbsp;priorities&nbsp;to&nbsp;those&nbsp;priorities.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line25">25</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line26">26</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;HashMap&nbsp;nameLookup&nbsp;=&nbsp;new&nbsp;HashMap(3);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line27">27</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line28">28</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line29">29</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;array&nbsp;of&nbsp;priorities.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line30">30</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line31">31</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;Priority[]&nbsp;ordinalLookup&nbsp;=&nbsp;new&nbsp;Priority[3];</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line32">32</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line33">33</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line34">34</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;object&nbsp;representing&nbsp;a&nbsp;low&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line35">35</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line36">36</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;final&nbsp;Priority&nbsp;LOW&nbsp;=&nbsp;new&nbsp;Priority(&quot;low&quot;,&nbsp;0);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line37">37</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line38">38</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line39">39</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;object&nbsp;representing&nbsp;a&nbsp;medium&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line40">40</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line41">41</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;final&nbsp;Priority&nbsp;MEDIUM&nbsp;=&nbsp;new&nbsp;Priority(&quot;medium&quot;,&nbsp;1);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line42">42</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line43">43</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line44">44</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;object&nbsp;representing&nbsp;a&nbsp;high&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line45">45</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line46">46</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;final&nbsp;Priority&nbsp;HIGH&nbsp;=&nbsp;new&nbsp;Priority(&quot;high&quot;,&nbsp;2);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line47">47</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line48">48</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line49">49</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Initialize&nbsp;a&nbsp;newly&nbsp;created&nbsp;priority.&nbsp;Prevent&nbsp;instances&nbsp;of&nbsp;this&nbsp;class&nbsp;from</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line50">50</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;being&nbsp;created&nbsp;externally.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line51">51</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line52">52</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;name&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line53">53</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;ordinal&nbsp;the&nbsp;ordinal&nbsp;value&nbsp;of&nbsp;the&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line54">54</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line55">55</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Priority(String&nbsp;name,&nbsp;int&nbsp;ordinal)</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line56">56</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line57">57</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.printName&nbsp;=&nbsp;name;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line58">58</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.ordinal&nbsp;=&nbsp;ordinal;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line59">59</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nameLookup.put(name,&nbsp;this);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line60">60</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ordinalLookup[ordinal]&nbsp;=&nbsp;this;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line61">61</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line62">62</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line63">63</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line64">64</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Return&nbsp;the&nbsp;lowest&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line65">65</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line66">66</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;lowest&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line67">67</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line68">68</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;Priority&nbsp;first()</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line69">69</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line70">70</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ordinalLookup[0];</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line71">71</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line72">72</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line73">73</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line74">74</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Return&nbsp;the&nbsp;highest&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line75">75</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line76">76</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;highest&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line77">77</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line78">78</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;Priority&nbsp;last()</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line79">79</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line80">80</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ordinalLookup[ordinalLookup.length&nbsp;-&nbsp;1];</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line81">81</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line82">82</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line83">83</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line84">84</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Return&nbsp;the&nbsp;priority&nbsp;with&nbsp;the&nbsp;given&nbsp;name,&nbsp;or&nbsp;&lt;code&gt;null&lt;/code&gt;&nbsp;if&nbsp;there&nbsp;is</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line85">85</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;no&nbsp;priority&nbsp;with&nbsp;the&nbsp;given&nbsp;name.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line86">86</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line87">87</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;name&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;priority&nbsp;to&nbsp;be&nbsp;returned</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line88">88</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line89">89</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;named&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line90">90</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line91">91</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;Priority&nbsp;valueOf(String&nbsp;name)</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line92">92</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line93">93</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(Priority)&nbsp;nameLookup.get(name);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line94">94</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line95">95</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line96">96</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line97">97</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Return&nbsp;the&nbsp;priority&nbsp;preceding&nbsp;this&nbsp;priority,&nbsp;or&nbsp;&lt;code&gt;null&lt;/code&gt;&nbsp;if&nbsp;this</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line98">98</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;is&nbsp;the&nbsp;lowest&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line99">99</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line100">100</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;priority&nbsp;preceding&nbsp;this&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line101">101</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line102">102</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Priority&nbsp;predecessor()</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line103">103</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line104">104</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(this&nbsp;==&nbsp;first())&nbsp;?&nbsp;null&nbsp;:&nbsp;ordinalLookup[ordinal&nbsp;-&nbsp;1];</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line105">105</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line106">106</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line107">107</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line108">108</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Return&nbsp;the&nbsp;priority&nbsp;following&nbsp;this&nbsp;priority,&nbsp;or&nbsp;&lt;code&gt;null&lt;/code&gt;&nbsp;if&nbsp;this</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line109">109</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;is&nbsp;the&nbsp;highest&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line110">110</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line111">111</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;priority&nbsp;following&nbsp;this&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line112">112</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line113">113</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Priority&nbsp;successor()</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line114">114</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line115">115</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(this&nbsp;==&nbsp;last())&nbsp;?&nbsp;null&nbsp;:&nbsp;ordinalLookup[ordinal&nbsp;+&nbsp;1];</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line116">116</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line117">117</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line118">118</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line119">119</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Compare&nbsp;this&nbsp;priority&nbsp;to&nbsp;the&nbsp;given&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line120">120</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line121">121</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;priority&nbsp;the&nbsp;priority&nbsp;to&nbsp;compare&nbsp;this&nbsp;to</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line122">122</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line123">123</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;difference&nbsp;between&nbsp;the&nbsp;ordinal&nbsp;values</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line124">124</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line125">125</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@see&nbsp;java.lang.Comparable#compareTo(Object)</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line126">126</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line127">127</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;int&nbsp;compareTo(Object&nbsp;priority)</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line128">128</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line129">129</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.ordinal&nbsp;-&nbsp;((Priority)&nbsp;priority).ordinal;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line130">130</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line131">131</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line132">132</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line133">133</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Return&nbsp;the&nbsp;string&nbsp;representation&nbsp;of&nbsp;this&nbsp;priority.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line134">134</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line135">135</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;priority</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line136">136</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line137">137</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;String&nbsp;toString()</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line138">138</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line139">139</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;printName;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line140">140</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="last">
+		<td class="lineNumber"><a name="line141">141</a></td>
+		<td class="sourceLine" width="100%">}</td>
+		</tr>
+		</table>
+	</div>
+	<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+			<span class="page-footer"></span>
+			</td><td align="right" valign="middle">
+			<span class="page-footer-details">Powered by CodePro AnalytiX</span></td></tr></table>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+
+</body>
+
+</html>

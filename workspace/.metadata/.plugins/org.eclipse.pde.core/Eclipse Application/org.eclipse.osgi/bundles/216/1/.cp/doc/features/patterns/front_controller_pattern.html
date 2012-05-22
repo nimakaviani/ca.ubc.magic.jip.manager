@@ -1,0 +1,306 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+   <title>Front Controller Pattern</title>
+</head>
+<body>
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="700" >
+<tr>
+<td>
+<h1><font face="Verdana" color="#CC0000"><b>Front Controller Pattern</b></font></h1>
+<p>The&nbsp;<img SRC="../../images/j2ee.gif" height=16 width=16>
+ Front Controller pattern provides a centralized entry point that controls and
+manages Web request handling. By centralizing decision points and controls, the
+controller also helps reduce the amount of Java<sup><font size="-2">TM</font></sup>
+code, called <em>scriptlets,</em> embedded in the JavaServer Pages<sup><font size="-2">TM</font></sup>
+(JSP<sup><font size="-2">TM</font></sup>) page.
+<blockquote><a href="#Wizard">Wizard</a>
+<br><a href="#Applicability">Applicability</a>
+<br><a href="#AdditionalResources">Additional Resources</a></blockquote>
+
+<h3>
+<a NAME="Wizard"></a>Wizard</h3>
+<img SRC="../../images/patterns/front_controller_wizard1.gif">
+<br>&nbsp;
+<table BORDER="1" CELLSPACING=0 WIDTH="71%" >
+<tr>
+<td ALIGN=CENTER HEIGHT="19"><b>Option</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Description</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Default</b></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Source folder</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a source folder for the servlet
+  class. Either type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span>
+to select a source folder via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The source folder of the element
+that was selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Package</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a package to contain the servlet
+  class. Either type a valid package name or click&nbsp;<span CLASS="Label">Browse</span>
+to select a package via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The package of the element that was
+selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Servlet class&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Enter a name for the servlet class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;CommandControllerServlet&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Modifiers</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Select one or more access modifiers for the servlet
+  class:
+<ul 
+        CLASS="UnorderedList">
+<li CLASS="Item">
+public (uncheck for default visibility)</li>
+
+<li CLASS="Item">
+abstract</li>
+
+<li CLASS="Item">
+final</li>
+</ul>
+</td>
+
+<td ALIGN=LEFT VALIGN=TOP>public</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">Superclass</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">Type or click&nbsp;<span CLASS="Label">Browse</span>
+to select a superclass for the servlet class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">&lt;javax.servlet.http.HttpServlet&gt;</td>
+</tr>
+
+<tr>
+<td>Use Single Thread Model</td>
+
+<td>Determines whether the servlet implements the
+        SingleThreadModel interface. This guarantees that there will not be simultaneous access to
+        the same servlet instance, which has a tendency to stabilize thread execution ordering</td>
+
+<td>&lt;false&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">Interfaces</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">Click&nbsp;<span CLASS="Label">Add</span> to choose
+        interfaces that the servlet should implement.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">&lt;blank&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Add to web.xml</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Determines whether the project's web.xml file should
+  be modified to list the servlet information. (If the project is not a Web
+  project, web.xml is assumed to be in the project root.)&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&lt;true&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Servlet name</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Enter a name for the servlet.&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&lt;CommandControllerServlet&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>URL Patterns</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Click&nbsp;<span CLASS="Label">Add</span> to specify
+  URLs that should be mapped to the servlet.</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&lt;*.ctrl&gt;</td>
+</tr>
+</table>
+
+<h3>
+<a NAME="Wizard"></a>Wizard</h3>
+<img SRC="../../images/patterns/front_controller_wizard2.gif" height=572 width=445>
+<br>&nbsp;
+<table BORDER="1" CELLSPACING=0 WIDTH="71%" >
+<tr>
+<td ALIGN=CENTER HEIGHT="19"><b>Option</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Description</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Default</b></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Source folder</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a source folder for the supporting classes. Either type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span>
+to select a source folder via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The source folder of the element
+that was selected when the wizard was started.</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Package</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a package to contain the supporting classes. Either type a valid package name or click&nbsp;<span CLASS="Label">Browse</span>
+to select a package via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The package of the element that was
+selected when the wizard was started.</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Command interface&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Enter a name for the command interface
+  that command must implement.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;CommandInterface&gt;</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Modifiers</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Select one or more access modifiers for the command
+  interface:
+<ul 
+        CLASS="UnorderedList">
+<li CLASS="Item">
+public (uncheck for default visibility)</li>
+
+</ul>
+</td>
+
+<td ALIGN=LEFT VALIGN=TOP>public</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">Interfaces</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">Click&nbsp;<span CLASS="Label">Add</span> to choose
+        interfaces that the command interface should extend.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">&lt;blank&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Command factory class</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a name for the command factory class
+  that produces commands.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">&lt;CommandFactory&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">Command factory superclass</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">Type or click&nbsp;<span CLASS="Label">Browse</span>
+to select a superclass for the command factory class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">&lt;java.lang.Object&gt;</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Dispatcher class</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a name for the dispatcher class that
+  dispatches commands.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">&lt;CommandDispatcher&gt;</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">Dispatcher superclass</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">Type or click&nbsp;<span CLASS="Label">Browse</span>
+to select a superclass for the dispatcher class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">&lt;java.lang.Object&gt;</td>
+</tr>
+
+</table>
+
+<h3>
+<a NAME="Wizard"></a>Wizard</h3>
+
+<p>
+<img SRC="../../images/patterns/front_controller_wizard3.gif" height=572 width=445>
+</p>
+&nbsp;
+<table BORDER CELLSPACING=0 WIDTH="71%" >
+<tr>
+<td ALIGN=CENTER HEIGHT="19"><b>Option</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Description</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Default</b></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Command names</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Click&nbsp;<span CLASS="Label">Add</span>
+to enter the names of the concrete command classes that should be created as
+  implementors of the command interface.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">&lt;blank></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Property file name</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter the name of the file that maps
+  command names to command classes.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">&lt;commandMapping.properties&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Servlet parameter</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Enter the name of the servlet parameter
+  used to pass command names in requests.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;action&gt;</td>
+</tr>
+
+</table>
+
+<h3>
+<a NAME="Applicability"></a>Applicability</h3>
+Use the Front Controller pattern when
+<ul>
+  <li>Multiple views are used to respond to similar business requests.
+  <li>A centralized point of contact for handling a request may be useful, for
+    example, to control and log a user's progress through the site.
+  <li>System services and view management logic are relatively sophisticated.</li>
+</ul>
+
+<h3>
+<a NAME="AdditionalResources"></a>Additional Resources</h3>
+<a href="http://java.sun.com/blueprints/corej2eepatterns/Patterns/FrontController.html">http://java.sun.com/blueprints/corej2eepatterns/Patterns/FrontController.html</a>
+<p><a href="http://java.sun.com/blueprints/patterns/FrontController.html">http://java.sun.com/blueprints/patterns/FrontController.html</a>
+</tr>
+</table>
+
+</body>
+</html>

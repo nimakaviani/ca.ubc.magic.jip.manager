@@ -1,0 +1,2105 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro">
+<title>Audit Rule Set - Effective Java</title>
+<style type="text/css">
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+	p {margin: 0.5em 2em 1em; line-height: 1.5em}
+	h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+	h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+	h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+	h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+	table tr th {font-size: 75%}
+	table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<h1 align="center"><a name="top">CodePro Audit Rule Set</a></h1>
+<h2 align="center">Effective Java</h2>
+<p align="right">Powered by CodePro and <a href="http://www.eclipse.org">Eclipse</a>
+</p>
+<hr size="2">
+<h4>Summary</h4>
+<table>
+	<tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.allowCompareToToThrowExceptions">Allow compareTo to Throw Exceptions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.alwaysOverridetoString.alwaysOverrideToString">Always Override toString</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.avoidFinalizers.avoidFinalizers">Avoid Finalizers</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.avoidSubtypingCloneable">Avoid Subtyping Cloneable</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.booleanMethodNamingConvention">Boolean Method Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.classNamingConvention">Class Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.consistentSuffixUsage">Consistent Suffix Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.constantNamingConvention">Constant Field Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.constructorsOnlyInvokeFinalMethods">Constructors Only Invoke Final Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.declareAsInterface">Declare As Interface</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowNativeMethods">Disallow Native Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowSleepInsideWhile">Disallow Sleep Inside While</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.disallowThreadGroupUsage">Disallow ThreadGroup Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptyCatchClause">Empty Catch Clause</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.enforceTheSingletonPropertyWithAPrivateConstructor">Enforce Singleton Property with Private Constructor</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.favorStaticMemberClassesOverNonStatic">Favor Static Member Classes over Non-Static</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.fieldJavadoc">Field Javadoc Conventions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.instanceFieldNamingConvention">Instance Field Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.interfaceNamingConvention">Interface Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.labelNamingConvention">Label Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfParameters">Large Number of Parameters</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.localVariableNamingConvention">Local Variable Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.methodJavadoc">Method Javadoc Conventions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.methodNamingConvention">Method Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.methodParameterNamingConvention">Method Parameter Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.minimizeScopeOfLocalVariables">Minimize Scope of Local Variables</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.nonPrivateConstructorInStaticType">Non-private Constructor in Static Type</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.obeyEqualsContract.obeyGeneralContractOfEquals">Obey General Contract of Equals</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.overloadedMethods">Overloaded Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.overridingEqualsAndHashCode">Override both equals() and hashCode()</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.overrideCloneJudiciously">Override Clone Judiciously</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.packageNamingConvention">Package Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.packagePrefixNamingConvention">Package Prefix Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.preferInterfacesToAbstractClasses">Prefer Interfaces to Abstract Classes</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.preferInterfacesToReflection">Prefer Interfaces To Reflection</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.questionableName">Questionable Name</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.returnValue">Return Value</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.reusableImmutables">Reusable Immutables</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.staticFieldNamingConvention">Static Field Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.stringConcatenationInLoop">String Concatenation in Loop</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.stringCreatedFromLiteral">String Created from Literal</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.temporaryObjectCreation">Temporary Object Creation</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.typeJavadoc">Type Javadoc Conventions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.unnecessaryExceptions">Unnecessary Exceptions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.useInterfacesOnlyToDefineTypes">Use Interfaces Only to Define Types</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.waitInsideWhile">Wait Inside While</a></td>
+	</tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.allowCompareToToThrowExceptions">Allow compareTo to Throw Exceptions</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The compareTo method is expected to throw ClassCastException and NullPointerException.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+It is not necessary to test the value of the argument to compareTo prior to casting it. If the argument is null a NullPointerException should be thrown. If it is of the wrong type a ClassCastException should be thrown.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+See the item in Effective Java titled "Consider implementing Comparable" for a full discussion of the do's and don'ts  of the compareTo method.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.alwaysOverridetoString.alwaysOverrideToString">Always Override toString</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Every class should override toString().
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule identifies non-abstract classes that do not override the toString method.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Effective Java makes three important points about the toString method.
+
+1. Providing a good toString implementation makes your class much more pleasant to use.
+
+2. The toString method should return all the interesting information contained in the object.
+
+3. The object should provide programmatic access to all the information presented by toString.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.avoidFinalizers.avoidFinalizers">Avoid Finalizers</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Avoid finalizers.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Finalizers should be avoided because they can lead to obscure bugs and apparent consumption of operating system resources.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+Any method with the signature "finalize()" will be flagged.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+To quote from Effective Java:
+
+"Finalizers are unpredictable, often dangerous, and generally unnecessary. Their use can cause erratic behavior, poor performance, and portability problems. Finalizers have a few valid uses, ... but as a rule of thumb, finalizers should be avoided."
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.avoidSubtypingCloneable">Avoid Subtyping Cloneable</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+It is best to avoid creating subtypes of Cloneable.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The Cloneable interface serves no purpose other than to modify the behavior of Object's clone method. There's no reason for interfaces to extend it. Classes rarely benefit from implementing it; there are better ways to copy objects than by cloning.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+The Cloneable interface implements an extra-linguistic device that did not live up to expectations, according to Effective Java. There are better ways to copy objects than by using the clone method.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.booleanMethodNamingConvention">Boolean Method Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Boolean method names should start with 'is', 'can', 'has' or 'have'. Non-boolean methods should not start with 'is'.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all boolean methods to make sure that they are prefixed with 'is', 'can', 'has' or 'have'. It also checks the names of all non-boolean methods to make sure that they are not prefixed with 'is'.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following method would be flagged as a violation because it returns a boolean value but does not start with an approved prefix:
+</p>
+<p>
+	public boolean willExplodeIfShaken()
+</p>
+<p>
+The following method would be flagged as a violation because it starts with 'is' but does not return a boolean:
+</p>
+<p>
+	public int isRoundedBy()
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.classNamingConvention">Class Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Class names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all classes.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If class names are specified as needing to start with an uppercase letter, the following class definition would be flagged as being a violation:
+</p>
+<p>
+	public class remoteDatabase
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.consistentSuffixUsage">Consistent Suffix Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Type names should end with "Exception" if, and only if, they are derived from java.lang.Exception. Similarly, type names should end with "Error" if, and only if, they are derived from java.lang.Error.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds types whose name ends with "Exception" but are not derived from java.lang.Exception, or classes that are derived from java.lang.Exception but whose name does not end in "Exception".
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class declaration would be flagged as a violation because the class name ends with "Exception" but it not derived from the class java.lang.Exception:
+</p>
+<p>
+	public class RequiredClassException
+	{
+		...
+	}
+</p>
+<p>
+The following class declaration would be flagged as a violation because it is derived from the class java.lang.Exception but does not end with "Exception":
+</p>
+<p>
+	public class InvalidAuthorizationCode extends Exception
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.constantNamingConvention">Constant Field Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Constant names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all static fields that are also final.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If constant fields are specified as needing to consist only of uppercase letters and the underscore, the following declaration would be flagged as a violation:
+</p>
+<p>
+	public static final int DefaultCount = 0;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.constructorsOnlyInvokeFinalMethods">Constructors Only Invoke Final Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Constructors should only invoke final methods on the object being constructed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Subclasses can override non-final methods. Invoking them from a constructor can cause errors because the object is not in a a valid state.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Effective Java warns that "constructors must not invoke overridable methods, directly or indirectly." This rule catches the direct invocations.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.declareAsInterface">Declare As Interface</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Variables of certain types should be declared using an interface.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds declarations of fields and variables whose type should have been declared to be an interface but was declared to be a class that implements the interface instead. The list of interfaces that are checked can be configured.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+If the type java.util.List is on the list of interfaces, the following would be flaged as a violation because the declared type of the field should have been "List":
+</p>
+<p>
+	private ArrayList myList;
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+This rule implements a portion of "design method signatures carefully" as described in Effective Java.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowNativeMethods">Disallow Native Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Native methods should be avoided because they are often platform dependent.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Native methods should be avoided because they are often platform dependent.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following method declaraction would be flagged as a violation because it is implemented as a native method:
+</p>
+<p>
+	public int native getUID();
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Java performance has gotten so good that it is rarely advisable to write native methods for performance reasons, according to Effective Java.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowSleepInsideWhile">Disallow Sleep Inside While</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The sleep() method should not be used within a while loop.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for invocations of the sleep() method that occur inside of a while loop. Such occurances usually indicate that the code implements a busy-wait loop, which is inefficient. Instead, the code should use wait() and notify() to block the thread until it is possible for execution to proceed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following invocation of the sleep() method would be flagged as a violation:
+</p>
+<p>
+	while (eventQueue.isEmpty()) {
+		Thread.sleep();
+	}
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+A busy-wait loop relies on the thread scheduler, which is likely to exhibit non-portable performance characteristics. A better design is to suspend the thread by calling Object.wait(). Effective Java has an item devoted to this topic, "don't depend on the thread scheduler."
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.disallowThreadGroupUsage">Disallow ThreadGroup Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The class ThreadGroup should not be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The class ThreadGroup should not be used in multi-threaded applications because its implementation is not thread safe.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following instance creation would be flagged as a violation because it is creating an instance of the class java.lang.ThreadGroup:
+</p>
+<p>
+	new ThreadGroup("Background Threads")
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+According to Effective Java "thread groups are largely obsolete."
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptyCatchClause">Empty Catch Clause</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Catch clauses should not be empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This rule finds places where an exception is caught and nothing is done. It can be configured to allow the existence of a comment to substitute for actual Java code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	try {
+		...
+	} catch (Exception exception) {
+	}
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Effective Java makes this point: An empty catch block defeats the purpose of exceptions. At the very least, the catch block should contain a comment explaining why it is appropriate to ignore the exception.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.enforceTheSingletonPropertyWithAPrivateConstructor">Enforce Singleton Property with Private Constructor</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Flag classes that appear to follow the Singleton pattern but have a non-private constructor.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Ensure that a class defined as a singleton follows specific rules that disallow multiple instances to be created. Singleton classes should have a single, private constructor and static access to the instance.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Using a private constructor ensures the class cannot be instantiated by another object. Effective Java describes two approaches to implementing singletons, both of which are supported by this rule. In addition, the singleton value may be computed by lazy initialization, which is also allowed by this rule.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.favorStaticMemberClassesOverNonStatic">Favor Static Member Classes over Non-Static</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Member classes should be defined as static classes when possible.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This rule identifies member classes that are not defined as static classes but that could possibly be defined as such.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Static member classes do not require access to an enclosing instance. This makes them more flexible than non-static member classes, which can only be instantiatied in the context of an enclosing instance.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.fieldJavadoc">Field Javadoc Conventions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+All fields should have a Javadoc comment associated with them.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of a Javadoc comment for each field. It can be configured to only flag fields with the specified visibilities.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following field declaration would be flagged as a violation because it does not have a Javadoc comment associated with it:
+</p>
+<p>
+	private String name;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.instanceFieldNamingConvention">Instance Field Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Instance field names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all instance fields.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow instance fields to begin with a lower case letter, the following declaration would be flagged as a violation because it begins with an upper case letter:
+</p>
+<p>
+	private int MaxCount;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.interfaceNamingConvention">Interface Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Interface names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all interfaces.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to require that all interface names start with a capital "I" and another capital letter, the following declaration would be flagged as a violation because the name does not begin with a capital "I":
+</p>
+<p>
+	public interface EventListener
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.labelNamingConvention">Label Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Label names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all labels.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to require that labels begin with a lower case "l" and an upper case letter, the following label would be flagged as a violation because it does not begin with a lower case "l":
+</p>
+<p>
+	here: while (true) {
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfParameters">Large Number of Parameters</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods should not have too many parameters.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods that have more than the specified number of parameters. Methods that exceed this number are likely to be too complex. Consider moving some of the values and behavior associated with them into a separate class.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to allow 4 parameters and a method with 12 parameters is found, that method will be flagged as a violation.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+This rule implements a portion of "design method signatures carefully" as described in Effective Java.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.localVariableNamingConvention">Local Variable Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Local variable names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all local variables (parameters and temporary variables).
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow local variables to begin with a lower case letter, the following would be flagged as a violation because it starts with an underscore:
+</p>
+<p>
+	int _count;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.methodJavadoc">Method Javadoc Conventions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+All methods should have a Javadoc comment associated with them.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of a Javadoc comment for each method. In addition, it checks that each Javadoc comment includes a @param tag for each parameter (and none for non-parameters), a @return tag if the method has a return type other than void (and not if the return type is void, and a @throws tag for each explicitly declared exception (and none for exceptions that are not declared). It also checks for the use of the obsolete @exception tag.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The Javadoc for the following method would be flagged three times as a violation, twice for missing @param tags and once for a missing @return tag:
+</p>
+<p>
+	/**
+	 * Return the sum.
+	 */
+	public int sum(int x, int y)
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.methodNamingConvention">Method Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Method names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all methods.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow method names that begin with a lower case letter, the following method declaration would be flagged as a violation because the method name begins with an upper case letter:
+</p>
+<p>
+	public static Singleton GetInstance()
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+This rule implements a portion of "design method signatures carefully" as described in Effective Java.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.methodParameterNamingConvention">Method Parameter Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Method parameter names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all method parameters.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow parameter names that begin with a lower case letter, the parameter in the following method declaration would be flagged as a violation because it begins with an underscore:
+</p>
+<p>
+	public void setCount(int _count)
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.minimizeScopeOfLocalVariables">Minimize Scope of Local Variables</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Declare variables so that they have as small a scope as possible.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This rule looks for variables whose scope is too broad. If a variable is declared without an initializer it is probably declared too early, and will be flagged. While-loops that could be converted to for-loops, reducing the scope of the iteration variable, are also detected.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Minimizing the scope of local variables helps reduce errors caused by mis-using variables, according to Effective Java. Variables should not be defined before they are needed, and they should be defined in the innermost block possible.
+
+Because of this the for-loop for iteration is preferred to the while-loop.
+
+	for (Iterator iter = list.iterator(); iter.hasNext();) {
+		Object element = iter.next();
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.nonPrivateConstructorInStaticType">Non-private Constructor in Static Type</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Constructors in classes containing only static members should be private.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds non-private constructors in classes containing only static members. There is no value in creating an instance of a type that contains only static members. To prevent such instantiation, ensure that type has a single, no-argument, private constructor and no other constructors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class declaration would be flagged as a violation:
+</p>
+<p>
+	public class Utilities
+	{
+		public static int getSize(List list)
+		{
+			...
+		}
+	}
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+This rule implements the item that Effective Java calls "enforce noninstantiability with a private constructor".
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.obeyEqualsContract.obeyGeneralContractOfEquals">Obey General Contract of Equals</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Obey the general contract when overriding equals().
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The equals() method defined in Object is intended to be overridden by subclasses but each subclass must obey the general contract specified by the superclass. Classes should not use the name "equals" for methods that take any parameters other than a single Object. The body of the method should be coded defensively to accept any class of object as its argument.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The style of equals() definition that this rule looks for is this:
+</p>
+<p>
+	public boolean equals(Object arg) {
+		if (this == arg)
+			return true;
+		if (!(arg instanceof Foo))
+			return false;
+		Foo fooArg = (Foo) arg;
+		...
+	}
+</p>
+<p>
+"Foo" is the name of a type, which is either the class that declares this equals() method or an interface that is implemented by that class.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+This audit rules checks for compliance with the "recipe for a high-quality equals method" given in Effective Java. The steps in gives are:
+
+1. Use == to determine if the argument is a reference to this object.
+
+2. Use instanceof to check that the argument is of the proper type. The type can be the class that defines the equals() method, a subclass of it, or one of the interfaces it implements.
+
+3. Cast the argument to the proper type.
+
+Once the argument has been cast to the proper type more specific attributes can be checked, as described in Effective Java. This rule only examines the more general steps outlined above.
+
+A sample method might look like this:
+
+	public boolean equals(Object arg) {
+		return this == arg
+			|| arg instanceof MyClass
+				&& ((MyClass)arg).isEqualTo(this);
+	}
+
+In addition, this rule also flags methods that overload equals instead of overriding it.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.overloadedMethods">Overloaded Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Overloading method names can cause confusion and errors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods that are overloaded. Overloaded methods are methods that have the same name and the same number of parameters, but do not have the same types of parameters. Such methods can cause confusion and errors because it is not always obvious which method will be selected at run time.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	public void process(Person person)
+	public void process(Employee employee)
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Overloaded methods should be used with care. As Effective Java says "selection among overloaded methods is static, while selection among overriden methods is dynamic." In other words, selection of the method to invoke at runtime depends only on the class of the object, not on the classes of the arguments to the method.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.overridingEqualsAndHashCode">Override both equals() and hashCode()</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Classes should override both equals() and hashCode() if they override either.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds classes in which either the equals() or hashCode() method has been overridden, but not both.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following class declaration will be flagged as a violation because it overrides the method equals() but does not override the method hashCode():
+</p>
+<p>
+	public class Employee
+	{
+		private String name;
+</p>
+<p>
+		...
+</p>
+<p>
+		public boolean equals(Object object)
+		{
+			return object instanceof Employee
+				&& getName().equals(((Employee) object).getName());
+		}
+	}
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Equal objects must have equal hash codes. A common mistake is to omit a definition of hashCode() in a class that overrides equals(). It can lead to bugs that are VERY difficult to find. See Effective Java for an excellent description of how to create good hashCode methods.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.overrideCloneJudiciously">Override Clone Judiciously</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Be careful when defining clone. It is complex and not fully specified.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule helps to ensure that clone is used properly. It checks the following items:
+1. Either the class is final or the clone method calls super.clone().
+2. Either the class is abstract or the clone method is declared public.
+3. Either the class is final or the clone method declaration has the proper throws clause.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+If you must use clone then you should use it responsibly, and this rule can help. The general contract of clone is not fully specified. Effective Java says clone methods function as another kind of constructor, however they do not work well with final fields.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.packageNamingConvention">Package Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Package names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all packages as defined by the package declarations at the beginning of each compilation unit.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule has been configured to only allow package names consisting of lower case letters, the package name "utilitiyClasses" would be flagged as a violation because it contains an upper case letter.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.packagePrefixNamingConvention">Package Prefix Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Package names should begin with either a top-level domain name or a two-letter country code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all packages as defined by the package declarations at the beginning of each compilation unit to ensure that the first identifier is either a top-level domain name or a two-letter country code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+For example, the following package declaration would be flagged as a violation because "freeware" is neither a top-level domain name nor a two-letter country code:
+</p>
+<p>
+	package freeware.model;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.preferInterfacesToAbstractClasses">Prefer Interfaces to Abstract Classes</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+It is better to define abstract types as interfaces than classes.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This rule identifies types defined by abstract classes. It flags abstract classes that define public methods that are not defined in an interface implemented by the class.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+When designing extensible types it is generally better to define the type as an interface and provide a skeletal implementation of the type in an abstract class. As Effective Java points out, interfaces allow the construction of nonhierarchical type frameworks.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.preferInterfacesToReflection">Prefer Interfaces To Reflection</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Consider using interfaces instead of reflection.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule identifies uses of reflective capabilities and flags them for review. Much of what is accomplished via reflection can be done, faster and simpler, with judicious use of interfaces.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+Use this rule as an aid to code review. It identifies reflective invocation of methods and constructors, and reflective field access. According to Effective Java these operations are usually more effective when done via an interface than reflection.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.questionableName">Questionable Name</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Questionable names may indicate sloppy code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for questionable names of variables, fields, methods, and types. A questionable name may indicate sloppy code.
+</p>
+<p>
+Three types of questionable names are flagged: 
+</p>
+<p>
+1. Names that occur in a user-configurable list.
+</p>
+<p>
+2. Names that are shorter than a user-configurable size. Short names can be useful as for loop variables or in catch clauses so short names are not flagged if they occur in those two places.
+</p>
+<p>
+3. Names that are longer than a user-configurable size.
+</p>
+<p>
+Names that you always want to be accepted can be added to a list at the bottom of the preference pane. These names will be accepted whether or not they break any of the 3 rules given above.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The variable "c" would be flagged as a violation in the following method because it is too short, but the variable "i" would not be because it is used as a loop variable:
+</p>
+<p>
+	public int getNonZeroElementCount()
+	{
+		int c;
+</p>
+<p>
+		c = 0;
+		for (int i = 0; i < elements.size(); i++) {
+			...
+		}
+		return c;
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.returnValue">Return Value</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Return values should not be null.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where null is returned rather than array types or simple types.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The return statement in the following method would be flagged as a violation:
+</p>
+<p>
+	public int[] getRowSums()
+	{
+		if (table == null) {
+			return null;
+		}
+		...
+	}
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+When the method definition implies the return value will be a collection of some sort it is best to return a zero-legth instance of the collection rather than null. Effective Java addresses array-typed methods, but the principle could also apply to collections.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.reusableImmutables">Reusable Immutables</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Objects that cannot be modified at run-time should be created as static constants.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds the creation of some kinds of immutable objects. An immutable object is an object whose state cannot be modified at run-time. Such objects should be created as constants (static final fields) so that in order to reduce the amount of garbage that must be collected.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	new Integer(5);
+	new int[0];
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+This rule works with String Created from Literal and Temporary Object Creation to implement the item Effective Java calls "avoid creating duplicate objects".
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.staticFieldNamingConvention">Static Field Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Static fields should have names that conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all static fields that are not also final.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule has been configured to allow only names that begin with an upper case letter, then the following declaration would be flagged as a violation:
+</p>
+<p>
+	public static int minutesPerHour = 60;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.stringConcatenationInLoop">String Concatenation in Loop</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Strings should not be concatenated within a loop.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+The code to concatenate two strings is not very efficient because it creates a StringBuffer for each concatenation. When placed in a loop, this can result in the creation and collection of large numbers of temporary objects. You can create the StringBuffer before entering the loop, and append to it within the loop, thus reducing the overhead.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	String[] path;
+	String result = "";
+	for (int i = 0; i &lt; path.length; i++) {
+		result = result + "." + path[i];
+	}
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+According to Effective Java "using the string concatenation operator repeatedly to concatenate N strings requires time quadratic in N." That's bad, especially in loops.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.stringCreatedFromLiteral">String Created from Literal</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Strings should not be created from a String literal.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places in the code where a String literal is used to initialize a newly created String. Doing so is almost never necessary and usually only serves to waste both time and space.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation:
+</p>
+<p>
+	new String("Pause");
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+This rule works with Reusable Immutables and Temporary Object Creation to implement the item Effective Java calls "avoid creating duplicate objects".
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.temporaryObjectCreation">Temporary Object Creation</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Instances of numeric classes should not be created solely for the purpose of converting a numeric value to a string.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the creation of numeric classes where the only purpose for the object is to invoke the toString() method on it. All of the numeric classes implement a static toString() method that can do the same thing, but without the cost of creating and collecting an extra object.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation:
+</p>
+<p>
+	(new Integer(age)).toString()
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+This rule works with Reusable Immutables and String Created from Literal to implement the item Effective Java calls "avoid creating duplicate objects".
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.typeJavadoc">Type Javadoc Conventions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+All types should have a Javadoc comment associated with them.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of a Javadoc comment for each type. It optionally checks for the existence of at least one @author tag and always ensures that every author tag has some text following it.  It also optionally checks for the existence of at least one @version tag and always ensures that every version tag has some text following it.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryExceptions">Unnecessary Exceptions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Unnecessary exceptions should be removed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for methods that declare an exception that cannot be thrown within the body of the method.
+</p>
+<p>
+There are two options. The first controls whether unchecked exceptions will be allowed to be declared. This is sometimes desirable to allow the full range of exceptions to be fully documented.
+</p>
+<p>
+The second option controls whether a class of exception can be declared when a subclass of the exception class is thrown, or whether only the classes of exceptions that are actually thrown can be declared.
+</p>
+<p>
+Note: this rule does not examine the implementations of a method that occur in subclasses to see whether an exception is being declared in a superclass in order to allow it to be thrown by a method in a subclass.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following throws clause would be flagged as a violation because there is no way for the exception to be thrown:
+</p>
+<p>
+	public int getChildCount()
+		throws RemoteException
+	{
+		return 0;
+	}
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+See the item "avoid unnecessary use of checked exceptions" in Effective Java for a good discussion of the trade-offs in API design that revolve around checked exceptions.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.useInterfacesOnlyToDefineTypes">Use Interfaces Only to Define Types</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Use interfaces to define types, not as places to store constants.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This rule identifies interfaces that do not define any methods. Interfaces that do not define any fields are ignored.
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+While interfaces can be used as a convenient mechanism to give a class access to a group of constants, that practice is to be avoided. According to Effective Java: The constant interface pattern is a poor use of interfaces.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.waitInsideWhile">Wait Inside While</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The wait() method should only be invoked within a while loop.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for invocations of the wait() method that occur outside of a while loop.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following invocation of the wait() method would be flagged as a violation:
+</p>
+<p>
+	public void waitForEvent()
+	{
+		synchronize (eventQueue) {
+			eventQueue.wait();
+			...
+		}
+	}
+</p>
+<p>
+<b>Notes</b>
+</p>
+<p>
+From Effective Java, this is the standard idiom for using the wait method:
+
+	synchronized (obj) {
+		while (<condition does not hold>)
+			obj.wait();
+
+		... // perform action appropriate to condition
+	}
+</p>
+</body>
+</html>

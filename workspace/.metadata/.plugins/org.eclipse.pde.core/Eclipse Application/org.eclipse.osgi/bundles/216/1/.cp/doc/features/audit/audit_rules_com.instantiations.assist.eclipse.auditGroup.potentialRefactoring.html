@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Potential Refactoring</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Potential Refactoring</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for places where the code might be refactored to provide better design and greater flexibility.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.addMethodToInterface">Add Method to Interface</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.convertClassToInterface">Convert Class to Interface</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.fieldOnlyUsedInInnerClass">Field Only Used in Inner Class</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.minimizeScopeOfLocalVariables">Minimize Scope of Local Variables</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.preferInterfacesToReflection">Prefer Interfaces To Reflection</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.useOfInstanceOfWithThis">Use of "instanceof" with "this"</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.addMethodToInterface">Add Method to Interface</a></h4><p>
+<b>Summary</b><br/>Identify properties that can be added to an interface.<p><b>Description</b><br/>This audit rule finds methods in concrete classes that can be added to their corresponding interfaces. If a class is named Foo and has a "bar" property with getBar() and setBar() methods, the corresponding interface, IFoo, will be checked to see if it defines the getter and setter method.<p><b>Example</b><br/>If the class Employee were defined as:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class Employee implements IEmployee</code><p>and defined the methods getSSN() and setSSN() that were not declared in the IEmployee interface, then those methods would be flagged as violations.<p><img src="../../images/auditrules/audit_add_method_to_interface.gif" width="245" height="23"></p><h4><a name="com.instantiations.assist.eclipse.audit.convertClassToInterface">Convert Class to Interface</a></h4><p>
+<b>Summary</b><br/>Some classes could be converted to interfaces.<p><b>Description</b><br/>This audit rule finds classes containing no methods or only abstract methods, and no fields or only static final fields. Classes such as these could be converted to an equivalent interface providing increased implementation flexibility.<p><b>Example</b><br/>The following class declaration would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public abstract class RunnableWithException<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public abstract void run()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws Exception;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.analysis.fieldOnlyUsedInInnerClass">Field Only Used in Inner Class</a></h4><p>
+<b>Summary</b><br/>Instance fields that are only used in an inner class should be defined in the inner class.<p><b>Description</b><br/>This audit rule looks for private instance fields that are only being used within a single inner class. There are valid reasons for structuring code this way, such as when the lifetime of the field needs to be longer than the lifetime of instances of the inner class or when the field needs to be shared by some (but not all) of the instances of the inner class. Generally, however, such fields should be declared by the inner class.<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.minimizeScopeOfLocalVariables">Minimize Scope of Local Variables</a></h4><p>
+<b>Summary</b><br/>Declare variables so that they have as small a scope as possible.<p><b>Description</b><br/>This rule looks for variables whose scope is too broad. If a variable is declared without an initializer it is probably declared too early, and will be flagged. While-loops that could be converted to for-loops, reducing the scope of the iteration variable, are also detected.<p><b>Example</b><br/>In the following method, the variable "element" could be defined in the body of the loop, and the while loop could be converted to a for loop so that the loop variable "index" could be more limited in scope:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public int sum(int[] array)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int index, element;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index = 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (index &lt; array.length) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;element = array[i];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum = sum + element;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index = index + 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p><img src="../../images/auditrules/audit_minimize_scope_of_local_variables.gif" width="304" height="45"></p><h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.preferInterfacesToReflection">Prefer Interfaces To Reflection</a></h4><p>
+<b>Summary</b><br/>Consider using interfaces instead of reflection.<p><b>Description</b><br/>This audit rule identifies uses of reflective capabilities and flags them for review. Much of what is accomplished via reflection can be done, faster and simpler, with judicious use of interfaces.<p><img src="../../images/auditrules/audit_prefer_interfaces_to_reflection.gif" width="187" height="68"></p><h4><a name="com.instantiations.assist.eclipse.audit.useOfInstanceOfWithThis">Use of "instanceof" with "this"</a></h4><p>
+<b>Summary</b><br/>The type of "this" should not be tested using the "instanceof" operator.<p><b>Description</b><br/>This audit rule checks for places where the type of "this" is being tested using the "instanceof" operator. Code that depends on the type of an object should be distributed to the sublasses so that polymorphism will automatically choose the right code to execute.<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;if (this instanceof SpecialSublass) ...</code></body>
+</html>

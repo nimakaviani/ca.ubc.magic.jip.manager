@@ -1,0 +1,92 @@
+/**
+ * 
+ */
+package de.spiritlink.mvc.model;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.runtime.PlatformObject;
+
+/**
+ * @author tmseidel
+ *
+ */
+public class ObjectList extends PlatformObject {
+    
+    private List objectList = new ArrayList();
+    
+    protected transient PropertyChangeSupport listeners 
+    	= new PropertyChangeSupport(this);
+    
+    /**
+     * Adds a property-change listener.
+     * @param l the listener
+     */
+    public void 
+    addPropertyChangeListener
+    (PropertyChangeListener l)
+    {
+        if (l == null) {
+            throw new IllegalArgumentException();
+        }
+        this.listeners.addPropertyChangeListener(l);
+    }
+    
+    
+    public void removePropertyChangeListener(PropertyChangeListener l){
+        this.listeners.removePropertyChangeListener(l);
+    }
+    
+    /**
+     * Notificates all listeners to a model-change
+     * @param prop the property-id
+     * @param old the old-value
+     * @param newValue the new value
+     */
+    protected void 
+    firePropertyChange
+    (String prop, Object old, Object newValue)
+    {
+        if (this.listeners.hasListeners(prop)) {
+            this.listeners.firePropertyChange(prop, old, newValue);
+        }
+    }
+
+
+    /**
+     * @param o
+     * @return
+     * @see java.util.List#add(java.lang.Object)
+     */
+    public void add(Item o) {
+        this.objectList.add(o);
+        // model has changed --> fire
+        firePropertyChange("ITEM_ADD", null, o); //$NON-NLS-1$
+    }
+    
+    
+
+
+    /**
+     * @param o
+     * @return
+     * @see java.util.List#remove(java.lang.Object)
+     */
+    public void remove(Item o) {
+        this.objectList.remove(o);
+//      model has changed --> fire
+        firePropertyChange("ITEM_REMOVE", o, null); //$NON-NLS-1$
+    }
+
+
+    /**
+     * @return
+     * @see java.util.List#toArray()
+     */
+    public Item[] toArray() {
+        return (Item[]) this.objectList.toArray(new Item[this.objectList.size()]);
+    }
+}

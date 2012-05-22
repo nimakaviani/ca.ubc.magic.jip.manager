@@ -1,0 +1,59 @@
+<html>
+
+<head>
+<title>Collaboration Team Task View</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Collaboration Team Task View</b></font>
+      </h1>
+      <p>This view is for managing team tasks: creating them, assigning them to users and
+      groups, and viewing those assigned to the current workbench user.</p>
+      <p><img border="0" src="../../images/collaboration/team_task_view.gif" width="598" height="223"></p>
+      <p>Once created, a team
+      task automatically appears in the team task view in the assignees' workbench.
+      Only group leaders and the administrator may assign a team task to
+      users besides themselves.</p>
+      <h3>Tool Bar</h3>
+      <p>The tool bar has a button for deleting the selected tasks.</p>
+      <p>The tool bar menu contains the following items:</p>
+      <ul>
+        <li><b>Show Assigned Tasks</b> - Show only the tasks assigned to the
+          current workbench user.</li>
+        <li><b>Show Managed Tasks</b> - Show only the tasks that can be deleted
+          by the current workbench user. For a non-privileged user, these are
+          just the tasks created by the current workbench user. However, for the administrator,
+          these are all of the team tasks; for a group leader, these are the
+          team tasks assigned to
+      the groups led.</li>
+        <li><b>Refresh</b> - Refresh this view from the collaboration server.
+          The view automatically updates the assigned tasks in response to changes on the
+          server, but not managed tasks.</li>
+      </ul>
+      <h3>Team Task List</h3>
+      <p>The columns in this list show the task identifier, summary, state, and
+      severity. If open,
+      the properties view shows additional information about the selected task,
+      such as to whom it is assigned and who created it.</p>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td valign="top">The context menu contains the following items
+            <ul>
+              <li><b>New Task</b> - Open a blank <a href="team_task_editor.html"> team task
+                editor</a>.</li>
+              <li><b>Edit</b> - Open a <a href="team_task_editor.html"> team task
+                editor</a> on the selected task.</li>
+              <li><b>Delete</b> - Delete the selected tasks.</li>
+            </ul>
+            <p>&nbsp;</td>
+          <td valign="top"><img border="0" src="../../images/collaboration/team_task_view_menu.gif" width="95" height="80"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+
+<head>
+<title>Collaboration Configuration Wizard</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Collaboration Configuration Wizard</b></font>
+      </h1>
+      <p>The <b>Collaboration Configuration Wizard</b> is used to establish a
+      connection to a collaboration server and choose (or create) an identity on
+      that collaboration server. It is invoked from the <a href="../../preferences/preferences_collaboration.html">CodePro
+      | Collaboration</a> preference page.</p>
+      <p>This first page is for specifying the collaboration server.</p>
+      <ul>
+        <li><b>Server</b> - Enter the name or address of a collaboration server</li>
+        <li><b>Instantiations Guest Server</b> - Use the Instantiations Guest
+          Server (for evaluation purposes)</li>
+      </ul>
+      <p><img border="0" src="../../images/collaboration/collaboration_config_wizard.gif" width="438" height="405"></p>
+      <p>The <b>New or Existing User</b> page determines whether to use a new or
+      existing user identity. This page only appears for collaboration servers
+      configured to allow users to add themselves (open enrollment servers), such as the
+      Instantiations Guest Server.</p>
+      <ul>
+        <li><b>Existing User</b> - Choose an existing user on the server</li>
+        <li><b>New User</b> - Create a new user on the server</li>
+      </ul>
+      <p><img border="0" src="../../images/collaboration/existing_or_new_user.gif" width="438" height="405"></p>
+      <p>The <b>Existing Users</b> page is for specifying an existing user.</p>
+      <p><img border="0" src="../../images/collaboration/existing_user.gif" width="438" height="405"></p>
+      <p>The <b>Password</b> page is for submitting the password of an existing
+      user. (The initial password for the administrator is <font face="Courier New">admin</font>, which
+      should of course be changed immediately.)</p>
+      <p><img border="0" src="../../images/collaboration/password.gif" width="438" height="405"></p>
+      <p>The <b>New User Attributes</b> page is for specifying the attributes of
+      a new user.</p>
+      <ul>
+        <li>Full name - Enter the full name of the user</li>
+        <li>Password - Enter the password of the user</li>
+        <li>Re-enter password - Enter the password again</li>
+      </ul>
+      <p><img border="0" src="../../images/collaboration/new_user.gif" width="438" height="405"></p>
+      <p>The <b>Group</b> page is for specifying the group to which the user
+      initially belongs.</p>
+      <p><img border="0" src="../../images/collaboration/select_group.gif" width="438" height="405"></p>
+      <p>The <b>Create new group</b> button is used for creating a new group in addition to
+      those shown.</p>
+      <p><img border="0" src="../../images/collaboration/new_group.gif" width="399" height="142"><h3>Early Startup</h3>
+    <p>CodePro communicates with the collaboration server via polling. In order for 
+    this communication to occur at the appropriate time, the collaboration 
+    plugin must be <a href="../early_startup.html">loaded and executed when 
+    Eclipse is launched</a>.<p>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

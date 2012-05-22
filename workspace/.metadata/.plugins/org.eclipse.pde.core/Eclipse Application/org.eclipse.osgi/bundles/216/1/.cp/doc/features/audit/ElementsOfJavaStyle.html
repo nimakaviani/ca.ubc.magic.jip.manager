@@ -1,0 +1,1857 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro">
+<title>Audit Rule Set - The Elements of Java Style</title>
+<style type="text/css">
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+	p {margin: 0.5em 2em 1em; line-height: 1.5em}
+	h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+	h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+	h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+	h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+	table tr th {font-size: 75%}
+	table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<h1 align="center"><a name="top">CodePro Audit Rule Set</a></h1>
+<h2 align="center">The Elements of Java Style</h2>
+<p align="right">Powered by CodePro and <a href="http://www.eclipse.org">Eclipse</a>
+</p>
+<hr size="2">
+<h4>Summary</h4>
+<table>
+	<tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.blockDepth">Block Depth</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.bracePosition">Brace Position</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.classNamingConvention">Class Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.constantNamingConvention">Constant Field Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.constructorsOnlyInvokeFinalMethods">Constructors Only Invoke Final Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.cyclomaticComplexity">Cyclomatic Complexity</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.danglingElse">Dangling Else</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptyCatchClause">Empty Catch Clause</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptyFinallyClause">Empty Finally Clause</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptyStatement">Empty Statement</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.emptySynchronizedStatement">Empty Synchronized Statement</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.explicitThisUsage">Explicit "this" Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.fieldJavadoc">Field Javadoc Conventions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.fileComment">File Comment</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.fileLength">File Length</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.instanceFieldNamingConvention">Instance Field Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.instanceFieldVisibility">Instance Field Visibility</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.interfaceNamingConvention">Interface Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfConstructors">Large Number of Constructors</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfFields">Large Number of Fields</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfMethods">Large Number of Methods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.largeNumberOfParameters">Large Number of Parameters</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.lineLength">Line Length</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.localVariableNamingConvention">Local Variable Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.methodJavadoc">Method Javadoc Conventions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.methodNamingConvention">Method Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.missingBlock">Missing Block</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.nonTerminatedCaseClause">Non-terminated Case Clause</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.numericLiterals">Numeric Literals</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.packageJavadoc">Package Javadoc</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.packageNamingConvention">Package Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.packagePrefixNamingConvention">Package Prefix Naming Convention</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.parenthesizeCondition">Parenthesize Condition in Conditional Operator</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.questionableName">Questionable Name</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.redundantAssignment">Redundant Assignment</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.sourceLength">Source Length</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.spaceAroundOperators">Space Around Operators</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.spaceAroundPeriods">Space Around Periods</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.stringComparison">String Comparison</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.synchronizedMethod">Synchronized Method</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.typeJavadoc">Type Javadoc Conventions</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.useEquals">Use equals() Rather Than ==</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.variableUsage">Variable Usage</a></td>
+		</tr><tr>
+		<td><a href="#com.instantiations.assist.eclipse.audit.whiteSpaceUsage">White Space Usage</a></td>
+	</tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.blockDepth">Block Depth</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods should be kept fairly flat.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods and constructors that have too many levels of nested blocks. A method with too many levels of nested blocks can be difficult to understand. The definition of "too many" can be set.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the limit is set to two, then the inner if statement in the following would be flagged as a violation:
+</p>
+<p>
+	if (firstChoice == null) {
+		if (secondChoice == null) {
+			if (thirdChoice == null) {
+				return null;
+			}
+		}
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.bracePosition">Brace Position</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Opening and closing braces should be positioned properly.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds opening and closing braces that are incorrectly positioned. By default, opening braces should not appear on a new line and closing braces should appear on a new line. Opening braces for methods and types should appear on a new line.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+With the default settings, the opening brace for the following method and the opening brace for the if statement within it would both be flagged as violations:
+</p>
+<p>
+	public int getLength(Object[] array) {
+		if (array == null)
+		{
+			return 0;
+		}
+		return array.length;
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.classNamingConvention">Class Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Class names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all classes.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If class names are specified as needing to start with an uppercase letter, the following class definition would be flagged as being a violation:
+</p>
+<p>
+	public class remoteDatabase
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.constantNamingConvention">Constant Field Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Constant names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all static fields that are also final.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If constant fields are specified as needing to consist only of uppercase letters and the underscore, the following declaration would be flagged as a violation:
+</p>
+<p>
+	public static final int DefaultCount = 0;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.analysis.audit.rule.effectivejava.constructorsOnlyInvokeFinalMethods">Constructors Only Invoke Final Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Constructors should only invoke final methods on the object being constructed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Subclasses can override non-final methods. Invoking them from a constructor can cause errors because the object is not in a a valid state.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.cyclomaticComplexity">Cyclomatic Complexity</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods should be kept fairly simple.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods, constructors and initializers that are too complex. The complexity is measured by the number of "if", "while", "do", "for", "?:", "catch" and "switch" statements (plus one) in the body of the member.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the maximum cyclomatic complexity has been configured to be 3, then the following method would be flagged as a violation because it has a cyclomatic complexity of 4:
+</p>
+<p>
+	public int getHireYear()
+	{
+		EmploymentRecord employmentRecord = getEmploymentRecord();
+		if (employmentRecord == null) return 0;
+		HiringRecord hiringRecord = employmentRecord.getHiringRecord();
+		if (hiringRecord == null) return 0;
+		Calendar hireDate = hiringRecord.getHireDate();
+		if (hireDate == null) return 0;
+		return hireDate.getYear();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.danglingElse">Dangling Else</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Use blocks to prevent dangling else clauses.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places in the code where else clauses are not preceded by a block because these can lead to dangling else errors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (a &gt; 0)
+		if (a &gt; 100)
+			b = a - 100;
+	else
+		b = -a;
+
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptyCatchClause">Empty Catch Clause</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Catch clauses should not be empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This rule finds places where an exception is caught and nothing is done. It can be configured to allow the existence of a comment to substitute for actual Java code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	try {
+		...
+	} catch (Exception exception) {
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptyFinallyClause">Empty Finally Clause</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Finally clauses should never be empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds finally clauses whose block is empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	try {
+		...
+	} finally {
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptyStatement">Empty Statement</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Empty statements should never be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where an empty statement occurs within a control structure. (An empty statement is a semi-colon appearing alone in a place where a statement is allowed). The existence of an empty statement usually indicates a problem, such as a piece of code that was unintentionally removed or a semicolon added in the wrong place.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (hasBeenAuthenticated);
+		grantSpecialAccess();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.emptySynchronizedStatement">Empty Synchronized Statement</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Synchronized statements should never be empty.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds empty synchronized statements.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	synchronized (monitor) {
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.explicitThisUsage">Explicit "this" Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Instance fields should, or should not, be accessed using "this".
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the explicit usage of the keyword "this" when accessing instance fields. The rule can be configured to always check for the presence or absence of the keyword.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to disallow using "this" to qualify fields unless necessary, the following expression would be flagged as a violation:
+</p>
+<p>
+	public void incrementCount(int amount)
+	{
+		this.count+= amount;
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.fieldJavadoc">Field Javadoc Conventions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+All fields should have a Javadoc comment associated with them.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of a Javadoc comment for each field. It can be configured to only flag fields with the specified visibilities.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following field declaration would be flagged as a violation because it does not have a Javadoc comment associated with it:
+</p>
+<p>
+	private String name;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.fileComment">File Comment</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Compilation units should have a file comment.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds compilation units that do not have a comment as the first element in the file.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+A file that begins with a package statement would be flagged as a violation because a comment is expected to appear before anything else.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.fileLength">File Length</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Compilation units should not be too long.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds compilation units that are longer than a specified number of lines.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to allow files of up to 40,000 lines, a file containing 100,000 lines of code would be flagged as a violation.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.instanceFieldNamingConvention">Instance Field Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Instance field names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all instance fields.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow instance fields to begin with a lower case letter, the following declaration would be flagged as a violation because it begins with an upper case letter:
+</p>
+<p>
+	private int MaxCount;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.instanceFieldVisibility">Instance Field Visibility</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Instance fields should have an appropriate visibility.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the visibility of all non-static fields to ensure that it is one of the allowed visibilities.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow private instance fields, then the following field declaration would be flagged as a violation because it is declared as being public:
+</p>
+<p>
+	public int x;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.interfaceNamingConvention">Interface Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Interface names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all interfaces.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to require that all interface names start with a capital "I" and another capital letter, the following declaration would be flagged as a violation because the name does not begin with a capital "I":
+</p>
+<p>
+	public interface EventListener
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfConstructors">Large Number of Constructors</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Types should not have too many constructors.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds types that have more than the specified number of constructors. Types that exceed this number are likely to be too complex. Consider making some of the constructors more general.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to allow 3 constructors and a class with 6 constructors is found, that class will be flagged as a violation.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfFields">Large Number of Fields</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Types should not have too many fields.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds types that have more than the specified number of fields. Types that exceed this number are likely to be too complex. Consider splitting the class into multiple smaller classes.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to allow 6 fields and a class with 15 fields is found, that class will be flagged as a violation.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfMethods">Large Number of Methods</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Types should not have too many methods.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds types that have more than the specified number of methods. Types that exceed this number are likely to be too complex. Consider splitting the class into multiple smaller classes.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to allow 20 methods and a class with 114 methods is found, that class will be flagged as a violation.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.largeNumberOfParameters">Large Number of Parameters</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods should not have too many parameters.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds methods that have more than the specified number of parameters. Methods that exceed this number are likely to be too complex. Consider moving some of the values and behavior associated with them into a separate class.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule is configured to allow 4 parameters and a method with 12 parameters is found, that method will be flagged as a violation.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.lineLength">Line Length</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Lines should not be too long.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for lines that are longer than a specified number of characters. By default, each tab character is counted as four spaces.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to allow lines of up to 120 character and a line were found that contained 253 characters, that line would be flagged as a violation.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.localVariableNamingConvention">Local Variable Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Local variable names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all local variables (parameters and temporary variables).
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow local variables to begin with a lower case letter, the following would be flagged as a violation because it starts with an underscore:
+</p>
+<p>
+	int _count;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.methodJavadoc">Method Javadoc Conventions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+All methods should have a Javadoc comment associated with them.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of a Javadoc comment for each method. In addition, it checks that each Javadoc comment includes a @param tag for each parameter (and none for non-parameters), a @return tag if the method has a return type other than void (and not if the return type is void, and a @throws tag for each explicitly declared exception (and none for exceptions that are not declared). It also checks for the use of the obsolete @exception tag.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The Javadoc for the following method would be flagged three times as a violation, twice for missing @param tags and once for a missing @return tag:
+</p>
+<p>
+	/**
+	 * Return the sum.
+	 */
+	public int sum(int x, int y)
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.methodNamingConvention">Method Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Method names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all methods.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule were configured to only allow method names that begin with a lower case letter, the following method declaration would be flagged as a violation because the method name begins with an upper case letter:
+</p>
+<p>
+	public static Singleton GetInstance()
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.missingBlock">Missing Block</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+A single statement should never be used where a block is allowed.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for statements that control the execution of another statement (do, for, if or while) to ensure that the statement being controlled is always a block.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	if (color == null)
+		color = getDefaultColor();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.nonTerminatedCaseClause">Non-terminated Case Clause</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Case clauses should never fall through into the following case.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of either a break, continue, return, or throw statement at the end of each case clause in a switch statement. The lack of either of these statements means that control will fall through to the next case, which is usually not what is intended. It is possible to configure this rule to also accept a user-defined comment (such as "no break") as a signal that the developer knew what was happening.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	switch (accountType) {
+	case CHECKING_ACCOUNT:
+		balance = ((CheckingAccount) account).getCheckingBalance();
+	case SAVINGS_ACCOUNT:
+		balance = ((SavingsAccount) account).getSavingsBalance();
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.numericLiterals">Numeric Literals</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Numeric literals should not appear in code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for numeric literals within the code that are not included in a user-defined list of acceptable literal values. The list initially contains only the values "-1", "0", and "1".
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	int answer = 42;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.packageJavadoc">Package Javadoc</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Packages should have Javadoc comments in a file named "package.html".
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks all of the packages to ensure that there is a file named "package.html" that can be used by the Javadoc program to create package-level Javadoc information.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.packageNamingConvention">Package Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Package names should conform to the defined standard.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all packages as defined by the package declarations at the beginning of each compilation unit.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+If the rule has been configured to only allow package names consisting of lower case letters, the package name "utilitiyClasses" would be flagged as a violation because it contains an upper case letter.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.packagePrefixNamingConvention">Package Prefix Naming Convention</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Package names should begin with either a top-level domain name or a two-letter country code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks the names of all packages as defined by the package declarations at the beginning of each compilation unit to ensure that the first identifier is either a top-level domain name or a two-letter country code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+For example, the following package declaration would be flagged as a violation because "freeware" is neither a top-level domain name nor a two-letter country code:
+</p>
+<p>
+	package freeware.model;
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.parenthesizeCondition">Parenthesize Condition in Conditional Operator</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+The condition in a conditional operator should be parenthesized if it contains a binary operator.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for uses of the conditional operator in which the condition contains a binary operator but has not been parenthesized.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation because the condition is not parenthesized:
+</p>
+<p>
+	childCount = children == null ? 0 : children.size();
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.questionableName">Questionable Name</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Questionable names may indicate sloppy code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for questionable names of variables, fields, methods, and types. A questionable name may indicate sloppy code.
+</p>
+<p>
+Three types of questionable names are flagged: 
+</p>
+<p>
+1. Names that occur in a user-configurable list.
+</p>
+<p>
+2. Names that are shorter than a user-configurable size. Short names can be useful as for loop variables or in catch clauses so short names are not flagged if they occur in those two places.
+</p>
+<p>
+3. Names that are longer than a user-configurable size.
+</p>
+<p>
+Names that you always want to be accepted can be added to a list at the bottom of the preference pane. These names will be accepted whether or not they break any of the 3 rules given above.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The variable "c" would be flagged as a violation in the following method because it is too short, but the variable "i" would not be because it is used as a loop variable:
+</p>
+<p>
+	public int getNonZeroElementCount()
+	{
+		int c;
+</p>
+<p>
+		c = 0;
+		for (int i = 0; i < elements.size(); i++) {
+			...
+		}
+		return c;
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.redundantAssignment">Redundant Assignment</a></h4>
+<p>
+<b>Severity: </b>High
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Redundant assignments should never be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the assignment of a variable to itself. This often indicates a missing qualifier, such as "this." for one or the other of the identifiers.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	public void setName(String name)
+	{
+		name = name;
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.sourceLength">Source Length</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods, constructors and initializers should be limited in length.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for methods, constructors and initializers that are more that the specified number of lines in length.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.spaceAroundOperators">Space Around Operators</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Binary operators should be surrounded by white space.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for uses of binary operators in which there is no white space on either the left or right side of the operator.
+</p>
+<p>
+If checked, the "Ignore prefix operators" option causes the audit rule to ignore prefix operators when checking for whitespace violations (e.g. do not flag the expression "(-i)" as a violation). 
+</p>
+<p>
+The "Ignore postfix operators" option is similar (e.g. do not flag the expressions "(i++)" or i++; as violations).
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following arithmetic expression would be flagged twice as a violation, once for the missing space before the operator and again for the missing space after the operator:
+</p>
+<p>
+	index+1
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.spaceAroundPeriods">Space Around Periods</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Periods should not be surrounded by white space.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for uses of periods (within qualified names) in which there is white space on either the left or right side of the period.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following method invocation would be flagged twice as a violation, once for the space before the period and again for the space after the period:
+</p>
+<p>
+	point . getX()
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.stringComparison">String Comparison</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Strings should not be compared using equals (==) or not equals (!=).
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+Strings should always be compared using one of the comparison methods defined for strings. This audit rule looks for comparisons using either the equals (==) or not equals (!=) operators.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	String currentName, proposedName;
+</p>
+<p>
+	...
+	if (proposedName != currentName) {
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.synchronizedMethod">Synchronized Method</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Methods should never be marked as synchronized.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule reports the use of the synchronized modifier with methods. It is too easy to miss the existence of the synchronized modifier, so following this rule leads to more readable code.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+	public synchronized String getName()
+	{
+		...
+	}
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.typeJavadoc">Type Javadoc Conventions</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+All types should have a Javadoc comment associated with them.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for the existence of a Javadoc comment for each type. It optionally checks for the existence of at least one @author tag and always ensures that every author tag has some text following it.  It also optionally checks for the existence of at least one @version tag and always ensures that every version tag has some text following it.
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.useEquals">Use equals() Rather Than ==</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Values should not be compared using equals (==) or not equals (!=).
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule finds places where two values are compared using either the equals (==) or not equals (!=) operators.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+The following expression would be flagged as a violation:
+</p>
+<p>
+	if (firstString == secondString) {
+</p>
+<p>
+because it should be rewritten as:
+</p>
+<p>
+	if (firstString.equals(secondString)) {
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.variableUsage">Variable Usage</a></h4>
+<p>
+<b>Severity: </b>Medium
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Variables should never shadow variables with the same name that are defined in an outer scope.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule checks for any declarations of variables that shadow a variable with the same name that is defined in an outer scope.
+</p>
+<p>
+
+</p>
+<p>
+<b>Example</b>
+</p>
+<p>
+
+</p>
+<p>
+In a class with a field declaration such as:
+</p>
+<p>
+	private int inventoryCount;
+</p>
+<p>
+the following parameter would be flagged as a violation:
+</p>
+<p>
+	public void printInventory(int inventoryCount)
+</p>
+<h4><a name="com.instantiations.assist.eclipse.audit.whiteSpaceUsage">White Space Usage</a></h4>
+<p>
+<b>Severity: </b>Low
+</p>
+<p>
+<b>Summary</b>
+</p>
+<p>
+
+</p>
+<p>
+Tabs should only be used for indentation, if at all, and spaces and tabs should not both be used.
+</p>
+<p>
+
+</p>
+<p>
+<b>Description</b>
+</p>
+<p>
+
+</p>
+<p>
+This audit rule looks for places where space and tab characters are used in ways that violate the specified criteria.
+</p>
+</body>
+</html>

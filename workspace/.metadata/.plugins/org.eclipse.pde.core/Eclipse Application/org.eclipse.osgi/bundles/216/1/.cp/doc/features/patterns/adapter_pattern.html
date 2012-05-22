@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<title>Adapter Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>
+      Adapter Pattern</b></font></h1>
+    <p><strong>Also known as:</strong> Wrapper</p>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Adapter Pattern converts the interface of a class into another interface clients expect.
+    Adapter lets classes work together that couldn't otherwise because of incompatible
+    interfaces. Sometimes a toolkit class that's designed for reuse isn't reusable only
+    because its interface doesn't match the domain-specific interface an application requires.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/adapter_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Adapter class name</td>
+        <td valign="top" align="left">Type a name for the new adapter class.</td>
+        <td valign="top" align="left">&lt;Adapter&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Modifiers</td>
+        <td valign="top" align="left">Select one or more access modifiers for the new class.<ul
+        CLASS="UnorderedList">
+          <li CLASS="Item">public (uncheck for default visibility)</li>
+          <li CLASS="Item">abstract</li>
+          <li CLASS="Item">final</li>
+        </ul>
+        </td>
+        <td valign="top" align="left">public</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Adaptee type</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the class or interface to be adapted to the target interface</td>
+        <td valign="top" align="left">The type or the primary type of the compilation unit that
+        was selected when the wizard was started</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Adaptee field name</td>
+        <td valign="top" align="left">Type or select the name of the field that will contain the
+        instance of the adapted class</td>
+        <td valign="top" align="left">&lt;adaptee&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Target interface</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select the interface that the adaptee class will be adapted to</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Delegate to adaptee instance when possible</td>
+        <td valign="top" align="left">Determines whether the generated methods will delegate to
+        the adaptee instance</td>
+        <td valign="top" align="left">&lt;true&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Adapter pattern when<ul>
+      <li>you want to use an existing class, and its interface does not match the one you need. </li>
+    </ul>
+    <ul>
+      <li>you want to create a reusable class that cooperates with unrelated or unforeseen
+        classes, that is, classes that don't necessarily have compatible interfaces.</li>
+    </ul>
+    <ul>
+      <li><em>(object adapter only)</em> you need to use several existing subclasses, but it's
+        impractical to adapt their interface by subclassing every one. An object adapter can adapt
+        the interface of its parent class.</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?AdapterPattern">http://c2.com/cgi/wiki?AdapterPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Adapter_pattern">http://www.wikipedia.org/wiki/Adapter_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Adapter">http://www.cmcrossroads.com/bradapp/javapats.html#Adapter</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_adapter.asp">http://www.dofactory.com/patterns/pattern_adapter.asp</a></p></td>
+  </tr>
+</table>
+</body>
+</html>

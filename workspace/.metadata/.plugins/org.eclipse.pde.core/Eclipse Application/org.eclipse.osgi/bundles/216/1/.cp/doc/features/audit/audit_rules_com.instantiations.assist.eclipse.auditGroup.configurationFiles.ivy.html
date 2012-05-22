@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Ivy</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Ivy</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for potential problems in Ivy scripts.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.dynamicDependencyInIvy">Dynamic Dependency in Ivy</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.externalDependencyInIvy">External Dependency in Ivy</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.dynamicDependencyInIvy">Dynamic Dependency in Ivy</a></h4><p>
+<b>Summary</b><br/>Using a dynamic dependency version is a security risk.<p><b>Description</b><br/>This audit rule violates the usage of dynamic dependency version in Ivy configuration files.<p><b>Security Implications</b><br/>A dynamic dependency version adds to the number of undefined variables at the time of build that can be used by an attacker. More than that, you cannot validate the quality and security issues of the code used in the build. This is an additional security risk that should be taken into consideration.<p><b>Example</b><br/>The following part of an Ivy script would be flagged as a violation because it declares a dependency with dynamically defined revision:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency org="yourorg" name="yourmodule9" rev="9.1+" conf="A,B-&gt;default"&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;include name="art1" type="jar" conf="A,B"/&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;include name="art2" type="jar" conf="A"/&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;</code><h4><a name="com.instantiations.assist.eclipse.audit.externalDependencyInIvy">External Dependency in Ivy</a></h4><p>
+<b>Summary</b><br/>Using external repositories is an additional security risk.<p><b>Description</b><br/>This audit rule violates the usage of external Ivy repositories, declared in the chain of resolvers, other than from the list of permitted ones.<p><b>Security Implications</b><br/>An external repository can be compromised by an attacker to allow malicious code into your application during its building. This threat is completely negated when you do not use downloadable dependency managers at all; if this is not an option, you can use local repository proxies for storing trusted dependency packages that can be used during the build. In contrast to external repositories belonging to third parties, such a repository's security can be controlled.<p><b>Example</b><br/>The following Ivy <code>ivysettings.xml</code> file declares the only one <code>default</code> resolver. If <code>http://ivy.internal.repo/</code> URL is present in the list of secure repositories, these settings will pass the test. Otherwise, this file will be marked as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;ivysettings&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;settings defaultResolver="default"/&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;properties file="${ivy.settings.dir}/ivysettings.properties" /&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;resolvers&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;chain name="default"&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;url name="internal" checkmodified="true"&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ivy pattern="http://ivy.internal.repo/[org]/[mod]/ivy-[rev].xml"/&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifact pattern="http://ivy.internal.repo/[org]/[mod]/[art]-[rev].[type]"/&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/url&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/chain&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/resolvers&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ivysettings&gt;</code></body>
+</html>

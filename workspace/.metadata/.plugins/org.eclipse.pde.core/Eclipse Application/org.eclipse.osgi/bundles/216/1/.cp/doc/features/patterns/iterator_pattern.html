@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<title>Iterator Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>Iterator Pattern</b></font></h1>
+    <p><strong>Also known as:</strong>  Cursor</p>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Iterator Pattern provides a way to access the elements of an aggregate
+    object sequentially without exposing its underlying representation. An
+    aggregate object such as a list should give you a way to access its elements
+    without exposing its internal structure. Moreover, you might want to
+    traverse the list in different ways, depending on what you want to
+    accomplish. But you probably don't want to bloat the List interface with
+    operations for different traversals, even if you could anticipate the ones
+    you will need. You might also need to have more than one traversal pending
+    on the same list.</p>
+    <p>The Iterator pattern lets you do all this. The key idea in this pattern
+    is to take the responsibility for access and traversal out of the list
+    object and put it into an <strong>iterator</strong> object. The Iterator
+    class defines an interface for accessing the list's elements. An iterator
+    object is responsible for keeping track of the current element; that is, it
+    knows which elements have been traversed already.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/iterator_wizard1.gif" width="438" height="572"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Iterator interface</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span>
+        to select an iterator interface class</td>
+        <td valign="top" align="left">&lt;Iterator&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Has next method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          answer whether there is another element</td>
+        <td valign="top" align="left">&lt;hasNext&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Next method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          answer the next element</td>
+        <td valign="top" align="left">&lt;next&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Create concrete iterators as private inner
+          classes</td>
+        <td valign="top" align="left">Determines whether the generated concrete
+          iterators will be created as private inner classes</td>
+        <td valign="top" align="left">&lt;false&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Aggregate interface</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span>
+        to select an aggregate interface class</td>
+        <td valign="top" align="left">&lt;Aggregate&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Iterator method</td>
+        <td valign="top" align="left">Type or select the name of the method that will
+          return the iterator instance</td>
+        <td valign="top" align="left">&lt;iterator&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Concrete aggregate classes</td>
+        <td valign="top" align="left">Click&nbsp;Add to enter names of the
+          concrete aggregate&nbsp; classes that
+        should be created.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Aggregate field</td>
+        <td valign="top" align="left">Type or select the name of the field that will
+          hold the aggregate instance in the iterator</td>
+        <td valign="top" align="left">&lt;aggregate&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+      <p>Use the Iterator pattern<ul>
+      <li>to access an aggregate object's contents without exposing its internal
+        representation. </li>
+    </ul>
+    <ul>
+      <li>to support multiple traversals of aggregate objects.</li>
+    </ul>
+    <ul>
+      <li>to provide a uniform interface for traversing different aggregate
+        structures (that is, to support polymorphic iteration)..</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?IteratorPattern">http://c2.com/cgi/wiki?IteratorPattern</a></p>
+    <p><a href="http://www.wikipedia.org/wiki/Iterator_pattern">http://www.wikipedia.org/wiki/Iterator_pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Iterator">http://www.cmcrossroads.com/bradapp/javapats.html#Iterator</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_iterator.asp">http://www.dofactory.com/patterns/pattern_iterator.asp</a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

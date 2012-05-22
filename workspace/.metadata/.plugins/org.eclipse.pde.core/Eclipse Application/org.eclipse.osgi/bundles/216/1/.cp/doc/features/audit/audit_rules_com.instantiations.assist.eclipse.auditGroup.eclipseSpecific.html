@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Eclipse Plug-in Development</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Eclipse Plug-in Development</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that are specific to the development of Eclipse plug-ins.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.audit.actionMissingUsageProfiling">Action Missing Usage Profiling</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.bundleActivationPolicy">Bundle Activation Policy Compatibility (3.3)</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.disallowASTToString">Disallow AST toString()</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.disallowedFile">Disallowed File</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.invalidCheckForBindingEquality">Invalid Check For Binding Equality</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.invalidCheckForJavaModelIdentity">Invalid Check For Java Model Identity</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.missingImageFile">Missing Image File</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.missingMessage">Missing Message</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.undefinedProperty">Undefined Property</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.audit.actionMissingUsageProfiling">Action Missing Usage Profiling</a></h4><p>
+<b>Summary</b><br/>Classes implementing <code>IAction</code> or <code>IActionDelegate</code> should report their usage.<p><b>Description</b><br/>This audit rule finds classes that implement either <code>IAction</code> or <code>IActionDelagate</code> but that do not invoke one of the methods defined on the class <code>UsageProfilerPlugin</code> used to record the action's use.<h4><a name="com.instantiations.assist.eclipse.analysis.bundleActivationPolicy">Bundle Activation Policy Compatibility (3.3)</a></h4><p>
+<b>Summary</b><br/>The bundle activation policy must be duplicated in order to work in all versions of Eclipse.<p><b>Description</b><br/>This audit rule checks for bundle manifest files that specify a bundle activation policy using either the <code>Eclipse-LazyStart</code> or <code>Bundle-ActivationPolicy</code> header, but not both. In Eclipse 3.3 a new manifest file header was introduced that is compatible with OSGI. In order for a bundle (plug-in) to be correct in all versions of Eclipse (that support the use of manifest files) both headers should be included in the manifest file.<p><b>Example</b><br/>A manifest file specifying a <code>Bundle-ActivationPolicy</code> without a <code>Eclipse-LazyStart</code> would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Bundle-ActivationPolicy: lazy</code><h4><a name="com.instantiations.assist.eclipse.audit.disallowASTToString">Disallow AST toString()</a></h4><p>
+<b>Summary</b><br/>The method toString() should never be invoked for AST nodes.<p><b>Description</b><br/>This audit rule looks for invocations of the method toString() on AST nodes. The toString() method produces a string that should only be used for debugging purposes, so it is almost never the right method to use.<p><b>Example</b><br/>Given the following declaration:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;SimpleName name;</code><p>The following invocation would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;name.toString()</code><h4><a name="com.instantiations.assist.eclipse.audit.disallowedFile">Disallowed File</a></h4><p>
+<b>Summary</b><br/>Some files should not exist in a project.<p><b>Description</b><br/>This audit rule finds files within projects that should be deleted. The list of files is configurable, but typically includes auxilliary files created by utility programs.<p><img src="../../images/auditrules/audit_disallowed_files.gif" width="305" height="99"></p><h4><a name="com.instantiations.assist.eclipse.audit.invalidCheckForBindingEquality">Invalid Check For Binding Equality</a></h4><p>
+<b>Summary</b><br/>Bindings should be checked for equality using their keys.<p><b>Description</b><br/>This audit rule looks for places where bindings are compared using either the identity operator (==) or the equals method. Bindings are not unique across AST structures, so they should always be compared using their keys.<p><b>Example</b><br/>The following comparison would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (leftBinding == rightBinding) {</code><h4><a name="com.instantiations.assist.eclipse.audit.invalidCheckForJavaModelIdentity">Invalid Check For Java Model Identity</a></h4><p>
+<b>Summary</b><br/>Java model elements should be checked for equality using equals.<p><b>Description</b><br/>This audit rule looks for places where Java model elements (subclasses of <code>IJavaElement</code>) are compared using one of the identity operators (== or !=). Java model elements are not necessarily unique, but equals is guaranteed to be correct.<p><b>Example</b><br/>The following comparison would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;IMethod leftMethod, rightMethod;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;if (leftMethod == rightMethod) {</code><h4><a name="com.instantiations.assist.eclipse.audit.missingImageFile">Missing Image File</a></h4><p>
+<b>Summary</b><br/>Referenced image files should exist.<p><b>Description</b><br/>This audit rule checks for the references within a plugin.xml file to image files that do not exist.<p><b>Example</b><br/>If the file <code>icons/view16/ourView.gif</code> does not exist, the following reference to it would be flagged:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;view&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;icon="icons/view16/ourView.gif"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.../&gt;</code><h4><a name="com.instantiations.assist.eclipse.audit.missingMessage">Missing Message</a></h4><p>
+<b>Summary</b><br/>Messages referenced in code should exist in property files.<p><b>Description</b><br/>This audit rule looks for subclasses of <code>org.eclipse.osgi.util.NLS</code> and verifies that there is a key in the corresponding <code>messages.properties</code> file for each of the fields defined in it. It also looks for invocations of the older getString() method to ensure that there is a key corresponding to the argument passed in to that method (if the run-time value can be determined at compile time).<p><b>Example</b><br/>If a subclass had a field like the following:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public static String Externalized_String;</code><p>and the <code>messages.properties</code> file did not contain a key of <code>Externalized_String</code>, then a violation would be created.<h4><a name="com.instantiations.assist.eclipse.audit.undefinedProperty">Undefined Property</a></h4><p>
+<b>Summary</b><br/>Properties referenced in a plugin.xml file need to be defined in the corresponding plugin.properties file.<p><b>Description</b><br/>The plugin.xml file can be internationalized by using properties names (names prefixed by a percent sign (%)) anywhere a value is expected This rule checks to see that all referenced properties are defined in the corresponding plugin.properties file.</body>
+</html>

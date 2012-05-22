@@ -1,0 +1,165 @@
+<html>
+
+<head>
+<title>Audit Explorer</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+      <h1>
+        <b><font face="Verdana" color="#CC0000">Audit Explorer</font></b>
+      </h1>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td valign="top">
+			<p align="center">
+        <img src="../../images/audit_explorer.gif"/></td>
+			<td width="10">&nbsp;</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+      <p>
+        The <b>Audit Explorer</b> displays the resources created by and associated with
+        the <a href="audit.html">code audit</a> feature. There are two kinds of
+        resources that are currently displayed in the <b>Audit Explorer</b>.
+      </p>
+      <blockquote>
+      <dl>
+        <dt>
+          <img src="../../images/audit_result.gif" valign="bottom" width="16" height="16">
+          <a name="result_set">Audit Result Set</a>
+        </dt>
+        <dd>
+          <p>
+            An audit result set is the set of violations resulting from auditing
+            a set of resources. The violations in an audit result set can be
+            viewed in the <a href="audit.html"><b>Audit </b>view</a>.
+          </p>
+        </dd>
+        <dt>
+          <img src="../../images/audit_series.gif" valign="bottom" width="16" height="16">
+          <a name="result_set">Audit Series</a>
+        </dt>
+        <dd>
+          <p>
+            An audit series is a report based on a series of audit result sets.
+            An audit series can be opened in an 
+			<a href="audit_series_editor.html">
+            <b>Audit Series</b> editor</a> to allow the report to be configured, and
+            can also be used to generate an <a href="audit_series_report.html">HTML</a> representation of the report.
+            To open an audit series editor, double click on the audit series in
+            this view.
+          </p>
+        </dd>
+      </dl>
+      </blockquote>
+      <p>
+        The resources displayed in this view are grouped into storage locations
+        based on where the resources reside. There are two kinds of storage
+        locations.
+      </p>
+      <blockquote>
+      <dl>
+        <dt>
+          <img src="../../images/workspace_obj.gif" valign="bottom" width="16" height="16">
+          <a name="result_set">Workspace Location</a>
+        </dt>
+        <dd>
+          <p>
+            There is a single workspace location that is accessible to only the
+            current workspace. The workspace location is where new resources
+            are created by default. For example, when an audit is manually
+            performed, the audit result set is placed in the workspace location.<br>
+			<br>
+        <img src="../../images/audit_explorer_workspace.gif" width="233" height="63"/><br>
+&nbsp;</p>
+        </dd>
+        <dt>
+          <img src="../../images/project.gif" valign="bottom" width="16" height="16">
+          <a name="result_set">Project Locations</a>
+        </dt>
+        <dd>
+          <p>
+            There is a project location for each project that is currently
+            loaded in the workspace. The project location is physically located
+            within the directory structure containing the project, so it can be
+            shared by all of the developers that have that project loaded. (The
+            storage location for projects is located within a directory named
+            <code>.codepro</code> found at the top level of the project
+            directory.)
+          </p>
+          <p>
+            There is a <a href="#action_filter">filter option</a> that controls
+            the visibility of project locations that are either empty or
+            non-existent. If a project does not appear in the tree, check the
+            setting of this option.
+          </p>
+        </dd>
+      </dl>
+      </blockquote>
+      <p>
+        The resources displayed in this view can be copied and moved to other
+        locations using the standard drag-drop gestures for the current
+        platform.
+      </p>
+      <p>
+        Right-clicking on a resource will display the following menu:
+      </p>
+      <p align="center">
+        <img src="../../images/audit_explorer_menu.gif" width="130" height="100"/>
+      </p>
+      <p>
+        The <b>Create Series</b> menu item will create a new audit series in the
+        currently selected location (if a location is selected) or the location
+        containing the currently selected resource (if a resource is selected).
+        If a single audit result set is selected, then the newly created series
+        will be initialized to contain the selected result set.
+      </p>
+      <p>
+        The <b>Generate HTML...</b> menu item will cause an
+		<a href="audit_series_report.html">HTML report</a> to be
+        generated from the currently selected audit series. You will be prompted
+        for the location of the HTML file.
+      </p>
+      <p>
+        The <b>Delete</b> menu item will cause the currently selected resources to
+        be deleted from the external storage.
+      </p>
+      <p>
+        The <b>Select All</b> menu item will cause all of the resources to be
+        selected.
+      </p>
+      <h3>
+        <img src="../../images/delete_item_hover.gif" valign="bottom" width="16" height="16">
+        <a name="action_delete">Delete Button</a>
+      </h3>
+      <p>
+        Clicking on the <b>Delete</b> button will cause the currently selected
+        resources to be deleted from the external storage.
+      </p>
+      <h3>
+        <img src="../../images/refresh.gif" valign="bottom" width="16" height="16">
+        <a name="action_refresh">Refresh Button</a>
+      </h3>
+      <p>
+        Clicking on the <b>Refresh</b> button will cause the contents of the
+        view to be refreshed based on the contents of the external storage.
+      </p>
+      <h3>
+        <img src="../../images/filter_hover.gif" valign="bottom" width="16" height="16">
+        <a name="action_filter">Filter Menu Item</a>
+      </h3>
+      <p>
+        Selecting the <b>Filter...</b> menu item will open a dialog where you can
+        select whether projects will be shown if their storage location is
+        either non-existent or empty.
+      </p>
+		<p align="center"><img src="../../images/audit_explorer_filter.gif"/></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

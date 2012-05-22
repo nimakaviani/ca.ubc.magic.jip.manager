@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>EJBExport</title>
+</head>
+
+<body>
+
+<h1><font face="Verdana" color="#CC0000">EJBExport&nbsp;&nbsp;&nbsp; (provided by 
+Rational Application Developer 6.x)</font></h1>
+<div>
+  This <span style="color: highlighttext; background: highlight">task</span> 
+  performs the same operation as the EJB JAR file export wizard for exporting an 
+  EJB Project to an EJB Jar file. This
+  <span style="color: highlighttext; background: highlight">task</span> is not 
+  available in products that do not include EJB development tools.<div class="skipspace">
+    <span class="uicontrol">Parameters</span><div class="skipspace">
+      <table cellSpacing="0" cellPadding="4" rules="all" summary border="1" frame="border">
+        <thead align="left">
+          <tr>
+            <th id="d0e22" vAlign="top" align="left">Attribute</th>
+            <th id="d0e24" vAlign="top" align="left">Description</th>
+            <th id="d0e26" vAlign="top" align="left">Required</th>
+          </tr>
+        </thead>
+        <tr>
+          <td vAlign="top" align="left" headers="d0e22 ">EJBProjectName</td>
+          <td vAlign="top" align="left" headers="d0e24 ">Name of the EJB Project 
+          (<i>Case Sensitive</i>)</td>
+          <td vAlign="top" align="left" headers="d0e26 ">Yes</td>
+        </tr>
+        <tr>
+          <td vAlign="top" align="left" headers="d0e22 ">EJBExportFile</td>
+          <td vAlign="top" align="left" headers="d0e24 ">Absolute path of the 
+          EJB JAR file.</td>
+          <td vAlign="top" align="left" headers="d0e26 ">Yes</td>
+        </tr>
+        <tr>
+          <td vAlign="top" align="left" headers="d0e22 ">ExportSource</td>
+          <td vAlign="top" align="left" headers="d0e24 ">Whether to include 
+          source files or not.</td>
+          <td vAlign="top" align="left" headers="d0e26 ">No, default is <i>false</i></td>
+        </tr>
+        <tr>
+          <td vAlign="top" align="left" headers="d0e22 ">Overwrite</td>
+          <td vAlign="top" align="left" headers="d0e24 ">Whether to overwrite if 
+          the file already exists.</td>
+          <td vAlign="top" align="left" headers="d0e26 ">No, default is<i>false</i></td>
+        </tr>
+      </table>
+    </div>
+    <p><span class="uicontrol">Examples</span></p>
+    <ul>
+      <li>Export the project &quot;EJBProject&quot; to &quot;EJBProject.jar&quot; in the C Drive:
+      <pre>&lt;ejbExport 
+EJBProjectName=&quot;EJBProject&quot; 
+EJBExportFile=&quot;C:\EJBProject.jar&quot;/&gt;</pre>
+      </li>
+      <li>Export the project &quot;EJBProject&quot; with the source files to &quot;EJBProject.jar&quot; 
+      in the C Drive:
+      <pre>&lt;ejbExport 
+EJBProjectName=&quot;EJBProject&quot;
+EJBExportFile=&quot;C:\EJBProject.jar&quot;
+ExportSource=&quot;true&quot;/&gt;</pre>
+      </li>
+    </ul>
+  </div>
+</div>
+
+</body>
+
+</html>

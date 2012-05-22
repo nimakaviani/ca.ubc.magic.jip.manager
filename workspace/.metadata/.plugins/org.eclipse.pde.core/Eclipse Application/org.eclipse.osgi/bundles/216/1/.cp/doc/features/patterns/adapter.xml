@@ -1,0 +1,98 @@
+<strategy>
+	<page label="Provide information about the adapter class." initialFocus="adapterClass">
+		<package 
+			name="package" required="true"
+			folderLabel="Source &amp;Folder:" folderBrowseLabel="B&amp;rowse..." folderTooltip="Specify the default source folder" folderBrowseTooltip="Select the default source folder"
+			packageLabel="&amp;Package:" packageBrowseLabel="Br&amp;owse..." packageTooltip="Specify the default package" packageBrowseTooltip="Select the default package"/>
+		<spacer displayLine="true"/>
+		<class
+			name="adapterClass" label="Adapter class &amp;name:" tooltip="Specify the name of the adapter class"
+			required="true" missingValue="Please specify the name of the adapter class" style="new"
+			default="Adapter" defaultPackage="package"/>
+		<group label="Modifiers:" numColumns="3">
+			<boolean name="public" label="p&amp;ublic" default="true"/>
+			<boolean name="abstract" label="&amp;abstract" disabledBy="final" default="false"/>
+			<boolean name="final" label="f&amp;inal" disabledBy="abstract" default="false"/>
+		</group>
+		<class 
+			name="superclassType" label="&amp;Superclass:" tooltip="Specify the superclass"
+			required="true" missingValue="Please specify the superclass" style="existing" allowReadOnly="true"
+			default="java.lang.Object" defaultPackage="package" 
+			browseLabel="Bro&amp;wse..." browseTooltip="Select a superclass"/>
+		<spacer displayLine="true"/>
+		<type 
+			name="adapteeType" label="&amp;Adaptee type:" tooltip="Specify the type to be adapted"
+			required="true" missingValue="Please select the type to be adapted" style="existing" allowReadOnly="true"
+			default="*" defaultPackage="package" 
+			browseLabel="Brow&amp;se..." browseTooltip="Select the type to be adapted"/>
+		<string 
+			name="adapteeField" label="Adaptee f&amp;ield name:" tooltip="Specify the adaptee field name"
+			required="true" missingValue="Please specify the adaptee field name"
+			default="adaptee" list="adaptee,subject,realSubject,target" style="identifier"/>
+		<interface 
+			name="targetInterface" label="&amp;Target interface:" tooltip="Specify the interface that the adaptee class should be adapted to"
+			required="true" missingValue="Please select the interface that the adaptee class should be adapted to" style="existing" allowReadOnly="true"
+			default="*" defaultPackage="package" 
+			browseLabel="Brows&amp;e..." browseTooltip="Select the interface that the adaptee class should be adapted to"/>
+		<boolean 
+			name="delegate" label="&amp;Delegate to adaptee instance when possible" 
+			default="true" tooltip="Determines whether the generated methods will delegate to the adaptee instance"/>
+	</page>
+
+	<compilationUnit package="${adapterClass.packageName}" name="${adapterClass.name}" isPrimary="true">
+		<import name="${superclassType.fullName}"/>
+		<import name="${targetInterface.fullName}"/>
+		<import name="${adapteeType.fullName}"/>
+		<class name="${adapterClass.name}" extends="${superclassType.name}" delegateTo="adaptee">
+			<if condition="public">
+				<modifiers modifiers="public"/>
+			</if>
+			<if condition="abstract">
+				<modifiers modifiers="abstract"/>
+			</if>
+			<if condition="final">
+				<modifiers modifiers="final"/>
+			</if>
+			<javadoc>
+				<tag name="pattern" contents="Adapter"/>
+				<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+				<tag name="author" contents="${user}"/>
+				<tag name="version" contents="$$Revision$$"/>
+				The class &lt;code&gt;${adapterClass.name}&lt;/code&gt; adapts instances of the class {@link &lt;code&gt;${adapteeType.name}&lt;/code&gt;} to implement the interface {@link &lt;code&gt;${targetInterface.name}&lt;/code&gt;}.
+				<if condition="!copyright.isEmpty">
+					&lt;p&gt;
+					${copyright}
+				</if>
+			</javadoc>
+
+			<field
+				modifiers="private"
+				type="${adapteeType.name}"
+				name="${adapteeField}">
+				<javadoc>
+					The object that is being adapted to the &lt;code&gt;${targetInterface.name}&lt;/code&gt; interface.
+					<tag name="see" contents="${adapteeType.fullName}"/>
+					<tag name="see" contents="${targetInterface.fullName}"/>
+				</javadoc>
+			</field>
+
+			<constructor
+				modifiers="public">
+				<param type="${adapteeType.name}" name="${adapteeField}"/>
+				<javadoc>
+					Create a new adapter for the &lt;code&gt;${adapteeType.name}&lt;/code&gt; instance.
+					<tag name="param" contents="adaptee the object that is being adapted"/>
+					<tag name="see" contents="${adapteeType.fullName}"/>
+				</javadoc>
+				this.${adapteeField} = ${adapteeField};
+			</constructor>
+
+			<if condition="delegate">
+				<implements name="${targetInterface}" createStubs="true" delegateTo="adaptee"/>
+			</if>
+			<if condition="!delegate">
+				<implements name="${targetInterface}" createStubs="true"/>
+			</if>
+		</class>
+	</compilationUnit>
+</strategy>

@@ -1,0 +1,152 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="../../../stylesheets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../stylesheets/prettify/prettify.js"></script>
+<title>UseEqualsAuditRule</title>
+</head>
+
+<body onload="prettyPrint()">
+<pre class="prettyprint">
+package com.instantiations.assist.eclipse.analysis.audit.rule;
+ 
+import com.instantiations.assist.eclipse.analysis.audit.core.*;
+import com.instantiations.assist.eclipse.analysis.engine.core.*;
+import org.eclipse.jdt.core.dom.*;
+ 
+/**
+ * Instances of the class <code>UseEqualsAuditRule</code> implement an audit
+ * rule used to find places where values are compared using either the equals
+ * (==) or not equals (&#33=) operators.
+ * 
+ * Copyright (c) 2003, Google, Inc.<br>
+ * All Rights Reserved
+ *
+ * @author Eric Clayberg
+ * @version $Revision: 1.0 $
+ */
+public class UseEqualsAuditRule extends CompilationUnitAuditRule
+{
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Constructors
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Initialize a newly created audit rule.
+     */
+    public UseEqualsAuditRule()
+    {
+        super();
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Analyzer Creation
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Create an analyzer that can perform the analysis implied by this analysis
+     * item.
+     *
+     * @param context the context in which the analysis will be performed
+     *
+     * @return the analyzer that was created
+     */
+    public Analyzer createAnalyzer(AnalysisContext context)
+    {
+        return new UseEqualsCodeAuditor(context, this);
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Inner Classes
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Instances of the class <code>UseEqualsCodeAuditor</code>
+     * implement a code auditor used to find places where values are
+     * compared using either the equals (==) or not equals (&#33=)
+     * operators.
+     * 
+     * Copyright (c) 2003, Google, Inc.<br>
+     * All Rights Reserved
+     *
+     * @author Eric Clayberg
+     */
+    public class UseEqualsCodeAuditor extends AbstractCodeAuditor
+    {
+        ////////////////////////////////////////////////////////////////////////
+        //
+        // Constructors
+        //
+        ////////////////////////////////////////////////////////////////////////
+ 
+        /**
+         * Initialize a newly created analyzer to perform an analysis in the
+         * given context for the given analysis item.
+         *
+         * @param context the context in which the analysis is to be performed
+         * @param item the analysis item for which the analysis is being
+         *        performed
+         */
+        public UseEqualsCodeAuditor(AnalysisContext context, AnalysisItem item)
+        {
+            super(context, item);
+        }
+ 
+        ////////////////////////////////////////////////////////////////////////
+        //
+        // Visiting
+        //
+        ////////////////////////////////////////////////////////////////////////
+ 
+        public boolean visit(InfixExpression node)
+        {
+            String operator, identifier, replacementText;
+            int startIndex, endIndex;
+            AuditViolationImpl violation;
+ 
+            if (node.getOperator() != InfixExpression.Operator.EQUALS
+                && node.getOperator() != InfixExpression.Operator.NOT_EQUALS) return true;
+ 
+            // Ignore primitives
+            if (node.getLeftOperand().resolveTypeBinding().isPrimitive()
+                || node.getRightOperand().resolveTypeBinding().isPrimitive()) return true;
+ 
+            // ignore nulls
+            if (node.getLeftOperand().resolveTypeBinding().isNullType()
+                || node.getRightOperand().resolveTypeBinding().isNullType()) return true;
+ 
+            startIndex = node.getStartPosition();
+            endIndex = startIndex + node.getLength();
+ 
+            if (node.getOperator() == InfixExpression.Operator.EQUALS) {
+                identifier = "com.instantiations.assist.eclipse.audit.useEquals.equals";
+                replacementText = getSource(node.getLeftOperand()) + ".equals(" + getSource(node.getRightOperand()) + ")";
+            } else {
+                identifier = "com.instantiations.assist.eclipse.audit.useEquals.notEquals";
+                replacementText = "!" + getSource(node.getLeftOperand()) + ".equals(" + getSource(node.getRightOperand()) + ")";
+            }
+            violation = new AuditViolationImpl(
+                "com.instantiations.assist.eclipse.audit.useEquals.equals",
+                UseEqualsAuditRule.this,
+                getContext().getCurrentTarget(),
+                startIndex,
+                endIndex,
+                EMPTY_PARAMETERS);
+            violation.setResolutionParameter(
+                REPLACEMENT_TEXT,
+            replacementText);
+            addViolation(violation);
+            return true;
+        }
+    }
+}
+</pre>
+</body>
+</html>

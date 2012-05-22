@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Hibernate</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Hibernate</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for problems related to the use of Hibernate, an object/relational persistence and query service.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.sqlInjection">SQL Injection</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.sqlInjection">SQL Injection</a></h4><p>
+<b>Summary</b><br/>SQL queries might be receiving data from the user or other unsafe sources.<p><b>Description</b><br/>SQL Injection occurs when the user is able to enter data directly into SQL queries.<p>To detect violations, this audit rule searches the code for SQL queries such as <code>java.sql.Statement.execute(..)</code> and traces where the query data could have come from. In cases where the source of the query is user input, such as data from a servlet request, <code>javax.servlet.ServletRequest.getParameter(java.lang.String)</code>, or from a SWT Text widget, <code>org.eclipse.swt.widgets.Text.getText()</code>, a violation is created.<p>These two sets of methods, the locations where tainted user data can come from and the methods used to query the database, are editable by the user.If methods are missing that are in a common package (such as <code>java.lang.*</code>), please let CodePro support know.<p>Also note, the SQL query methods for Hibernate and Persistence frameworks have been added.<p><b>Security Implications</b><br/>Successful SQL Injection attacks can potentially drop tables, update the database in a malicious manner and even gain administrator access.<p><b>Example</b><br/>The invocation of the method <code>executeQuery(..)</code> would be flagged as a violation since it uses the first name information passed from a servlet request:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;ServletRequest servletRequest;<br>&nbsp;&nbsp;&nbsp;&nbsp;Connection connection;<br>&nbsp;&nbsp;&nbsp;&nbsp;Statement statement;<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;servletRequest = ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;connection = DriverManager.getConnection("www.example.com", "myUserName", "myPassword");<br>&nbsp;&nbsp;&nbsp;&nbsp;statement = connection.createStatement();<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;String firstName = req.getParameter("firstName");<br>&nbsp;&nbsp;&nbsp;&nbsp;String query = "SELECT * FROM user_data WHERE firstName = '" + firstName + "'";<br>&nbsp;&nbsp;&nbsp;&nbsp;statement.executeQuery(query);<br></code><p><img src="../../images/auditrules/audit_sql_injection.gif"></p></body>
+</html>

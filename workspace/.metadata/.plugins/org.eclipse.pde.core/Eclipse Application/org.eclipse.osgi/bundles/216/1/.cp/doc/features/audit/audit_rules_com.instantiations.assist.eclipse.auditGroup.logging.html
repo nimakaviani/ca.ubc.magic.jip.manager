@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Logging</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Logging</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check for correct usage of various logging frameworks.</p>
+</td>
+  </tr><tr>
+<td>
+<b>Subcategories:</b>
+<ul>
+            <li><a href="audit_rules_com.instantiations.assist.eclipse.auditGroup.jcl.html"><b><font face="Arial">JCL</font></b></a></li>
+            <li><a href="audit_rules_com.instantiations.assist.eclipse.auditGroup.log4j.html"><b><font face="Arial">log4j</font></b></a></li>
+</ul>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.analysis.logForging">Log Forging</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.moreThanOneLogger">More Than One Logger</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.nonStaticLogger">Non Static Logger</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.analysis.logForging">Log Forging</a></h4><p>
+<b>Summary</b><br/>User input might be getting used to write directly to a log.<p><b>Description</b><br/>Log Forging occurs when user input is printed directly to a log or as part of a log.<p>To detect violations, this audit rule searches the code for logging statements such as <code>logger.log(..)</code> and traces where the logging string could have come from. In cases where the source of the path is user input, such as data from a servlet request, <code>javax.servlet.ServletRequest.getParameter(java.lang.String)</code>, or from a SWT Text widget, <code>org.eclipse.swt.widgets.Text.getText()</code>, a violation is created.<p>These two sets of methods, the locations where tainted user data can come from and the methods used to create paths, are editable by the user. If methods are missing that are in a common package (such as <code>java.lang.*</code>), please let CodePro support know.<p><b>Security Implications</b><br/>When a malicious user can enter information directly into the log, the application logging utility can become compromised.<p><b>Example</b><br/>The invocation of <code>log(..)</code> would be flagged as a violation since it uses the user name information passed from a servlet request:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;ServletRequest servletRequest = ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;Logger logger = ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;Level level = ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;String userName = servletRequest.getParameter("userName");<br>&nbsp;&nbsp;&nbsp;&nbsp;String logMessage = "User input the following user name: " + userName;<br>&nbsp;&nbsp;&nbsp;&nbsp;logger.log(level,logMessage);</code><p><img src="../../images/auditrules/audit_log_forging2.gif" width="554" height="456"></p><h4><a name="com.instantiations.assist.eclipse.audit.moreThanOneLogger">More Than One Logger</a></h4><p>
+<b>Summary</b><br/>Use one shared logger instance per class.<p><b>Description</b><br/>Using more than one logger instance per class is sometimes considered a bad coding style. This rule will create a violation for each class that has more than one logger instance defined.<p><b>Example</b><br/>The following class declaration would be flagged as a violation because it contains more than one logger:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class Something {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static final Log errorsLogger = LogFactory.getLog(Something.class);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static final Log accessLogger = LogFactory.getLog(Something.class);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.nonStaticLogger">Non Static Logger</a></h4><p>
+<b>Summary</b><br/>Loggers should be declared both <code>static</code> and <code>final</code>.<p><b>Description</b><br/>Loggers should be declared both <code>static</code> and <code>final</code> so that every instance of a class shares the common logger object.<p><b>Example</b><br/>The following class declaration would be flagged as a violation because it does not declare its logger <code>static final</code>:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class Something {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private final Log errorsLogger = LogFactory.getLog(Something.class);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code></body>
+</html>

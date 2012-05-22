@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="false" key="generateActivator"/>
+	<item value="false" key="uiPlugin"/>
+	<item value="false" key="rcpPlugin"/>
+	<item value="false" key="apiAnalysis"/>
+	<item value="" key="targetName"/>
+	<item value="false" key="osgiProject"/>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="PluginExportWizard">
+		<item value="true" key="exportUpdate"/>
+		<item value="true" key="saveAsAnt"/>
+		<item value="" key="alias"/>
+		<item value="Generate source bundles" key="exportSourceFormat"/>
+		<item value="false" key="qualifier"/>
+		<item value="" key="password"/>
+		<item value="" key="keypass"/>
+		<item value="true" key="exportSource"/>
+		<item value="false" key="useWorkspaceCompiledClasses"/>
+		<item value="" key="keystore"/>
+		<item value="1" key="exportType"/>
+		<item value="C:\Users\dillesca\Desktop\build.xml" key="antFileName0"/>
+		<item value="false" key="signJAR"/>
+		<item value="C:\Users\dillesca\Desktop\build.xml" key="antFileName1"/>
+		<item value="C:\Users\dillesca\workspace1\TableViewer\build.xml" key="antFileName2"/>
+		<item value="C:\Users\dillesca\Desktop" key="destination1"/>
+		<item value="C:\Users\dillesca\Desktop" key="destination0"/>
+		<item value="true" key="allowBinaryCycles"/>
+		<item value="201205201516" key="qualifierName"/>
+	</section>
+	<section name="pluginsView">
+	</section>
+	<section name="JavaAttributeWizard">
+	</section>
+</section>

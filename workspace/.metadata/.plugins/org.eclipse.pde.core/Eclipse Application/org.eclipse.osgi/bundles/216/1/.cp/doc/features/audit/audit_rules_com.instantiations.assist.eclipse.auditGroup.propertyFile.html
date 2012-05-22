@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Property Files</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Property Files</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for problems in property files.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.duplicatePropertyName">Duplicate Property Name</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.duplicatePropertyValue">Duplicate Property Value</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spellCheckPropertyComments">Spell Check Property Comments</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spellCheckPropertyNames">Spell Check Property Names</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.spellCheckPropertyValues">Spell Check Property Values</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.whiteSpaceBeforePropertyName">White Space Before Property Name</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.duplicatePropertyName">Duplicate Property Name</a></h4><p>
+<b>Summary</b><br/>Properties should only be declared once.<p><b>Description</b><br/>This audit rule checks to ensure that there is never more than one property declaration with the same name in the same file. Declaring multiple properties with the same name is usually a mistake because only the last such property will be visible to the code.<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;applicationName = CoolApp<br>&nbsp;&nbsp;&nbsp;&nbsp;applicationName = Ice Machine Controller<br></code><h4><a name="com.instantiations.assist.eclipse.audit.duplicatePropertyValue">Duplicate Property Value</a></h4><p>
+<b>Summary</b><br/>Properties should only be declared once.<p><b>Description</b><br/>This audit rule checks to ensure that there is never more than one property declaration with the same value in the same file. Declaring multiple properties with the same value can needlessly increase the amount of effort required to translate the property values into another locale.<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;importBottonLabel = Import...<br>&nbsp;&nbsp;&nbsp;&nbsp;importMenuLabel = Import...</code><h4><a name="com.instantiations.assist.eclipse.audit.spellCheckPropertyComments">Spell Check Property Comments</a></h4><p>
+<b>Summary</b>
+
+Property comments should be spelled correctly.
+
+<b>Description</b>
+
+This audit rule finds property comments that contain misspelled words.<p><img src="../../images/auditrules/audit_spellcheck_multi_word.gif" width="364" height="203"></p><h4><a name="com.instantiations.assist.eclipse.audit.spellCheckPropertyNames">Spell Check Property Names</a></h4><p>
+<b>Summary</b>
+
+Property names should be composed of valid words.
+
+<b>Description</b>
+
+This audit rule finds property names that are composed from pieces that do not form words.<p><img src="../../images/auditrules/audit_spellcheck_word.gif" width="373" height="177"></p><h4><a name="com.instantiations.assist.eclipse.audit.spellCheckPropertyValues">Spell Check Property Values</a></h4><p>
+<b>Summary</b>
+
+Property values should be correctly spelled.
+
+<b>Description</b>
+
+This audit rule finds property values that contain misspelled words.<p><img src="../../images/auditrules/audit_spellcheck_multi_word.gif" width="364" height="203"></p><h4><a name="com.instantiations.assist.eclipse.audit.whiteSpaceBeforePropertyName">White Space Before Property Name</a></h4><p>
+<b>Summary</b><br/>Property names should not be preceded by white space.<p><b>Description</b><br/>This audit rule looks for property names that are preceded by white space. Property names that are preceded by white space often indicate a missing line continuation character on the preceding line.<p><b>Example</b><br/>The property named "operation" below, which was likely intended to be part of the line before it, would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;messageText = You should have known better than to have tried this<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operation without first changing your preference settings.</code></body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>System Requirements</title>
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="600">
+  <tbody><tr>
+    <td align="left" valign="top">
+
+<h1><font color="#cc0000" face="Verdana"><b>System
+Requirements</b></font>
+</h1>
+
+<p>Please refer to hardware and operating system requirements that IBM specifies for the
+Application Developer or Eclipse product (listed below) with which you will be using your CodePro 
+or EclipsePro
+product.</p>
+
+<p><strong><u>CodePro</u> currently supports:</strong> 
+
+</p><ul>
+  <li>IBM Rational Application Developer, version 6.0.x, 7.0.x and 7.5.x</li>
+  <li>IBM Rational Web Developer, version 6.0.x, 7.0.x and 7.5.x</li>
+  <li>IBM Rational Software Architect, version 6.0.x, 7.0.x and 7.5.x</li>
+  <li>WebSphere Studio Enterprise Developer, version 5.1.x</li>
+  <li>WebSphere Studio Application Developer, version 5.1.x</li>
+  <li>WebSphere Studio Site Developer, version 5.1.x</li>
+  <li>WebSphere Studio Express, version 5.1.x</li>
+  <li>WebSphere Studio Workbench, version 2.1.x</li>
+  <li> WebSphere Device Developer 5.x</li>
+  <li> SAP NetWeaver Developer Studio 2.0</li>
+	<li> MyEclipse 5.x, 6.x , 7.x</li>
+  <li>Eclipse 2.1.x</li>
+  <li>Eclipse 3.0.x</li>
+  <li>Eclipse 3.1.x</li>
+	<li>Eclipse 3.2.x</li>
+	<li>Eclipse 3.3.x</li>
+	<li>Eclipse 3.4.x</li>
+	<li>Eclipse 3.5.x</li>
+	<li>Eclipse 3.6.x</li>
+	<h4>Installing CodePro requires the full Eclipse SDK including the PDE. 
+For Eclipse 3.3 and above, use the Eclipse Classic, Java EE or RCP/Plug-in Developers distribution or install PDE separately.</h4>
+</ul>
+<p><strong><u>CodePro Analytix Rational Edition</u> currently supports:</strong> 
+
+</p><ul>
+  <li>IBM Rational Application Developer, version 6.0.x and 7.0.x</li>
+  <li>IBM Rational Web Developer, version 6.0.x and 7.0.x</li>
+  <li>IBM Rational Software Architect, version 6.0.x and 7.0.x</li>
+</ul>
+<p><strong><u>CodePro</u> does <u><font color="#ff0000">not</font></u>
+work with:</strong> 
+
+</p><ul>
+  <li>WebSphere Application Developer, 4.x or 5.0.x</li>
+  <li>WebSphere Site Developer, 4.x or 5.0.x</li>
+  <li>Eclipse 1.0 or 2.0</li>
+  <li>Eclipse 3.6, "integration" or "nightly" builds</li>	
+  <li>Eclipse 3.5, "integration" or "nightly" builds</li>
+	<li>Eclipse 3.4, builds prior to the final release</li>
+	<li>Eclipse 3.3, builds prior to the final release</li>
+	<li>Eclipse 3.2, builds prior to the final release</li>
+	<li>Eclipse 3.1, builds prior to the final release</li>
+	<li>Eclipse 3.0, builds prior to the final release</li>
+</ul>
+
+<p><strong><u>EclipsePro</u> currently supports:</strong> 
+
+</p><ul>
+  <li>Eclipse 2.1.x</li>
+  <li>Eclipse 3.0.x</li>
+  <li>Eclipse 3.1.x</li>
+	<li>Eclipse 3.2.x</li>
+	<li>Eclipse 3.3.x</li>
+	<li>Eclipse 3.4.x</li>
+	<li>Eclipse 3.5.x</li>
+	<li>Eclipse 3.6.x</li>
+</ul>
+
+<p><strong>Operating Systems currently supported:</strong> 
+
+</p><ul>
+  <li>Windows 2000 </li>
+  <li>Windows XP</li>
+  <li>Windows Vista</li>
+  <li>Windows 7</li>
+  <li>Linux (VA Java synchronization and bridge features not supported)</li>
+	<li>Mac OSX</li>
+</ul>
+
+<p><strong>Operating Systems <font color="#ff0000"><u>not</u></font> officially supported:</strong>
+
+</p><ul>
+  <li>Windows 98 </li>
+  <li>Windows ME </li>
+  <li>Windows NT </li>
+  <li>OS/2 </li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <th align="left" bgcolor="#c0c0c0" valign="top">How can I improve
+      Application Developer/Eclipse startup time, reduce swapping and eliminate
+      unnecessary garbage collection?</th>
+  </tr>
+  <tr>
+    <td align="left" valign="top">Begin by specifying the <i>starting</i> amount of memory (-vmargs -Xms###m)
+      in your Application Developer/Eclipse startup command line (e.g., the
+      target field within a Windows shortcut). If this is <i>not</i> specified,
+      Eclipse's starting amount of memory is quite small (only 40 MB). You 
+		should also specify the <i>maximum</i> amount of memory that Eclipse can 
+		use (-vmargs -Xmx###m) and the maximum amount of perm space available (-vmargs -XX:MaxPermSize=###m).<p>
+		We typically recommend something like this:</p>
+		<dl>
+			<dd><font face="Courier">-vmargs -XX:MaxPermSize=128m -Xms256m 
+			-Xmx512m</font></dd>
+		</dl>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+</body></html>

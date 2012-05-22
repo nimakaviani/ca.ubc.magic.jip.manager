@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Portability</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Portability</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check your code for constructs that might hinder cross-platform portability.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.commandExecution">Command Execution</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.disallowNativeMethods">Disallow Native Methods</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.disallowAWTPeerUsage">Disallow Use of AWT Peer Classes</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.environmentVariableAccess">Environment Variable Access</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.platformSpecificLineSeparator">Platform Specific Line Separator</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.commandExecution">Command Execution</a></h4><p>
+<b>Summary</b><br/>External commands should not be executed because not all platforms have the same syntax for executing them.<p><b>Description</b><br/>The method Runtime.exec() should not be used to execute commands because the format of command execution is platform dependent.<p><b>Example</b><br/>The following invocation of the exec() method would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Runtime.exec("c:\\bin\\myApp.exe", new String[0]);</code><h4><a name="com.instantiations.assist.eclipse.audit.disallowNativeMethods">Disallow Native Methods</a></h4><p>
+<b>Summary</b><br/>Native methods should be avoided because they are often platform dependent.<p><b>Description</b><br/>Native methods should be avoided because they are often platform dependent.<p><b>Security Implications</b><br/>When native methods are executed, the execution path leaves the Java API, leaving behind all Java security features, including any setup security managers.<p><b>Example</b><br/>The following method declaration would be flagged as a violation because it is implemented as a native method:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public int native getUID();</code><h4><a name="com.instantiations.assist.eclipse.audit.disallowAWTPeerUsage">Disallow Use of AWT Peer Classes</a></h4><p>
+<b>Summary</b><br/>AWT peer classes should not be referenced because they are platform dependent.<p><b>Description</b><br/>The AWT peer classes provide a platform-specific implementation of the AWT widgets. Referencing any of these classes directly will result in platform dependent code.<p><b>Example</b><br/>The following reference to the class sun.awt.windows.WButtonPeer would be flagged as a violation because it is specific to the Windows platform:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;if (peer instanceof sun.awt.windows.WButtonPeer)</code><h4><a name="com.instantiations.assist.eclipse.audit.environmentVariableAccess">Environment Variable Access</a></h4><p>
+<b>Summary</b><br/>Environment variables should not be accessed because not all platforms have support for environment variables.<p><b>Description</b><br/>The method System.getenv() should not be used to access environment variables because not all platforms have support for environment variables. Properties should be used instead.<p><b>Example</b><br/>The following invocation of the getenv() method would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;System.getenv("PATH");</code><h4><a name="com.instantiations.assist.eclipse.audit.platformSpecificLineSeparator">Platform Specific Line Separator</a></h4><p>
+<b>Summary</b><br/>Line separators should not be hard-coded because they are platform dependent.<p><b>Description</b><br/>Line separators should not be hard-coded because they are platform dependent.<p><b>Example</b><br/>The following use of the escape sequence "\n" would be flagged as a violation because not all platforms use it as a line separator:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;text = title + "\n\n" + message;</code></body>
+</html>

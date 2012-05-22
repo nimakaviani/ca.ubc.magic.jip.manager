@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: com.opnworks.tableviewer.example.TableViewerExample
+Bundle-SymbolicName: TableViewer
+Bundle-Version: 1.0
+

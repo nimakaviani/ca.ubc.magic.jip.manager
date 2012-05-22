@@ -1,0 +1,161 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+   <title>State Pattern</title>
+</head>
+<body>
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="700" >
+<tr>
+<td>
+<h1><font face="Verdana" color="#CC0000"><b>Strategy Pattern</b></font></h1>
+<b>Also known as:</b> Policy
+<p>The&nbsp;<img SRC="../../images/gof.gif" ALT="gof.gif (158 bytes)" height=16 width=16>
+Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable,
+thus letting the algorithm vary independently from clients that use it.
+<blockquote><a href="#Wizard">Wizard</a>
+<br><a href="#Applicability">Applicability</a>
+<br><a href="#AdditionalResources">Additional Resources</a></blockquote>
+
+<h3>
+<a NAME="Wizard"></a>Wizard</h3>
+<img SRC="../../images/patterns/strategy_wizard1.gif" height=572 width=438>
+<br>&nbsp;
+<table BORDER="1" CELLSPACING=0 WIDTH="71%" >
+<tr>
+<td ALIGN=CENTER HEIGHT="19"><b>Option</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Description</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Default</b></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Source folder</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a source folder for the new
+classes. Either type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span>
+to select a source folder via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The source folder of the element
+that was selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Package</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a package to contain the new
+classes. Either type a valid package name or click&nbsp;<span CLASS="Label">Browse</span>
+to select a package via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The package of the element that was
+selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Context class name</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Type a name for the new context class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;Context></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Modifiers</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Select one or more access modifiers for the new
+class.
+<ul 
+        CLASS="UnorderedList">
+<li CLASS="Item">
+public (uncheck for default visibility)</li>
+
+<li CLASS="Item">
+abstract</li>
+
+<li CLASS="Item">
+final</li>
+</ul>
+</td>
+
+<td ALIGN=LEFT VALIGN=TOP>public</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">Superclass</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">Type or click&nbsp;<span CLASS="Label">Browse</span>
+to select a superclass for the abstraction class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="38">&lt;java.lang.Object></td>
+</tr>
+
+<tr>
+<td>Strategy field name</td>
+
+<td>Type a name for the field that holds the strategy.</td>
+
+<td>&lt;strategy&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">Strategy class name</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">Type or click&nbsp;<span CLASS="Label">Browse</span>
+to select the class to be used as the strategy class</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="56">The type or the primary type of the
+compilation unit that was selected when the wizard was started</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Subclass names</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Click&nbsp;<span CLASS="Label">Add</span> to
+enter the names of the concrete subclasses of the strategy class representing
+  strategies.</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&lt;blank></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Append class name to subclass names</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Determines whether to append the strategy class name
+  to each subclass name when creating the subclasses.</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&lt;true&gt;</td>
+</tr>
+</table>
+
+<h3>
+<a NAME="Applicability"></a>Applicability</h3>
+Use the Strategy pattern when
+<ul>
+<li>
+many related classes differ only in their behavior..</li>
+
+<li>
+you need different variants of an algorithm.</li>
+
+<li>
+an algorithm uses data that clients shouldn't know about.</li>
+
+<li>
+a class defines many behaviors, and these appear as multiple conditional
+statements in its operations.</li>
+
+</ul>
+
+<h3>
+<a NAME="AdditionalResources"></a>Additional Resources</h3>
+<a href="http://c2.com/cgi/wiki?StrategyPattern">http://c2.com/cgi/wiki?StrategyPattern</a>
+<p><a href="http://www.wikipedia.org/wiki/Strategy_pattern">http://www.wikipedia.org/wiki/Strategy_pattern</a>
+<p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#Strategy">http://www.cmcrossroads.com/bradapp/javapats.html#Strategy</a>
+<p><a href="http://www.dofactory.com/patterns/pattern_strategy.asp">http://www.dofactory.com/patterns/pattern_strategy.asp</a></td>
+</tr>
+</table>
+
+</body>
+</html>

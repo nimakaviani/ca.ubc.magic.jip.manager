@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-Name: %pluginName
+Bundle-Activator: com.instantiations.assist.eclipse.CodePro
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+Bundle-Vendor: %providerName
+Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
+Bundle-SymbolicName: com.instantiations.assist.eclipse; singleton:=tru
+ e
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.instantiations.assist.eclipse.core,com.instantiati
+ ons.assist.eclipse.core.ui;visibility:=reexport,com.instantiations.as
+ sist.eclipse.scheduler;visibility:=reexport,com.instantiations.common
+ .core,com.instantiations.common.ui,com.instantiations.eclipse.analysi
+ s.utilities.ui,com.instantiations.eclipse.debug,com.instantiations.ec
+ lipse.mail.ui,com.instantiations.eclipse.startup,com.instantiations.e
+ clipse.util,org.eclipse.ant.core,org.eclipse.core.runtime,org.eclipse
+ .core.resources,org.eclipse.debug.core,org.eclipse.debug.ui,org.eclip
+ se.help,org.eclipse.help.base,org.eclipse.help.ui,org.eclipse.jdt.cor
+ e,org.eclipse.jdt.launching,org.eclipse.jdt.ui,org.eclipse.jface.text
+ ,org.eclipse.swt,org.eclipse.text,org.eclipse.ui,org.eclipse.ui.edito
+ rs,org.eclipse.ui.ide,org.eclipse.ui.intro,org.eclipse.ui.intro.unive
+ rsal,org.eclipse.ui.views,org.eclipse.ui.workbench,org.eclipse.ui.wor
+ kbench.texteditor,org.eclipse.search
+Export-Package: com.instantiations.assist.eclipse,com.instantiations.a
+ ssist.eclipse.comm,com.instantiations.assist.eclipse.eval,com.instant
+ iations.assist.eclipse.eval.action,com.instantiations.assist.eclipse.
+ preferences
+Bundle-Version: 7.1.0.r37x201109091135
+

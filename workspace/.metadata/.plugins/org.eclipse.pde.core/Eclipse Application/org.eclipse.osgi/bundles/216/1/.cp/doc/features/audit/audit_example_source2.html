@@ -1,0 +1,126 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="../../../stylesheets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../stylesheets/prettify/prettify.js"></script>
+
+<title>AddMethodToInterfaceAuditRuleEditor</title>
+</head>
+
+<body onload="prettyPrint()">
+
+<pre class="prettyprint">
+package com.instantiations.assist.eclipse.analysis.ui.audit.editor;
+ 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+ 
+import com.instantiations.assist.eclipse.analysis.audit.core.AuditRule;
+import com.instantiations.assist.eclipse.analysis.audit.rule.AddMethodToInterfaceAuditRule;
+ 
+/**
+ * Instances of the class <code>AddMethodToInterfaceAuditRuleEditor</code> implement an
+ * editor that can be used to edit instances of the class
+ * {@link AddMethodToInterfaceAuditRule}.
+ * 
+ * Copyright (c) 2003, Google, Inc.<br>
+ * All Rights Reserved
+ */
+public class AddMethodToInterfaceAuditRuleEditor extends BasicAuditRuleEditor
+{
+    /**
+     * The check box with which the user can control whether only
+     * properties (get and set) should be checked
+     */
+    protected Button onlyCheckProperties;
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // UI Creation
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Create the widgets used to allow the user to edit the configuration
+     * parameters of the given audit rule. The widgets can be created as direct
+     * children of the given composite and the composite's layout manager can
+     * be directly set by this method.
+     *
+     * @param parent the parent for the editor widgets
+     */
+    public void createEditor(Composite parent)
+    {
+        GridLayout layout;
+ 
+        layout = new GridLayout();
+        layout.numColumns = 1;
+        parent.setLayout(layout);
+ 
+        createMultiColumnSeverityEditor(parent, 1);
+ 
+        onlyCheckProperties = new Button(parent, SWT.CHECK);
+        onlyCheckProperties.setText("Only check properties (get and set methods)");
+        onlyCheckProperties.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    }
+ 
+    /**
+     * Fill the editor with parameter values for the specified audit rule
+     *
+     * @param auditRule the audit rule whose parameters will be edited
+     */
+    public void fillEditor(AuditRule auditRule)
+    {
+        AddMethodToInterfaceAuditRule rule;
+ 
+        super.fillEditor(auditRule);
+        if (auditRule instanceof AddMethodToInterfaceAuditRule) {
+            rule = (AddMethodToInterfaceAuditRule) auditRule;
+            onlyCheckProperties.setSelection(rule.getOnlyCheckProperties());
+        }
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Editing
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * The user has requested that the changes that were made be saved, so
+     * update the configuration parameters of the given audit rule to reflect
+     * the current state of the UI.
+     *
+     * @param auditRule the audit rule that is to be updated
+     */
+    public void applyChanges(AuditRule auditRule)
+    {
+        AddMethodToInterfaceAuditRule rule;
+ 
+        super.applyChanges(auditRule);
+        if (auditRule instanceof AddMethodToInterfaceAuditRule) {
+            rule = (AddMethodToInterfaceAuditRule) auditRule;
+            rule.setOnlyCheckProperties(onlyCheckProperties.getSelection());
+        }
+    }
+ 
+    /**
+     * The user has requested that the user interface be updated to reflect the
+     * default settings for the configuration parameters. The given audit rule
+     * can be used to determine the appropriate default values.
+     *
+     * @param auditRule the audit rule associated with this editor
+     */
+    public void restoreDefaults(AuditRule auditRule)
+    {
+        super.restoreDefaults(auditRule);
+        onlyCheckProperties.setSelection(true);
+    }
+}
+</pre>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+
+<head>
+<title>Preferences - Broadcast</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000">Preferences - Broadcast</font></h1>
+    <p><img src="../images/preferences_broadcast.gif"></p>
+      <p>This page is used to control broadcast-related options.</p>
+      <h3>Automatically broadcast commit message to</h3>
+      <p>This option specifies whether and to whom to send an automatically
+      generated message describing the commits you make. Use the Change button
+      to select the user(s) and group(s) that should be the recipients of the
+      commit messages. The message will look like this:
+      <blockquote>
+        <dl>
+          <dt>Subject: <b>Commit involving project MyProject</b></dt>
+          <blockquote>
+            <dt><b>The following were committed</b></dt>
+            <dt><b>/MyProject/src/main/Main2.java</b></dt>
+            <dt><b>/MyProject/src/main/Main3.java</b></dt>
+          </blockquote>
+      <p>Only commits involving files trigger this mechanism, so for example
+      committing a new empty folder does not produce a message.</p>
+      <h3>Subject line prefix</h3>
+      <p>This option specifies the subject line prefix used in constructing the
+      message subject. The project names involved in the commit will be appended
+      after the prefix.</p>
+      <h3>Delay (in minutes)</h3>
+      <p>This option specifies the delay in minutes between the last commit and
+      the message broadcast. If you are performing multiple commits in sequence,
+      this provides a way to batch all the changes into a single message rather
+      than a message for each individual commit. The default is five minutes.</p>
+      <h3>Modified prefix</h3>
+      <p>This option determines the label prefix used to trigger the commit
+      message. It defaults to the the right angle bracket (&quot;&gt;&quot;)
+      which is the character used by the CVS label decorators to indicate a file
+      that has been modified but not yet checked in. The change in that prefix
+      (it is removed when the file is checked in) triggers the commit message
+      broadcast.</td>
+  </tr>
+</table>
+</body>
+</html>

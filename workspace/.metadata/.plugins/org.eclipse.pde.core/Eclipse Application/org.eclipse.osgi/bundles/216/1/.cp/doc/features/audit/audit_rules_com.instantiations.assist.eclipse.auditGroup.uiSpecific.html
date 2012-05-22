@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - UI Specific (SWT)</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - UI Specific (SWT)</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for possible errors or problems related to the use of user interface elements (Swing, AWT, SWT, JFace).</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.uiSpecific.applyDialogFont">Apply Dialog Font</a></li>
+      <li><a href="#com.instantiations.eclipse.analysis.audit.security.disposeShouldBeInvokedForFields">Dispose Should Be Invoked</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.uiSpecific.doNotInvokeSetSizeInComponentResized">Do Not Invoke setSize()</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.useOrToCombineSWTStyles">Use Or to Combine SWT Style Bits</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.uiSpecific.useValidSWTStyles">Use Valid SWT Styles</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.uiSpecific.applyDialogFont">Apply Dialog Font</a></h4><p>
+<b>Summary</b><br/>The method Dialog.applyDialogFont(Composite) should be invoked in the createContents method so that user preferences will be honored.<p><b>Description</b><br/>This audit rule finds implementations of the method createContents(Composite) in subclasses of org.eclipse.jface.dialogs.Dialog in which the method Dialog.applyDialogFont(Composite) is not invoked. This method should always be invoked so that user preference settings will be honored.<p><b>Example</b><br/>The following method:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;protected Control createContents(Composite parent)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Composite contents;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents = (Composite) super.createContents(parent);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return contents;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><p>Should have the following line added just before the return statement:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Dialog.applyDialogFont(parent);</code><h4><a name="com.instantiations.eclipse.analysis.audit.security.disposeShouldBeInvokedForFields">Dispose Should Be Invoked</a></h4><p>
+<b>Summary</b><br/>You should invoke the <code>dispose()</code> method for objects which are types or subtypes of classes that are situated in <code>org.eclipse.swt.graphics</code> package.<p><b>Description</b><br/>This rule looks for places where such objects are created and then checks that <code>dispose()</code> was invoked.<p><b>Security Implications</b><br/>An SWT resource that is not properly closed is a reasource leak. When created, an SWT object takes system resources that will not be freed if dispose() is not called. Sooner or later this will cause denial in creation of new SWT objects resulting in a runtime exception. This could be used to create a potential denial-of-service state or reveal security-sensitive parts of an application's design through the stack trace.<p><b>Example</b><br/>The following creation of an object would be marked as a violation because the <code>dispose()</code> method is not invoked:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class Sample {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void sampleMeth( Display display ) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ImageData imageData = new ImageData("filename");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Image image = new Image(display, imageData);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.uiSpecific.doNotInvokeSetSizeInComponentResized">Do Not Invoke setSize()</a></h4><p>
+<b>Summary</b><br/>The method Component.setSize() should not be invoked within ComponentListener.componentResized().<p><b>Description</b><br/>This audit rule looks for invocations of the method Component.setSize() within methods that override the method ComponentListener.componentResized(). The method setSize() causes the method componentResized() to be invoked, thus leading to a stack overflow.<p><b>Example</b><br/>The given invocation of the method setSize() in the following method would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;class MyComponentListener extends Component implements ComponentListener {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void componentResized(ComponentEvent event) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setSize(100, 100);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;}</code><h4><a name="com.instantiations.assist.eclipse.audit.useOrToCombineSWTStyles">Use Or to Combine SWT Style Bits</a></h4><p>
+<b>Summary</b><br/>SWT style bits should be combined using the bitwise-OR operator.<p><b>Description</b><br/>This audit rule looks for creations of SWT widgets where the style bits are being combined using an operator other than the bitwise-OR. <p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;Text text = new Text(shell, SWT.SINGLE & SWT.BORDER);</code><h4><a name="com.instantiations.assist.eclipse.audit.uiSpecific.useValidSWTStyles">Use Valid SWT Styles</a></h4><p>
+<b>Summary</b><br/>Widget types should only be assigned valid SWT styles.<p><b>Description</b><br/>This audit rule looks for declarations of widget types with incorrect styles set. Incorrectly set styles create a user interface not intended by the developer, are unnecessary, and can lead to program errors or exceptions. Styles input into a constructor are assumed to directly reference the integer values, that is, local integer fields or integer constants are assumed not to be passed instead.<p>Under the audit rule parameters ("Parameters" tab) the sets of valid styles for each widget can be changed. After selecting a widget from the left-hand list, say Label, the list on the right is the set of "incompatible style groups". For the Label widget, you will see both "SWT.SEPARATOR" and "SWT.SHADOW_IN | SWT.SHADOW_OUT | SWT.SHADOW_NONE" in this list. This means that these four styles are all valid styles for the Label widget.<p>Furthermore, since SWT.SHADOW_IN, SWT.SHADOW_OUT and SWT.SHADOW_NONE are in a group, only one of these styles may be attributed to a Label. If two of these three are given to a Label, the constructor will be flagged.<p>The buttons 2.0/.../3.2 restore all widgets and styles included in the SWT package for the specified version. All non-SWT widgets entered by the user, aren't affected by these buttons.<p><b>Example</b><br/>The following would be flagged twice as Button widgets can't have the SWT.SINGLE style and can also not contain both the SWT.CHECK and SWT.PUSH styles at the same time.<p><code>&nbsp;&nbsp;&nbsp;&nbsp;Button button = new Button(shell, SWT.SINGLE | SWT.CHECK | SWT.PUSH);</code><p><img src="../../images/auditrules/audit_use_valid_swt_styles.gif" width="474" height="171"></p></body>
+</html>

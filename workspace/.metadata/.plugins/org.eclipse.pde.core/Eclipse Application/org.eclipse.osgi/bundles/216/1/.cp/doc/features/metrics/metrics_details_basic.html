@@ -1,0 +1,246 @@
+<html>
+
+<head>
+<title>Metrics - Details - Basics</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+      <b><font face="Verdana" color="#CC0000">Metrics - Details - Basics</font></b></h1>
+    <p>This group contains metrics that compute basic information about the
+    code.</p>
+    <h3> Average Lines of Code Per Method</h3>
+    <blockquote>
+      <p>This is the average of the number of lines of code (LOC) in each method
+      defined in the target elements.</p>
+      <p>This metric includes details on the minimum and maximum numbers of
+      lines of code in any of the methods.</p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type or type container. </p>
+      <p><img src="../../images/metrics/metric_avg_lines_code.gif" width="364" height="30"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum average value </dt>
+        <dd>Causes the metric to flag any projects or packages with too high an
+          average LOC/method. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Average Number of Constructors Per Type</h3>
+    <blockquote>
+      <p>This is the average of the number of constructors defined for each type defined in the
+      target elements. </p>
+      <p>This metric includes details on the minimum and maximum numbers of
+      constructors defined by a
+      type. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type or type container. </p>
+      <p><img src="../../images/metrics/metric_avg_num_constructors_type.gif" width="364" height="31"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum average value </dt>
+        <dd>Causes the metric to flag any projects or packages with too many
+          constructors per type. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Average Number of Fields Per Type</h3>
+    <blockquote>
+      <p>This is the average of the number of fields defined for each type defined in the
+      target elements. </p>
+      <p>This metric includes details on the minimum and maximum numbers of
+      fields defined by a
+      type. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type or type container. </p>
+      <p><img src="../../images/metrics/metric_avg_num_fields_type.gif" width="364" height="49"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Include constant (static final) fields in computation </dt>
+        <dd>Determines whether static final fields are counted. </dd>
+        <dt>Maximum average value </dt>
+        <dd>Causes the metric to flag any projects or packages with too many
+          fields per type. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Average Number of Methods Per Type</h3>
+    <blockquote>
+      <p>This is the average of the number of methods defined for each type defined in the
+      target elements. </p>
+      <p>This metric includes details on the minimum and maximum numbers of methods defined by a
+      type. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type or type container. </p>
+      <p><img src="../../images/metrics/metric_avg_num_methods_type.gif" width="364" height="31"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum average value </dt>
+        <dd>Causes the metric to flag any projects or packages with too many
+          methods per type. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Average Number of Parameters</h3>
+    <blockquote>
+      <p>This is the average of the number of parameters defined for methods
+      (but not constructors) defined in the target elements.</p>
+      <p>This metric includes details on the minimum and maximum numbers of
+      parameters defined by a method. It also provides details on the number of
+      methods of each particular size.</p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type or type container. </p>
+      <p><img src="../../images/metrics/metric_avg_num_parameters.gif" width="364" height="31"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum average value </dt>
+        <dd>Causes the metric to flag any projects or packages with too many
+          parameters per method. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3>Lines of Code</h3>
+    <blockquote>
+      <p>This is a count of the number of lines in the target elements that contain characters
+      other than white space and comments. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any source-based elements. </p>
+      <p><img src="../../images/metrics/metric_lines_of_code.gif" width="364" height="31"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum lines of code per compilation unit </dt>
+        <dd>Causes the metric to flag any types with too many lines of code. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Characters</h3>
+    <blockquote>
+      <p>This is a simple count of the number of characters in the source code associated with
+      the target elements. The source code associated with an element includes any Javadoc
+      comment that might precede the element. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any source-based elements. </p>
+      <p><img src="../../images/metrics/metric_num_of_characters.gif" width="364" height="32"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum characters per compilation unit </dt>
+        <dd>Causes the metric to flag any compilation unit with too many
+          characters. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Comments</h3>
+    <blockquote>
+      <p>This is a count of the number of comments. It is not a count of the number of lines
+      that contain comments; multi-line comments are counted as a single comment no matter how many
+      lines they occupy. </p>
+      <p>This metric includes a breakdown based on the kind of comment: end-of-line, multi-line,
+      and Javadoc. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any source-based elements. </p>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Constructors</h3>
+    <blockquote>
+      <p>This is a count of the number of constructors defined in the target elements. </p>
+      <p>This metric includes a breakdown based on the visibility of the constructor (public,
+      package, protected or private). </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type or type container. </p>
+      <p><img src="../../images/metrics/metric_num_of_constructors.gif" width="364" height="32"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum constructors per type </dt>
+        <dd>Causes the metric to flag any type with too many constructors. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Fields</h3>
+    <blockquote>
+      <p>This is a count of the number of fields defined in the target elements. </p>
+      <p>This metric includes a breakdown based on both the scope of the field (static or
+      instance) and the visibility of the field (public, package, protected or private). </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type or type container. </p>
+      <p><img src="../../images/metrics/metric_num_of_fields.gif" width="364" height="29"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum fields per type </dt>
+        <dd>Causes the metric to flag any type with too many fields. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Lines</h3>
+    <blockquote>
+      <p>This is a simple count of the number of lines in the target elements, including blank
+      lines. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any source-based elements. </p>
+      <p><img src="../../images/metrics/metric_num_of_lines.gif" width="364" height="31"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum lines per compilation unit </dt>
+        <dd>Causes the metric to flag any compilation unit with too many lines. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Methods</h3>
+    <blockquote>
+      <p>This is a count of the number of methods defined in the target elements. </p>
+      <p>This metric includes a breakdown based on both the scope of the method (static or
+      instance) and the visibility of the method (public, package, protected or private). </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type or type container. </p>
+      <p><img src="../../images/metrics/metric_num_of_methods.gif" width="364" height="31"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum methods per type </dt>
+        <dd>Causes the metric to flag any type with too many methods. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Packages</h3>
+    <blockquote>
+      <p>This is a count of the number of packages defined in the target elements. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any package or package container. </p>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Semicolons</h3>
+    <blockquote>
+      <p>This is a simple count of the number of semicolons in the source code associated with
+      the target elements. Semicolons occuring within comments are not counted, but those at the
+      end of package and import declarations are. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any source-based elements. </p>
+      <p><img src="../../images/metrics/metric_num_of_semicolons.gif" width="364" height="30"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum semicolons per compilation unit </dt>
+        <dd>Causes the metric to flag any compilation unit with too many
+          semicolons. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    <h3> Number of Types</h3>
+    <blockquote>
+      <p>This is a count of the number of types defined in the target elements. </p>
+      <p>This metric includes a breakdown based on whether the type is a class or an interface. </p>
+      <h4>Applicability</h4>
+      <p>This metric can be computed for any type container. </p>
+      <p><img src="../../images/metrics/metric_num_of_types.gif" width="364" height="30"></p>
+      <h4>Parameters</h4>
+      <dl>
+        <dt>Maximum types per package </dt>
+        <dd>Causes the metric to flag any packages with too many types. </dd>
+      </dl>
+    </blockquote>
+    <!-- *********************************************************************** -->
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.exportToFileSystem</b></font></h1>
+      <p><b><font size="4">(replaced in Eclipse 3.x / Ant 1.6.2 by
+      <a href="Ant162/Copy.html">Copy</a>)</font></b></p>
+      <p><i>(old task name &quot;ExportToFileSystem&quot;)</i></p>
+      <p>Exports project resources to the underlying file system (files and folders).&nbsp; Each
+      line in the &lt;Resources&gt; section defines a project resource or group of resources to
+      be exported, where all paths are relative to the workspace root.&nbsp; If the resource
+      specified is a folder, then recursively all files and folders in that folder will included
+      in the export.&nbsp; Valid attributes include:<ul>
+        <li><b>destinationPath</b> (required) = the path to where the resources will be exported<br>
+&nbsp;&nbsp; </li>
+        <li><b>createLeadupStructure</b> (optional - default true) = whether the 
+        directories containing the specified resources are created in the 
+        destination directory.&nbsp; For example, if <b>MyProject's src</b> 
+        folder is specified as one of the resources to be exported, then setting 
+        this attribute true causes the resources in the src folder to be 
+        exported into <b>destinationPath/MyProject/src/myDirectories</b>, 
+        whereas setting this attribute false causes the resources in the src 
+        folder to be exported into <b>destinationPath/myDirectories</b>.&nbsp; 
+        This option only applies to files and directories specified using the 
+        &lt;Resources&gt; structure, not to FileSets.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+        <li><b>overwriteFiles</b> (optional - default false) = whether existing files are overwritten</li>
+      </ul>
+      <p>The codepro.exportToFileSystem Ant task is based upon the standard ant
+      <a href="http://ant.apache.org/manual/CoreTasks/copy.html">copy</a> task, 
+      so all of the options that apply to the copy task (such as
+      <a href="http://ant.apache.org/manual/CoreTypes/fileset.html">FileSets</a>) 
+      also apply to the codepro.exportToFileSystem task.</p>
+      <p>Example</p>
+      <blockquote>
+        <pre>&lt;codepro.exportToFileSystem destinationPath=&quot;G:/export-out/files&quot;&gt;
+	&lt;Resources&gt;
+		/CodeProStudioDemo
+	&lt;/Resources&gt;
+&lt;/codepro.exportToFileSystem&gt;</pre>
+      </blockquote>
+      <p>In this example, the CodeProStudioDemo project's entire contents are exported to the
+      specified directory, preserving that projects entire directory structure.</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

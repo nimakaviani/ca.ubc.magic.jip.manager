@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<title>Audit - Project Defaults</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+    <font face="Verdana" color="#CC0000"><b>Project Defaults
+    </b></font>
+      </h1>
+    <p>You can have finer control over the behavior of both the <a href="audit.html"> Audit</a> and
+    <a href="audit.html"> Audit Using...</a> commands by defining per-project defaults for both the
+    <a href="../../preferences/preferences_audit.html#AuditRuleSet"> audit rule set</a> to be used
+    and the inclusion and exclusion patterns used to determine which files should be
+    audited. Per-project defaults are specified using XML in an audit control file,
+    which is a file named &quot;<b>.audit</b>&quot; that must be placed in the top-level directory of
+    the project.</p>
+      <dl>
+        <dt>The following is an example of the contents of an audit control file:</dt>
+      </dl>
+      <blockquote>
+        <dl>
+          <dt><b>&lt;?xml version="1.0" encoding="UTF-8"?><br>
+            &lt;auditControlFile version="1.0"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;audit name="Java Files" auditRuleSet="/CodePro Defaults"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &lt;inclusionSet&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &lt;inclusion pattern=&quot;**/*.java&quot;/&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &lt;/inclusionSet&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &lt;exclusionSet&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &lt;exclusion pattern=&quot;**/internal/**/*.java&quot;/&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &lt;/exclusionSet&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/audit><br>
+	&lt;/auditControlFile&gt;</b></dt>
+        </dl>
+      </blockquote>
+    <p>Basically, the top-level tag represents a list of audit information tags. Each
+    "audit" tag specifies a name (for future use) and the name of an <a href="../../preferences/preferences_audit.html#AuditRuleSet"> audit rule set</a>.
+    It also contains two lists of patterns: an inclusion list and an exclusion list.</p>
+    <p>The patterns follow the Ant syntax and are taken to be relative to the project's
+    root directory. In the example above, the inclusion list specifies that all files
+    that end in ".java" that occur anywhere within the project are to be audited. The
+    exclusion list specifies that any file ending in ".java" that includes a directory
+    named "internal" somewhere in the path should not be audited.</p>
+    <p>The audit rule set to be used is specified using a path. The path can follow one of
+    the following patterns:</p>
+      <blockquote>
+    <p><b>/ &lt;audit rule set name></b></p>
+        <blockquote>
+    <p>In this case, which appears in the example above, the audit rule set is		searched for among those loaded in the Workspace.</p>
+        </blockquote>
+    <p><b>/ &lt;project name> [/ &lt;file path>] / &lt;audit rule set name></b></p>
+        <blockquote>
+    <p>In this case, the audit rule set is searched for among those defined in		the file at the given file path within the given project. If the file		path is not given, then the file is assumed to be a file named
+    &quot;<b>.auditRuleSets</b>&quot; defined at the root of the project.</p>
+        </blockquote>
+    <p><b>[&lt;file path> /] &lt;audit rule set name></b></p>
+        <blockquote>
+    <p>In this case, the audit rule set is searched for among those defined in		the file at the given file path within the project containing the audit		control file. As above, if no file path is given, then the file is assumed		to be a file named
+    &quot;<b>.auditRuleSets</b>" defined at the root of the project.</p>
+        </blockquote>
+      </blockquote>
+    <p>When the Audit command is executed, each of the selected files is processed in the
+    following way. First, the project containing the file is examined to see whether or
+    not it contains an audit control file. If not, then the file is audited using the
+    default audit rule set defined in the workspace. If an audit control file does exist,
+    then the file is matched against the inclusion and exclusion lists given for each
+    audit information tag. If the file matches at least one inclusion pattern and does
+    not match any of the exclusion patterns, then that file will be audited using the
+    corresponding audit rule set. (If the audit rule set cannot be found, then the default
+    audit rule set is used instead.) If the file does not match any of the lists, then it
+    will not be audited.</p>
+    <p>Note: If a file matches the inclusion and exclusion patterns in multiple audit
+    information tags, then the file will be audited multiple times, once for each of
+    the corresponding audit rule sets. If you include multiple audit information tags in
+    the audit control file, you should be careful that they do not overlap.</p>
+    <p>The <a href="audit.html"> Audit Using...</a> command is similar, but the audit rule set you choose will always
+    be used. In this case, the audit control file controls whether or not the file will
+    be audited, but not which audit rule set will be used.</p>
+    <p>
+    <a href="../../preferences/preferences_audit.html#DynamicAudit">Dynamic code
+    auditing</a> can be configured to either use the audit control files or not.
+    If the audit control files are used, the default rule set specified for the
+    dynamic audit is used where the default rule set would have been used.
+    </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

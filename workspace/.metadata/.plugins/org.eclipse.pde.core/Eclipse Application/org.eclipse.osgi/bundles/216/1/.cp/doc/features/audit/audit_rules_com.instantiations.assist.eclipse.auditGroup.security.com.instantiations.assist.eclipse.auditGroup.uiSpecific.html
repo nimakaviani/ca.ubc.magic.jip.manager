@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - UI Specific (SWT)</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - UI Specific (SWT)</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for possible errors or problems related to the use of user interface elements (Swing, AWT, SWT, JFace).</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.eclipse.analysis.audit.security.disposeShouldBeInvokedForFields">Dispose Should Be Invoked</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.eclipse.analysis.audit.security.disposeShouldBeInvokedForFields">Dispose Should Be Invoked</a></h4><p>
+<b>Summary</b><br/>You should invoke the <code>dispose()</code> method for objects which are types or subtypes of classes that are situated in <code>org.eclipse.swt.graphics</code> package.<p><b>Description</b><br/>This rule looks for places where such objects are created and then checks that <code>dispose()</code> was invoked.<p><b>Security Implications</b><br/>An SWT resource that is not properly closed is a reasource leak. When created, an SWT object takes system resources that will not be freed if dispose() is not called. Sooner or later this will cause denial in creation of new SWT objects resulting in a runtime exception. This could be used to create a potential denial-of-service state or reveal security-sensitive parts of an application's design through the stack trace.<p><b>Example</b><br/>The following creation of an object would be marked as a violation because the <code>dispose()</code> method is not invoked:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;public class Sample {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void sampleMeth( Display display ) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ImageData imageData = new ImageData("filename");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Image image = new Image(display, imageData);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}</code></body>
+</html>

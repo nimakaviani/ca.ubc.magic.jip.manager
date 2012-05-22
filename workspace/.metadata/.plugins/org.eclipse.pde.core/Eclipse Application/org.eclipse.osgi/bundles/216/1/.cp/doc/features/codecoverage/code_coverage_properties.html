@@ -1,0 +1,66 @@
+<html>
+
+<head>
+<title>Code Coverage Project Properties</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1>
+      <b><font face="Verdana" color="#CC0000">Code Coverage Project Properties</font></b></h1>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top"><img src="../../images/code_coverage_properties.gif" align="top"><p>Each project has a 
+		<a href="code_coverage.html">Code Coverage</a> property sheet as shown 
+		above. This property sheet contains a check box labeled
+          &quot;Instrument for code coverage&quot; that allows you to control
+          whether the class files within the project are to be instrumented. </p>
+		<p>
+          The property sheet also allows you to control which class files are
+          instrumented. This is done through the use of two lists of patterns:
+          the inclusion list and the exclusion list.
+          </p><p>
+          The patterns are simple patterns using the standard pattern matching
+          characters: &quot;*&quot; matches zero or more characters, &quot;$&quot;
+          matches a single character. They are simple in the sense that they
+          only match strings, not structures. For example, the pattern</p>
+          <blockquote>
+            <p>junit.*</p>
+          </blockquote>
+          <p>will match any class name beginning with &quot;junit.&quot;,
+          whether or not it contains other periods. This means, for example,
+          that the pattern will match the class</p>
+          <blockquote>
+            <p>junit.framework.TestCase</p>
+          </blockquote>
+          <p>Similarly, the pattern</p>
+          <blockquote>
+            <p>*Test</p>
+          </blockquote>
+          <p>will match any class whose name ends in &quot;Test&quot; whether
+          the class is defined in your code or in code supplied by a third party.
+          </p><p>
+          The inclusion list specifies which classes could be instrumented
+          (that is, have coverage information recorded for them. If the list is
+          empty, all classes are eligible. If the list contains one or more
+          patterns, only those classes whose fully qualified name matches at
+          least one pattern are eligible
+          </p><p>
+          The exclusion list specifies which of the eligible classes will not
+          be instrumented. A class will be excluded if it matches one or more
+          of the patterns in the list. If the list is empty, then all of the
+          eligible classes will be instrumented.
+        </td>
+      </tr>
+    </table>
+      <h6 align="center"><b><font face="Verdana">This feature is based on
+      technology from the EMMA Project.<a href="http://emma.sourceforge.net">
+      <br>http://emma.sourceforge.net<br>
+      </a>Copyright &copy; 2001-2005 Vlad Roubtsov</font></b>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+      <h1><font face="Verdana" color="#CC0000"><b>codepro.metrics</b></font></h1>
+      <p>
+      <b><i><font size="2" face="Verdana">This function is deprecated and has
+      been replaced by the</font><font size="2" face="Verdana" color="#0000FF">
+      <a href="../server/ant/metrics/metrics.html">instantiations.metrics</a>
+      </font><font size="2" face="Verdana"> Ant Task in </font>
+      <font size="2" face="Verdana" color="#0000FF">
+      CodePro AnalytiX Server</font>
+      <font size="2" face="Verdana">.</font></i></b>
+      </p>
+      <h3>Description</h3>
+      <p>
+      An Ant task that computes metrics for Java source files. This is identical
+      to the <a href="../metrics/metrics.html">Compute Metrics</a> command
+      available via the Application Developer and Eclipse IDE user interface.
+      </p>
+      <!-- ***************************************************************** -->
+      <h3>Attributes</h3>
+      <p>
+      The following is a list of the attributes supported for the
+      <code>codepro.metrics</code> task.
+      </p>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+          <td valign="top"><b>Attribute</b></td>
+          <td valign="top"><b>Description</b></td>
+          <td align="center" valign="top"><b>Required</b></td>
+        </tr>
+        <tr>
+          <td valign="top">classpath</td>
+          <td valign="top">
+          <p>
+          The classpath used for resources that exist outside of the projects
+          contained by the current Eclipse workspace. The classpath attribute is a
+          <a href="http://ant.apache.org/manual/using.html#path">path-like
+          structure</a> and can also be set via a nested
+          <code>&lt;classpath&gt;</code> element similar to the classpath attribute
+          in the <a href="http://ant.apache.org/manual/CoreTasks/javac.html">javac</a>
+          Ant task.
+          </p>
+          <p>
+          <b>Note:</b> The classpath attribute relies on functionality that exists
+          in <b>Eclipse 2.1</b>, but not in Eclipse 2.0 / Application Developer 5.0.
+          If you want to use this, you will have to download and install Eclipse 2.1.
+          See the notes on the <a href="headless.html">Eclipse headless Ant
+          environment</a>.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">metricSetName</td>
+          <td valign="top">
+          <p>
+          The name of the
+          <a href="../../preferences/preferences_metrics.html#MetricSet">metric
+          set</a> that will be used to generate metric results. If the
+          <code>metricSetFile</code> attribute is specified (see below) then the
+          named metric set in the specified file is used, otherwise the named metric
+          set in the workspace is used. If no metric set name is specified then
+          either the first metric set in the file or the default metric set in the
+          workspace is used depending upon whether or not the
+          <code>metricSetFile</code> attribute is specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">metricSetFile</td>
+          <td valign="top">
+          <p>
+          The absolute or relative path to the file that contains the
+          <a href="../../preferences/preferences_metrics.html#MetricSet">metric
+          set</a> to be used. If the <code>metricSetName</code> attribute is
+          specified (see above) then the metric set located in the specified file
+          with the specified name is used, otherwise the first metric set in the
+          file is used. If the <code>metricSetFile</code> attribute is not
+          specified, then a metric set from the workspace is used. Either the
+          <a href="../prefs/export_prefs.html">export preferences</a> command or the
+          <a href="../../preferences/preferences_metrics.html#Export">export button on
+          the metrics preference page</a> can be used to generate a file containing
+          metric sets.
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+      </table>
+      <!-- ***************************************************************** -->
+      <h3>Deprecated Attributes</h3>
+      <p>
+      The following attributes are deprecated in favor of more flexible
+      mechanisms. While they are still currently supported, they should be
+      replaced by the newer mechanisms, as described for each attribute.
+      </p>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+          <td valign="top"><b>Attribute</b></td>
+          <td valign="top"><b>Description</b></td>
+          <td align="center" valign="top"><b>Required</b></td>
+        </tr>
+        <tr>
+          <td valign="top">resultFile</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          The absolute or relative path to the file to which metric results will be
+          written. If not specified, then no metric results will be written to any
+          file. Regardless of whether or not the <code>resultFile</code> attribute
+          is specified, if the ant task is being executed inside the IDE user
+          interface, then the metric results will appear in the
+          <a href="../metrics/metrics.html">Metrics view</a>.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">resultFormat</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          The format in which the metric results will be written. If not specified,
+          then the results will be written in a simple text format. Currently
+          supported formats include:
+          </p>
+          <ul>
+          <li>text</li>
+          <li>commaSeparatedData</li>
+          <li>tabSeparatedData</li>
+          <li>html</li>
+          <li>xml</li>
+          </ul>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">includeSubScopes</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          A boolean value indicating whether or not sub-scopes should be included
+          in the results.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">includeTypeLevelMetrics</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          A boolean value indicating whether or not type-level metrics should be
+          included in the results.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+        <tr>
+          <td valign="top">includeDetails</td>
+          <td valign="top">
+          <p>
+          Deprecated: use the nested <code>report</code> element instead
+          </p>
+          <p>
+          A boolean value indicating whether or not details should be included in
+          the results.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+      </table>
+      <!-- ***************************************************************** -->
+      <h3>Nested Elements</h3>
+      <p>
+      The following elements can be nested within the <code>codepro.metrics</code>
+      task.
+      </p>
+      <blockquote>
+      <p><code><b>&lt;fileSet&gt;</b></code></p>
+      <p>
+      The standard ant
+      <a href="http://ant.apache.org/manual/CoreTypes/fileset.html">FileSet</a>
+      structure is used to specify which files are to be included. Only *.java
+      files in the file set will have metrics computed for them... all others
+      will be ignored by the
+      <code>codepro.metrics</code> ant task. If you specify *.java files outside
+      of the projects contained by the current Eclipse worspace, then you must
+      specify a classpath or those external files will be ignored by the
+      <code>codepro.metrics</code> ant task.
+      <p><code><b>&lt;classpath&gt;</b></code></p>
+      <p>
+      The classpath used for resources that exist outside of the projects
+      contained by the current Eclipse workspace. The classpath element is
+      similar to the classpath attribute in the
+      <a href="http://ant.apache.org/manual/CoreTasks/javac.html">javac</a>
+      Ant task.
+      </p>
+      <p><code><b>&lt;report&gt;</b></code></p>
+      <p>
+      The <a href="ComputeMetricsReportElement.html"><code>report</code></a>
+      element is used to generate a report based on the results of the metric
+      computation.
+      </p>
+      <!-- ***************************************************************** -->
+      <h3>Examples</h3>
+      <p>
+      The following Ant task will use the metric set named
+      &quot;MyMetricSet&quot; contained in the file named
+      &quot;metrics.pref&quot; to compute metrics for the Java files in the
+      directory structure rooted at &quot;../MyJavaProject/src&quot;. After the
+      metrics computation is complete, an XML report will be generated to the
+      file named &quot;metrics_result.xml&quot;. In addition, the report will
+      be e-mailed to the project manager.
+      </p>
+      <blockquote>
+        <pre>&lt;codepro.metrics
+      metricSetName=&quot;MyMetricSet&quot;
+      metricSetFile=&quot;metrics.pref&quot;&gt;
+   &lt;fileSet dir=&quot;../MyJavaProject/src&quot;/&gt;
+   &lt;report
+         file=&quot;metrics_result.xml&quot;
+         format=&quot;xml&quot;
+      &lt;mail
+            username=&quot;user&quot;
+            password=&quot;password&quot;
+            from=&quot;testManager@company.com&quot;
+            tolist=&quot;projectManager@company.com&quot;/&gt;
+   &lt;/report&gt;
+&lt;/codepro.metrics&gt;</pre>
+      </blockquote>
+      <!-- ***************************************************************** -->
+      <h3>Eclipse 3.0 Usage</h3>
+      <p>
+      Under Eclipse 2.1 and earlier, Ant tasks are run in the same JRE as the
+      IDE and can make use of Eclipse libraries. Under Eclipse 3.0, Ant tasks
+      are normally run in a separate JRE and don't have access to Eclipse
+      libraries. The <b>codepro.metrics</b> Ant task requires access to various
+      Eclipse libraries, and therefore cannot run in a separate JRE. In order to
+      use the <b>codepro.metrics</b> Ant task within Eclipse, you need to select
+      the <b>Run in the same JRE as the workspace</b> option from the <b>JRE</b>
+      page of the Run Ant dialog.
+      </p>
+      <p><img border="0" src="../../images/runtime_jre.gif" width="513" height="101">
+    </td>
+  </tr>
+</table>
+</body>
+</html>

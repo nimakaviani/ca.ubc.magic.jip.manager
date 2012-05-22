@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Portlets</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Portlets</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that look for the correct implementation of portlets within your code.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.noInstanceFieldsInPortlets">No Instance Fields In Portlets</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.noInstanceFieldsInPortlets">No Instance Fields In Portlets</a></h4><p>
+<b>Summary</b><br/>Portlets should not declare any instance fields.<p><b>Description</b><br/>This audit rule checks for the declaration of instance fields in portlets.<p><b>Example</b><br/>The following field would be flagged as a violation if it occurred within a portlets:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;private int useCount;</code></body>
+</html>

@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="../../../stylesheets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../stylesheets/prettify/prettify.js"></script>
+
+<title>PublicConstructorInNonPublicTypeAuditRule</title>
+</head>
+
+<body onload="prettyPrint()">
+<pre class="prettyprint">
+
+package com.instantiations.assist.eclipse.analysis.audit.rule;
+ 
+import com.instantiations.assist.eclipse.analysis.audit.core.*;
+import com.instantiations.assist.eclipse.analysis.audit.util.*;
+import com.instantiations.assist.eclipse.analysis.engine.core.*;
+import org.eclipse.jdt.core.*;
+import org.eclipse.jdt.core.dom.*;
+ 
+/**
+ * There is no value in providing a public constructor because a non-public
+ * class cannot be instantiated outside the package in which it is defined.
+ * Reduce the  access of the constructor to match that of the class itself.
+ * Instances of the class <code>PublicConstructorInNonPublicTypeAuditRule</code>
+ * look for public constructors in non-public classes.
+ * 
+ * Copyright (c) 2003, Google, Inc.<br>
+ * All Rights Reserved
+ *
+ * @author Eric Clayberg
+ * @version $Revision: 1.0 $
+ */
+public class PublicConstructorInNonPublicTypeAuditRule extends CompilationUnitAuditRule
+{
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Constructors
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Initialize a newly created audit rule.
+     */
+    public PublicConstructorInNonPublicTypeAuditRule()
+    {
+        super();
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Analyzer Creation
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Create an analyzer that can perform the analysis implied by this analysis
+     * item.
+     *
+     * @param context the context in which the analysis will be performed
+     *
+     * @return the analyzer that was created
+     */
+    public Analyzer createAnalyzer(AnalysisContext context)
+    {
+        return new PublicConstructorInNonPublicTypeAuditRuleCodeAuditor(context, this);
+    }
+ 
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Inner Classes
+    //
+    ////////////////////////////////////////////////////////////////////////////
+ 
+    /**
+     * Instances of the class <code>PublicConstructorInNonPublicTypeAuditRuleCodeAuditor</code>
+     * look forpublic constructors in non-public classes.
+     * 
+     * Copyright (c) 2003, Google, Inc.<br>
+     * All Rights Reserved
+     *
+     * @author Eric Clayberg
+     */
+    public class PublicConstructorInNonPublicTypeAuditRuleCodeAuditor extends AbstractCodeAuditor
+    {
+        ////////////////////////////////////////////////////////////////////////
+        //
+        // Constructors
+        //
+        ////////////////////////////////////////////////////////////////////////
+ 
+        /**
+         * Initialize a newly created analyzer to perform an analysis in the
+         * given context for the given analysis item.
+         *
+         * @param context the context in which the analysis is to be performed
+         * @param item the analysis item for which the analysis is being
+         *        performed
+         */
+        public PublicConstructorInNonPublicTypeAuditRuleCodeAuditor(AnalysisContext context, AnalysisItem item)
+        {
+            super(context, item);
+        }
+ 
+        ////////////////////////////////////////////////////////////////////////
+        //
+        // Visiting
+        //
+        ////////////////////////////////////////////////////////////////////////
+ 
+        public boolean visit(MethodDeclaration node)
+        {
+            int modifiers, startIndex, endIndex;
+            String visibility;
+            CharacterRange range;
+            AuditViolationImpl violation;
+ 
+            if (!node.isConstructor()) return true;
+            if (!(node.getParent() instanceof TypeDeclaration)) return true;
+            modifiers = ((TypeDeclaration) node.getParent()).getModifiers();
+            if (Flags.isPublic(modifiers)) return true;
+ 
+            if (Flags.isPublic(node.getModifiers())) {
+                visibility = getVisibility(modifiers);
+                range = getVisibilityRange(node);
+                startIndex = node.getName().getStartPosition();
+                if (startIndex < 0) {
+                    startIndex = node.getStartPosition();
+                    endIndex = startIndex + node.getLength();
+                } else {
+                    endIndex = startIndex + node.getName().getLength();
+                }
+                violation = new AuditViolationImpl(
+                    "com.instantiations.assist.eclipse.audit.publicConstructorInNonPublicType.publicConstructor",
+                    PublicConstructorInNonPublicTypeAuditRule.this,
+                    getContext().getCurrentTarget(),
+                    startIndex,
+                    endIndex,
+                    new String[] {
+                        (visibility.length() == 0) ? "package" : visibility,
+                    });
+                if (visibility.length() > 0) {
+                    visibility = visibility + " ";
+                }
+                violation.setResolutionParameter(
+                    REPLACEMENT_START,
+                    new Integer(node.getStartPosition() + range.getStartIndex()));
+                violation.setResolutionParameter(
+                    REPLACEMENT_END,
+                    new Integer(node.getStartPosition() + range.getEndIndex()));
+                violation.setResolutionParameter(
+                    REPLACEMENT_TEXT,
+                    visibility);
+                addViolation(violation);
+            }
+            return true;
+        }
+    }
+}
+</pre>
+</body>
+
+</html>

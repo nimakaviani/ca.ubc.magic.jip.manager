@@ -1,0 +1,168 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td>
+      <h1><font face="Verdana" color="#CC0000"><b>mail</b></font> <font size="-1">(element)</font></h1>
+      <h3>Description</h3>
+      <p>
+      The <code>mail</code> element is used to send a generated report as an
+      attachment in an e-mail message. It defines attributes used to control
+      the creation and sending of the e-mail. The <code>mail</code> element can
+      be included in the following elements:
+      <ul>
+      <li><a href="CodeAuditReportElement.html">audit report</a></li>
+      <li><a href="CodeAuditSeriesReportElement.html">audit series report</a></li>
+      <li><a href="ComputeMetricsReportElement.html">metrics report</a></li>
+      </ul>
+      </p>
+      <!-- ***************************************************************** -->
+      <h3>Attributes</h3>
+      <p>
+      The following is a list of the attributes supported for the
+      <code>mail</code> element.
+      </p>
+      <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+          <td valign="top"><b>Attribute</b></td>
+          <td valign="top"><b>Description</b></td>
+          <td align="center" valign="top"><b>Required</b></td>
+        </tr>
+        <tr>
+          <td valign="top">smtpHost</td>
+          <td valign="top">
+          <p>
+          The name of the SMTP host used to send the mail. If the attribute is
+          not specified, the value of the property named
+          <code>codepro.mail.smtpHost</code> will be used. If the property is
+          not defined, the value <i>localhost</i> will be used.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">smtpPort</td>
+          <td valign="top">
+          <p>
+          The number of the port on which the host is listening. If the
+          attribute is not specified, the value of the property named
+          <code>codepro.mail.smtpPort</code> will be used. If the property is
+          not defined, the value <i>25</i> will be used.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">username</td>
+          <td valign="top">
+          <p>
+          The username used to access the mail server. If the attribute is
+          not specified, the value of the property named
+          <code>codepro.mail.username</code> will be used. It is an error if
+          neither the attribute nor the property are specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">password</td>
+          <td valign="top">
+          <p>
+          The password used to access the mail server. If the attribute is
+          not specified, the value of the property named
+          <code>codepro.mail.password</code> will be used. It is an error if
+          neither the attribute nor the property are specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">from</td>
+          <td valign="top">
+          <p>
+          The address used as the <code>From</code> field of the e-mail. If
+          the attribute is not specified, the value of the property named
+          <code>codepro.mail.from</code> will be used. It is an error if
+          neither the attribute nor the property are specified.
+          </p>
+          </td>
+          <td valign="top" valign="middle">
+          <p>
+          Either the attribute or the corresponding property must be defined.
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">tolist</td>
+          <td valign="top">
+          <p>
+          A comma-separated list of the e-mail addresses to which the message
+          will be sent.
+          </p>
+          </td>
+          <td valign="top" valign="middle">Yes</td>
+        </tr>
+        <tr>
+          <td valign="top">subject</td>
+          <td valign="top">
+          <p>
+          The subject line of the message.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No, default is <i>Audit report</i></td>
+        </tr>
+        <tr>
+          <td valign="top">message</td>
+          <td valign="top">
+          <p>
+          The body of the message. If no message is specified the message body
+          will consist of text indicating that the attached file was auto
+          generated and sent from an Ant script together with a summary of the
+          number of violations of each severity included in the report.
+          </p>
+          </td>
+          <td valign="top" valign="middle">No</td>
+        </tr>
+      </table>
+      <!-- ***************************************************************** -->
+      <h3>Examples</h3>
+      <p>
+      The following element, when nested within either an audit report, audit
+      series report or metrics report element, will cause the report to sent as
+      an attachment in an e-mail to the address
+      <code>projectManager@company.com</code>.
+      </p>
+      <blockquote>
+      <pre>&lt;mail
+      username=&quot;user&quot;
+      password=&quot;password&quot;
+      from=&quot;testManager@company.com&quot;
+      tolist=&quot;projectManager@company.com&quot;&gt;</pre>
+      </blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

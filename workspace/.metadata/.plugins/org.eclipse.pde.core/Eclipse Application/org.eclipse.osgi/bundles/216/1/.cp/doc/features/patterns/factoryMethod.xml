@@ -1,0 +1,187 @@
+<strategy>
+	<page label="Provide information about the creator class." initialFocus="creatorClass">
+		<package 
+			name="package" required="true"
+			folderLabel="Source &amp;Folder:" folderBrowseLabel="B&amp;rowse..." folderTooltip="Specify the default source folder" folderBrowseTooltip="Select the default source folder"
+			packageLabel="Pac&amp;kage:" packageBrowseLabel="Br&amp;owse..." packageTooltip="Specify the default package" packageBrowseTooltip="Select the default package"/>
+		<spacer displayLine="true"/>
+		<class
+			name="creatorClass" label="Creator class:" tooltip="Specify the name of the creator class"
+			required="true" missingValue="Please specify the name of the creator class" allowReadOnly="false"
+			default="Creator" defaultPackage="package"
+			browseLabel="B&amp;rowse..." browseTooltip="Select the creator class"/>
+		<group label="Modifiers:" numColumns="2">
+			<boolean name="public" label="p&amp;ublic" default="true"/>
+			<boolean name="abstract" label="&amp;abstract" default="true"/>
+		</group>
+		<class 
+			name="superclassType" label="Superclass:" tooltip="Specify the superclass"
+			required="true" missingValue="Please specify the superclass" style="existing" allowReadOnly="true"
+			default="java.lang.Object" defaultPackage="package" 
+			browseLabel="Br&amp;owse..." browseTooltip="Select a superclass"/>
+		<group label="Factory method">
+			<string 
+				name="factoryMethod" label="Name:" tooltip="Specify the name of the factory method"
+				required="true" missingValue="Please specify the name of the factory method" 
+				default="factoryMethod" list="factoryMethod,createProduct" style="identifier"/>
+			<label text="Parameters:"/>
+			<table 
+				name="paramList" tooltip="Specify the parameters to the factory method"
+				orientation="horizontal"
+				emptyAllowed="true" userOrdered="true"
+				addLabel="&amp;Add..." addTooltip="Add a parameter"
+				removeLabel="&amp;Remove" removeTooltip="Remove the selected parameters">
+				<column
+					name="type" label="Type" default="java.lang.Object"
+					elementType="type" allowReadOnly="true" allowVoid="false"/>
+				<column
+					name="name" label="Name" default="param"
+					elementType="string" style="identifier" weight="2"/>		
+			</table>
+		</group>
+	</page>
+	<page label="Provide information about the product classes." initialFocus="productInterface">
+		<interface 
+			name="productInterface" label="Product interface:" tooltip="Specify the product interface"
+			required="true" missingValue="Please select the product interface" allowReadOnly="false"
+			default="Product" defaultPackage="package" 
+			browseLabel="Browse..." browseTooltip="Select the product interface"/>
+		<label text="Concrete product classes:"/>
+		<list 
+			name="productList" tooltip="Specify the names of the concrete product classes to create"
+			elementType="string" orientation="horizontal"
+			emptyAllowed="true" missingValue="Please enter one or more concrete product class names"
+			addLabel="&amp;Add..." addTooltip="Add a concrete product class"
+			removeLabel="&amp;Remove" removeTooltip="Remove the concrete product class"/>
+	</page>
+
+	<!-- Create the Abstract Creator class -->
+	<compilationUnit package="${creatorClass.packageName}" name="${creatorClass.name}" isPrimary="true">
+		<import name="${superclassType.fullName}"/>
+		<import name="${productInterface.fullName}"/>
+		<for variable="param" in="paramList">
+			<if condition="param.type.exists">
+				<import name="${param.type.fullName}"/>
+			</if>
+		</for>
+		<class name="${creatorClass.name}" extends="${superclassType.name}">
+			<if condition="public">
+				<modifiers modifiers="public"/>
+			</if>
+			<if condition="abstract">
+				<modifiers modifiers="abstract"/>
+			</if>
+			<javadoc>
+				<tag name="pattern" contents="Factory Method (role=creatorType)"/>
+				<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+				<tag name="author" contents="${user}"/>
+				<tag name="version" contents="$$Revision$$"/>
+				The class &lt;code&gt;${creatorClass.name}&lt;/code&gt; declares the factory method, which returns an object of type Product. Creator may also define a default implementation of the factory method that returns a default Concrete Product object may call the factory method to create a Product object.
+				<if condition="!copyright.isEmpty">
+					&lt;p&gt;
+					${copyright}
+				</if>
+			</javadoc>
+			<method
+				modifiers="${abstract ? &quot;public abstract&quot; : &quot;public&quot;}"
+				returnType="${productInterface.name}"
+				name="${factoryMethod}">
+				<for variable="param" in="paramList">
+					<param type="${param.type}" name="${param.name}"/>
+				</for>
+				<javadoc>
+					Returns the product that this creator creates.
+					<for variable="param" in="paramList">
+						<tag name="param" contents="${param.name} the ${param.name}"/>
+					</for>
+					<tag name="return" contents="${productInterface.name} the product of this creator"/>
+				</javadoc>
+				<if condition="!abstract">
+					return null;
+				</if>
+			</method>
+		</class>
+	</compilationUnit>
+
+	<!-- Create the Product interface -->
+	<compilationUnit package="${productInterface.packageName}" name="${productInterface.name}" isPrimary="true">
+		<interface name="${productInterface.name}" modifiers="public">
+			<javadoc>
+				<tag name="pattern" contents="Factory Method (role=productType)"/>
+				<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+				<tag name="author" contents="${user}"/>
+				<tag name="version" contents="$$Revision$$"/>
+				The interface &lt;code&gt;${productInterface.name}&lt;/code&gt; defines the interface of objects the factory method creates.
+				<if condition="!copyright.isEmpty">
+					&lt;p&gt;
+					${copyright}
+				</if>
+			</javadoc>
+		</interface>
+	</compilationUnit>
+
+	<!-- Create the concrete product classes -->
+	<for variable="productName" in="productList">
+		<compilationUnit package="${productInterface.packageName}" name="${productName.asValidIdentitifer.withInitialUppercase}">
+			<import name="${productInterface.fullName}"/>
+			<class name="${productName.asValidIdentitifer.withInitialUppercase}" implements="${productInterface.name}">
+				<if condition="public">
+					<modifiers modifiers="public"/>
+				</if>
+				<javadoc>
+					<tag name="pattern" contents="Factory Method (role=concreteProductType)"/>
+					<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+					<tag name="author" contents="${user}"/>
+					<tag name="version" contents="$$Revision$$"/>
+					The &lt;code&gt;${productName.asValidIdentitifer.withInitialUppercase}&lt;/code&gt; concrete product defines a product object to be created by the corresponding concrete factory.
+					<if condition="!copyright.isEmpty">
+						&lt;p&gt;
+						${copyright}
+					</if>
+				</javadoc>
+			</class>
+		</compilationUnit>
+	</for>
+
+	<!-- Create the concrete creator classes -->
+	<for variable="productName" in="productList">
+		<compilationUnit package="${creatorClass.packageName}" name="${productName.asValidIdentitifer.withInitialUppercase}Creator">
+			<import name="${productInterface.fullName}"/>
+			<for variable="param" in="paramList">
+				<import name="${param.type.fullName}"/>
+			</for>
+			<class name="${productName.asValidIdentitifer.withInitialUppercase}Creator" extends="${creatorClass.name}">
+				<if condition="public">
+					<modifiers modifiers="public"/>
+				</if>
+				<javadoc>
+					<tag name="pattern" contents="Factory Method (role=concreteCreatorType)"/>
+					<tag name="generatedBy" contents="CodePro at ${timestamp}"/>
+					<tag name="author" contents="${user}"/>
+					<tag name="version" contents="$$Revision$$"/>
+					The &lt;code&gt;${productName.asValidIdentitifer.withInitialUppercase}Creator&lt;/code&gt; overrides the factory method to return an instance of a Concrete Product.
+					<if condition="!copyright.isEmpty">
+						&lt;p&gt;
+						${copyright}
+					</if>
+				</javadoc>
+			<method
+				modifiers="public"
+				returnType="${productInterface.name}"
+				name="${factoryMethod}">
+				<for variable="param" in="paramList">
+					<param type="${param.type}" name="${param.name}"/>
+				</for>
+				<javadoc>
+					Returns the product that this creator creates.
+					<for variable="param" in="paramList">
+						<tag name="param" contents="${param.name} the ${param.name}"/>
+					</for>
+					<tag name="return" contents="${productInterface.name} the product of this creator"/>
+				</javadoc>
+				return new ${productName.asValidIdentitifer.withInitialUppercase}();
+			</method>
+			</class>
+		</compilationUnit>
+	</for>
+</strategy>

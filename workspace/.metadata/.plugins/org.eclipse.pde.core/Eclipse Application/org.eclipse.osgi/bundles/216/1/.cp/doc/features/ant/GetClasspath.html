@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<title>Ant Enhancements</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>codepro.getClasspath
+            </b></font></h1>
+      <p>Retrieves the class path of a project and place the results into the 
+      specified Ant property.&nbsp; <br>
+      Valid attributes include:</p>
+    <ul>
+      <li>projectName = &quot;projectName&quot; (optional - defaults to project 
+      containing basedir)<br>
+&nbsp;&nbsp;&nbsp; The name of the project from which the classpath will be 
+      extracted.&nbsp; If omitted, then the project name is set to the name of 
+      the project that contains the directory specified by the Ant project's 
+      basedir property.&nbsp; <br>
+&nbsp;&nbsp;&nbsp; </li>
+      <li>propertyName = &quot;antProperty&quot; (optional - defaults to &quot;eclipse.project.projectName.classpath&quot;)<br>
+&nbsp;&nbsp;&nbsp; The name of the any property into which the classpath is 
+      placed<br>
+&nbsp;&nbsp;&nbsp; </li>
+      <li>resolve = true/false/search (optional - default true)<br>
+&nbsp;&nbsp;&nbsp; If &quot;true&quot;, then each classpath entry is resolved before the 
+      result is placed into the specified Ant property.&nbsp; If &quot;search&quot; is 
+      specified, then for each classpath entry that specifies a *.jar file that 
+      does not exist, a search is made for a identically named jar file in a 
+      similarly named directory where only the plugin version number is 
+      different.&nbsp; For example, if the original classpath entry was &quot;..../plugins/some.identifier_1.0.0/code.jar&quot; 
+      but did not exist, then if a path such as &quot;..../plugins/some.identifier_2.3.0/code.jar&quot; 
+      existed, then it would be substituted for the original classpath entry.<br>
+&nbsp;&nbsp;&nbsp; </li>
+      <li>binPath = &quot;bin10&quot; (optional)<br>
+&nbsp;&nbsp;&nbsp; If specified, then every place where the classpath resolves 
+      to a project output directory (e.g.&quot; /MyProject/bin&quot;) then the specified 
+      directory in the same project will be substituted (e.g. &quot;/MyProject/bin&quot; 
+      becomes &quot;/MyProject/bin10&quot;)&nbsp; If the specified directory in 
+      the project does not exist and the Ant property named &quot;codepro.getClasspath.binPathRoot&quot; 
+      is defined, then it will be prepended to the project output directory (e.g.if 
+      &quot;codepro.getClasspath.binPathRoot&quot; is &quot;c:/foo&quot; then &quot;/MyProject/bin&quot; 
+      becomes &quot;c:/foo/MyProject/bin10&quot;)</li>
+    </ul>
+    <p>One classpath variable can be substituted for another using a subelement, 
+    where the path can either be absolute, or the name of a different classpath 
+    variable.</p>
+    <ul>
+      <li>&lt;classpath_variable name=&quot;classpathVarName&quot; path=&quot;newValueForClasspathVar&quot;/&gt;</li>
+    </ul>
+    <p>Classpath entries can be added:</p>
+    <ul>
+      <li>&lt;classpath_add&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;classpath_entry path=&quot;newClasspathEntry&quot;/&gt;<br>
+      &lt;/classpath_add&gt;</li>
+    </ul>
+    <p>modified:</p>
+    <ul>
+      <li>&lt;classpath_modify path=&quot;oldClasspathEntry&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;classpath_entry path=&quot;newClasspathEntry&quot;/&gt;<br>
+      &lt;/classpath_modify&gt;</li>
+    </ul>
+    <p>or removed:</p>
+    <ul>
+      <li>&lt;classpath_remove path=&quot;oldClasspathEntry&quot;/&gt;</li>
+    </ul>
+    <p>Classpath modifications can be grouped for use in several different 
+    codepro.getClasspath expressions <br>
+    using the classpath_modifications datatype:</p>
+      <ul>
+        <li>&lt;classpath_modifications id=&quot;MyID&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;classpath_variable name=&quot;classpathVarName&quot; path=&quot;newValueForClasspathVar&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;classpath_add&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;classpath_entry path=&quot;newClasspathEntry&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/classpath_add&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;classpath_remove path=&quot;oldClasspathEntry&quot;/&gt;<br>
+        &lt;/classpath_modifications&gt;</li>
+    </ul>
+    <p>Classpath variable substitutions and classpath modification is performed 
+    before the classpath is resolved.</p>
+      <p>Example #1:</p>
+      <blockquote>
+        <pre>&lt;codepro.getClasspath projectName=&quot;MyProject&quot; resolved=&quot;false&quot; propertyName=&quot;MyClasspath&quot;&gt; 
+	&lt;classpath_variable name=&quot;ECLIPSE20_HOME&quot; path=&quot;ECLIPSE10_HOME&quot;/&gt; 
+	&lt;classpath_variable name=&quot;MY_CLASSPATH_VAR&quot; path=&quot;C:\Dev\Foo&quot;/&gt;
+	&lt;classpath_add&gt;
+		&lt;classpath_entry path=&quot;ECLIPSE10_HOME/plugins/my.id/my.code.jar&quot;/&gt; 
+	&lt;/classpath_add&gt;
+&lt;/codepro.getClasspath&gt;</pre>
+      </blockquote>
+        <p>Example #2:</p>
+      <blockquote>
+        <pre>&lt;classpath_modifications refid=&quot;MyID&quot;&gt; 
+	&lt;classpath_variable name=&quot;ECLIPSE20_HOME&quot; path=&quot;ECLIPSE10_HOME&quot;/&gt; 
+	&lt;classpath_variable name=&quot;MY_CLASSPATH_VAR&quot; path=&quot;C:\Dev\Foo&quot;/&gt;
+	&lt;classpath_add&gt;
+		&lt;classpath_entry path=&quot;ECLIPSE10_HOME/plugins/my.id/my.code.jar&quot;/&gt; 
+	&lt;/classpath_add&gt;
+&lt;/classpath_modifications&gt;
+
+&lt;codepro.getClasspath projectName=&quot;MyProject&quot; resolved=&quot;false&quot; propertyName=&quot;MyClasspath&quot;&gt; 
+	&lt;classpath_modifications refid=&quot;MyID&quot;/&gt; 
+&lt;/codepro.getClasspath&gt; 
+</pre>
+      </blockquote>
+      <p>Both of these examples produce an identical result.&nbsp; In each of 
+      these, the classpath for MyProject is retrieved, modified 
+      (but not resolved), and then placed into the Ant property with the name &quot;MyClasspath&quot;</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

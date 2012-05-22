@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="CodePro AnalytiX">
+<title>Audit - Rules - Import Usage</title>
+<style type="text/css">
+  body {font: 70% verdana,arial,helvetica; color: #000000}
+  p {margin: 0.5em 2em 1em; line-height: 1.5em}
+  h1 {margin: 0px 0px 5px; font: 175% verdana,arial,helvetica}
+  h2 {margin: 0px 0px 5px; font: bold 175% verdana,arial,helvetica}
+  h3 {margin: 0px 0px 5px; font: 125% verdana,arial,helvetica}
+  h4 {margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica}
+  table tr th {font-size: 75%}
+  table tr td {font-size: 75%} 
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>
+      <h1><b><font face="Verdana" color="#CC0000">Audit - Rules - Import Usage</font></b></h1>
+<b>Description</b><br/>This group contains audit rules that check the import statements for adherence to common coding practices.</p>
+</td>
+  </tr><tr>
+    <td>
+      <b>Rules:</b>
+<ul>
+      <li><a href="#com.instantiations.assist.eclipse.audit.duplicateImport">Duplicate Import Declarations</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.importOfImplicitPackage">Import of Implicit Package</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.importOrder">Import Order</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.importStyle">Import Style</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.restrictedPackages">Restricted Packages</a></li>
+      <li><a href="#com.instantiations.assist.eclipse.audit.unnecessaryImport">Unnecessary Import Declarations</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<hr size="2">
+<h4>Details</h4>
+<h4><a name="com.instantiations.assist.eclipse.audit.duplicateImport">Duplicate Import Declarations</a></h4><p>
+<b>Summary</b><br/>Types and packages should only be imported once within a compilation unit.<p><b>Description</b><br/>This audit rule checks to ensure that there are never more than one import declaration with the same package or type name. This does not flag the case where a package is imported (a demand import) and a type from the package is separately imported explicitly. (Such a situation is sometimes required to disambiguate names.)<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;import java.util.Vector;<br>&nbsp;&nbsp;&nbsp;&nbsp;import java.util.Vector;</code><h4><a name="com.instantiations.assist.eclipse.audit.importOfImplicitPackage">Import of Implicit Package</a></h4><p>
+<b>Summary</b><br/>Packages that are implicitly imported should never be explicitly imported.<p><b>Description</b><br/>This audit rule checks to ensure that none of the import declarations imports from a package that is implicitly imported (either java.lang or the package containing the compilation unit being audited).<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;import java.lang.*;</code><h4><a name="com.instantiations.assist.eclipse.audit.importOrder">Import Order</a></h4><p>
+<b>Summary</b><br/>Import declarations should be consistently ordered.<p><b>Description</b><br/>This audit rule finds import declarations that are not in the specified order.<p><b>Example</b><br/>If the order of the import declarations has been configured such that packages that start with "com" should appear before packages that begin with "org", the following imports would be flagged as being in the wrong order:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;import org.eclipse.core.resources.*;<br>&nbsp;&nbsp;&nbsp;&nbsp;import com.instantiations.codePro.*;</code><p><img src="../../images/auditrules/audit_import_order.gif" width="397" height="235"></p><h4><a name="com.instantiations.assist.eclipse.audit.importStyle">Import Style</a></h4><p>
+<b>Summary</b><br/>Only one style of import should be used.<p><b>Description</b><br/>This audit rule checks to ensure that all of the import declarations have the same style, either demand imports (such as "java.util.*"), or explicit imports (such as "java.util.List").<p><b>Example</b><br/>If the rule is configured such that only explicit imports are allowed, the following import would be flagged as a violation:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;import java.util.*;</code><p><img src="../../images/auditrules/audit_import_style.gif"></p><h4><a name="com.instantiations.assist.eclipse.audit.restrictedPackages">Restricted Packages</a></h4><p>
+<b>Summary</b><br/>Some packages contain internal implementation details and should never be imported.<p><b>Description</b><br/>This audit rule allows the user to specify a list of package names that should not be imported and will check that none of the packages on the list are imported. For example, if the package name internal is included in the list, then any import that contains the identifier internal as one of the components of the package name would be flagged.<p><b>Example</b><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;import org.eclipse.core.internal.runtime.*;</code><p><img src="../../images/auditrules/audit_restricted_packages.gif"></p><h4><a name="com.instantiations.assist.eclipse.audit.unnecessaryImport">Unnecessary Import Declarations</a></h4><p>
+<b>Summary</b><br/>There should not be imports for types or packages that are not referenced.<p><b>Description</b><br/>This audit rule checks to ensure that each of the import declarations is actually necessary. A type import is considered necessary if the type that is imported by it is referenced within the compilation unit. A demand import is considered necessary if there is at least one type within the specified package that is referenced that is not also imported by a type import.<p>In neither case does this rule consider whether the reference to the type is fully qualified, only that the type is being referenced.<p><b>Example</b><br/>The following import statement would be flagged as a violation because the package is always implicitly imported:<p><code>&nbsp;&nbsp;&nbsp;&nbsp;import java.lang.*;</code></body>
+</html>

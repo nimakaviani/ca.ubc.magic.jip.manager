@@ -1,0 +1,109 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+   <title>State Pattern</title>
+</head>
+<body>
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="700" >
+<tr>
+<td>
+<h1><font face="Verdana" color="#CC0000"><b>Session Facade Pattern</b></font></h1>
+<p>The&nbsp;<img SRC="../../images/j2ee.gif" height=16 width=16>   Session
+Facade pattern
+encapsulates the complexity of interactions between the business objects participating in a workflow.
+It manages the business objects, and provides a uniform coarse-grained service access layer to clients.
+<blockquote><a href="#Wizard">Wizard</a>
+<br><a href="#Applicability">Applicability</a>
+<br><a href="#AdditionalResources">Additional Resources</a></blockquote>
+
+<h3>
+<a NAME="Wizard"></a>Wizard</h3>
+<img SRC="../../images/patterns/session_facade_wizard1.gif" height=572 width=438>
+<br>&nbsp;
+<table BORDER="1" CELLSPACING=0 WIDTH="71%" >
+<tr>
+<td ALIGN=CENTER HEIGHT="19"><b>Option</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Description</b></td>
+
+<td ALIGN=CENTER HEIGHT="19"><b>Default</b></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Source folder</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a source folder for the session
+  facade class. Either type a valid source folder path or click&nbsp;<span CLASS="Label">Browse</span>
+to select a source folder via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The source folder of the element
+that was selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Package</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a package to contain the session
+  facade class. Either type a valid package name or click&nbsp;<span CLASS="Label">Browse</span>
+to select a package via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">The package of the element that was
+selected when the wizard was started.</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Class&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">Enter a name for the session facade class.
+  Either type a valid class name or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a class via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="19">&lt;SessionFacade&gt;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Superclass</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Enter a name for the superclass of the
+  session facade class. Either type a valid class name or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a class via a dialog.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">&lt;java.lang.Object&gt;</td>
+</tr>
+<tr>
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Methods</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">Specify the methods of the session facade
+  class.</td>
+
+<td ALIGN=LEFT VALIGN=TOP HEIGHT="57">&lt;none&gt;</td>
+</tr>
+
+</table>
+
+<h3>
+<a NAME="Applicability"></a>Applicability</h3>
+Use the Session Facade pattern when
+<ul>
+  <li>
+    <p style="MARGIN-BOTTOM: 0cm">There is tight coupling, which leads to direct
+    dependence between clients and business objects.</p>
+  <li>
+    <p style="MARGIN-BOTTOM: 0cm">There are too many method invocations between
+    client and server, leading to network performance problems.</p>
+  <li>
+    <p>There is a lack of a uniform client access strategy, exposing business
+    objects to misuse.</p>
+  </li>
+</ul>
+
+<h3>
+<a NAME="AdditionalResources"></a>Additional Resources</h3>
+<a href="http://java.sun.com/blueprints/corej2eepatterns/Patterns/SessionFacade.html">http://java.sun.com/blueprints/corej2eepatterns/Patterns/SessionFacade.html</a>
+</tr>
+</table>
+
+</body>
+</html>

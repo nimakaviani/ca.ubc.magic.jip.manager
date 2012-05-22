@@ -1,0 +1,140 @@
+<html>
+
+<head>
+<title>Abstract Factory Pattern</title>
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+  <tr>
+    <td><h1><font face="Verdana" color="#CC0000"><b>
+      Abstract Factory Pattern</b></font></h1>
+    <p><strong>Also known as:</strong> Kit</p>
+    <p>The <img src="../../images/gof.gif" width="16" height="16" alt="gof.gif (158 bytes)">
+    Abstract Factory Pattern provides an interface for creating families of related or
+    dependent objects without specifying their concrete classes.</p>
+    <blockquote>
+      <p><a href="#Wizard">Wizard</a><br>
+      <a href="#Applicability">Applicability</a><br>
+      <a href="#AdditionalResources">Additional Resources</a></p>
+    </blockquote>
+    <h3><a name="Wizard">Wizard</a></h3>
+    <p><img src="../../images/patterns/abstract_factory_wizard1.gif" width="438" height="571"></p>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Source folder</td>
+        <td valign="top" align="left">Enter a source folder for the new class. Either type a valid
+        source folder path or click&nbsp;<span CLASS="Label">Browse</span> to select a source
+        folder via a dialog.</td>
+        <td valign="top" align="left">The source folder of the element that was selected when the
+        wizard was started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Package</td>
+        <td valign="top" align="left">Enter a package to contain the new class. Either type a
+        valid package name or click&nbsp;<span CLASS="Label">Browse</span> to select a package via
+        a dialog.</td>
+        <td valign="top" align="left">The package of the element that was selected when the wizard
+        has been started.</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Class name</td>
+        <td valign="top" align="left">Type a name for the new factory class.</td>
+        <td valign="top" align="left">&lt;Factory&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for this class.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Interfaces</td>
+        <td valign="top" align="left">Click&nbsp;<span CLASS="Label">Add</span> to choose
+        interfaces that the new factory class implements.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Field name</td>
+        <td valign="top" align="left">Type or select the name of the field that will contain the
+        instance of the concrete factory class</td>
+        <td valign="top" align="left">&lt;ConcreteFactory&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Generate factory access methods</td>
+        <td valign="top" align="left">Determines whether get and set methods are generated for the
+        factory field.</td>
+        <td valign="top" align="left">&lt;true&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Generate concrete factories and products in separate
+        packages</td>
+        <td valign="top" align="left">Determines whether new packages should be created for each
+        factory and set of products</td>
+        <td valign="top" align="left">&lt;true&gt;</td>
+      </tr>
+    </table>
+    <h3><img src="../../images/patterns/abstract_factory_wizard2.gif" width="438" height="571"></h3>
+    <table border="1" cellspacing="0" width="100%">
+      <tr>
+        <td align="center"><strong>Option</strong></td>
+        <td align="center"><strong>Description</strong></td>
+        <td align="center"><strong>Default</strong></td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Product Superclass</td>
+        <td valign="top" align="left">Type or click&nbsp;<span CLASS="Label">Browse</span> to
+        select a superclass for all products.</td>
+        <td valign="top" align="left">&lt;java.lang.Object&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Product names</td>
+        <td valign="top" align="left">Click Add to enter the names of the products that can be
+        created by the factory</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Product prefixes</td>
+        <td valign="top" align="left">Click Add to enter the prefixes that will be added to the
+        product names to create concrete product classes</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+      <tr>
+        <td valign="top" align="left">Product interfaces</td>
+        <td valign="top" align="left">Click&nbsp;<span CLASS="Label">Add</span> to choose
+        interfaces that the new product classes implement.</td>
+        <td valign="top" align="left">&lt;blank&gt;</td>
+      </tr>
+    </table>
+    <h3><a name="Applicability">Applicability</a></h3>
+    <p>Use the Abstract Factory pattern when<ul>
+      <li>a system should be independent of how its products are created, composed, and
+        represented.&nbsp; </li>
+    </ul>
+    <ul>
+      <li>a system should be configured with one of multiple families of products.&nbsp; </li>
+    </ul>
+    <ul>
+      <li>a family of related product objects is designed to be used together, and you need to
+        enforce this constraint.&nbsp; </li>
+    </ul>
+    <ul>
+      <li>you want to provide a class library of products, and you want to reveal just their
+        interfaces, not their implementations.</li>
+    </ul>
+    <h3><a name="AdditionalResources">Additional Resources</a></h3>
+    <p><a href="http://c2.com/cgi/wiki?AbstractFactory">http://c2.com/cgi/wiki?AbstractFactory</a></p>
+    <p><a href="http://www.wikipedia.com/wiki/Abstract+factory+pattern">http://www.wikipedia.com/wiki/Abstract+factory+pattern</a></p>
+    <p><a href="http://www.cmcrossroads.com/bradapp/javapats.html#AbstractFactory">http://www.cmcrossroads.com/bradapp/javapats.html#AbstractFactory</a></p>
+    <p><a href="http://www.dofactory.com/patterns/pattern_abstract.asp">http://www.dofactory.com/patterns/pattern_abstract.asp</a></p>
+    <p><a href="http://www.castle-cadenza.demon.co.uk/abfact.htm">http://www.castle-cadenza.demon.co.uk/abfact.htm</a></td>
+  </tr>
+</table>
+</body>
+</html>

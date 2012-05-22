@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Frequently Asked Questions</title>
+
+
+</head>
+
+<body>
+
+<h1>FAQ</h1>
+<ul>
+<li><a href="#VersionSupported"><b>What version of
+      Application Developer/Eclipse does CodePro/EclipsePro support?</b></a></li>
+      <li><a href="#EclipseSupport"><b>Does CodePro/EclipsePro support on-going Eclipse open source updates?</b></a></li>
+      <li><b><a href="#OSSupport">Which operating systems are supported?</a></b></li>
+      <li><b><a href="#CleanStartup">I just installed CodePro so why 
+        don't I see any of the CodePro features?</a></b></li>
+        <li><b><a href="#warningmsg">I installed CodePro under Eclipse 3.2 using the zip file for Eclipse
+3.2 but when I launch eclipse why do I get a warning message that says:
+"The version of CodePro is compiled for Eclipse 3.1 but is currently
+being executed in Eclipse 3.2. Please download and install the
+appropriate version for this environment."</a></b></li>
+<li><b><a href="#MemoryOptimization">How can I improve
+      Application Developer/Eclipse startup time, reduce swapping and eliminate
+          unnecessary garbage collection?</a></b></li>
+<li><b><a href="#CodeProOptimization">Can I turn off any CodePro features to improve performance?</a></b></li>
+<li><a href="#ClearCase"><b>Are there any special considerations when using ClearCase?</b></a></li>
+<li><a href="#VCELayout"><b>When I edit my
+    GUI using the VCE Bridge, why don't I see my layout?</b></a></li>
+    <li><a href="#VCECustomComponents"><b>If my GUI references any custom
+          components, do those components need to be loaded into VA Java before
+          editing the class with the VCE Bridge?</b></a></li>
+    <li><b><a href="#VCEProblems">I am having problems getting the VCE
+          Bridge to work; what should I do?</a></b></li>
+          <li><a href="#CPSDebugging"><b>How do I turn on debugging for CodePro Server?</b></a></li>
+          </ul>
+          
+<h3><a name="installer_error">What should I do if I'm getting errors running the installer or the installer hangs?</a></h3>
+<p>1. If you're using Java 1.3, our installer currently does not support Java&nbsp;1.3. You may use the <b>-vm</b> command line argument to specify a different JVM to be used by the installer.</p>
+<p>Example:<code>  Product_v1.0.1_win32_x86.exe -vm "C:\Program Files\java\jdk1.5.0_05\jre\bin\java.exe"</code></p>
+<p>2. In cases where the installer can not find your TEMP or TMP environment
+variable, you can also specify a different Temp directory by adding the
+<b>-tmp</b> option. You have to create the c:\mytemp folder first before running the installer.</p>
+<p>Example: <code> Product_v1.0.1_win32_x86.exe -tmp c:\Temp</code></p>
+<p>3. In some cases where the splash screen won't come up, run the installer with the <b>-nosplash </b>option.</p>
+<p>Example: <code> Product_v1.0.1_win32_x86.exe -nosplash</code></p>
+<p>4. If none of the above help, run the installer with <b>-out</b> option to generate a log file. 
+This will run the installer in verbose mode and redirect output to&nbsp;the file&nbsp;<code>installer.log</code>
+in the&nbsp;directory where the&nbsp;installer is located.
+Examine the log file to determine the cause or&nbsp;send the log file to support and we'll take a look.</p>
+<p>Example: <code>Product_v1.0.1_win32_x86.exe -out installer.log --verbose</code></p>
+<h3><a name="VersionSupported">What version of Application Developer/Eclipse does CodePro/EclipsePro support?</a></h3>
+<p>Officially, CodePro supports WebSphere Application Developer 5.1, Rational Application
+      Developer 6.0 &amp; 7.0 and the Eclipse
+      2.1, 3.0,&nbsp;3.1, 3.2 &amp; 3.3 code streams. See
+    the <a href="requirements.html">System Requirements</a>
+page for full details. EclipsePro only supports Eclipse and not
+Application Developer. CodePro AnalytiX Rational Edition only supports
+Rational Application Developer and Software Architect.</p>
+<h3><a name="EclipseSupport">Does CodePro/EclipsePro support on-going Eclipse open source updates?</a></h3>
+<p>Unofficially,
+    CodePro/EclipsePro supports the emerging Eclipse open source code stream in "beta
+    test" mode on the most recent "<a href="http://eclipse.org/downloads/index.php" target="_top">stable</a>"
+    build. As new stable builds are released, we will try to get the product updated within a
+    few days. We do not plan to support any of the "<a href="http://www.eclipse.org/downloads/index.php" target="_top">integration</a>"
+    or "<a href="http://download.eclipse.org/eclipse/downloads/" target="_top">nightly</a>"
+    builds.</p>
+    <h3><a name="OSSupport">Which operating systems are supported?</a></h3>
+ <p>CodePro runs on the Microsoft Windows family of operating systems as well as
+    Linux and Macintosh OSX. Other operating systems will be considered as IBM adds support for them to Eclipse.
+    &nbsp; See the <a href="requirements.html">System Requirements</a> page for full details.
+    Note that the <a href="features/vce_bridge.html">VCE Bridge</a> and <a href="features/beaninfo_bridge.html">BeanInfo Bridge</a> features only work under Windows
+      as they require VA Java with VA Assist loaded (which is only available under Windows).</p>
+      <h3><a name="MemoryOptimization">How can I improve
+      Application Developer/Eclipse startup time, reduce swapping and eliminate
+      unnecessary garbage collection?</a></h3>
+      <p>Begin by specifying the <i>starting</i> amount of memory (-vmargs -Xms###m)
+      in your Application Developer/Eclipse startup command line (e.g., the
+      target field within a Windows shortcut). If this is <i>not</i> specified,
+      Eclipse's starting amount of memory is quite small (only 40 MB). You 
+		should also specify the <i>maximum</i> amount of memory that Eclipse can 
+		use (-vmargs -Xmx###m) and the maximum amount of perm space available (-vmargs -XX:MaxPermSize=###m).
+		We typically recommend something like this:</p>
+		<code>-vmargs -XX:MaxPermSize=128m -Xms256m	-Xmx512m</code>
+			<h3><a name="CodeProOptimization">Can I turn off any CodePro features to improve performance?</a></h3>
+			<p>Yes. CodePro has a very large number of
+      features, some of which may be turned off to improve overall system
+      performance.</p>
+      <ul><li><b>History views</b> - CodePro tracks every Java file you access in
+          its <a href="features/java_history.html">History</a> view and every
+          modified type of method in its <a href="features/modified_types.html">Modified
+          Types</a> and <a href="features/modified_members.html">Modified
+          Members</a> views. The history data is persisted a across sessions and
+          reconstituted on startup. If you don't need this feature, you can save
+          a small amount of startup time and file access/modification time by
+          unchecking the <b>Track modified elements</b> and <b>Track history</b>
+          options on the <a href="preferences/preferences_history.html"><b>CodePro
+          | History</b></a> preference page.</li>
+          <li><b>Task Scheduler</b> - If you do not have a need to run <a href="features/scheduler/scheduler.html"> scheduled
+          tasks</a> at startup, you can uncheck the <b>CodePro - Core UI</b> option
+          on the Eclipse <b>Workbench | Startup</b> preference page.</li>
+          <li><b>CodePro Splash Screen</b> - You can disable this in two ways by
+          either unchecking the <b>CodePro - Splash</b> option on the Eclipse <b>Workbench
+          | Startup</b> preference page or by unchecking the <b>Show splash
+          screen at startup</b> option on the <b><a href="preferences/preferences_startup.html">CodePro
+          | Startup</a></b> preference page.</li>
+          <li><b>CodePro Menu</b> - If you don't need quick access to CodePro
+          features available from this menu, you can disable it by unchecking
+          the <b>Show CodePro menu</b> option on the <b><a href="preferences/preferences_startup.html">CodePro
+          | Startup</a></b> preference page.</li>
+          <li><b>Dynamic Code Auditing</b> - When dynamic code auditing is
+          enabled, any Java file that is open that matches your dynamic audit
+          criteria will be automatically audited when it is opened. If you have
+          files open at shutdown, they will be automatically audited at startup.
+          To disable dynamic code auditing, uncheck the Dynamically audit code
+          option on the <b><a href="preferences/preferences_audit.html#DynamicAudit">CodePro
+          | Audit | Dynamic</a></b> preference page.</li>
+          <li><b>Browser Colors</b> - If you are using any of the CodePro enhanced
+          perspectives (e.g., Java+, Java Browsing+ or Resources+), CodePro
+          provides options to color highlight resources based on their error
+          status, repository change status or their age. You can turn off any or
+          all of these options via the <b><a href="preferences/preferences_browsers.html">CodePro
+          | Browsers</a></b> preference page.</li></ul>
+          <h3><a name="CleanStartup">I just installed CodePro so why don't I see any of the CodePro features?</a></h3>
+          <p>Eclipse 3.x and other IDEs based upon Eclipse 
+    3.x may not immediately recognize new tools if they are not installed using 
+    the Eclipse Install and Update Manager. This occurs because Eclipse 3.x 
+    caches plug-in information for a faster startup at the cost of not 
+    recognizing changes to the installed plugins. To workaround this problem, 
+    include the "-clean" option on the command line used to startup Eclipse. The 
+    "-clean" option causes Eclipse to reparse and recache the plug-in 
+    information, picking up any newly installed or revised features. Once the 
+    plug-in information has been recached and CodePro appears as expected, you 
+    can remove the "-clean" option.</p>
+      <p><b> An alternative (and often more
+      effective choice) to the
+      "-clean" option is to clean the Eclipse "configuration" directory as 
+		follows. </b>If you are installing into Eclipse 3.0, you should also delete your <b>&lt;Eclipse&gt;/configuration</b>
+      directory before re-starting Eclipse (it is recreated at startup). This is to 
+	avoid a common Eclipse 3.x plugin cache bug. The Full Installer can do this 
+	for you automatically. If you are installing into Eclipse 3.1, 3.2 or 3.3, delete 
+	everything in the "configuration" directory except the <b>
+		config.ini</b> file and the <b>org.eclipse.update/platform.xml</b> file 
+		(Eclipse 3.2 and above). You should also keep your <b>org.eclipse.update/bookmarks.xml</b> 
+		file (Eclipse 3.1 and above) in order to preserve your update site 
+		bookmarks.</p>
+      <p>Note that this problem is likely due to <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68097">Eclipse
+      Bug #68097</a>. From the Eclipse 3.0 readme file:</p>
+      <h4><i>Manually installing features and plug-ins on a FAT file system (Windows only)</i></h4>
+      <p><i>When features and plug-ins are manually installed on top of an
+      Eclipse-based product install located on a FAT file system that has
+      already been run at least once, the product must be explicitly restarted
+      with the system property osgi.checkConfiguration set to true. This
+      property can be set in the eclipse/configuration/config.ini file, or
+      passed to the eclipse command line via the -vmargs option. For example,
+      restart with the following command: eclipse.exe -vmargs -Dosgi.checkConfiguration=true.
+      Then, open Help &gt; Software Updates &gt; Manage Configuration dialog and
+      toggle on the "Show disabled features" button its toolbar.
+      Select the newly "installed" feature and press on the
+      "Enable feature" action on the right pane (or select the action
+      from the feature's context menu). (bugs <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=52525">52525</a>,
+      <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=66120">66120</a>, <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67461">67461</a>).</i></p><h3><a name="warningmsg">I
+installed CodePro under Eclipse 3.2 using the zip file for Eclipse 3.2
+but when I launch eclipse why do I get a warning message that says: <i>"The
+version of CodePro is compiled for Eclipse 3.1 but is currently being
+executed in Eclipse 3.2. Please download and install the appropriate
+version for this environment."</i></a></h3>
+<p>Make sure 
+	you don't have an older version of CodePro installed. If you have a linked 
+	installation, check the links files to make sure they are pointing to the 
+	correct version. If you copied the plugins into the eclipse plugins 
+	directory, please install on a fresh copy of Eclipse. Lastly, try clearing 
+	your eclipse configuration directory by deleting everything except for the 
+	config.ini file.</p><h3><a name="ClearCase">Are there any
+    special considerations when using ClearCase?</a></h3><p>Yes. ClearCase
+    uses a pessimistic "check-in/check-out" model. Many operations in Eclipse will
+    fail unless a type is properly checked out before editing (refactoring, for example). The
+    same is true for specific CodePro features such as the <a href="features/vce_bridge.html">VCE Bridge</a> and <a href="features/beaninfo_bridge.html">BeanInfo
+    Bridge</a>. In order for the "Edit GUI" and "Edit BeanInfo" commands
+    to work, make sure that the class that you plan to edit has been properly checked out from
+    ClearCase.</p><h3><a name="VCELayout">When I edit my
+    GUI using the VCE Bridge, why don't I see my layout?</a></h3><p>VA Java does not
+    recreate the VCE layout information from the source of the class. Rather, it stores that
+    meta data within the repository. VA Java does provide a source code generation option for
+    generating that meta data into a special <strong>getBuilderData()</strong> method. That
+    method must be present in any exported class for it to be properly edited using the VA
+    Java VCE and, consequently, the <a href="features/vce_bridge.html">VCE Bridge</a>. Rather
+    than forcing you to go back an regenerate all of the source for your GUI classes, VA Assist provides
+    a convenient "Generate missing meta data methods on export" option that will
+    cause those missing methods to be generated any time a class is exported either to a directory
+    or directly to Application Developer/Eclipse.</p><h3><a name="VCECustomComponents">If
+      my GUI references any custom components, do those components need to be
+      loaded into VA Java before editing the class with the VCE Bridge?</a></h3><p>Yes. Any custom parts or nested components
+      need to be present within VA Java. All you need to do is load the VA Java
+      project containing the referenced components before invoking the <a href="features/vce_bridge.html">VCE Bridge</a>.
+      One of the basic assumptions of the <a href="features/vce_bridge.html">VCE Bridge</a>
+      is that you are editing GUI classes originally created in VA Java so you
+      would have those pieces available already in VA Java. If you load your VA
+      Java projects into VA Java, that should solve any dependency problems that
+      you might have.
+      The VA Java GUI builder only knows about types within its environment.
+      If you want to use classes that you have created in Eclipse, you will need
+      to import them into the VA Java environment you want to use. The direct
+      import from Eclipse option that has been added to the Import
+      Wizard by VA Assist
+      should make that easy. If you plan to do this frequently, you might want
+      to set up an Eclipse
+      Import set on the VA Java side and use the Task
+      Scheduler to have it run automatically at VA Java startup. That way,
+      whenever you invoke the <a href="features/vce_bridge.html">VCE Bridge</a>
+      it will automatically import your new/changed beans and make them
+      available for use.</p><h3><a name="VCEProblems">I
+      am having problems getting the VCE Bridge to work; what should I do?</a></h3>Here are some questions to ask yourself and
+      some suggestions:
+      <ol><li>Do you have VA Assist installed into VA Java. What version of VA 
+		Assist are you using? </li><li>Is CodePro configured to talk to your VA Java installation?<br>
+          <a href="preferences/preferences_vaassist.html">./preferences/preferences_vaassist.html</a></li><li>Is VA Assist in VAJ configured to know about your Eclipse
+          installation?</li></ol>
+      <p>Sending us a screen shot of both of the above screens in your
+      environment might help us identify the problem. Are any exceptions
+      recorded either into the VA Java "ide\program\va-debug.log"
+      file, the Eclipse "&lt;workspace&gt;\.metadata\.log" file or the
+      "&lt;workspace&gt;\.metadata\.plugins\com.instantiations.assist.eclipse.core\ws-debug.log"
+      file? If so, please send us those files. If none are recorded, you can try
+      turning on the "log communications" options in both products
+      which will cause communication status messages to be recorded to the log
+      files which should help us analyze the problem.</p>
+      <h3><a name="CPSDebugging">How do I turn on debugging for CodePro Server?</a></h3>
+      <p>The CodePro Server Ant tasks for audit, metrics, and dashboard creation will produce debugging output if you include the additional attribute</p>
+      <pre><code>debug="true"</code></pre>
+      <p>This attribute will cause additional information to be written to the Ant output and will cause several large directories of information to be left on disk for debugging purposes. In particular, the configuration and workspace directories used by Eclipse will not be deleted. 
+      Unless otherwise specified, those directories are located in the temporary directory, inside a subdirectory named "instantiations", in a directory whose name is the name of the task for which debugging was enabled and a timestamp of when the directory was created. For example:</p>
+      <pre>C:\Temp\instantiations\audit-20090802161035</pre>
+      <p>Each such directory will contain, in addition to the configuration and workspace directories, the input and output files for Server. The Ant tasks create an input file (named "audit.xml" in the above example) to communicate with Server and Server produces an output file to communicate results back to the Ant tasks (named "audit.properties" in the above example).</p>
+      <p>For debugging purposes, both of these files, the content of the Ant output, and the Eclipse log file (located as usual in "workspace/.metadata/.log") are all useful to us.</p>
+ 
+
+</body></html>

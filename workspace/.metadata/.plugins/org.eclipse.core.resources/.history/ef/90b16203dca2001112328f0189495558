@@ -1,0 +1,20 @@
+package actions;
+
+import jipplugin.Activator;
+
+import org.eclipse.jface.action.Action;
+
+public class AboutAction 
+extends Action 
+{
+	public
+	AboutAction()
+	{
+		
+	}
+	public void run()
+	{
+		this.setToolTipText("Disconnect from application to produce snapshot.");
+		this.setImageDescriptor(Activator.getImageDescriptor("icons/disconnect_co.gif"));
+	}
+}
