@@ -1,0 +1,134 @@
+package jipplugin;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
+
+public class
+Model 
+implements ISnapshotInfoModel
+{
+	String path = new String("");
+	
+	protected transient PropertyChangeSupport listeners 
+ 		= new PropertyChangeSupport(this);
+
+	private String name = new String("");
+
+	private String port;
+
+	private String host;
+	
+	/**
+     * Adds a property-change listener.
+     * 
+     * @param l the listener
+     */
+    public void 
+    addPropertyChangeListener
+    (PropertyChangeListener l)
+    {
+        if (l == null) {
+            throw new IllegalArgumentException();
+        }
+        this.listeners.addPropertyChangeListener(l);
+    }
+    
+    
+    public void 
+    removePropertyChangeListener
+    (PropertyChangeListener l)
+    {
+        this.listeners.removePropertyChangeListener(l);
+    }
+    
+    /**
+     * Notifies all listeners to a model-change
+     * 
+     * @param prop the property-id
+     * @param old the old-value
+     * @param newValue the new value
+     */
+    protected void 
+    firePropertyChange
+    ( String prop, Object old, Object newValue )
+    {
+        if (this.listeners.hasListeners(prop)) {
+            this.listeners.firePropertyChange(prop, old, newValue);
+        }
+    }
+
+    @Override
+	public String
+	getSnapshotPath() 
+	{
+		return this.path;
+	}
+
+	@Override
+	public void 
+	setSnapshotPath
+	(String path) 
+	{
+		String old_path = this.path;
+		this.path = path;
+		
+		this.firePropertyChange(Constants.PATH_PROPERTY, old_path, this.path);
+	}
+	
+	@Override
+	public String 
+	getSnapshotName() 
+	{
+		return this.name;
+	}
+	
+	@Override
+	public void
+	setSnapshotName
+	(String name)
+	{
+		String old_name = this.name;
+		this.name = name;
+		
+		this.firePropertyChange(Constants.NAME_PROPERTY, old_name, this.path);
+	}
+
+	@Override
+	public String 
+	getSnapshotPort() 
+	{
+		return this.port;
+	}
+	
+	@Override
+	public void
+	setSnapshotPort
+	(String port)
+	{
+		String old_port = this.port;
+		this.port = port;
+		
+		this.firePropertyChange(Constants.PORT_PROPERTY, old_port, this.port);
+	}
+
+	@Override
+	public String 
+	getSnapshotHost() 
+	{
+		return this.host;
+	}
+	
+	@Override
+	public void
+	setSnapshotHost
+	(String host)
+	{
+		String old_host = this.host;
+		this.host = host;
+		
+		this.firePropertyChange(Constants.HOST_PROPERTY, old_host, this.host);
+	}
+
+}

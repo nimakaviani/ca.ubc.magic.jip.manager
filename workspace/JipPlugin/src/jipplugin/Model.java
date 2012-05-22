@@ -9,7 +9,10 @@ public class
 Model 
 implements ISnapshotInfoModel
 {
-	String path = new String("");
+	private String path = new String("");
+	private String name = new String("");
+	private String port = new String("");
+	private String host = new String("");
 	
 	protected transient PropertyChangeSupport listeners 
  		= new PropertyChangeSupport(this);
@@ -53,10 +56,6 @@ implements ISnapshotInfoModel
         }
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    //	
-    ///////////////////////////////////////////////////////////////////////
-    
     @Override
 	public String
 	getSnapshotPath() 
@@ -72,27 +71,61 @@ implements ISnapshotInfoModel
 		String old_path = this.path;
 		this.path = path;
 		
-		this.firePropertyChange("Path", old_path, this.path);
+		this.firePropertyChange(Constants.PATH_PROPERTY, old_path, this.path);
 	}
 	
 	@Override
 	public String 
 	getSnapshotName() 
 	{
-		return null;
+		return this.name;
+	}
+	
+	@Override
+	public void
+	setSnapshotName
+	(String name)
+	{
+		String old_name = this.name;
+		this.name 		= name;
+		
+		this.firePropertyChange(Constants.NAME_PROPERTY, old_name, this.name);
 	}
 
 	@Override
 	public String 
 	getSnapshotPort() 
 	{
-		return null;
+		return this.port;
+	}
+	
+	@Override
+	public void
+	setSnapshotPort
+	(String port)
+	{
+		String old_port = this.port;
+		this.port = port;
+		
+		this.firePropertyChange(Constants.PORT_PROPERTY, old_port, this.port);
 	}
 
 	@Override
 	public String 
 	getSnapshotHost() 
 	{
-		return null;
+		return this.host;
 	}
+	
+	@Override
+	public void
+	setSnapshotHost
+	(String host)
+	{
+		String old_host = this.host;
+		this.host = host;
+		
+		this.firePropertyChange(Constants.HOST_PROPERTY, old_host, this.host);
+	}
+
 }

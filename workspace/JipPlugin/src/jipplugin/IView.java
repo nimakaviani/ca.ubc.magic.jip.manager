@@ -1,0 +1,11 @@
+package jipplugin;
+
+import java.beans.PropertyChangeEvent;
+
+import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
+
+public interface 
+IView 
+{
+	void modelPropertyChange(PropertyChangeEvent evt);
+}

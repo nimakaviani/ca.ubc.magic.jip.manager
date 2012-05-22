@@ -1,3 +1,20 @@
+22 May 2012:
+
+So today I got a rough draft of a working SWT MVC set up. The example centers
+around the ConfigureAction as the Controller. I am doing what I can to
+decouple the controller/model from the view; I am getting there, but decoupling
+the controller from the model appears to be a little bit more difficult.
+
+The next thing to do, now that the messages are being passed around, is
+perform input validation on the snapshot entries, and add the message passing
+which deactivates certain toolbar buttons based on the state of the system
+( I believe this code is present in the reference implementation, and forms the
+last part of the browse action).
+
+After that I will more or less know enough to study the rest of the code and
+port the functionality over. I should have enough time to read more into the
+eclipse plugin book and see if there aren't better ways to do what I am doing.
+
 21 May 2012:
 
 I have completed almost all of the GUI elements. Now I need to port over the system

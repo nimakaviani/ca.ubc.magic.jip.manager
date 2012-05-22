@@ -30,8 +30,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // $Id: SnapshotInfoModel.java,v 1.1 2008/09/23 04:48:18 jchapman0 Exp $
 package com.jchapman.jipsnapman.models;
 
+import java.beans.PropertyChangeListener;
+
 /**
- *
  * @author not attributable
  * @version 1.0
  */
@@ -40,6 +41,11 @@ ISnapshotInfoModel
 extends ISnapshotPathModel 
 {
     public String getSnapshotName();
+    public void setSnapshotName(String name);
     public String getSnapshotPort();
+    public void setSnapshotPort( String port);
     public String getSnapshotHost();
+    public void setSnapshotHost( String host);
+	public void addPropertyChangeListener(PropertyChangeListener controller);
+	public void removePropertyChangeListener(PropertyChangeListener controller);
 }

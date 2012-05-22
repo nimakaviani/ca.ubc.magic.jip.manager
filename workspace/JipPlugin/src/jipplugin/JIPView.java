@@ -1,5 +1,6 @@
 package jipplugin;
 
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -25,7 +26,7 @@ import actions.toolbar.*;
 public class 
 JIPView 
 extends ViewPart 
-implements ISizeProvider
+implements ISizeProvider, IView
 {
 	String 			path;
 	String 			name;
@@ -36,6 +37,8 @@ implements ISizeProvider
 	BasicListTable 	snapshots_table;
 	BasicListTable	log_console_table;
 	
+	Model 			model;
+
 	public 
 	JIPView() 
 	{}
@@ -45,6 +48,7 @@ implements ISizeProvider
 	createPartControl
 	(Composite parent) 
 	{
+		this.model = new Model();
 		initializeGridLayout(parent);
 		initializeLabel(parent);
 		
@@ -63,6 +67,7 @@ implements ISizeProvider
 			));
 		this.log_console_table
 			= new BasicListTable( parent, "Log Console");
+		
 	}
 
 	private void 
@@ -118,24 +123,30 @@ implements ISizeProvider
 		dropDownMenu.add(about);
 	}
 	
+	public Model
+	getJIPModel()
+	{
+		return this.model;
+	}
+	
 	@Override
 	public void 
 	setFocus() 
 	{}
 	
 	public void
-	setSnapshotDetails
-	( String path, String name, String port, String host )
+	refresh()
 	{
-		this.path = path;
-		this.name = name;
-		this.port = port;
-		this.host = host;
-		
-		// I wonder when this gets redrawn (?)
-		label.setText(this.path + " " + this.name + " " + this.port + " " + this.host);
-		snapshots_table.addEntry("Haskell");
-		snapshots_table.addEntry("Lua");
+		label.setText(
+			"Snapshot: " 
+			+ this.name 
+			+ "(Port: " 
+			+ this.port 
+			+ ") (Host: " 
+			+ this.port
+			+ ") (Path: "
+			+ this.path
+		);
 		snapshots_table.refresh();
 	}
 
@@ -155,5 +166,27 @@ implements ISizeProvider
 		int availablePerpendicular, 
 		int preferredResult) {
 		return preferredResult;
+	}
+
+	@Override
+	public void 
+	modelPropertyChange
+	(PropertyChangeEvent evt) 
+	{
+		switch(evt.getPropertyName()){
+		case Constants.PATH_PROPERTY:
+			this.path = (String) evt.getNewValue();
+			break;
+		case Constants.HOST_PROPERTY:
+			this.host = (String) evt.getNewValue();
+			break;
+		case Constants.NAME_PROPERTY:
+			this.name = (String) evt.getNewValue();
+			break;
+		case Constants.PORT_PROPERTY:
+			this.port = (String) evt.getNewValue();
+			break;
+		}
+		this.refresh();
 	}
 }

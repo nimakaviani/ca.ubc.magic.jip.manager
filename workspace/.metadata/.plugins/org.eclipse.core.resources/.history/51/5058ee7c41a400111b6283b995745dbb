@@ -1,0 +1,91 @@
+package actions.toolbar;
+
+import java.beans.PropertyChangeEvent;
+
+import jipplugin.Activator;
+import jipplugin.DetailsDialog;
+import jipplugin.IController;
+import jipplugin.IModel;
+import jipplugin.JIPView;
+
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+
+public class ConfigureAction 
+extends Action 
+implements IController
+{
+	// this should eventually be turned into a "view" that can
+	// be in the list of views to be updated
+	JIPView jipView;
+	
+	// basically I am trying to understand the reference's technique for 
+	// keeping track of the previous path and displaying it
+	public 
+	ConfigureAction
+	( JIPView jipView )
+	{
+		this.jipView = jipView;
+		this.setToolTipText("Set the path, name, port, and host to work with.");
+		this.setImageDescriptor(Activator.getImageDescriptor("icons/configure.gif"));
+		
+		Activator.getDefault().getModel().addPropertyChangeListener(this);
+	}
+	
+	@Override
+	public void run(){
+		Shell shell
+			= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		DetailsDialog dialog = new DetailsDialog(shell);
+		
+		if(dialog.open() != InputDialog.OK){
+			return;
+		}		
+		
+		//view.setSnapshotDetails("hello", "there", "you", "there");
+	}
+
+	@Override
+	public void 
+	propertyChange
+	(PropertyChangeEvent arg0) 
+	{
+		jipplugin.Model snapshot = Activator.getDefault().getModel();
+		// the main view should be updated in response to this
+		// for now cheat
+		jipView.setSnapshotDetails(
+			snapshot.getSnapshotPath(), 
+			snapshot.getSnapshotName(), 
+			snapshot.getSnapshotPort(),
+			snapshot.getSnapshotHost()
+		);
+	}
+
+	@Override
+	public void 
+	addModel
+	(IModel model) 
+	{
+	}
+
+	@Override
+	public void removeModel(IModel model) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addView(Composite view) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeView(Composite view) {
+		// TODO Auto-generated method stub
+		
+	}
+}

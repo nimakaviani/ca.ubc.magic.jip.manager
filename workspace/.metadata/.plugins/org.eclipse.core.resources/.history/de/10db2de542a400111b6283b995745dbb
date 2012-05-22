@@ -1,0 +1,19 @@
+package jipplugin;
+
+import java.beans.PropertyChangeListener;
+
+import org.eclipse.swt.widgets.Composite;
+
+import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
+
+public interface
+IController
+extends PropertyChangeListener 
+{
+	public void removeModel(IModel model);
+	void removeView(IView view);
+	void addModel(ISnapshotInfoModel model);
+	void addView(IView view);
+
+}
+

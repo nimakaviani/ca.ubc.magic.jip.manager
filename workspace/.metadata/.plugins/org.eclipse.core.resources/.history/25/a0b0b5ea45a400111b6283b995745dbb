@@ -1,0 +1,7 @@
+package jipplugin;
+
+public interface IModel {
+
+	void removePropertyChangeListener(ConfigureAction configureAction);
+
+}

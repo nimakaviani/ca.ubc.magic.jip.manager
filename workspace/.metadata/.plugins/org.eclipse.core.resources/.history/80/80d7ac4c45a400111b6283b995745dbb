@@ -1,0 +1,8 @@
+package jipplugin;
+
+public class 
+Constants
+{
+	public static final String PATH_PROPERTY = "Path";
+
+}

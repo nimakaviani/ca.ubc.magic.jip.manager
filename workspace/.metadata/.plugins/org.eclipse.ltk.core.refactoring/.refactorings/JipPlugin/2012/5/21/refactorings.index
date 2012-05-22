@@ -19,3 +19,12 @@
 1337662838989	Rename type 'SnapshotEventListener'
 1337663118287	Delete element
 1337663122529	Delete elements
+1337715604023	Delete element
+1337719030514	Rename field 'registeredModels'
+1337719037737	Rename field 'registeredViews'
+1337719060263	Rename field 'm_registered_models'
+1337720696619	Rename method 'getModel'
+1337721138441	Rename local variable 'snapshotPath'
+1337721144459	Rename local variable 'snapshotName'
+1337721163283	Rename local variable 'snapshotPort'
+1337721167918	Rename local variable 'snapshotHost'

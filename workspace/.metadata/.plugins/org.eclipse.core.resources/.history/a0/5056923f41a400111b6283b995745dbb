@@ -1,0 +1,16 @@
+package jipplugin;
+
+import java.beans.PropertyChangeListener;
+
+import com.sun.example.mvc.model.IModel;
+
+public interface
+IController
+extends PropertyChangeListener 
+{
+	public void addModel(IModel model);
+	public void removeModel(IModel model);
+	public void addView(Component view);
+	public void removeView(Component view);
+}
+

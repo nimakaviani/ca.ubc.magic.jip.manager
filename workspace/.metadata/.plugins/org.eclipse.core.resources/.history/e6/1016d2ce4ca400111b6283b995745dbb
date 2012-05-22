@@ -1,0 +1,61 @@
+package actions;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jipplugin.IView;
+
+import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
+
+public class 
+ControllerDelegate 
+{
+	// this should eventually be turned into a "view" that can
+		// be in the list of views to be updated
+		private List<ISnapshotInfoModel>	registeredModels;
+		private List<IView> 				registeredViews;
+		
+		
+	public 
+	ControllerDelegate()
+	{
+		registeredModels
+			= new ArrayList<ISnapshotInfoModel>();
+		registeredViews
+			= new ArrayList<IView>();
+	}
+	
+	@Override
+	public void 
+	addModel
+	(ISnapshotInfoModel model) 
+	{
+		registeredModels.add(model);
+		model.addPropertyChangeListener(this);
+	}
+
+	@Override
+	public void 
+	removeModel
+	(ISnapshotInfoModel model) 
+	{
+		registeredModels.remove(model);
+		model.removePropertyChangeListener(this);
+	}
+
+	@Override
+	public void 
+	addView
+	(IView view) 
+	{
+		registeredViews.add(view);
+	}
+
+	@Override
+	public void 
+	removeView
+	(IView view)
+	{
+		registeredViews.remove(view);
+	}
+}
