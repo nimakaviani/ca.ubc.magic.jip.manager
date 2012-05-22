@@ -69,7 +69,10 @@ implements ISnapshotInfoModel
 	setSnapshotPath
 	(String path) 
 	{
+		String old_path = this.path;
 		this.path = path;
+		
+		this.firePropertyChange("Path", old_path, this.path);
 	}
 	
 	@Override

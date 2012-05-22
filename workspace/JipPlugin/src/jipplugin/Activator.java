@@ -54,7 +54,7 @@ extends AbstractUIPlugin
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
 
-	public ISnapshotPathModel 
+	public Model 
 	getModel() 
 	{
 		return this.model;
