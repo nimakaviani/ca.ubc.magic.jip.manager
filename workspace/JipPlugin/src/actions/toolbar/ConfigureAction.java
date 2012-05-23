@@ -7,6 +7,9 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import resources.Messages;
+
+
 import com.jchapman.jipsnapman.events.ISnapshotEventListener;
 import com.jchapman.jipsnapman.events.SnapshotEvent;
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
@@ -37,7 +40,7 @@ implements ISnapshotEventListener
 		this.snapshot_event_manager.addSnapshotEventListener(this);
 		
 		this.setToolTipText
-		( "Set the path, name, port, and host to work with." );
+		( Messages.JIP_Configure_Tooltip );
 		this.setEnabled(true);
 		
 		Shell shell
@@ -59,8 +62,8 @@ implements ISnapshotEventListener
 		
 		String image_path
 			= enabled 
-			? "icons/configure.gif"
-			: "icons/configure_inactive.gif";
+			? Messages.JIP_Active_Configure_Path
+			: Messages.JIP_Inactive_Configure_Path;
 		
 		this.setImageDescriptor
 		(Activator.getImageDescriptor(image_path));

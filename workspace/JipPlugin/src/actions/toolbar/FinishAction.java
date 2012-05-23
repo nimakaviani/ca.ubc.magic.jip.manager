@@ -7,6 +7,10 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import resources.Messages;
+
+
+
 import com.jchapman.jipsnapman.events.ISnapshotEventListener;
 import com.jchapman.jipsnapman.events.SnapshotEvent;
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
@@ -30,7 +34,7 @@ implements ISnapshotEventListener
 		this.snapshot_event_manager.addSnapshotEventListener(this);
 		
 		this.setToolTipText
-		("Disconnect from application to produce snapshot.");
+		(Messages.JIP_Finish_Tooltip);
 		
 		this.setEnabled(false);
 		
@@ -45,8 +49,8 @@ implements ISnapshotEventListener
 		
 		String image_path
 			= enabled 
-			? "icons/disconnect_co_active.gif"
-			: "icons/disconnect_co2.gif";
+			? Messages.JIP_Active_Disconnect_Path
+			: Messages.JIP_Inactive_Disconnect_Path;
 		
 		this.setImageDescriptor
 		(Activator.getImageDescriptor(image_path));

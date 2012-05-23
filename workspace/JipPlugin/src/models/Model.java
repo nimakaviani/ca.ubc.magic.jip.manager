@@ -3,6 +3,8 @@ package models;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+import resources.Messages;
+
 
 import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
 
@@ -72,7 +74,7 @@ implements ISnapshotInfoModel
 		String old_path = this.path;
 		this.path = path;
 		
-		this.firePropertyChange(Constants.PATH_PROPERTY, old_path, this.path);
+		this.firePropertyChange(Messages.JIP_Path_Property_Method, old_path, this.path);
 	}
 	
 	@Override
@@ -90,7 +92,7 @@ implements ISnapshotInfoModel
 		String old_name = this.name;
 		this.name 		= name;
 		
-		this.firePropertyChange(Constants.NAME_PROPERTY, old_name, this.name);
+		this.firePropertyChange(Messages.JIP_Name_Property_Method, old_name, this.name);
 	}
 
 	@Override
@@ -108,7 +110,7 @@ implements ISnapshotInfoModel
 		String old_port = this.port;
 		this.port = port;
 		
-		this.firePropertyChange(Constants.PORT_PROPERTY, old_port, this.port);
+		this.firePropertyChange(Messages.JIP_Port_Property_Method, old_port, this.port);
 	}
 
 	@Override
@@ -126,7 +128,7 @@ implements ISnapshotInfoModel
 		String old_host = this.host;
 		this.host = host;
 		
-		this.firePropertyChange(Constants.HOST_PROPERTY, old_host, this.host);
+		this.firePropertyChange(Messages.JIP_Host_Property_Method, old_host, this.host);
 	}
 
 }

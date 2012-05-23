@@ -41,14 +41,16 @@ import java.util.Set;
 public class 
 SnapshotEventManager
 {
-    private final Set listeners 
+    @SuppressWarnings("rawtypes")
+	private final Set listeners 
     	= new HashSet();
 
     public SnapshotEventManager() {
         super();
     }
 
-    public void 
+    @SuppressWarnings("unchecked")
+	public void 
     addSnapshotEventListener
     (ISnapshotEventListener listener) 
     {
@@ -59,7 +61,8 @@ SnapshotEventManager
         }
     }
 
-    public void 
+    @SuppressWarnings("unchecked")
+	public void 
     fireSnapshotEvent
     (SnapshotEvent event) 
     {

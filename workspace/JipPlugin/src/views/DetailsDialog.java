@@ -4,8 +4,6 @@ import java.beans.PropertyChangeEvent;
 
 import jipplugin.Activator;
 
-import models.Constants;
-
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -20,6 +18,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
+
+import resources.Messages;
 
 import actions.IController;
 
@@ -54,7 +54,7 @@ implements IView
 		initializeRows(container);
 		this.path_text.setText(this.getPreviousPath());
 		if(this.getPreviousName() == null){
-			System.out.println("Null name odd");
+			System.out.println(Messages.JIP_0);
 		}
 		this.name_text.setText(this.getPreviousName());
 		this.port_text.setText(this.getPreviousPort());
@@ -69,13 +69,13 @@ implements IView
 	(Composite container) 
 	{
 		Label path_label 
-			= createLabel( container, "Path: " );
+			= createLabel( container, Messages.JIP_Path_Label );
 		this.path_text 
 			= createPath( container, 1 );
 		
 		Button browse_button 
 			= new Button( container, SWT.NONE );
-		browse_button.setText( "Browse" );
+		browse_button.setText( Messages.JIP_Browse_Button );
 		browse_button.addSelectionListener( new SelectionAdapter(){
 			public void widgetSelected( SelectionEvent event ){
 				FileDialog file_dialog 
@@ -83,7 +83,7 @@ implements IView
 						PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), 
 						SWT.OPEN
 					);
-				file_dialog.setText("Select File");
+				file_dialog.setText(Messages.JIP_Select_Label);
 				file_dialog.setFilterPath( path_text.getText() );
 				String selected = file_dialog.open();
 				if(selected != null){
@@ -93,17 +93,17 @@ implements IView
 		});
 		
 		Label name_label
-			= createLabel( container, "Name: " );
+			= createLabel( container, Messages.JIP_Name_Label );
 		this.name_text 
 			= createPath( container, 2 );
 		
 		Label port_label 
-			= createLabel(container, "Port: " );
+			= createLabel(container, Messages.JIP_Port_Label );
 		this.port_text 
 			= createPath( container, 2 );
 		
 		Label host_label 
-			= createLabel( container, "Host: " );
+			= createLabel( container, Messages.JIP_Host_Label );
 		this.host_text 
 			= createPath( container, 2 );
 	}
@@ -141,7 +141,7 @@ implements IView
 		
 		prevPath = Activator.getDefault().getModel().getSnapshotPath();
 		if (prevPath == null || prevPath.length() == 0) {
-			prevPath = "C:/";
+			prevPath = Messages.JIP_Default_Path;
 		}
 		
 		return prevPath;		
@@ -177,7 +177,6 @@ implements IView
 		local_label.setText(label_text);
 		
 		return local_label;
-		
 	}
 
 	@Override
@@ -193,18 +192,17 @@ implements IView
 	{
 		System.out.println("DetailsDialog okPressed");
 		this.controller.setModelProperty(
-			Constants.PATH_PROPERTY, this.path_text.getText()
+			Messages.JIP_Path_Property_Method, this.path_text.getText()
 		);
 		this.controller.setModelProperty(
-			Constants.NAME_PROPERTY, this.name_text.getText()
+			Messages.JIP_Name_Property_Method, this.name_text.getText()
 		);
 		this.controller.setModelProperty(
-			Constants.HOST_PROPERTY, this.host_text.getText()
+			Messages.JIP_Host_Property_Method, this.host_text.getText()
 		);
 		this.controller.setModelProperty(
-			Constants.PORT_PROPERTY, this.port_text.getText()
+			Messages.JIP_Port_Property_Method, this.port_text.getText()
 		);
-		
 		super.okPressed();
 	}
 
@@ -213,7 +211,7 @@ implements IView
 	modelPropertyChange
 	(PropertyChangeEvent evt) 
 	{
-		if(evt.getPropertyName().equals(Constants.PATH_PROPERTY)){
+		if(evt.getPropertyName().equals(Messages.JIP_Path_Property_Method)){
 			this.path_text.setText( (String)evt.getNewValue());
 		}
 	}

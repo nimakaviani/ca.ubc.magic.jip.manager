@@ -10,6 +10,10 @@ import jipplugin.ActivatorLog;
 
 import org.eclipse.jface.action.Action;
 
+import resources.Messages;
+
+
+
 import com.jchapman.jipsnapman.events.ISnapshotEventListener;
 import com.jchapman.jipsnapman.events.SnapshotEvent;
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
@@ -32,13 +36,13 @@ implements ISnapshotEventListener
 	(SnapshotEventManager snapshot_event_manager)
 	{
 		ActivatorLog.logMessage(
-	    		"A folder in which to store the snapshot much be specified."
+	    		Messages.JIP_Pathfile_Error
 	    	);
 		this.snapshot_event_manager 
 			= snapshot_event_manager;
 		this.snapshot_event_manager.addSnapshotEventListener(this);
 		this.setToolTipText
-		("Connect and profile to produce snapshot.");
+		(Messages.JIP_Start_Tooltip);
 		this.setEnabled(true);
 	}
 	
@@ -51,8 +55,8 @@ implements ISnapshotEventListener
 		
 		String image_path
 			= enabled 
-			? "icons/run_exc_active.gif"
-			: "icons/run_exc.gif";
+			? Messages.JIP_Active_Start_Path
+			: Messages.JIP_Inactive_Start_Path;
 	
 		this.setImageDescriptor
 		(Activator.getImageDescriptor(image_path));
@@ -80,7 +84,7 @@ implements ISnapshotEventListener
 	      // if no exception, ie the above succeeded, then go to start
 	      // command and report file success
 	      if (!gotException) {
-	    	  ActivatorLog.logMessage("The message \"file\" was a success.");
+	    	  ActivatorLog.logMessage(Messages.JIP_File_Success_Message);
 	        try {
 	          Start.doStart(snapshot.getHost(),
 	                        snapshot.getPort());
@@ -93,7 +97,7 @@ implements ISnapshotEventListener
 	      // if no exception, ie the above succeeded, then report
 	      // start success and send event
 	      if (!gotException) {
-	    	ActivatorLog.logMessage("The message \"start\" was a success.");
+	    	ActivatorLog.logMessage(Messages.JIP_Start_Success_Message);
 	        this.snapshot_event_manager.fireSnapshotEvent(
 	    			new SnapshotEvent(
 	    	            SnapshotEvent.ID_SNAPSHOT_STARTED, 

@@ -1,0 +1,5 @@
+JIP_Active_Configure_Path=icons/configure.gif
+JIP_Configure_Tooltip=Set the path, name, port, and host to work with.
+JIP_Inactive_Configure_Path=icons/configure_inactive.gif
+JIP_Label=About
+JIP_Tooltip=Disconnect from application to produce snapshot.

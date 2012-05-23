@@ -1,0 +1,11 @@
+JIP_Active_Configure_Path=icons/configure.gif
+JIP_Active_Disconnect_Path=icons/disconnect_co_active.gif
+JIP_Active_Visualize_Path=icons/image_obj.gif
+JIP_Configure_Tooltip=Set the path, name, port, and host to work with.
+JIP_Finish_Tooltip=Disconnect from application to produce snapshot.
+JIP_Inactive_Configure_Path=icons/configure_inactive.gif
+JIP_Inactive_Disconnect_Path=icons/disconnect_co2.gif
+JIP_Inactive_Visualize_Path=icons/disconnect_co.gif
+JIP_Label=About
+JIP_Launch_Tooltip=Launch JIP Viewer in order to....
+JIP_Tooltip=Disconnect from application to produce snapshot.

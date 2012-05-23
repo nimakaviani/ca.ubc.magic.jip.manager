@@ -1,0 +1,40 @@
+package views;
+
+import org.eclipse.osgi.util.NLS;
+
+public class 
+Messages 
+extends NLS 
+{
+	private static final String BUNDLE_NAME 
+		= "views.messages"; //$NON-NLS-1$
+	
+	public static String JIP_About_Label;
+
+	public static String JIP_About_Tooltip;
+
+	public static String JIP_Active_Configure_Path;
+	public static String JIP_Active_Disconnect_Path;
+	public static String JIP_Active_Start_Path;
+	public static String JIP_Active_Visualize_Path;
+	public static String JIP_Configure_Tooltip;
+	public static String JIP_File_Success_Message;
+	public static String JIP_Finish_Tooltip;
+	public static String JIP_Inactive_Configure_Path;
+	public static String JIP_Inactive_Disconnect_Path;
+	public static String JIP_Inactive_Start_Path;
+	public static String JIP_Inactive_Visualize_Path;
+	public static String JIP_Launch_Tooltip;
+	public static String JIP_Pathfile_Error;
+	public static String JIP_Start_Success_Message;
+	public static String JIP_Start_Tooltip;
+	public static String JIPUnexpected_Exception;
+	
+	static {
+		// initialize resource bundle
+		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
+	}
+
+	private Messages() {
+	}
+}

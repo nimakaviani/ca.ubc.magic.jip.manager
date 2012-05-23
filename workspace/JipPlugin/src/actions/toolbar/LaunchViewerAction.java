@@ -7,6 +7,10 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import resources.Messages;
+
+
+
 public class 
 LaunchViewerAction 
 extends Action 
@@ -14,8 +18,8 @@ extends Action
 	public
 	LaunchViewerAction()
 	{
-		this.setToolTipText("Launch JIP Viewer in order to....");
-		this.setImageDescriptor(Activator.getImageDescriptor("icons/image_obj.gif"));
+		this.setToolTipText(Messages.JIP_Launch_Tooltip);
+		this.setImageDescriptor(Activator.getImageDescriptor(Messages.JIP_Active_Visualize_Path));
 	}
 	
 	@Override
@@ -24,6 +28,6 @@ extends Action
 		Shell shell
 			= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		MessageDialog.openInformation( shell, "First plug-in", "Launch!" );
-		this.setImageDescriptor(Activator.getImageDescriptor("icons/disconnect_co.gif"));
+		this.setImageDescriptor(Activator.getImageDescriptor(Messages.JIP_Inactive_Visualize_Path));
 	}
 }

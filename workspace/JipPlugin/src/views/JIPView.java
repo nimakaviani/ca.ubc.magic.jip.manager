@@ -4,9 +4,6 @@ import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
-import models.Constants;
-
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -19,17 +16,15 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.ViewPart;
 
+import resources.Messages;
+
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
 
 import views.widgets.BasicListTable;
 
-
 import actions.menu.*;
 import actions.toolbar.*;
 
-// this will need to be refactored into a proper MVC later
-// chances are that will happen automatically as I attempt to mold
-// the architecture of the original implementation into the plugin
 public class 
 JIPView 
 extends ViewPart 
@@ -62,11 +57,11 @@ implements IView
 		initializeDropDownMenu(actionBars.getMenuManager());
 		
 		this.snapshots_table 
-			= new BasicListTable(parent, "Snapshots");
+			= new BasicListTable(parent, Messages.JIP_Snapshot_Table_Title);
 		this.snapshots_table.setContents(
 			new ArrayList<String>(Arrays.asList( 
 				new String[]{ 
-					"C", "C++", "Java", "smalltalk"
+					Messages.JIPView_0, Messages.JIPView_1, Messages.JIPView_2, Messages.JIPView_3
 				})
 			));
 	}
@@ -87,7 +82,7 @@ implements IView
 	{
 		this.label 				
 			= new Label(parent, SWT.LEFT);
-		this.label.setText("Hello World");
+		this.label.setText(Messages.JIP_Default_URL_Label);
 		
 		GridData grid_data 			
 			= new GridData(SWT.FILL,SWT.FILL, true, false);
@@ -114,7 +109,7 @@ implements IView
 		toolBar.add(details);
 		toolBar.add(start);
 		toolBar.add(finish);
-		toolBar.add(new GroupMarker("edit"));
+		toolBar.add(new GroupMarker(Messages.JIPView_4));
 		toolBar.add(launch);
 
 	}
@@ -138,13 +133,13 @@ implements IView
 	{
 		label.setText(
 			this.name 
-			+ "   ( Port: " 
+			+ Messages.JIPView_5 
 			+ this.port 
-			+ ", Host: " 
+			+ Messages.JIPView_6 
 			+ this.port
-			+ ", Path: "
+			+ Messages.JIPView_7
 			+ this.path 
-			+ " )"
+			+ Messages.JIPView_8
 		);
 		snapshots_table.refresh();
 	}
@@ -154,19 +149,17 @@ implements IView
 	modelPropertyChange
 	(PropertyChangeEvent evt) 
 	{
-		switch(evt.getPropertyName()){
-		case Constants.PATH_PROPERTY:
+		if(evt.getPropertyName().equals( Messages.JIP_Path_Property_Method)){
 			this.path = (String) evt.getNewValue();
-			break;
-		case Constants.HOST_PROPERTY:
+		}
+		else if(evt.getPropertyName().equals( Messages.JIP_Host_Property_Method)){
 			this.host = (String) evt.getNewValue();
-			break;
-		case Constants.NAME_PROPERTY:
+		}
+		else if(evt.getPropertyName().equals( Messages.JIP_Name_Property_Method)){
 			this.name = (String) evt.getNewValue();
-			break;
-		case Constants.PORT_PROPERTY:
+		}
+		else if(evt.getPropertyName().equals( Messages.JIP_Port_Property_Method)){
 			this.port = (String) evt.getNewValue();
-			break;
 		}
 		this.refresh();
 	}

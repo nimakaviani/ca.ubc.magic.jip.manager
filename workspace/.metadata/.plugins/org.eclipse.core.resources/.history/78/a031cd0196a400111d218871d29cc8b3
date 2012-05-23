@@ -1,0 +1,20 @@
+package views;
+
+import org.eclipse.osgi.util.NLS;
+
+public class Messages extends NLS {
+	private static final String BUNDLE_NAME = "views.messages"; //$NON-NLS-1$
+	public static String JIP_Active_Configure_Path;
+	public static String JIP_Active_Disconnect_Path;
+	public static String JIP_Configure_Tooltip;
+	public static String JIP_Finish_Tooltip;
+	public static String JIP_Inactive_Configure_Path;
+	public static String JIP_Inactive_Disconnect_Path;
+	static {
+		// initialize resource bundle
+		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
+	}
+
+	private Messages() {
+	}
+}

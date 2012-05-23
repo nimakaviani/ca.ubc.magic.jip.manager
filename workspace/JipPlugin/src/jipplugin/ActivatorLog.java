@@ -3,6 +3,10 @@ package jipplugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
+import resources.Messages;
+
+
+
 // the following technique is borrowed from the
 // Eclipse Plug-ins book
 public class 
@@ -26,7 +30,7 @@ ActivatorLog
 	logError
 	( Throwable exception )
 	{
-		logError("Unexpected Exception", exception);
+		logError(Messages.JIPUnexpected_Exception, exception);
 	}
 	
 	private static void 
