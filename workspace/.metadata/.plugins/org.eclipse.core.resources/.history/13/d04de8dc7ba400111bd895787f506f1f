@@ -1,0 +1,70 @@
+package jipplugin;
+
+import models.Model;
+
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.BundleContext;
+import org.yasl.arch.action.YASLActionHandler;
+
+public class 
+Activator 
+extends AbstractUIPlugin
+{
+	public static final String PLUGIN_ID 
+		= "JipPlugin"; 
+
+	private static Activator plugin;
+	
+	Model model;
+	
+	public 
+	Activator() 
+	{}
+
+	public void 
+	start
+	(BundleContext context) 
+	throws Exception 
+	{
+		super.start(context);
+		plugin = this;
+		this.model = new Model();
+	}
+
+	public void 
+	stop
+	(BundleContext context) 
+	throws Exception 
+	{
+		plugin = null;
+		super.stop(context);
+	}
+
+	public static 
+	Activator getDefault() 
+	{
+		return plugin;
+	}
+
+	public static 
+	ImageDescriptor 
+	getImageDescriptor
+	(String path) 
+	{
+		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+
+	public Model 
+	getModel() 
+	{
+		return this.model;
+	}
+
+	public YASLActionHandler 
+	getActionHandler() 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

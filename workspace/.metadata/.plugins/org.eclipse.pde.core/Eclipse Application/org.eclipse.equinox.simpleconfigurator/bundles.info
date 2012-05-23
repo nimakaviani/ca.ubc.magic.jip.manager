@@ -74,6 +74,12 @@ com.instantiations.swt.graph,7.1.0.r37x201109091123,file:/C:/eclipse/plugins/com
 com.instantiations.swt.grid,7.1.0.r37x201109091155,file:/C:/eclipse/plugins/com.instantiations.swt.grid_7.1.0.r37x201109091155.jar,4,false
 com.instantiations.tools,6.0.0.r37x201109091114,file:/C:/eclipse/plugins/com.instantiations.tools_6.0.0.r37x201109091114/,4,false
 com.jcraft.jsch,0.1.44.v201101211721,file:/C:/eclipse/plugins/com.jcraft.jsch_0.1.44.v201101211721.jar,4,false
+com.objectaid.uml,1.0.8,file:/C:/eclipse/plugins/com.objectaid.uml_1.0.8.jar,4,false
+com.objectaid.uml.cls,1.0.8,file:/C:/eclipse/plugins/com.objectaid.uml.cls_1.0.8.jar,4,false
+com.objectaid.uml.cls.java,1.0.8,file:/C:/eclipse/plugins/com.objectaid.uml.cls.java_1.0.8.jar,4,false
+com.objectaid.uml.java,1.0.8,file:/C:/eclipse/plugins/com.objectaid.uml.java_1.0.8.jar,4,false
+com.objectaid.uml.seq,1.0.8,file:/C:/eclipse/plugins/com.objectaid.uml.seq_1.0.8.jar,4,false
+com.objectaid.uml.seq.java,1.0.8,file:/C:/eclipse/plugins/com.objectaid.uml.seq.java_1.0.8.jar,4,false
 com.opnworks.tableviewer.example,1.0.0,file:/C:/eclipse/plugins/com.opnworks.tableviewer.example_1.0.0/,4,false
 de.spiritlink.mvc,1.0.0,file:/C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/de.spiritlink.mvc/,4,false
 javax.servlet,2.5.0.v201103041518,file:/C:/eclipse/plugins/javax.servlet_2.5.0.v201103041518.jar,4,false
@@ -123,6 +129,7 @@ org.eclipse.core.variables,3.2.500.v20110928-1503,file:/C:/eclipse/plugins/org.e
 org.eclipse.cvs,1.1.100.v201202080800,file:/C:/eclipse/plugins/org.eclipse.cvs_1.1.100.v201202080800.jar,4,false
 org.eclipse.debug.core,3.7.1.v20111129-2031,file:/C:/eclipse/plugins/org.eclipse.debug.core_3.7.1.v20111129-2031.jar,4,false
 org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,file:/C:/eclipse/plugins/org.eclipse.debug.ui_3.7.102.v20111129-1423_r372.jar,4,false
+org.eclipse.draw2d,3.7.2.v20111017-2020,file:/C:/eclipse/plugins/org.eclipse.draw2d_3.7.2.v20111017-2020.jar,4,false
 org.eclipse.ecf,3.1.300.v20110531-2218,file:/C:/eclipse/plugins/org.eclipse.ecf_3.1.300.v20110531-2218.jar,4,false
 org.eclipse.ecf.filetransfer,5.0.0.v20110531-2218,file:/C:/eclipse/plugins/org.eclipse.ecf.filetransfer_5.0.0.v20110531-2218.jar,4,false
 org.eclipse.ecf.identity,3.1.100.v20110531-2218,file:/C:/eclipse/plugins/org.eclipse.ecf.identity_3.1.100.v20110531-2218.jar,4,false
@@ -181,6 +188,7 @@ org.eclipse.equinox.security.win32.x86_64,1.0.0.v20110502,file:/C:/eclipse/plugi
 org.eclipse.equinox.simpleconfigurator,1.0.200.v20110815-1438,file:/C:/eclipse/plugins/org.eclipse.equinox.simpleconfigurator_1.0.200.v20110815-1438.jar,1,true
 org.eclipse.equinox.simpleconfigurator.manipulator,2.0.0.v20110815-1438,file:/C:/eclipse/plugins/org.eclipse.equinox.simpleconfigurator.manipulator_2.0.0.v20110815-1438.jar,4,false
 org.eclipse.equinox.util,1.0.300.v20110502,file:/C:/eclipse/plugins/org.eclipse.equinox.util_1.0.300.v20110502.jar,4,false
+org.eclipse.gef,3.7.2.v20111106-2020,file:/C:/eclipse/plugins/org.eclipse.gef_3.7.2.v20111106-2020.jar,4,false
 org.eclipse.help,3.5.100.v20110426,file:/C:/eclipse/plugins/org.eclipse.help_3.5.100.v20110426.jar,4,false
 org.eclipse.help.appserver,3.1.400.v20110425,file:/C:/eclipse/plugins/org.eclipse.help.appserver_3.1.400.v20110425.jar,4,false
 org.eclipse.help.base,3.6.2.v201202080800,file:/C:/eclipse/plugins/org.eclipse.help.base_3.6.2.v201202080800.jar,4,false
@@ -277,8 +285,8 @@ org.epic.perleditor,0.6.31,file:/C:/eclipse/plugins/org.epic.perleditor_0.6.31.j
 org.epic.regexp,0.6.1,file:/C:/eclipse/plugins/org.epic.regexp_0.6.1.jar,4,false
 org.epic.source,0.6.44,file:/C:/eclipse/plugins/org.epic.source_0.6.44/,4,false
 org.hamcrest.core,1.1.0.v20090501071000,file:/C:/eclipse/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar,4,false
-org.junit,4.8.2.v4_8_2_v20110321-1705,file:/C:/eclipse/plugins/org.junit_4.8.2.v4_8_2_v20110321-1705/,4,false
 org.junit,3.8.2.v3_8_2_v20100427-1100,file:/C:/eclipse/plugins/org.junit_3.8.2.v3_8_2_v20100427-1100/,4,false
+org.junit,4.8.2.v4_8_2_v20110321-1705,file:/C:/eclipse/plugins/org.junit_4.8.2.v4_8_2_v20110321-1705/,4,false
 org.junit4,4.8.1.v20100525,file:/C:/eclipse/plugins/org.junit4_4.8.1.v20100525/,4,false
 org.mortbay.jetty.server,6.1.23.v201012071420,file:/C:/eclipse/plugins/org.mortbay.jetty.server_6.1.23.v201012071420.jar,4,false
 org.mortbay.jetty.util,6.1.23.v201012071420,file:/C:/eclipse/plugins/org.mortbay.jetty.util_6.1.23.v201012071420.jar,4,false

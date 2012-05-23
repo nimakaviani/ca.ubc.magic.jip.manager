@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config date="1337731935887" transient="false" version="3.0">
+<config date="1337745031849" transient="false" version="3.0">
 <site enabled="true" policy="USER-EXCLUDE" updateable="true" url="platform:/base/">
 <feature id="com.instantiations.assist.eclipse.coverage" url="features/com.instantiations.assist.eclipse.coverage_7.1.0.r37x201109091130/" version="7.1.0.r37x201109091130">
+</feature>
+<feature id="com.objectaid.uml.seq" url="features/com.objectaid.uml.seq_1.0.8/" version="1.0.8">
 </feature>
 <feature id="org.eclipse.equinox.p2.core.feature" url="features/org.eclipse.equinox.p2.core.feature_1.0.1.v20110906-1605-8290FZ9FVKHVRKtmx3fpNuo02129/" version="1.0.1.v20110906-1605-8290FZ9FVKHVRKtmx3fpNuo02129">
 </feature>
@@ -21,13 +23,15 @@
 </feature>
 <feature id="com.instantiations.eclipse.unittester.feature" plugin-identifier="com.instantiations.assist.eclipse.junit" url="features/com.instantiations.eclipse.unittester.feature_7.1.0.r37x201109091155/" version="7.1.0.r37x201109091155">
 </feature>
+<feature id="com.objectaid.uml" url="features/com.objectaid.uml_1.0.8/" version="1.0.8">
+</feature>
 <feature id="com.instantiations.eclipse.analysis.appanalysis.feature" url="features/com.instantiations.eclipse.analysis.appanalysis.feature_7.1.0.r37x201109091143/" version="7.1.0.r37x201109091143">
 </feature>
 <feature id="org.eclipse.rcp.source" url="features/org.eclipse.rcp.source_3.7.2.v20120120-1424-9DB5FmnFq5JCf1UA38R-kz0S0272/" version="3.7.2.v20120120-1424-9DB5FmnFq5JCf1UA38R-kz0S0272">
 </feature>
-<feature id="org.eclipse.equinox.p2.rcp.feature" url="features/org.eclipse.equinox.p2.rcp.feature_1.0.1.v20110906-1605-782EqBqNKGVkiV-PUsgz-uny4gqO/" version="1.0.1.v20110906-1605-782EqBqNKGVkiV-PUsgz-uny4gqO">
-</feature>
 <feature id="org.eclipse.pde.source" url="features/org.eclipse.pde.source_3.7.2.v20120120-1420-7b7rFUOFEx2Xnqafnpz0E--0/" version="3.7.2.v20120120-1420-7b7rFUOFEx2Xnqafnpz0E--0">
+</feature>
+<feature id="org.eclipse.equinox.p2.rcp.feature" url="features/org.eclipse.equinox.p2.rcp.feature_1.0.1.v20110906-1605-782EqBqNKGVkiV-PUsgz-uny4gqO/" version="1.0.1.v20110906-1605-782EqBqNKGVkiV-PUsgz-uny4gqO">
 </feature>
 <feature id="org.eclipse.equinox.p2.user.ui" url="features/org.eclipse.equinox.p2.user.ui_2.1.2.R37x_v20110815-1155-6-Bk8pYWZz0qUTX5I15GZWwbXkrl/" version="2.1.2.R37x_v20110815-1155-6-Bk8pYWZz0qUTX5I15GZWwbXkrl">
 </feature>

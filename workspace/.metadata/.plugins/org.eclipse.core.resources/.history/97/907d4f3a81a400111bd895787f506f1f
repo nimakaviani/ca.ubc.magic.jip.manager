@@ -1,0 +1,14 @@
+package jipplugin;
+
+import org.eclipse.core.runtime.IStatus;
+
+public class 
+ActivatorLog 
+{
+	private static void 
+	logMessage
+	(IStatus status)
+	{
+		Activator.getDefault().getLog().log(status);
+	}
+}

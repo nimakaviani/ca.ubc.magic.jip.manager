@@ -52,8 +52,7 @@ BasicListTable
 		col.setText(this.column_name[0]);
 		
 		//this.setContentProvider(new ArrayContentProvider());
-		GridData grid_data = new GridData(SWT.FILL, SWT.FILL, true, false);
-		grid_data.grabExcessVerticalSpace = true;
+		GridData grid_data = new GridData(SWT.FILL, SWT.FILL, true, true);
 		table.setLayoutData(grid_data);
 		
 		table.setHeaderVisible(true);

@@ -69,9 +69,6 @@ implements IView
 					"C", "C++", "Java", "smalltalk"
 				})
 			));
-		this.log_console_table
-			= new BasicListTable( parent, "Log Console");
-		
 	}
 
 	private void 

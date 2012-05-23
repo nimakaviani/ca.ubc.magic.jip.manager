@@ -37,3 +37,7 @@
 1337726724630	Rename package 'views.widget'
 1337726731645	Move compilation unit
 1337731913908	Delete element
+1337739767769	Delete element
+1337740322804	Delete element
+1337742960642	Extract method 'pathErrorChecking'
+1337745123957	Rename local variable 'infoModel'

@@ -1,0 +1,13 @@
+package jipplugin;
+
+public class 
+ActivatorLog 
+{
+	public static IStatus 
+	logMessage
+	(IStatus status)
+	{
+		
+	}
+
+}
