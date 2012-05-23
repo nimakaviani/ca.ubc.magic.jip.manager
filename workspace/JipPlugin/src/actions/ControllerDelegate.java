@@ -5,8 +5,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import jipplugin.IController;
-import jipplugin.IView;
+import views.IView;
+
 
 import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
 

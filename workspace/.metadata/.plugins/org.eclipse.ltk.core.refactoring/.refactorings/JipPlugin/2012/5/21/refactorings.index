@@ -28,3 +28,12 @@
 1337721144459	Rename local variable 'snapshotName'
 1337721163283	Rename local variable 'snapshotPort'
 1337721167918	Rename local variable 'snapshotHost'
+1337726612478	Move compilation unit
+1337726663336	Move compilation unit
+1337726668710	Move compilation unit
+1337726672466	Move compilation unit
+1337726689707	Move compilation unit
+1337726693928	Move compilation unit
+1337726724630	Rename package 'views.widget'
+1337726731645	Move compilation unit
+1337731913908	Delete element

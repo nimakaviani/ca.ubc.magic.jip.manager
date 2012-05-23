@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config date="1337724006775" transient="false" version="3.0">
+<config date="1337731935887" transient="false" version="3.0">
 <site enabled="true" policy="USER-EXCLUDE" updateable="true" url="platform:/base/">
 <feature id="com.instantiations.assist.eclipse.coverage" url="features/com.instantiations.assist.eclipse.coverage_7.1.0.r37x201109091130/" version="7.1.0.r37x201109091130">
 </feature>

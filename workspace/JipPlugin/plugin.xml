@@ -5,7 +5,7 @@
          point="org.eclipse.ui.views">
       <view
             allowMultiple="false"
-            class="jipplugin.JIPView"
+            class="views.JIPView"
             icon="icons/jip-logo-90.gif"
             id="JipPlugin.view1"
             name="Snapshot Manager"

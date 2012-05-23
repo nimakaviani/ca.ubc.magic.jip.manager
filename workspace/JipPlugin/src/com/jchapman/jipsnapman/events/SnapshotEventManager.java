@@ -41,13 +41,17 @@ import java.util.Set;
 public class 
 SnapshotEventManager
 {
-    private final Set listeners = new HashSet();
+    private final Set listeners 
+    	= new HashSet();
 
     public SnapshotEventManager() {
         super();
     }
 
-    public void addSnapshotEventListener(ISnapshotEventListener listener) {
+    public void 
+    addSnapshotEventListener
+    (ISnapshotEventListener listener) 
+    {
         if (listener != null) {
             synchronized (listeners) {
                 listeners.add(listener);
@@ -55,7 +59,10 @@ SnapshotEventManager
         }
     }
 
-    public void fireSnapshotEvent(SnapshotEvent event) {
+    public void 
+    fireSnapshotEvent
+    (SnapshotEvent event) 
+    {
         if (event != null) {
             int listenerCnt = 0;
             ISnapshotEventListener[] listenerArray = null;

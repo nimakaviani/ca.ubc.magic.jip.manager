@@ -1,0 +1,72 @@
+package actions.toolbar;
+
+import jipplugin.Activator;
+
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+
+import com.jchapman.jipsnapman.events.SnapshotEvent;
+
+import views.DetailsDialog;
+import views.IView;
+
+import actions.ControllerDelegate;
+
+public class 
+ConfigureAction 
+extends Action 
+{
+	private ControllerDelegate 	controller;
+	private DetailsDialog 		dialog;
+	private boolean 			active;
+	
+	public 
+	ConfigureAction
+	( IView main_view )
+	{
+		this.active 
+			= true;
+		this.controller 
+			= new ControllerDelegate();
+		
+		this.setToolTipText
+		( "Set the path, name, port, and host to work with." );
+		this.setImageDescriptor
+		( Activator.getImageDescriptor("icons/configure.gif") );
+		
+		Shell shell
+			= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		this.dialog 
+			= new DetailsDialog(shell, this.controller);
+		
+		this.controller.addModel(Activator.getDefault().getModel());
+		this.controller.addView(main_view);
+		this.controller.addView(this.dialog);
+	}
+	
+	@Override
+	public void 
+	run()
+	{
+		if(this.active){
+			if(this.dialog.open() != InputDialog.OK){
+				return;
+			}
+		}
+	}
+	
+	// --------------- from SnapshotEventListener --------------- 
+
+    public void handleSnapshotEvent(SnapshotEvent event) {
+        switch (event.getId()) {
+            case SnapshotEvent.ID_SNAPSHOT_STARTED:
+                this.setEnabled(false);
+                break;
+            case SnapshotEvent.ID_SNAPSHOT_CAPTURED:
+                this.setEnabled(true);
+                break;
+        }
+    }
+}
