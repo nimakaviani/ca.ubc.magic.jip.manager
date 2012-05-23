@@ -1,9 +1,10 @@
 package jipplugin;
 
+import jipplugin.resources.Messages;
+
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
-import resources.Messages;
 
 
 

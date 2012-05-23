@@ -15,6 +15,12 @@ After that I will more or less know enough to study the rest of the code and
 port the functionality over. I should have enough time to read more into the
 eclipse plugin book and see if there aren't better ways to do what I am doing.
 
+I have a first prototype that should be able to connect to another application
+set up. I want to test out that the connection happpens correctly when the start
+button is pressed, and that all of the behaviour I have until now matches the
+original (especially the error messages). After this I have the finish action
+to implement, and then the view snapshots, and any polish necessary.
+
 21 May 2012:
 
 I have completed almost all of the GUI elements. Now I need to port over the system

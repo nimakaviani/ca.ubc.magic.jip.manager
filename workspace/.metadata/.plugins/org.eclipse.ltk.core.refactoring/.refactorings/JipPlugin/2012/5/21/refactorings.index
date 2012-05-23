@@ -53,3 +53,11 @@
 1337751513746	Move elements
 1337751997990	Delete element
 1337752707675	Delete element
+1337752792057	Rename package 'actions'
+1337752824990	Rename package 'actions.menu'
+1337752843703	Rename package 'actions.toolbar'
+1337752873730	Rename package 'jip_plugin.actions'
+1337752882339	Rename package 'models'
+1337752889131	Rename package 'resources'
+1337752895857	Rename package 'views'
+1337752909773	Rename package 'views.widgets'

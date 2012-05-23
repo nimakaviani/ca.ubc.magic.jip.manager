@@ -1,6 +1,6 @@
 package jipplugin;
 
-import models.Model;
+import jipplugin.models.Model;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

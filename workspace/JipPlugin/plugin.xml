@@ -6,7 +6,7 @@
       <view
       		name="%jip.view.name"
             allowMultiple="false"
-            class="views.JIPView"
+            class="jipplugin.views.JIPView"
             icon="icons/jip-logo-90.gif"
             id="JipPlugin.view1"
             restorable="true">

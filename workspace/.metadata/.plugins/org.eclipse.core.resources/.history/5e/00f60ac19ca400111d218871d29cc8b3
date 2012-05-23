@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+      		name="%jip.view.name"
+            allowMultiple="false"
+            class="views.JIPView"
+            icon="icons/jip-logo-90.gif"
+            id="JipPlugin.view1"
+            restorable="true">
+         <description>
+            %jip.view.description
+         </description>
+      </view>
+   </extension>
+
+</plugin>
