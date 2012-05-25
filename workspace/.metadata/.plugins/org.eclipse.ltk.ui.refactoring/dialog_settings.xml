@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="RefactoringWizard.Externalize strings in &apos;ActivatorLog.java&apos;">
-		<item value="491" key="height"/>
-		<item value="600" key="width"/>
-	</section>
 	<section name="RefactoringWizard.Externalize Strings">
 		<item value="427" key="height"/>
 		<item value="721" key="width"/>
 	</section>
-	<section name="RefactoringWizard.Externalize strings in &apos;AboutAction.java&apos;">
+	<section name="RefactoringWizard.Externalize strings in &apos;ActivatorLog.java&apos;">
 		<item value="491" key="height"/>
 		<item value="600" key="width"/>
 	</section>
-	<section name="RefactoringWizard.Externalize strings in &apos;StartAction.java&apos;">
-		<item value="652" key="height"/>
+	<section name="RefactoringWizard.Externalize strings in &apos;AboutAction.java&apos;">
+		<item value="491" key="height"/>
 		<item value="600" key="width"/>
 	</section>
 	<section name="RefactoringWizard.preview">
 		<item value="400" key="height"/>
 		<item value="600" key="width"/>
 	</section>
-	<section name="RefactoringWizard.Externalize strings in &apos;DetailsDialog.java&apos;">
-		<item value="491" key="height"/>
+	<section name="RefactoringWizard.Externalize strings in &apos;StartAction.java&apos;">
+		<item value="652" key="height"/>
 		<item value="600" key="width"/>
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="*" key="patterns"/>
 		<item value="false" key="moveWizard.updateQualifiedNames"/>
 	</section>
-	<section name="RefactoringWizard.Externalize strings in &apos;LaunchViewerAction.java&apos;">
+	<section name="RefactoringWizard.Externalize strings in &apos;DetailsDialog.java&apos;">
 		<item value="491" key="height"/>
 		<item value="600" key="width"/>
 	</section>
@@ -36,15 +32,19 @@
 		<item value="491" key="height"/>
 		<item value="600" key="width"/>
 	</section>
+	<section name="RefactoringWizard.Externalize strings in &apos;LaunchViewerAction.java&apos;">
+		<item value="491" key="height"/>
+		<item value="600" key="width"/>
+	</section>
 	<section name="RefactoringWizard.Externalize strings in &apos;FinishAction.java&apos;">
 		<item value="491" key="height"/>
 		<item value="600" key="width"/>
 	</section>
-	<section name="RefactoringWizard.Externalize strings in &apos;JIPView.java&apos;">
+	<section name="RefactoringWizard.Externalize strings in &apos;Snapshot.java&apos;">
 		<item value="491" key="height"/>
 		<item value="600" key="width"/>
 	</section>
-	<section name="RefactoringWizard.Externalize strings in &apos;Snapshot.java&apos;">
+	<section name="RefactoringWizard.Externalize strings in &apos;JIPView.java&apos;">
 		<item value="491" key="height"/>
 		<item value="600" key="width"/>
 	</section>

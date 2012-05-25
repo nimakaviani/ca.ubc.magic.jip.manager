@@ -41,3 +41,9 @@
 1337740322804	Delete element
 1337742960642	Extract method 'pathErrorChecking'
 1337745123957	Rename local variable 'infoModel'
+1337982946476	Delete element
+1337983292736	Delete element
+1337985696537	Rename package 'jip.eventlog.event'
+1337985719477	Move compilation unit
+1337985725216	Move compilation unit
+1337985730939	Move compilation unit

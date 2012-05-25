@@ -1,0 +1,37 @@
+package jip.eventlog.events;
+
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
+
+@SuppressWarnings("serial")
+public class
+EventLogEvent 
+extends ActionEvent
+{
+	HashMap<String, Object> properties;
+	
+	public static int ACTION_PERFORMED = 1;
+
+    public 
+    EventLogEvent
+    (Object source, int id, String command) 
+    {
+    	super(source, id, command);
+        this.properties 
+        	= new HashMap<String, String>();
+    }
+
+    public void 
+    addProperty
+    ( String key, Object data )
+    {
+       this.properties.put(key, message);
+    }
+    
+    public Object
+    getProperty
+    ( String key )
+    {
+    	return this.properties.get(key);
+    }
+}

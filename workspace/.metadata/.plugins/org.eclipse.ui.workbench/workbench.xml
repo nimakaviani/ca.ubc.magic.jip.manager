@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="27" version="2.0">
+<workbench progressCount="26" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1600" x="-20" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -20,11 +20,11 @@
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.pde.ui.buildEditor" itemType="typePlaceholder" x="38" y="22"/>
 <coolItem id="org.eclipse.pde.ui.manifestEditor" itemType="typeToolBarContribution" x="38" y="22"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
 <coolItem id="org.eclipse.team.cvs.ui.CVSActionSet" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.team.ui.actionSet" itemType="typeToolBarContribution" x="53" y="22"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="107" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
@@ -39,8 +39,8 @@
 </coolbarLayout>
 <page aggregateWorkingSetId="Aggregate for window 1336626924958" focus="true" label="Workspace - Java">
 <editors>
-<editorArea activeWorkbook="org.eclipse.ui.internal.EditorStack@2f9ce80">
-<info part="org.eclipse.ui.internal.EditorStack@2f9ce80">
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
@@ -49,124 +49,104 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.internal.EditorStack@3d76abcd" ratio="0.5" ratioLeft="565" ratioRight="565" relationship="2" relative="org.eclipse.ui.internal.EditorStack@2f9ce80">
+<info part="org.eclipse.ui.internal.EditorStack@6dcc306f" ratio="0.7916667" ratioLeft="874" ratioRight="230" relationship="2" relative="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Snapshot.java" partName="Snapshot.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/com/jchapman/jipsnapman/models/Snapshot.java" title="Snapshot.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/models/Snapshot.java" workbook="org.eclipse.ui.internal.EditorStack@2f9ce80">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/com/jchapman/jipsnapman/models/Snapshot.java"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventLogEvent.java" partName="EventLogEvent.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jip/eventlog/events/EventLogEvent.java" title="EventLogEvent.java" tooltip="JipPlugin/src/jip/eventlog/events/EventLogEvent.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/jip/eventlog/events/EventLogEvent.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="573" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ErrorDisplayAction.java" partName="ErrorDisplayAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/jip/src/com/jchapman/jipsnapman/actions/ErrorDisplayAction.java" title="ErrorDisplayAction.java" tooltip="jip/src/com/jchapman/jipsnapman/actions/ErrorDisplayAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jip/src/com/jchapman/jipsnapman/actions/ErrorDisplayAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2891" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LogAction.java" partName="LogAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/jip/src/com/jchapman/jipsnapman/actions/LogAction.java" title="LogAction.java" tooltip="jip/src/com/jchapman/jipsnapman/actions/LogAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jip/src/com/jchapman/jipsnapman/actions/LogAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2224" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventLogManager.java" partName="EventLogManager.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jip/eventlog/events/EventLogManager.java" title="EventLogManager.java" tooltip="JipPlugin/src/jip/eventlog/events/EventLogManager.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/jip/eventlog/events/EventLogManager.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="15" selectionOffset="410" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IEventLogAction.java" partName="IEventLogAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jip/eventlog/actions/IEventLogAction.java" title="IEventLogAction.java" tooltip="JipPlugin/src/jip/eventlog/actions/IEventLogAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/jip/eventlog/actions/IEventLogAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="144" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ErrorDisplayAction.java" partName="ErrorDisplayAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jip/eventlog/actions/ErrorDisplayAction.java" title="ErrorDisplayAction.java" tooltip="JipPlugin/src/jip/eventlog/actions/ErrorDisplayAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/jip/eventlog/actions/ErrorDisplayAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2019" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LogAction.java" partName="LogAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jip/eventlog/actions/LogAction.java" title="LogAction.java" tooltip="JipPlugin/src/jip/eventlog/actions/LogAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/jip/eventlog/actions/LogAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="33" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BaseSnapshotAction.java" partName="BaseSnapshotAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/jip/src/com/jchapman/jipsnapman/actions/BaseSnapshotAction.java" title="BaseSnapshotAction.java" tooltip="jip/src/com/jchapman/jipsnapman/actions/BaseSnapshotAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jip/src/com/jchapman/jipsnapman/actions/BaseSnapshotAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="16" selectionOffset="4085" selectionTopPixel="840"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StartAction.java" partName="StartAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/actions/toolbar/StartAction.java" title="StartAction.java" tooltip="JipPlugin/src/actions/toolbar/StartAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/actions/toolbar/StartAction.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" partName="MANIFEST.MF" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/META-INF/MANIFEST.MF" title="MANIFEST.MF" tooltip="JipPlugin/META-INF/MANIFEST.MF" workbook="org.eclipse.ui.internal.EditorStack@2f9ce80">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/META-INF/MANIFEST.MF"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FinishAction.java" partName="FinishAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/actions/toolbar/FinishAction.java" title="FinishAction.java" tooltip="JipPlugin/src/actions/toolbar/FinishAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/actions/toolbar/FinishAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StartAction.java" partName="StartAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/actions/toolbar/StartAction.java" title="StartAction.java" tooltip="JipPlugin/src/actions/toolbar/StartAction.java" workbook="org.eclipse.ui.internal.EditorStack@2f9ce80">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/actions/toolbar/StartAction.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="1994" selectionTopPixel="682"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LaunchViewerAction.java" partName="LaunchViewerAction.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/actions/toolbar/LaunchViewerAction.java" title="LaunchViewerAction.java" tooltip="JipPlugin/src/actions/toolbar/LaunchViewerAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/actions/toolbar/LaunchViewerAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="82" selectionOffset="504" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Activator.java" partName="Activator.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jipplugin/Activator.java" title="Activator.java" tooltip="JipPlugin/src/jipplugin/Activator.java" workbook="org.eclipse.ui.internal.EditorStack@2f9ce80">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Activator.java" partName="Activator.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jipplugin/Activator.java" title="Activator.java" tooltip="JipPlugin/src/jipplugin/Activator.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/jipplugin/Activator.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="16" selectionOffset="225" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivatorLog.java" partName="ActivatorLog.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jipplugin/ActivatorLog.java" title="ActivatorLog.java" tooltip="JipPlugin/src/jipplugin/ActivatorLog.java" workbook="org.eclipse.ui.internal.EditorStack@2f9ce80">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivatorLog.java" partName="ActivatorLog.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/src/jipplugin/ActivatorLog.java" title="ActivatorLog.java" tooltip="JipPlugin/src/jipplugin/ActivatorLog.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/src/jipplugin/ActivatorLog.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="656" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DistSimulatorView.java" partName="DistSimulatorView.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.partitioning.analyzer/src/ca/ubc/magic/profiler/simulator/view/DistSimulatorView.java" title="DistSimulatorView.java" tooltip="DistributedSimulation/src/ca/ubc/magic/profiler/simulator/view/DistSimulatorView.java" workbook="org.eclipse.ui.internal.EditorStack@2f9ce80">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/DistributedSimulation/src/ca/ubc/magic/profiler/simulator/view/DistSimulatorView.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="33" selectionOffset="28782" selectionTopPixel="7620"/>
+<editor activePart="true" focus="true" id="org.eclipse.ui.DefaultTextEditor" name="TODO.txt" partName="TODO.txt" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/JipPlugin/TODO.txt" title="TODO.txt" tooltip="JipPlugin/TODO.txt" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JipPlugin/TODO.txt"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="650" selectionTopPixel="0"/>
 </editor>
-<editor focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Snapshot.java" partName="Snapshot.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/jip/src/com/jchapman/jipsnapman/models/Snapshot.java" title="Snapshot.java" tooltip="jip/src/com/jchapman/jipsnapman/models/Snapshot.java" workbook="org.eclipse.ui.internal.EditorStack@3d76abcd">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jip/src/com/jchapman/jipsnapman/models/Snapshot.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="573" selectionOffset="2608" selectionTopPixel="302"/>
+<editor focus="true" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="jipsnapmanStrings.properties" partName="jipsnapmanStrings.properties" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/jip/src/com/jchapman/jipsnapman/resources/jipsnapmanStrings.properties" title="jipsnapmanStrings.properties" tooltip="jip/src/com/jchapman/jipsnapman/resources/jipsnapmanStrings.properties" workbook="org.eclipse.ui.internal.EditorStack@6dcc306f">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jip/src/com/jchapman/jipsnapman/resources/jipsnapmanStrings.properties"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="497"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JIPSnapManConstants.java" partName="JIPSnapManConstants.java" path="C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/jip/src/com/jchapman/jipsnapman/utils/JIPSnapManConstants.java" title="JIPSnapManConstants.java" tooltip="jip/src/com/jchapman/jipsnapman/utils/JIPSnapManConstants.java" workbook="org.eclipse.ui.internal.EditorStack@6dcc306f">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jip/src/com/jchapman/jipsnapman/utils/JIPSnapManConstants.java"/>
+<editorState selectionHorizontalPixel="48" selectionLength="0" selectionOffset="2305" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
-<view id="org.eclipse.team.ui.GenericHistoryView" partName="History">
-<viewState/>
-</view>
-<view id="org.eclipse.team.sync.views.SynchronizeView" partName="Synchronize">
-<viewState/>
-</view>
-<view id="org.eclipse.ui.views.ProgressView" partName="Progress">
-<viewState/>
-</view>
-<view id="org.eclipse.jdt.ui.TypesView" partName="Types">
-<viewState org.eclipse.jdt.ui.browsing.typestoeditor="1" workingSetName="Aggregate for window 1336626924958">
-<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.TypesView.ClassFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.TypesView.InterfaceFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.TypesView.EnumFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.TypesView.NonPublicTypeFilter" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.TypesView.AnnotationFilter" isEnabled="false"/>
-</xmlDefinedFilters>
-</customFilters>
-<selectedElements>&#x0A;<selectedElement selectedElementPath="=jip/src&lt;com.jchapman.jipsnapman.gui{MainPanel.java[MainPanel"/>
-</selectedElements>
-</viewState>
-</view>
-<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
-<viewState isPinned="false">
-<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
-<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
-</viewState>
-</view>
-<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
-<viewState/>
-</view>
 <view id="org.eclipse.ant.ui.views.AntView" partName="Ant">
 <viewState>
 <project default="compile" error="false" name="JIP" path="/jip/build.xml"/>
 <filterInternalTargets value="false"/>
 </viewState>
 </view>
-<view id="org.eclipse.jdt.ui.ProjectsView" partName="Projects">
-<viewState org.eclipse.jdt.ui.browsing.projectstoeditor="1" workingSetName="Aggregate for window 1336626924958">
-<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.ProjectsView.LibraryFilter" isEnabled="false"/>
-<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter2" isEnabled="true"/>
-<child filterId="org.eclipse.jdt.ui.ProjectsView.NonSharedProjectsFilter" isEnabled="false"/>
-<child filterId="org.eclipse.pde.ui.BinaryProjectFilter2" isEnabled="false"/>
-<child filterId="org.eclipse.jdt.ui.ProjectsView.ContainedLibraryFilter" isEnabled="false"/>
-</xmlDefinedFilters>
-</customFilters>
-</viewState>
-</view>
-<view id="org.eclipse.pde.runtime.LogView" partName="Error Log">
-<viewState activate="true" allSessions="true" column2="869" column3="150" column4="150" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
-</view>
-<view id="org.eclipse.pde.ui.PluginsView" partName="Plug-ins">
-<viewState/>
-</view>
-<view id="org.eclipse.team.ccvs.ui.RepositoriesView" partName="CVS Repositories">
-<viewState/>
-</view>
-<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
-<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.descriptionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
-<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="300" org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.priorityField="30" org.eclipse.ui.ide.resourceField="90"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
-</viewState>
-</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints"/>
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
 <viewState/>
 </view>
-<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints"/>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
-</view>
-<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
-<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
 <view id="org.eclipse.jdt.ui.MembersView" partName="Members">
 <viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" org.eclipse.jdt.ui.browsing.memberstoeditor="1">
@@ -176,15 +156,6 @@
 </customFilters>
 <selectedElements>&#x0A;<selectedElement selectedElementPath="=jip/src&lt;com.jchapman.jipsnapman.gui{MainPanel.java#javax.swing.BoxLayout"/>
 </selectedElements>
-</viewState>
-</view>
-<view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator">
-<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
-<filters>&#x0A;<filter element="*.class" isEnabled="false"/>
-<filter element=".*" isEnabled="false"/>
-<filter element=".project" isEnabled="true"/>
-<filter element="epic_links" isEnabled="true"/>
-</filters>
 </viewState>
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
@@ -199,6 +170,9 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="1" rootMode="1" workingSetName="Aggregate for window 1336626924958">
@@ -228,18 +202,13 @@
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
 <child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+<child filterId="org.eclipse.mylyn.java.ui.MembersFilter" isEnabled="false"/>
 </xmlDefinedFilters>
 <lastRecentlyUsedFilters>
 <child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter"/>
 </lastRecentlyUsedFilters>
 </customFilters>
 </viewState>
-</view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
-</view>
-<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration">
-<viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.PackagesView" partName="Packages">
 <viewState org.eclipse.jdt.ui.PackagesView.viewState="0" org.eclipse.jdt.ui.browsing.packagestoeditor="1" workingSetName="Aggregate for window 1336626924958">
@@ -252,11 +221,89 @@
 </selectedElements>
 </viewState>
 </view>
+<view id="org.eclipse.team.ui.GenericHistoryView" partName="History">
+<viewState/>
+</view>
+<view id="org.eclipse.team.sync.views.SynchronizeView" partName="Synchronize">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ProgressView" partName="Progress">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.TypesView" partName="Types">
+<viewState org.eclipse.jdt.ui.browsing.typestoeditor="1" workingSetName="Aggregate for window 1336626924958">
+<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.TypesView.ClassFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.TypesView.InterfaceFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.TypesView.EnumFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.TypesView.NonPublicTypeFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.TypesView.AnnotationFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+<selectedElements>&#x0A;<selectedElement selectedElementPath="=jip/src&lt;com.jchapman.jipsnapman.gui{MainPanel.java[MainPanel"/>
+</selectedElements>
+</viewState>
+</view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.jdt.ui.JavaSearchResultPage" org.eclipse.jdt.search.resultpage.grouping="3" org.eclipse.jdt.search.resultpage.limit="1000" org.eclipse.jdt.search.resultpage.limit_enabled="TRUE" org.eclipse.jdt.search.resultpage.sorting="1" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2"/>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.ProjectsView" partName="Projects">
+<viewState org.eclipse.jdt.ui.browsing.projectstoeditor="1" workingSetName="Aggregate for window 1336626924958">
+<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.ProjectsView.LibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter2" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.ProjectsView.NonSharedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.BinaryProjectFilter2" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.ProjectsView.ContainedLibraryFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+</viewState>
+</view>
+<view id="org.eclipse.pde.runtime.LogView" partName="Error Log">
+<viewState activate="true" allSessions="true" column2="869" column3="150" column4="150" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="300" org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.priorityField="30" org.eclipse.ui.ide.resourceField="195"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.team.ccvs.ui.RepositoriesView" partName="CVS Repositories">
+<viewState/>
+</view>
+<view id="org.eclipse.pde.ui.PluginsView" partName="Plug-ins">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator">
+<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
+<filters>&#x0A;<filter element="*.class" isEnabled="false"/>
+<filter element=".*" isEnabled="false"/>
+<filter element=".project" isEnabled="true"/>
+<filter element="epic_links" isEnabled="true"/>
+</filters>
+</viewState>
+</view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration">
+<viewState/>
+</view>
 <view id="org.eclipse.wst.server.ui.ServersView" partName="Servers">
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -280,6 +327,9 @@
 <alwaysOnActionSet id="com.instantiations.assist.eclipse.codeproMenu.audit"/>
 <alwaysOnActionSet id="com.instantiations.assist.eclipse.codeproMenu.doc"/>
 <alwaysOnActionSet id="com.instantiations.assist.eclipse.codeproMenu.test"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
 <show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
 <show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <show_view_action id="org.eclipse.jdt.ui.SourceView"/>
@@ -313,14 +363,20 @@
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
-<view id="org.eclipse.jdt.ui.SourceView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
-<view id="org.eclipse.ant.ui.views.AntView"/>
-<view id="org.eclipse.pde.runtime.LogView"/>
-<view id="org.eclipse.ui.views.ProgressView"/>
-<view id="org.eclipse.wst.server.ui.ServersView"/>
-<view id="org.eclipse.search.ui.views.SearchView"/>
-<fastViewBars/>
+<fastViewBars>
+<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.search.ui.views.SearchView" style="0">
+<fastViews>
+<view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.2985437"/>
+<view id="org.eclipse.ant.ui.views.AntView" ratio="0.4"/>
+<view id="org.eclipse.pde.runtime.LogView" ratio="0.3"/>
+<view id="org.eclipse.ui.views.ProgressView" ratio="0.3"/>
+<view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
+<view id="org.eclipse.wst.server.ui.ServersView" ratio="0.3"/>
+<view id="org.eclipse.search.ui.views.SearchView" ratio="0.2985437"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="left">
@@ -345,34 +401,26 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@6baa7161" ratio="0.2599869" ratioLeft="397" ratioRight="1130" relationship="2" relative="left">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@6baa7161" ratio="0.27504912" ratioLeft="420" ratioRight="1107" relationship="2" relative="left">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.browser.view" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="bottom" ratio="0.5724726" ratioLeft="470" ratioRight="351" relationship="4" relative="org.eclipse.ui.internal.ViewStack@6baa7161">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<page content="org.eclipse.ant.ui.views.AntView" label="Ant"/>
-<page content="org.eclipse.pde.runtime.LogView" label="Error Log"/>
-<page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
-<page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
-<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<info folder="true" part="bottom" ratio="0.4908648" ratioLeft="403" ratioRight="418" relationship="4" relative="org.eclipse.ui.internal.ViewStack@6baa7161">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<page content="org.eclipse.pde.runtime.LogView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
+<page content="org.eclipse.wst.server.ui.ServersView" label="LabelNotFound"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.6515881" ratioLeft="677" ratioRight="362" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6baa7161">
@@ -888,184 +936,169 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DistributedSimulation/src/ca/ubc/magic/profiler/simulator/view/DistSimulatorView.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/jipplugin/resources/Messages.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/JipPlugin/src/jipplugin/resources/messages.properties"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/JipPlugin/src/jipplugin/resources/messages.properties"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/events/ISnapshotEventListener.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/events/JipSMHyperlinkListener.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/events/SnapshotEvent.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/events/SnapshotEventManager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/ILogsModel.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotInfoModel.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotPathModel.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotsTakenModel.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/NumbersOnlyDocument.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/Snapshot.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotPathModel.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotsTakenModel.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/NumbersOnlyDocument.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/Snapshot.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/jip/src/com/jchapman/jipsnapman/models/Snapshot.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/messages.properties"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/JipPlugin/src/jipplugin/resources/messages.properties"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/com/jchapman/jipsnapman/models/Snapshot.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" path="/JipPlugin/META-INF/MANIFEST.MF"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/JipPlugin/META-INF/MANIFEST.MF"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/JipPlugin/plugin.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/JipPlugin/build.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/jip/src/com/jchapman/jipsnapman/actions/ErrorDisplayAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/jip/eventlog/actions/IEventLogAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/jip/eventlog/actions/ErrorDisplayAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/jip/eventlog/actions/LogAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/jip/src/com/jchapman/jipsnapman/resources/jipsnapmanStrings.properties"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/actions/toolbar/StartAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/actions/toolbar/FinishAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/actions/toolbar/LaunchViewerAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/jip/eventlog/events/EventLogEvent.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/jip/eventlog/events/EventLogManager.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/jipplugin/Activator.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JipPlugin/src/jipplugin/ActivatorLog.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DistributedSimulation/src/ca/ubc/magic/profiler/simulator/view/DistSimulatorView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/JipPlugin/TODO.txt"/>
 </editors>
-<item historyLabel="DistSimulatorView.java" index="0">
-<position info="not_deleted" x="81" y="0"/>
-</item>
-<item historyLabel="Messages.java" index="1">
+<item historyLabel="jipsnapmanStrings.properties" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="messages.properties" index="2">
-<position info="not_deleted" x="845" y="0"/>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2404" y="0"/>
 </item>
-<item historyLabel="Messages.java" index="1">
-<position info="not_deleted" x="2187" y="0"/>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2490" y="0"/>
 </item>
-<item historyLabel="messages.properties" index="3">
-<position info="not_deleted" x="410" y="0"/>
-</item>
-<item historyLabel="ISnapshotEventListener.java" index="4">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="JipSMHyperlinkListener.java" index="5">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="SnapshotEvent.java" index="6">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="SnapshotEventManager.java" index="7">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="SnapshotEventManager.java" index="7">
-<position info="not_deleted" x="2133" y="0"/>
-</item>
-<item historyLabel="ILogsModel.java" index="8">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="ISnapshotInfoModel.java" index="9">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="ISnapshotPathModel.java" index="10">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="ISnapshotsTakenModel.java" index="11">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="NumbersOnlyDocument.java" index="12">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="Snapshot.java" index="13">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="NumbersOnlyDocument.java" index="12">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="messages.properties" index="3">
-<position/>
-</item>
-<item historyLabel="ISnapshotPathModel.java" index="14">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="ISnapshotsTakenModel.java" index="15">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="messages.properties" index="3">
-<position/>
-</item>
-<item historyLabel="NumbersOnlyDocument.java" index="16">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="messages.properties" index="3">
-<position/>
-</item>
-<item historyLabel="Snapshot.java" index="17">
-<position/>
-</item>
-<item historyLabel="messages.properties" index="3">
-<position/>
-</item>
-<item historyLabel="Snapshot.java" index="17">
-<position/>
-</item>
-<item historyLabel="Snapshot.java" index="17">
-<position/>
-</item>
-<item historyLabel="messages.properties" index="3">
-<position/>
-</item>
-<item historyLabel="Snapshot.java" index="17">
-<position/>
-</item>
-<item historyLabel="messages.properties" index="3">
-<position/>
-</item>
-<item historyLabel="Snapshot.java" index="17">
-<position/>
-</item>
-<item historyLabel="Snapshot.java" index="18">
-<position info="not_deleted" x="2608" y="573"/>
-</item>
-<item historyLabel="Snapshot.java" index="17">
-<position info="not_deleted" x="2975" y="0"/>
-</item>
-<item historyLabel="messages.properties" index="3">
-<position info="not_deleted" x="1560" y="0"/>
-</item>
-<item historyLabel="messages.properties" index="19">
+<item historyLabel="StartAction.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="messages.properties" index="20">
+<item historyLabel="FinishAction.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Snapshot.java" index="21">
+<item historyLabel="StartAction.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MANIFEST.MF" index="22"/>
-<item historyLabel="Snapshot.java" index="21">
+<item historyLabel="FinishAction.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="JipPlugin" index="23">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="LaunchViewerAction.java" index="7">
+<position info="not_deleted" x="504" y="82"/>
 </item>
-<item historyLabel="JipPlugin" index="24">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="ErrorDisplayAction.java" index="0">
+<position info="not_deleted" x="2891" y="0"/>
 </item>
-<item historyLabel="JipPlugin" index="25">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2352" y="0"/>
 </item>
-<item historyLabel="StartAction.java" index="26">
-<position info="not_deleted" x="1994" y="8"/>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2770" y="0"/>
 </item>
-<item historyLabel="Activator.java" index="27">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ActivatorLog.java" index="28">
-<position info="not_deleted" x="748" y="6"/>
-</item>
-<item historyLabel="Activator.java" index="27">
-<position info="not_deleted" x="225" y="16"/>
-</item>
-<item historyLabel="ActivatorLog.java" index="28">
-<position info="not_deleted" x="748" y="6"/>
-</item>
-<item historyLabel="ActivatorLog.java" index="28">
+<item historyLabel="ErrorDisplayAction.java" index="2">
 <position/>
 </item>
-<item historyLabel="ActivatorLog.java" index="28">
-<position info="not_deleted" x="656" y="0"/>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position/>
 </item>
-<item active="true" historyLabel="DistSimulatorView.java" index="29">
-<position info="not_deleted" x="28782" y="33"/>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2743" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2753" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2762" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2779" y="0"/>
+</item>
+<item historyLabel="IEventLogAction.java" index="1">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="0">
+<position info="not_deleted" x="2891" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2779" y="0"/>
+</item>
+<item historyLabel="IEventLogAction.java" index="1">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2779" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="1991" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="1807" y="18"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="1931" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="1989" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="0">
+<position info="not_deleted" x="2891" y="0"/>
+</item>
+<item historyLabel="IEventLogAction.java" index="1">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2019" y="0"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="303" y="0"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="265" y="9"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="578" y="0"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="485" y="40"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="473" y="0"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="485" y="40"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="33" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2019" y="0"/>
+</item>
+<item historyLabel="IEventLogAction.java" index="1">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="33" y="0"/>
+</item>
+<item historyLabel="IEventLogAction.java" index="1">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="ErrorDisplayAction.java" index="2">
+<position info="not_deleted" x="2019" y="0"/>
+</item>
+<item historyLabel="IEventLogAction.java" index="1">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="LogAction.java" index="3">
+<position info="not_deleted" x="33" y="0"/>
+</item>
+<item historyLabel="EventLogEvent.java" index="8">
+<position info="not_deleted" x="573" y="0"/>
+</item>
+<item historyLabel="EventLogManager.java" index="9">
+<position info="not_deleted" x="410" y="15"/>
+</item>
+<item historyLabel="Activator.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ActivatorLog.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="TODO.txt" index="12">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -1073,16 +1106,21 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
 <trimArea IMemento.internal.id="1024">
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.intro.impl.presentations.IntroLaunchBar"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DistSimulatorView.java" tooltip="DistributedSimulation/src/ca/ubc/magic/profiler/simulator/view/DistSimulatorView.java">
-<persistable path="/DistributedSimulation/src/ca/ubc/magic/profiler/simulator/view/DistSimulatorView.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="TODO.txt" tooltip="JipPlugin/TODO.txt">
+<persistable path="/JipPlugin/TODO.txt"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivatorLog.java" tooltip="JipPlugin/src/jipplugin/ActivatorLog.java">
 <persistable path="/JipPlugin/src/jipplugin/ActivatorLog.java"/>
@@ -1090,41 +1128,35 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Activator.java" tooltip="JipPlugin/src/jipplugin/Activator.java">
 <persistable path="/JipPlugin/src/jipplugin/Activator.java"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LaunchViewerAction.java" tooltip="JipPlugin/src/actions/toolbar/LaunchViewerAction.java">
+<persistable path="/JipPlugin/src/actions/toolbar/LaunchViewerAction.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FinishAction.java" tooltip="JipPlugin/src/actions/toolbar/FinishAction.java">
+<persistable path="/JipPlugin/src/actions/toolbar/FinishAction.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StartAction.java" tooltip="JipPlugin/src/actions/toolbar/StartAction.java">
 <persistable path="/JipPlugin/src/actions/toolbar/StartAction.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="MANIFEST.MF" tooltip="JipPlugin/META-INF/MANIFEST.MF">
-<persistable path="/JipPlugin/META-INF/MANIFEST.MF"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BaseSnapshotAction.java" tooltip="jip/src/com/jchapman/jipsnapman/actions/BaseSnapshotAction.java">
+<persistable path="/jip/src/com/jchapman/jipsnapman/actions/BaseSnapshotAction.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="JipPlugin/src/com/jchapman/jipsnapman/models/messages.properties">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/models/messages.properties"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JIPSnapManConstants.java" tooltip="jip/src/com/jchapman/jipsnapman/utils/JIPSnapManConstants.java">
+<persistable path="/jip/src/com/jchapman/jipsnapman/utils/JIPSnapManConstants.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Snapshot.java" tooltip="jip/src/com/jchapman/jipsnapman/models/Snapshot.java">
-<persistable path="/jip/src/com/jchapman/jipsnapman/models/Snapshot.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="jipsnapmanStrings.properties" tooltip="jip/src/com/jchapman/jipsnapman/resources/jipsnapmanStrings.properties">
+<persistable path="/jip/src/com/jchapman/jipsnapman/resources/jipsnapmanStrings.properties"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Snapshot.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/models/Snapshot.java">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/models/Snapshot.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LogAction.java" tooltip="JipPlugin/src/jip/eventlog/actions/LogAction.java">
+<persistable path="/JipPlugin/src/jip/eventlog/actions/LogAction.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NumbersOnlyDocument.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/models/NumbersOnlyDocument.java">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/models/NumbersOnlyDocument.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ErrorDisplayAction.java" tooltip="JipPlugin/src/jip/eventlog/actions/ErrorDisplayAction.java">
+<persistable path="/JipPlugin/src/jip/eventlog/actions/ErrorDisplayAction.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ISnapshotsTakenModel.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotsTakenModel.java">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotsTakenModel.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LogAction.java" tooltip="jip/src/com/jchapman/jipsnapman/actions/LogAction.java">
+<persistable path="/jip/src/com/jchapman/jipsnapman/actions/LogAction.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ISnapshotPathModel.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotPathModel.java">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotPathModel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ISnapshotInfoModel.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotInfoModel.java">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/models/ISnapshotInfoModel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ILogsModel.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/models/ILogsModel.java">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/models/ILogsModel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SnapshotEvent.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/events/SnapshotEvent.java">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/events/SnapshotEvent.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JipSMHyperlinkListener.java" tooltip="JipPlugin/src/com/jchapman/jipsnapman/events/JipSMHyperlinkListener.java">
-<persistable path="/JipPlugin/src/com/jchapman/jipsnapman/events/JipSMHyperlinkListener.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ErrorDisplayAction.java" tooltip="jip/src/com/jchapman/jipsnapman/actions/ErrorDisplayAction.java">
+<persistable path="/jip/src/com/jchapman/jipsnapman/actions/ErrorDisplayAction.java"/>
 </file>
 </mruList>
 </workbench>

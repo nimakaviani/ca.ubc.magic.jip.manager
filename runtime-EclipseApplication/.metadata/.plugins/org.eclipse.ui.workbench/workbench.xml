@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="15" version="2.0">
+<workbench progressCount="33" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" minimized="true" width="1024" x="0" y="0">
+<window height="768" width="1024" x="71" y="37">
 <fastViewData fastViewLocation="1024"/>
-<intro standby="true"/>
 <perspectiveBar>
-<itemSize x="160"/>
+<itemSize x="159"/>
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
@@ -13,7 +12,7 @@
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
@@ -71,18 +70,13 @@
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
 <child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+<child filterId="org.eclipse.mylyn.java.ui.MembersFilter" isEnabled="false"/>
 </xmlDefinedFilters>
 </customFilters>
 </viewState>
 </view>
-<view id="org.eclipse.ui.internal.introview" partName="Welcome">
-<viewState>
-<presentation currentPage="overview" restore="true"/>
-<standbyPart/>
-</viewState>
-</view>
 <view id="org.eclipse.pde.runtime.LogView" partName="Error Log">
-<viewState activate="true" allSessions="true" column2="526" column3="150" column4="150" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
+<viewState activate="true" allSessions="true" column2="468" column3="150" column4="150" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
 </view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
@@ -94,7 +88,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.views.ProblemView" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="JipPlugin.view1" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -118,6 +112,9 @@
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
 <show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
 <show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <show_view_action id="org.eclipse.jdt.ui.SourceView"/>
@@ -156,14 +153,13 @@
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="JipPlugin.view1"/>
 <view id="org.eclipse.pde.runtime.LogView"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
-<view id="org.eclipse.ui.internal.introview"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -180,18 +176,16 @@
 </folder>
 </info>
 <info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="left">
-<folder activePageID="org.eclipse.ui.internal.introview" appearance="2" expanded="2">
-<page content="org.eclipse.ui.internal.introview" label="Welcome"/>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="250" ratioRight="750" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.33074534" ratioLeft="213" ratioRight="431" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<folder activePageID="JipPlugin.view1" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
@@ -240,6 +234,7 @@
 <trimLayout>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
 </trimArea>
 <trimArea IMemento.internal.id="1024">
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>

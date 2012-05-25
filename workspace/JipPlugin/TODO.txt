@@ -1,3 +1,18 @@
+25 May 2012:
+
+TODO: Implement the system for displaying messages to the log console (maybe a view later).
+
+1) Start by directly calling the logs model and getting it to display (initial port).
+2) Continue by setting up the event handling and notification system. I may be able
+to reuse the snapshot manager code.
+
+The three main tasks remaining to be done are:
+	1) the event logging subsystem; most of this has been ported: I need to do the 
+	component setup and connection (building) at startup; also, I'm still not clear
+	on how exceptions are given to the event log
+	2) test the start functionality
+	3) test the finish functionality
+
 22 May 2012:
 
 So today I got a rough draft of a working SWT MVC set up. The example centers

@@ -1,0 +1,36 @@
+package com.jchapman.jipsnapman.events;
+
+import java.util.Hashtable;
+
+import org.eclipse.jface.action.Action;
+
+import com.jchapman.jipsnapman.models.Snapshot;
+
+public class
+EventLogEvent 
+implements Action
+{
+	Object		event_source;
+	private int event_id;
+	Hashtable<String, String> properties;
+	
+	public static int ACTION_PERFORMED = 1;
+
+    public 
+    EventLogEvent
+    ( Object source ) 
+    {
+    	this.event_source 
+    		= source;
+        this.properties 
+        	= new Hashtable<String, String>();
+    }
+
+    public Snapshot getSnapshot() {
+        return snapshot;
+    }
+
+    public int getId() {
+        return eventId;
+    }
+}

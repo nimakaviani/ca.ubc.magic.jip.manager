@@ -1,0 +1,8 @@
+package views.widgets;
+
+public class 
+EventLogTable 
+extends BasicListTable
+{
+
+}

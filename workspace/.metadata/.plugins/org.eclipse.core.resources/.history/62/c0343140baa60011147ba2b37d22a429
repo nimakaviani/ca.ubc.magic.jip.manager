@@ -1,0 +1,13 @@
+package com.jchapman.jipsnapman.events;
+
+public class 
+EventLogManager 
+{
+	HashTable<String, IEventLogAction> actions;
+	
+	public
+	EventLogManager()
+	{
+		
+	}
+}

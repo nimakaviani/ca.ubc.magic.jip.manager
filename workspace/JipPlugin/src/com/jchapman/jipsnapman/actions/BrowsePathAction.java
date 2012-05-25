@@ -58,9 +58,10 @@ implements ISnapshotEventListener
 {
 
 	@Override
-	public void handleSnapshotEvent(SnapshotEvent event) {
-		// TODO Auto-generated method stub
-		
+	public void
+	handleSnapshotEvent
+	(SnapshotEvent event) 
+	{
 	}
 	/*
     private final ISnapshotPathModel snapshotPathModel; // in ctor

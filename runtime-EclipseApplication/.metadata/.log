@@ -1,0 +1,595 @@
+!SESSION 2012-05-25 14:03:16.987 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY JipPlugin 1 0 2012-05-25 14:03:25.393
+!MESSAGE A folder in which to store the snapshot much be specified.
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:03:27.962
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:03:27.962
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:03:27.962
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:03:27.962
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:03:27.962
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 14:04:10.937 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY JipPlugin 1 0 2012-05-25 14:04:16.101
+!MESSAGE A folder in which to store the snapshot much be specified.
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:04:18.458
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:04:18.458
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:04:18.458
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:04:18.458
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:04:18.458
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 14:33:36.046 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY JipPlugin 1 0 2012-05-25 14:33:45.299
+!MESSAGE A folder in which to store the snapshot much be specified.
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:33:49.792
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:33:49.793
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:33:49.793
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:33:49.793
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:33:49.793
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 14:34:31.221 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY JipPlugin 1 0 2012-05-25 14:34:35.215
+!MESSAGE A folder in which to store the snapshot much be specified.
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:34:36.168
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:34:36.169
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:34:36.169
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:34:36.169
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:34:36.169
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 14:35:08.659 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY JipPlugin 1 0 2012-05-25 14:35:12.584
+!MESSAGE A folder in which to store the snapshot much be specified.
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:35:13.560
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:35:13.560
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:35:13.561
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:35:13.561
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:35:13.561
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 14:42:16.681 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY JipPlugin 1 0 2012-05-25 14:42:20.385
+!MESSAGE A folder in which to store the snapshot much be specified.
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:42:21.285
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:42:21.285
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:42:21.285
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:42:21.286
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:42:21.286
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 14:44:05.445 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY JipPlugin 1 0 2012-05-25 14:44:09.315
+!MESSAGE A folder in which to store the snapshot much be specified.
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:44:10.201
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:44:10.201
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:44:10.201
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:44:10.201
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:44:10.201
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)

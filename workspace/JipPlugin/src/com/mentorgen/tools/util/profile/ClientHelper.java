@@ -40,7 +40,6 @@ public class ClientHelper {
       doSend(command, server, port);
     }
     catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }

@@ -1,0 +1,8 @@
+package com.jchapman.jipsnapman.events;
+
+public class 
+EventLogManager 
+{
+	HashMap<String, >
+
+}

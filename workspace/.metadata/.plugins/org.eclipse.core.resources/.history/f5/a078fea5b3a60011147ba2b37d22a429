@@ -1,0 +1,25 @@
+package views.widgets;
+
+import org.eclipse.swt.widgets.Composite;
+
+import com.jchapman.jipsnapman.models.ILogsModel;
+
+public class 
+EventLogTable 
+extends BasicListTable
+{
+	private 
+	EventLogTable
+	(Composite parent, String header) 
+	{
+		super(parent, header);
+	}
+	
+	public 
+	EventLogTable
+	( Composite parent, String header, ILogsModel logs_model )
+	{
+		this(parent, header);
+	}
+
+}

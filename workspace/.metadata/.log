@@ -295,3 +295,388 @@ Binding(CTRL+DEL,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 14:02:48.782 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:02:57.134
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:02:57.134
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:02:57.134
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:02:57.134
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:02:57.134
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.core.resources 4 4 2012-05-25 14:03:04.283
+!MESSAGE Exception loading preferences from: /AriesWeb/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.runtime.CoreException: File not found: C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace\AriesWeb\.settings\org.eclipse.jdt.core.prefs.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:55)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.openInputStream(LocalFile.java:371)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:797)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:461)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:387)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:500)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:629)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:757)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:67)
+	at org.eclipse.jdt.internal.core.JavaProject.getEclipsePreferences(JavaProject.java:1487)
+	at org.eclipse.jdt.internal.core.JavaProject.getOption(JavaProject.java:1653)
+	at org.eclipse.jdt.internal.core.JavaModelManager$CompilationParticipants.getCompilationParticipants(JavaModelManager.java:304)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.initializeBuilder(JavaBuilder.java:587)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:167)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.FileNotFoundException: C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace\AriesWeb\.settings\org.eclipse.jdt.core.prefs (The system cannot find the path specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.openInputStream(LocalFile.java:362)
+	... 25 more
+!SUBENTRY 1 org.eclipse.core.filesystem 4 271 2012-05-25 14:03:04.285
+!MESSAGE File not found: C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace\AriesWeb\.settings\org.eclipse.jdt.core.prefs.
+!STACK 0
+java.io.FileNotFoundException: C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace\AriesWeb\.settings\org.eclipse.jdt.core.prefs (The system cannot find the path specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.openInputStream(LocalFile.java:362)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:797)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:461)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:387)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:500)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:629)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:757)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:67)
+	at org.eclipse.jdt.internal.core.JavaProject.getEclipsePreferences(JavaProject.java:1487)
+	at org.eclipse.jdt.internal.core.JavaProject.getOption(JavaProject.java:1653)
+	at org.eclipse.jdt.internal.core.JavaModelManager$CompilationParticipants.getCompilationParticipants(JavaModelManager.java:304)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.initializeBuilder(JavaBuilder.java:587)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:167)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2012-05-25 14:03:04.289
+!MESSAGE Exception loading preferences from: C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/AriesWeb/.settings/org.eclipse.jdt.core.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /AriesWeb/.settings/org.eclipse.jdt.core.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:466)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:387)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:500)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:629)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:757)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:67)
+	at org.eclipse.jdt.internal.core.JavaProject.getEclipsePreferences(JavaProject.java:1487)
+	at org.eclipse.jdt.internal.core.JavaProject.getOption(JavaProject.java:1653)
+	at org.eclipse.jdt.internal.core.JavaModelManager$CompilationParticipants.getCompilationParticipants(JavaModelManager.java:304)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.initializeBuilder(JavaBuilder.java:587)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:167)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2012-05-25 14:06:22.756
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at jar:file:/C:/Users/dillesca/Downloads/SWTExample.zip!/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:82)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2012-05-25 14:06:22.756
+!MESSAGE No repository found at jar:file:/C:/Users/dillesca/Downloads/SWTExample.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2012-05-25 14:06:27.936
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/eclipse/downloads/index.php..
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:82)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2012-05-25 14:06:27.936
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/downloads/index.php..
+
+!ENTRY org.eclipse.equinox.p2.ui 4 1000 2012-05-25 14:06:41.732
+!MESSAGE Some sites could not be found.  See the error log for more detail.
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2012-05-25 14:06:41.732
+!MESSAGE No repository found at jar:file:/C:/Users/dillesca/Downloads/SWTExample.zip!/.
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2012-05-25 14:06:41.732
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/downloads/index.php..
+!SESSION 2012-05-25 14:09:16.101 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 14:09:35.591
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:09:35.591
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:09:35.591
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:09:35.591
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 14:09:35.591
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 16:19:59.591 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 16:20:07.808
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 16:20:07.808
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 16:20:07.808
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 16:20:07.808
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 16:20:07.808
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2012-05-25 16:22:25.183
+!MESSAGE Several ports (8080, 8009) required by Tomcat v7.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+
+!ENTRY org.eclipse.wst.server.core 4 0 2012-05-25 16:33:59.683
+!MESSAGE Server Tomcat v7.0 Server at localhost failed to start.

@@ -20,9 +20,9 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.ViewPart;
 
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
+import com.jchapman.jipsnapman.models.ILogsModel;
 
 import views.widgets.BasicListTable;
-
 
 import actions.menu.*;
 import actions.toolbar.*;
@@ -33,7 +33,8 @@ import actions.toolbar.*;
 public class 
 JIPView 
 extends ViewPart 
-implements IView
+implements IView,
+	ILogsModel
 {
 	String 			path;
 	String 			name;
@@ -69,6 +70,9 @@ implements IView
 					"C", "C++", "Java", "smalltalk"
 				})
 			));
+		
+		this.log_console_table
+			= new BasicListTable(parent, "Event Log");
 	}
 
 	private void 
@@ -100,8 +104,12 @@ implements IView
 	initializeToolbar
 	(IToolBarManager toolBar) 
 	{
+		// the snapshot manager only needs to be seen
+		// by the toolbar buttons; it basically handles toolbar
+		// events
 		SnapshotEventManager snapshot_event_manager
 			= new SnapshotEventManager();
+		
 		IAction details	
 			= new ConfigureAction(this, snapshot_event_manager);
 		IAction finish	
@@ -114,7 +122,6 @@ implements IView
 		toolBar.add(details);
 		toolBar.add(start);
 		toolBar.add(finish);
-		toolBar.add(new GroupMarker("edit"));
 		toolBar.add(launch);
 
 	}
@@ -169,5 +176,16 @@ implements IView
 			break;
 		}
 		this.refresh();
+	}
+
+	/////////////////////////////////////////////////////
+	///	From EventLogTable
+	/////////////////////////////////////////////////////
+	
+	@Override
+	public void updateLog
+	(String value)
+	{
+		this.log_console_table.addEntry(value);
 	}
 }

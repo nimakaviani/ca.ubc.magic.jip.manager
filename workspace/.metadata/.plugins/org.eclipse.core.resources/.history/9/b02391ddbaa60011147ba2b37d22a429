@@ -1,0 +1,9 @@
+package com.jchapman.jipsnapman.events;
+
+import jip.eventlog.events.EventLogEvent;
+
+public interface 
+IEventLogAction 
+{
+	public void actionPerformed(EventLogEvent event);
+}

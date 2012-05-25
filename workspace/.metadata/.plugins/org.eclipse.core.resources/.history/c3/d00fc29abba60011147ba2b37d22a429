@@ -1,0 +1,32 @@
+package jip.eventlog.events;
+
+import java.util.HashMap;
+
+import jip.eventlog.actions.IEventLogAction;
+
+
+public class 
+EventLogManager 
+{
+	HashMap<String, IEventLogAction> actions;
+	
+	public
+	EventLogManager()
+	{
+		this.actions = new HashMap<String, IEventLogAction>();
+	}
+	
+	public void
+	addAction
+	(String key, IEventLogAction action)
+	{
+		this.actions.put(key, action);
+	}
+	
+	public Object
+	getAction
+	( String key, IEventLogAction action)
+	{
+		return this.actions.get(key);
+	}
+}

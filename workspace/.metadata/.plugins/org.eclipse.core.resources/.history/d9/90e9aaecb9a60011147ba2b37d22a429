@@ -1,0 +1,38 @@
+package com.jchapman.jipsnapman.events;
+
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
+import java.util.Hashtable;
+
+@SuppressWarnings("serial")
+public class
+EventLogEvent 
+extends ActionEvent
+{
+	HashMap<String, String> properties;
+	
+	public static int ACTION_PERFORMED = 1;
+
+    public 
+    EventLogEvent
+    (Object source, int id, String command) 
+    {
+    	super(source, id, command);
+        this.properties 
+        	= new HashMap<String, String>();
+    }
+
+    public void 
+    addProperty
+    ( String key, String message )
+    {
+       this.properties.put(key, message);
+    }
+    
+    public String
+    getProperty
+    ( String key )
+    {
+    	return this.properties.get(key);
+    }
+}

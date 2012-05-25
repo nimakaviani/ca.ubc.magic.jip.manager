@@ -1,0 +1,17 @@
+package views.widgets;
+
+import org.eclipse.swt.widgets.Composite;
+
+public class 
+EventLogTable 
+extends BasicListTable
+{
+
+	private 
+	EventLogTable
+	(Composite parent, String header) 
+	{
+		super(parent, header);
+	}
+
+}

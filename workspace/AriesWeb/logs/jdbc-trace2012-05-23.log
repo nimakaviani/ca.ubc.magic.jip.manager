@@ -1,0 +1,976 @@
+2 20:45:48.494 <http-bio-8181-exec-5>: Attempting to load class: com.mysql.jdbc.Driver
+3 20:45:48.494 <http-bio-8181-exec-5>: WrapperDriver: Connecting to "jdbc:mysql://localhost:3306/tradedb?relaxAutoCommit=true"
+4 20:45:48.525 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:mysql://localhost:3306/tradedb?relaxAutoCommit=true"
+5 20:45:50.786 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://localhost:3306/tradedb?relaxAutoCommit=true"
+6 20:45:50.786 <http-bio-8181-exec-5>: WrapperDriver: Connecting to "jdbc:mysql://localhost:3306/tradedb?relaxAutoCommit=true"
+7 20:45:50.786 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:mysql://localhost:3306/tradedb?relaxAutoCommit=true"
+2 20:48:17.002 <http-bio-8181-exec-5>: Attempting to load class: com.mysql.jdbc.Driver
+3 20:48:17.017 <http-bio-8181-exec-5>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+4 20:48:17.050 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+5 20:48:18.329 <http-bio-8181-exec-5>: [1] Created connection
+6 20:48:18.360 <http-bio-8181-exec-5>: [1] prepareStatement("select * from orderejb o where o.orderstatus = 'closed' AND o.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [1][2] (131294us)
+7 20:48:18.500 <http-bio-8181-exec-5>: [1][2] setString(1, "uid:0") (127us)
+8 20:48:18.500 <http-bio-8181-exec-5>: [1][2] executeQuery()  <unfinished(2) ...>
+9 20:48:18.578 <http-bio-8181-exec-5>: [1][2] getMetaData() -> [1][2][4] (6004us)
+10 20:48:18.500 <http-bio-8181-exec-5>: <... finished(2) >[1][2] executeQuery() -> [1][2][3] (83072us)
+11 20:48:18.594 <http-bio-8181-exec-5>: [1][2] close() (52us)
+12 20:48:18.594 <http-bio-8181-exec-5>: [1] commit() (2551us)
+13 20:48:18.594 <http-bio-8181-exec-5>: [1] close() (1521us)
+14 20:48:18.657 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+15 20:48:18.657 <http-bio-8181-exec-5>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+16 20:48:18.657 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+17 20:48:18.705 <http-bio-8181-exec-5>: [5] Created connection
+18 20:48:18.705 <http-bio-8181-exec-5>: [5] prepareStatement("select * from accountprofileejb ap where ap.userid = (select profile_userid from accountejb a where a.profile_userid=?)") -> [5][6] (554us)
+19 20:48:18.705 <http-bio-8181-exec-5>: [5][6] setString(1, "uid:0") (85us)
+20 20:48:18.705 <http-bio-8181-exec-5>: [5][6] executeQuery()  <unfinished(9) ...>
+21 20:48:18.721 <http-bio-8181-exec-5>: [5][6] getMetaData() -> [5][6][8] (579us)
+22 20:48:18.705 <http-bio-8181-exec-5>: <... finished(9) >[5][6] executeQuery() -> [5][6][7] (12596us)
+23 20:48:18.736 <http-bio-8181-exec-5>: [5][6] close() (92us)
+24 20:48:18.736 <http-bio-8181-exec-5>: [5] prepareStatement("update accountejb set lastLogin=?, logincount=logincount+1 where profile_userid=?") -> [5][9] (416us)
+25 20:48:18.752 <http-bio-8181-exec-5>: [5][9] setTimestamp(1, 2012-05-23 20:48:18.752) (10814us)
+26 20:48:18.768 <http-bio-8181-exec-5>: [5][9] setString(2, "uid:0") (56us)
+27 20:48:18.768 <http-bio-8181-exec-5>: [5][9] executeUpdate() -> 1 (8112us)
+28 20:48:18.810 <http-bio-8181-exec-5>: [5][9] close() (396us)
+29 20:48:18.812 <http-bio-8181-exec-5>: [5] prepareStatement("select * from accountejb a where a.profile_userid = ( select userid from accountprofileejb ap where ap.userid = ?)") -> [5][10] (306us)
+30 20:48:18.814 <http-bio-8181-exec-5>: [5][10] setString(1, "uid:0") (48us)
+31 20:48:18.819 <http-bio-8181-exec-5>: [5][10] executeQuery()  <unfinished(19) ...>
+32 20:48:18.830 <http-bio-8181-exec-5>: [5][10] getMetaData() -> [5][10][12] (746us)
+33 20:48:18.819 <http-bio-8181-exec-5>: <... finished(19) >[5][10] executeQuery() -> [5][10][11] (15833us)
+34 20:48:18.867 <http-bio-8181-exec-5>: [5][10] close() (92us)
+35 20:48:18.869 <http-bio-8181-exec-5>: [5] commit() (2533us)
+36 20:48:18.873 <http-bio-8181-exec-5>: [5] close() (386us)
+37 20:48:18.956 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+38 20:48:18.958 <http-bio-8181-exec-5>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+39 20:48:18.958 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+40 20:48:19.000 <http-bio-8181-exec-5>: [13] Created connection
+41 20:48:19.007 <http-bio-8181-exec-5>: [13] prepareStatement("select * from accountejb a where a.profile_userid = ( select userid from accountprofileejb ap where ap.userid = ?)") -> [13][14] (452us)
+42 20:48:19.011 <http-bio-8181-exec-5>: [13][14] setString(1, "uid:0") (78us)
+43 20:48:19.014 <http-bio-8181-exec-5>: [13][14] executeQuery()  <unfinished(26) ...>
+44 20:48:19.022 <http-bio-8181-exec-5>: [13][14] getMetaData() -> [13][14][16] (490us)
+45 20:48:19.014 <http-bio-8181-exec-5>: <... finished(26) >[13][14] executeQuery() -> [13][14][15] (12476us)
+46 20:48:19.038 <http-bio-8181-exec-5>: [13][14] close() (89us)
+47 20:48:19.040 <http-bio-8181-exec-5>: [13] commit() (3338us)
+48 20:48:19.045 <http-bio-8181-exec-5>: [13] close() (421us)
+49 20:48:19.047 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+50 20:48:19.048 <http-bio-8181-exec-5>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+51 20:48:19.049 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+52 20:48:19.093 <http-bio-8181-exec-5>: [17] Created connection
+53 20:48:19.096 <http-bio-8181-exec-5>: [17] prepareStatement("select * from holdingejb h where h.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [17][18] (485us)
+54 20:48:19.096 <http-bio-8181-exec-5>: [17][18] setString(1, "uid:0") (75us)
+55 20:48:19.096 <http-bio-8181-exec-5>: [17][18] executeQuery()  <unfinished(33) ...>
+56 20:48:19.112 <http-bio-8181-exec-5>: [17][18] getMetaData() -> [17][18][20] (486us)
+57 20:48:19.096 <http-bio-8181-exec-5>: <... finished(33) >[17][18] executeQuery() -> [17][18][19] (11974us)
+58 20:48:19.174 <http-bio-8181-exec-5>: [17][18] close() (69us)
+59 20:48:19.174 <http-bio-8181-exec-5>: [17] commit() (3468us)
+60 20:48:19.174 <http-bio-8181-exec-5>: [17] close() (269us)
+61 20:48:25.258 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+62 20:48:25.258 <http-bio-8181-exec-5>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+63 20:48:25.258 <http-bio-8181-exec-5>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+64 20:50:19.428 <http-bio-8181-exec-1>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+65 20:50:19.438 <http-bio-8181-exec-1>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+66 20:50:19.438 <http-bio-8181-exec-1>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+67 20:50:19.688 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+68 20:50:19.688 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+69 20:50:19.688 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+70 20:50:21.488 <http-bio-8181-exec-8>: [21] Created connection
+71 20:50:21.488 <http-bio-8181-exec-8>: [21] prepareStatement("select * from orderejb o where o.orderstatus = 'closed' AND o.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [21][22] (400us)
+72 20:50:21.488 <http-bio-8181-exec-8>: [21][22] setString(1, "uid:0") (47us)
+73 20:50:21.498 <http-bio-8181-exec-1>: [23] Created connection
+74 20:50:21.498 <http-bio-8181-exec-8>: [21][22] executeQuery()  <unfinished(40) ...>
+75 20:50:21.498 <http-bio-8181-exec-1>: [23] prepareStatement("select * from orderejb o where o.orderstatus = 'closed' AND o.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [23][24] (490us)
+76 20:50:21.498 <http-bio-8181-exec-1>: [23][24] setString(1, "uid:0") (145us)
+77 20:50:21.508 <http-bio-8181-exec-1>: [23][24] executeQuery()  <unfinished(43) ...>
+78 20:50:21.508 <http-bio-8181-exec-8>: [21][22] getMetaData() -> [21][22][26] (224us)
+79 20:50:21.498 <http-bio-8181-exec-8>: <... finished(40) >[21][22] executeQuery() -> [21][22][25] (13335us)
+80 20:50:21.518 <http-bio-8181-exec-8>: [21][22] close() (46us)
+81 20:50:21.519 <http-bio-8181-exec-8>: [21] commit() (2475us)
+82 20:50:21.522 <http-bio-8181-exec-8>: [21] close() (354us)
+83 20:50:21.528 <http-bio-8181-exec-1>: [23][24] getMetaData() -> [23][24][28] (4352us)
+84 20:50:21.508 <http-bio-8181-exec-1>: <... finished(43) >[23][24] executeQuery() -> [23][24][27] (27766us)
+85 20:50:21.546 <http-bio-8181-exec-1>: [23][24] close() (65us)
+86 20:50:21.562 <http-bio-8181-exec-1>: [23] commit() (2352us)
+87 20:50:21.571 <http-bio-8181-exec-1>: [23] close() (428us)
+88 20:50:21.634 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+89 20:50:21.635 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+90 20:50:21.635 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+91 20:50:21.671 <http-bio-8181-exec-1>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+92 20:50:21.673 <http-bio-8181-exec-1>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+93 20:50:21.673 <http-bio-8181-exec-1>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+94 20:50:21.675 <http-bio-8181-exec-8>: [29] Created connection
+95 20:50:21.678 <http-bio-8181-exec-8>: [29] prepareStatement("select * from accountprofileejb ap where ap.userid = (select profile_userid from accountejb a where a.profile_userid=?)") -> [29][30] (293us)
+96 20:50:21.678 <http-bio-8181-exec-8>: [29][30] setString(1, "uid:0") (65us)
+97 20:50:21.678 <http-bio-8181-exec-8>: [29][30] executeQuery()  <unfinished(54) ...>
+98 20:50:21.699 <http-bio-8181-exec-8>: [29][30] getMetaData() -> [29][30][32] (300us)
+99 20:50:21.678 <http-bio-8181-exec-8>: <... finished(54) >[29][30] executeQuery() -> [29][30][31] (20752us)
+100 20:50:21.710 <http-bio-8181-exec-8>: [29][30] close() (39us)
+101 20:50:21.711 <http-bio-8181-exec-8>: [29] prepareStatement("update accountejb set lastLogin=?, logincount=logincount+1 where profile_userid=?") -> [29][33] (209us)
+102 20:50:21.713 <http-bio-8181-exec-8>: [29][33] setTimestamp(1, 2012-05-23 20:50:21.713) (177us)
+103 20:50:21.723 <http-bio-8181-exec-8>: [29][33] setString(2, "uid:0") (46us)
+104 20:50:21.723 <http-bio-8181-exec-1>: [34] Created connection
+105 20:50:21.725 <http-bio-8181-exec-8>: [29][33] executeUpdate()  <unfinished(60) ...>
+106 20:50:21.726 <http-bio-8181-exec-1>: [34] prepareStatement("select * from accountprofileejb ap where ap.userid = (select profile_userid from accountejb a where a.profile_userid=?)") -> [34][35] (37079us)
+107 20:50:21.725 <http-bio-8181-exec-8>: <... finished(60) >[29][33] executeUpdate() -> 1 (38612us)
+108 20:50:21.767 <http-bio-8181-exec-1>: [34][35] setString(1, "uid:0") (78us)
+109 20:50:21.767 <http-bio-8181-exec-8>: [29][33] close() (327us)
+110 20:50:21.770 <http-bio-8181-exec-8>: [29] prepareStatement("select * from accountejb a where a.profile_userid = ( select userid from accountprofileejb ap where ap.userid = ?)") -> [29][36] (554us)
+111 20:50:21.770 <http-bio-8181-exec-1>: [34][35] executeQuery()  <unfinished(65) ...>
+112 20:50:21.774 <http-bio-8181-exec-8>: [29][36] setString(1, "uid:0") (250us)
+113 20:50:21.777 <http-bio-8181-exec-8>: [29][36] executeQuery()  <unfinished(67) ...>
+114 20:50:21.777 <http-bio-8181-exec-1>: [34][35] getMetaData() -> [34][35][38] (245us)
+115 20:50:21.770 <http-bio-8181-exec-1>: <... finished(65) >[34][35] executeQuery() -> [34][35][37] (9371us)
+116 20:50:21.809 <http-bio-8181-exec-8>: [29][36] getMetaData() -> [29][36][40] (93us)
+117 20:50:21.811 <http-bio-8181-exec-1>: [34][35] close() (55us)
+118 20:50:21.813 <http-bio-8181-exec-1>: [34] prepareStatement("update accountejb set lastLogin=?, logincount=logincount+1 where profile_userid=?") -> [34][41] (300us)
+119 20:50:21.777 <http-bio-8181-exec-8>: <... finished(67) >[29][36] executeQuery() -> [29][36][39] (37146us)
+120 20:50:21.816 <http-bio-8181-exec-1>: [34][41] setTimestamp(1, 2012-05-23 20:50:21.816) (246us)
+121 20:50:21.822 <http-bio-8181-exec-1>: [34][41] setString(2, "uid:0") (58us)
+122 20:50:21.823 <http-bio-8181-exec-8>: [29][36] close() (50us)
+123 20:50:21.824 <http-bio-8181-exec-8>: [29] commit() (2411us)
+124 20:50:21.826 <http-bio-8181-exec-1>: [34][41] executeUpdate() -> 1 (2350us)
+125 20:50:21.828 <http-bio-8181-exec-8>: [29] close() (383us)
+126 20:50:21.833 <http-bio-8181-exec-1>: [34][41] close() (59us)
+127 20:50:21.859 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+128 20:50:21.860 <http-bio-8181-exec-1>: [34] prepareStatement("select * from accountejb a where a.profile_userid = ( select userid from accountprofileejb ap where ap.userid = ?)") -> [34][42] (264us)
+129 20:50:21.860 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+130 20:50:21.860 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+131 20:50:21.862 <http-bio-8181-exec-1>: [34][42] setString(1, "uid:0") (36us)
+132 20:50:21.865 <http-bio-8181-exec-1>: [34][42] executeQuery()  <unfinished(81) ...>
+133 20:50:21.874 <http-bio-8181-exec-1>: [34][42] getMetaData() -> [34][42][44] (251us)
+134 20:50:21.865 <http-bio-8181-exec-1>: <... finished(81) >[34][42] executeQuery() -> [34][42][43] (12558us)
+135 20:50:21.885 <http-bio-8181-exec-1>: [34][42] close() (57us)
+136 20:50:21.886 <http-bio-8181-exec-1>: [34] commit() (3140us)
+137 20:50:21.891 <http-bio-8181-exec-1>: [34] close() (254us)
+138 20:50:21.937 <http-bio-8181-exec-8>: [45] Created connection
+139 20:50:21.946 <http-bio-8181-exec-1>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+140 20:50:21.946 <http-bio-8181-exec-8>: [45] prepareStatement("select * from accountejb a where a.profile_userid = ( select userid from accountprofileejb ap where ap.userid = ?)") -> [45][46] (213us)
+141 20:50:21.946 <http-bio-8181-exec-1>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+142 20:50:21.946 <http-bio-8181-exec-1>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+143 20:50:21.946 <http-bio-8181-exec-8>: [45][46] setString(1, "uid:0") (28us)
+144 20:50:21.946 <http-bio-8181-exec-8>: [45][46] executeQuery()  <unfinished(88) ...>
+145 20:50:21.956 <http-bio-8181-exec-8>: [45][46] getMetaData() -> [45][46][48] (122us)
+146 20:50:21.946 <http-bio-8181-exec-8>: <... finished(88) >[45][46] executeQuery() -> [45][46][47] (8407us)
+147 20:50:21.966 <http-bio-8181-exec-8>: [45][46] close() (76us)
+148 20:50:21.966 <http-bio-8181-exec-8>: [45] commit() (3129us)
+149 20:50:21.966 <http-bio-8181-exec-8>: [45] close() (347us)
+150 20:50:21.976 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+151 20:50:21.976 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+152 20:50:21.976 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+153 20:50:21.986 <http-bio-8181-exec-1>: [49] Created connection
+154 20:50:21.996 <http-bio-8181-exec-1>: [49] prepareStatement("select * from accountejb a where a.profile_userid = ( select userid from accountprofileejb ap where ap.userid = ?)") -> [49][50] (652us)
+155 20:50:21.996 <http-bio-8181-exec-1>: [49][50] setString(1, "uid:0") (27us)
+156 20:50:21.996 <http-bio-8181-exec-1>: [49][50] executeQuery()  <unfinished(95) ...>
+157 20:50:22.009 <http-bio-8181-exec-1>: [49][50] getMetaData() -> [49][50][52] (205us)
+158 20:50:21.996 <http-bio-8181-exec-1>: <... finished(95) >[49][50] executeQuery() -> [49][50][51] (9504us)
+159 20:50:22.013 <http-bio-8181-exec-8>: [53] Created connection
+160 20:50:22.017 <http-bio-8181-exec-8>: [53] prepareStatement("select * from holdingejb h where h.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [53][54] (331us)
+161 20:50:22.020 <http-bio-8181-exec-8>: [53][54] setString(1, "uid:0") (50us)
+162 20:50:22.021 <http-bio-8181-exec-1>: [49][50] close() (40us)
+163 20:50:22.022 <http-bio-8181-exec-1>: [49] commit() (1847us)
+164 20:50:22.023 <http-bio-8181-exec-8>: [53][54] executeQuery()  <unfinished(101) ...>
+165 20:50:22.025 <http-bio-8181-exec-1>: [49] close() (538us)
+166 20:50:22.026 <http-bio-8181-exec-1>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+167 20:50:22.026 <http-bio-8181-exec-1>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+168 20:50:22.027 <http-bio-8181-exec-1>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+169 20:50:22.030 <http-bio-8181-exec-8>: [53][54] getMetaData() -> [53][54][56] (34us)
+170 20:50:22.023 <http-bio-8181-exec-8>: <... finished(101) >[53][54] executeQuery() -> [53][54][55] (11936us)
+171 20:50:22.062 <http-bio-8181-exec-8>: [53][54] close() (47us)
+172 20:50:22.063 <http-bio-8181-exec-1>: [57] Created connection
+173 20:50:22.063 <http-bio-8181-exec-8>: [53] commit() (2185us)
+174 20:50:22.066 <http-bio-8181-exec-1>: [57] prepareStatement("select * from holdingejb h where h.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [57][58] (263us)
+175 20:50:22.066 <http-bio-8181-exec-8>: [53] close() (312us)
+176 20:50:22.068 <http-bio-8181-exec-1>: [57][58] setString(1, "uid:0") (48us)
+177 20:50:22.071 <http-bio-8181-exec-1>: [57][58] executeQuery()  <unfinished(109) ...>
+178 20:50:22.079 <http-bio-8181-exec-1>: [57][58] getMetaData() -> [57][58][60] (248us)
+179 20:50:22.071 <http-bio-8181-exec-1>: <... finished(109) >[57][58] executeQuery() -> [57][58][59] (11437us)
+180 20:50:22.116 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+181 20:50:22.117 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+182 20:50:22.117 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+183 20:50:22.132 <http-bio-8181-exec-1>: [57][58] close() (40us)
+184 20:50:22.133 <http-bio-8181-exec-1>: [57] commit() (3284us)
+185 20:50:22.137 <http-bio-8181-exec-1>: [57] close() (231us)
+186 20:50:22.153 <http-bio-8181-exec-8>: [61] Created connection
+187 20:50:22.181 <http-bio-8181-exec-8>: [61] prepareStatement("select * from quoteejb q where q.symbol like 's:1__' order by q.change1", 1004, 1007) -> [61][62] (239us)
+188 20:50:22.183 <http-bio-8181-exec-8>: [61][62] executeQuery()  <unfinished(115) ...>
+189 20:50:22.248 <http-bio-8181-exec-8>: [61][62] getMetaData() -> [61][62][64] (314us)
+190 20:50:22.183 <http-bio-8181-exec-8>: <... finished(115) >[61][62] executeQuery() -> [61][62][63] (72387us)
+191 20:50:22.282 <http-bio-8181-exec-8>: [61][62] close() (62us)
+192 20:50:22.284 <http-bio-8181-exec-8>: [61] prepareStatement("select * from quoteejb q where q.symbol like 's:1__' order by q.change1 DESC", 1004, 1007) -> [61][65] (276us)
+193 20:50:22.286 <http-bio-8181-exec-8>: [61][65] executeQuery()  <unfinished(119) ...>
+194 20:50:22.319 <http-bio-8181-exec-8>: [61][65] getMetaData() -> [61][65][67] (246us)
+195 20:50:22.286 <http-bio-8181-exec-8>: <... finished(119) >[61][65] executeQuery() -> [61][65][66] (36674us)
+196 20:50:22.341 <http-bio-8181-exec-8>: [61][65] close() (50us)
+197 20:50:22.342 <http-bio-8181-exec-8>: [61] prepareStatement("select SUM(price)/count(*) as TSIA from quoteejb q where q.symbol like 's:1__'") -> [61][68] (174us)
+198 20:50:22.343 <http-bio-8181-exec-8>: [61][68] executeQuery()  <unfinished(123) ...>
+199 20:50:22.374 <http-bio-8181-exec-8>: [61][68] getMetaData() -> [61][68][70] (214us)
+200 20:50:22.343 <http-bio-8181-exec-8>: <... finished(123) >[61][68] executeQuery() -> [61][68][69] (33179us)
+201 20:50:22.380 <http-bio-8181-exec-8>: [61][68] close() (34us)
+202 20:50:22.381 <http-bio-8181-exec-8>: [61] prepareStatement("select SUM(open1)/count(*) as openTSIA from quoteejb q where q.symbol like 's:1__'") -> [61][71] (160us)
+203 20:50:22.382 <http-bio-8181-exec-8>: [61][71] executeQuery()  <unfinished(127) ...>
+204 20:50:22.412 <http-bio-8181-exec-8>: [61][71] getMetaData() -> [61][71][73] (354us)
+205 20:50:22.382 <http-bio-8181-exec-8>: <... finished(127) >[61][71] executeQuery() -> [61][71][72] (34509us)
+206 20:50:22.424 <http-bio-8181-exec-8>: [61][71] close() (68us)
+207 20:50:22.427 <http-bio-8181-exec-8>: [61] prepareStatement("select SUM(volume) as totalVolume from quoteejb q where q.symbol like 's:1__'") -> [61][74] (339us)
+208 20:50:22.430 <http-bio-8181-exec-8>: [61][74] executeQuery()  <unfinished(131) ...>
+209 20:50:22.464 <http-bio-8181-exec-8>: [61][74] getMetaData() -> [61][74][76] (331us)
+210 20:50:22.430 <http-bio-8181-exec-8>: <... finished(131) >[61][74] executeQuery() -> [61][74][75] (37826us)
+211 20:50:22.475 <http-bio-8181-exec-8>: [61][74] close() (62us)
+212 20:50:22.476 <http-bio-8181-exec-8>: [61] commit() (2556us)
+213 20:50:22.485 <http-bio-8181-exec-8>: [61] close() (558us)
+214 20:50:48.396 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+215 20:50:48.396 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+216 20:50:48.396 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+217 20:51:09.524 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+218 20:51:09.525 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+219 20:51:09.525 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+220 20:51:21.040 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+221 20:51:21.044 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+222 20:51:21.044 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+223 20:51:22.534 <http-bio-8181-exec-10>: [77] Created connection
+224 20:51:22.540 <http-bio-8181-exec-10>: [77] prepareStatement("select * from holdingejb h where h.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [77][78] (424us)
+225 20:51:22.544 <http-bio-8181-exec-10>: [77][78] setString(1, "uid:0") (58us)
+226 20:51:22.546 <http-bio-8181-exec-10>: [77][78] executeQuery()  <unfinished(138) ...>
+227 20:51:22.546 <http-bio-8181-exec-10>: [77][78] getMetaData() -> [77][78][80] (273us)
+228 20:51:22.546 <http-bio-8181-exec-10>: <... finished(138) >[77][78] executeQuery() -> [77][78][79] (11822us)
+229 20:51:22.604 <http-bio-8181-exec-10>: [77][78] close() (66us)
+230 20:51:22.604 <http-bio-8181-exec-10>: [77] commit() (2750us)
+231 20:51:22.614 <http-bio-8181-exec-10>: [77] close() (332us)
+232 20:51:22.614 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+233 20:51:22.614 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+234 20:51:22.614 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+235 20:51:22.654 <http-bio-8181-exec-10>: [81] Created connection
+236 20:51:22.654 <http-bio-8181-exec-10>: [81] prepareStatement("select * from quoteejb q where q.symbol=?") -> [81][82] (238us)
+237 20:51:22.654 <http-bio-8181-exec-10>: [81][82] setString(1, "s:36234") (30us)
+238 20:51:22.664 <http-bio-8181-exec-10>: [81][82] executeQuery()  <unfinished(145) ...>
+239 20:51:22.664 <http-bio-8181-exec-10>: [81][82] getMetaData() -> [81][82][84] (316us)
+240 20:51:22.664 <http-bio-8181-exec-10>: <... finished(145) >[81][82] executeQuery() -> [81][82][83] (10496us)
+241 20:51:22.684 <http-bio-8181-exec-10>: [81][82] close() (78us)
+242 20:51:22.684 <http-bio-8181-exec-10>: [81] commit() (5098us)
+243 20:51:22.694 <http-bio-8181-exec-10>: [81] close() (466us)
+244 20:51:22.694 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+245 20:51:22.694 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+246 20:51:22.694 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+247 20:51:22.744 <http-bio-8181-exec-10>: [85] Created connection
+248 20:51:22.744 <http-bio-8181-exec-10>: [85] prepareStatement("select * from quoteejb q where q.symbol=?") -> [85][86] (213us)
+249 20:51:22.744 <http-bio-8181-exec-10>: [85][86] setString(1, "s:31277") (36us)
+250 20:51:22.754 <http-bio-8181-exec-10>: [85][86] executeQuery()  <unfinished(152) ...>
+251 20:51:22.764 <http-bio-8181-exec-10>: [85][86] getMetaData() -> [85][86][88] (249us)
+252 20:51:22.754 <http-bio-8181-exec-10>: <... finished(152) >[85][86] executeQuery() -> [85][86][87] (11312us)
+253 20:51:22.774 <http-bio-8181-exec-10>: [85][86] close() (80us)
+254 20:51:22.774 <http-bio-8181-exec-10>: [85] commit() (3362us)
+255 20:51:22.774 <http-bio-8181-exec-10>: [85] close() (285us)
+256 20:51:22.774 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+257 20:51:22.774 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+258 20:51:22.774 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+259 20:51:22.814 <http-bio-8181-exec-10>: [89] Created connection
+260 20:51:22.814 <http-bio-8181-exec-10>: [89] prepareStatement("select * from quoteejb q where q.symbol=?") -> [89][90] (210us)
+261 20:51:22.824 <http-bio-8181-exec-10>: [89][90] setString(1, "s:15528") (45us)
+262 20:51:22.824 <http-bio-8181-exec-10>: [89][90] executeQuery()  <unfinished(159) ...>
+263 20:51:22.834 <http-bio-8181-exec-10>: [89][90] getMetaData() -> [89][90][92] (174us)
+264 20:51:22.824 <http-bio-8181-exec-10>: <... finished(159) >[89][90] executeQuery() -> [89][90][91] (8567us)
+265 20:51:22.844 <http-bio-8181-exec-10>: [89][90] close() (60us)
+266 20:51:22.844 <http-bio-8181-exec-10>: [89] commit() (2346us)
+267 20:51:22.844 <http-bio-8181-exec-10>: [89] close() (298us)
+268 20:51:22.844 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+269 20:51:22.854 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+270 20:51:22.854 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+271 20:51:22.884 <http-bio-8181-exec-10>: [93] Created connection
+272 20:51:22.884 <http-bio-8181-exec-10>: [93] prepareStatement("select * from quoteejb q where q.symbol=?") -> [93][94] (210us)
+273 20:51:22.884 <http-bio-8181-exec-10>: [93][94] setString(1, "s:31199") (37us)
+274 20:51:22.894 <http-bio-8181-exec-10>: [93][94] executeQuery()  <unfinished(166) ...>
+275 20:51:22.894 <http-bio-8181-exec-10>: [93][94] getMetaData() -> [93][94][96] (311us)
+276 20:51:22.894 <http-bio-8181-exec-10>: <... finished(166) >[93][94] executeQuery() -> [93][94][95] (12352us)
+277 20:51:22.914 <http-bio-8181-exec-10>: [93][94] close() (50us)
+278 20:51:22.914 <http-bio-8181-exec-10>: [93] commit() (13954us)
+279 20:51:22.934 <http-bio-8181-exec-10>: [93] close() (523us)
+280 20:51:22.934 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+281 20:51:22.934 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+282 20:51:22.934 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+283 20:51:22.974 <http-bio-8181-exec-10>: [97] Created connection
+284 20:51:22.974 <http-bio-8181-exec-10>: [97] prepareStatement("select * from quoteejb q where q.symbol=?") -> [97][98] (227us)
+285 20:51:22.974 <http-bio-8181-exec-10>: [97][98] setString(1, "s:35171") (36us)
+286 20:51:22.974 <http-bio-8181-exec-10>: [97][98] executeQuery()  <unfinished(173) ...>
+287 20:51:22.984 <http-bio-8181-exec-10>: [97][98] getMetaData() -> [97][98][100] (199us)
+288 20:51:22.974 <http-bio-8181-exec-10>: <... finished(173) >[97][98] executeQuery() -> [97][98][99] (9494us)
+289 20:51:22.994 <http-bio-8181-exec-10>: [97][98] close() (69us)
+290 20:51:23.004 <http-bio-8181-exec-10>: [97] commit() (2428us)
+291 20:51:23.004 <http-bio-8181-exec-10>: [97] close() (673us)
+292 20:51:23.004 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+293 20:51:23.004 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+294 20:51:23.004 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+295 20:51:23.054 <http-bio-8181-exec-10>: [101] Created connection
+296 20:51:23.064 <http-bio-8181-exec-10>: [101] prepareStatement("select * from quoteejb q where q.symbol=?") -> [101][102] (327us)
+297 20:51:23.064 <http-bio-8181-exec-10>: [101][102] setString(1, "s:36092") (62us)
+298 20:51:23.064 <http-bio-8181-exec-10>: [101][102] executeQuery()  <unfinished(180) ...>
+299 20:51:23.074 <http-bio-8181-exec-10>: [101][102] getMetaData() -> [101][102][104] (287us)
+300 20:51:23.064 <http-bio-8181-exec-10>: <... finished(180) >[101][102] executeQuery() -> [101][102][103] (11491us)
+301 20:51:23.084 <http-bio-8181-exec-10>: [101][102] close() (65us)
+302 20:51:23.084 <http-bio-8181-exec-10>: [101] commit() (2396us)
+303 20:51:23.094 <http-bio-8181-exec-10>: [101] close() (344us)
+304 20:51:23.094 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+305 20:51:23.094 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+306 20:51:23.094 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+307 20:51:23.164 <http-bio-8181-exec-10>: [105] Created connection
+308 20:51:23.164 <http-bio-8181-exec-10>: [105] prepareStatement("select * from quoteejb q where q.symbol=?") -> [105][106] (282us)
+309 20:51:23.164 <http-bio-8181-exec-10>: [105][106] setString(1, "s:7479") (55us)
+310 20:51:23.174 <http-bio-8181-exec-10>: [105][106] executeQuery()  <unfinished(187) ...>
+311 20:51:23.174 <http-bio-8181-exec-10>: [105][106] getMetaData() -> [105][106][108] (244us)
+312 20:51:23.174 <http-bio-8181-exec-10>: <... finished(187) >[105][106] executeQuery() -> [105][106][107] (9201us)
+313 20:51:23.184 <http-bio-8181-exec-10>: [105][106] close() (49us)
+314 20:51:23.184 <http-bio-8181-exec-10>: [105] commit() (3833us)
+315 20:51:23.194 <http-bio-8181-exec-10>: [105] close() (257us)
+316 20:51:23.194 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+317 20:51:23.194 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+318 20:51:23.194 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+319 20:51:23.234 <http-bio-8181-exec-10>: [109] Created connection
+320 20:51:23.234 <http-bio-8181-exec-10>: [109] prepareStatement("select * from quoteejb q where q.symbol=?") -> [109][110] (241us)
+321 20:51:23.244 <http-bio-8181-exec-10>: [109][110] setString(1, "s:22874") (34us)
+322 20:51:23.244 <http-bio-8181-exec-10>: [109][110] executeQuery()  <unfinished(194) ...>
+323 20:51:23.254 <http-bio-8181-exec-10>: [109][110] getMetaData() -> [109][110][112] (384us)
+324 20:51:23.244 <http-bio-8181-exec-10>: <... finished(194) >[109][110] executeQuery() -> [109][110][111] (11950us)
+325 20:51:23.264 <http-bio-8181-exec-10>: [109][110] close() (51us)
+326 20:51:23.264 <http-bio-8181-exec-10>: [109] commit() (2377us)
+327 20:51:23.264 <http-bio-8181-exec-10>: [109] close() (434us)
+328 20:51:23.264 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+329 20:51:23.274 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+330 20:51:23.274 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+331 20:51:23.314 <http-bio-8181-exec-10>: [113] Created connection
+332 20:51:23.324 <http-bio-8181-exec-10>: [113] prepareStatement("select * from quoteejb q where q.symbol=?") -> [113][114] (255us)
+333 20:51:23.324 <http-bio-8181-exec-10>: [113][114] setString(1, "s:33672") (41us)
+334 20:51:23.324 <http-bio-8181-exec-10>: [113][114] executeQuery()  <unfinished(201) ...>
+335 20:51:23.334 <http-bio-8181-exec-10>: [113][114] getMetaData() -> [113][114][116] (445us)
+336 20:51:23.324 <http-bio-8181-exec-10>: <... finished(201) >[113][114] executeQuery() -> [113][114][115] (11530us)
+337 20:51:23.344 <http-bio-8181-exec-10>: [113][114] close() (57us)
+338 20:51:23.354 <http-bio-8181-exec-10>: [113] commit() (2910us)
+339 20:51:23.354 <http-bio-8181-exec-10>: [113] close() (325us)
+340 20:51:23.354 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+341 20:51:23.354 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+342 20:51:23.354 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+343 20:51:23.394 <http-bio-8181-exec-10>: [117] Created connection
+344 20:51:23.394 <http-bio-8181-exec-10>: [117] prepareStatement("select * from quoteejb q where q.symbol=?") -> [117][118] (231us)
+345 20:51:23.394 <http-bio-8181-exec-10>: [117][118] setString(1, "s:21065") (41us)
+346 20:51:23.394 <http-bio-8181-exec-10>: [117][118] executeQuery()  <unfinished(208) ...>
+347 20:51:23.424 <http-bio-8181-exec-10>: [117][118] getMetaData() -> [117][118][120] (283us)
+348 20:51:23.394 <http-bio-8181-exec-10>: <... finished(208) >[117][118] executeQuery() -> [117][118][119] (28737us)
+349 20:51:23.434 <http-bio-8181-exec-10>: [117][118] close() (64us)
+350 20:51:23.434 <http-bio-8181-exec-10>: [117] commit() (4584us)
+351 20:51:23.444 <http-bio-8181-exec-10>: [117] close() (299us)
+352 20:51:23.444 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+353 20:51:23.444 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+354 20:51:23.444 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+355 20:51:23.484 <http-bio-8181-exec-10>: [121] Created connection
+356 20:51:23.494 <http-bio-8181-exec-10>: [121] prepareStatement("select * from quoteejb q where q.symbol=?") -> [121][122] (7368us)
+357 20:51:23.504 <http-bio-8181-exec-10>: [121][122] setString(1, "s:0") (56us)
+358 20:51:23.504 <http-bio-8181-exec-10>: [121][122] executeQuery()  <unfinished(215) ...>
+359 20:51:23.514 <http-bio-8181-exec-10>: [121][122] getMetaData() -> [121][122][124] (250us)
+360 20:51:23.504 <http-bio-8181-exec-10>: <... finished(215) >[121][122] executeQuery() -> [121][122][123] (10839us)
+361 20:51:23.524 <http-bio-8181-exec-10>: [121][122] close() (58us)
+362 20:51:23.524 <http-bio-8181-exec-10>: [121] commit() (2355us)
+363 20:51:23.534 <http-bio-8181-exec-10>: [121] close() (296us)
+364 20:51:23.534 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+365 20:51:23.534 <http-bio-8181-exec-10>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+366 20:51:23.534 <http-bio-8181-exec-10>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+367 20:51:23.574 <http-bio-8181-exec-10>: [125] Created connection
+368 20:51:23.584 <http-bio-8181-exec-10>: [125] prepareStatement("select * from quoteejb q where q.symbol=?") -> [125][126] (302us)
+369 20:51:23.584 <http-bio-8181-exec-10>: [125][126] setString(1, "s:0") (56us)
+370 20:51:23.584 <http-bio-8181-exec-10>: [125][126] executeQuery()  <unfinished(222) ...>
+371 20:51:23.594 <http-bio-8181-exec-10>: [125][126] getMetaData() -> [125][126][128] (235us)
+372 20:51:23.584 <http-bio-8181-exec-10>: <... finished(222) >[125][126] executeQuery() -> [125][126][127] (9196us)
+373 20:51:23.615 <http-bio-8181-exec-10>: [125][126] close() (75us)
+374 20:51:23.615 <http-bio-8181-exec-10>: [125] commit() (2773us)
+375 20:51:23.615 <http-bio-8181-exec-10>: [125] close() (417us)
+376 20:51:24.095 <http-bio-8181-exec-4>: [129] Created connection
+377 20:51:24.105 <http-bio-8181-exec-4>: [129] prepareStatement("select * from orderejb o where o.orderstatus = 'closed' AND o.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [129][130] (482us)
+378 20:51:24.105 <http-bio-8181-exec-4>: [129][130] setString(1, "uid:0") (51us)
+379 20:51:24.115 <http-bio-8181-exec-4>: [129][130] executeQuery()  <unfinished(229) ...>
+380 20:51:24.115 <http-bio-8181-exec-4>: [129][130] getMetaData() -> [129][130][132] (276us)
+381 20:51:24.115 <http-bio-8181-exec-4>: <... finished(229) >[129][130] executeQuery() -> [129][130][131] (10673us)
+382 20:51:24.131 <http-bio-8181-exec-4>: [129][130] close() (50us)
+383 20:51:24.132 <http-bio-8181-exec-4>: [129] commit() (2305us)
+384 20:51:24.135 <http-bio-8181-exec-4>: [129] close() (541us)
+385 20:51:24.218 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+386 20:51:24.218 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+387 20:51:24.219 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+388 20:51:24.279 <http-bio-8181-exec-4>: [133] Created connection
+389 20:51:24.282 <http-bio-8181-exec-4>: [133] prepareStatement("select * from holdingejb h where h.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [133][134] (265us)
+390 20:51:24.284 <http-bio-8181-exec-4>: [133][134] setString(1, "uid:0") (46us)
+391 20:51:24.287 <http-bio-8181-exec-4>: [133][134] executeQuery()  <unfinished(236) ...>
+392 20:51:24.295 <http-bio-8181-exec-4>: [133][134] getMetaData() -> [133][134][136] (271us)
+393 20:51:24.287 <http-bio-8181-exec-4>: <... finished(236) >[133][134] executeQuery() -> [133][134][135] (11878us)
+394 20:51:24.331 <http-bio-8181-exec-4>: [133][134] close() (63us)
+395 20:51:24.332 <http-bio-8181-exec-4>: [133] commit() (2350us)
+396 20:51:24.336 <http-bio-8181-exec-4>: [133] close() (431us)
+397 20:51:24.337 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+398 20:51:24.338 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+399 20:51:24.338 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+400 20:51:24.384 <http-bio-8181-exec-4>: [137] Created connection
+401 20:51:24.386 <http-bio-8181-exec-4>: [137] prepareStatement("select * from quoteejb q where q.symbol=?") -> [137][138] (249us)
+402 20:51:24.386 <http-bio-8181-exec-4>: [137][138] setString(1, "s:36234") (50us)
+403 20:51:24.386 <http-bio-8181-exec-4>: [137][138] executeQuery()  <unfinished(243) ...>
+404 20:51:24.396 <http-bio-8181-exec-4>: [137][138] getMetaData() -> [137][138][140] (250us)
+405 20:51:24.386 <http-bio-8181-exec-4>: <... finished(243) >[137][138] executeQuery() -> [137][138][139] (16705us)
+406 20:51:24.416 <http-bio-8181-exec-4>: [137][138] close() (77us)
+407 20:51:24.416 <http-bio-8181-exec-4>: [137] commit() (2447us)
+408 20:51:24.416 <http-bio-8181-exec-4>: [137] close() (336us)
+409 20:51:24.416 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+410 20:51:24.416 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+411 20:51:24.416 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+412 20:51:24.486 <http-bio-8181-exec-4>: [141] Created connection
+413 20:51:24.486 <http-bio-8181-exec-4>: [141] prepareStatement("select * from quoteejb q where q.symbol=?") -> [141][142] (203us)
+414 20:51:24.486 <http-bio-8181-exec-4>: [141][142] setString(1, "s:31277") (40us)
+415 20:51:24.486 <http-bio-8181-exec-4>: [141][142] executeQuery()  <unfinished(250) ...>
+416 20:51:24.496 <http-bio-8181-exec-4>: [141][142] getMetaData() -> [141][142][144] (249us)
+417 20:51:24.486 <http-bio-8181-exec-4>: <... finished(250) >[141][142] executeQuery() -> [141][142][143] (13848us)
+418 20:51:24.517 <http-bio-8181-exec-4>: [141][142] close() (57us)
+419 20:51:24.519 <http-bio-8181-exec-4>: [141] commit() (3124us)
+420 20:51:24.523 <http-bio-8181-exec-4>: [141] close() (576us)
+421 20:51:24.525 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+422 20:51:24.525 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+423 20:51:24.526 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+424 20:51:24.575 <http-bio-8181-exec-4>: [145] Created connection
+425 20:51:24.577 <http-bio-8181-exec-4>: [145] prepareStatement("select * from quoteejb q where q.symbol=?") -> [145][146] (206us)
+426 20:51:24.579 <http-bio-8181-exec-4>: [145][146] setString(1, "s:15528") (44us)
+427 20:51:24.582 <http-bio-8181-exec-4>: [145][146] executeQuery()  <unfinished(257) ...>
+428 20:51:24.589 <http-bio-8181-exec-4>: [145][146] getMetaData() -> [145][146][148] (337us)
+429 20:51:24.582 <http-bio-8181-exec-4>: <... finished(257) >[145][146] executeQuery() -> [145][146][147] (11566us)
+430 20:51:24.603 <http-bio-8181-exec-4>: [145][146] close() (66us)
+431 20:51:24.604 <http-bio-8181-exec-4>: [145] commit() (2360us)
+432 20:51:24.607 <http-bio-8181-exec-4>: [145] close() (363us)
+433 20:51:24.608 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+434 20:51:24.609 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+435 20:51:24.609 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+436 20:51:24.659 <http-bio-8181-exec-4>: [149] Created connection
+437 20:51:24.663 <http-bio-8181-exec-4>: [149] prepareStatement("select * from quoteejb q where q.symbol=?") -> [149][150] (272us)
+438 20:51:24.666 <http-bio-8181-exec-4>: [149][150] setString(1, "s:31199") (68us)
+439 20:51:24.668 <http-bio-8181-exec-4>: [149][150] executeQuery()  <unfinished(264) ...>
+440 20:51:24.682 <http-bio-8181-exec-4>: [149][150] getMetaData() -> [149][150][152] (347us)
+441 20:51:24.668 <http-bio-8181-exec-4>: <... finished(264) >[149][150] executeQuery() -> [149][150][151] (14811us)
+442 20:51:24.694 <http-bio-8181-exec-4>: [149][150] close() (67us)
+443 20:51:24.696 <http-bio-8181-exec-4>: [149] commit() (3495us)
+444 20:51:24.700 <http-bio-8181-exec-4>: [149] close() (427us)
+445 20:51:24.702 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+446 20:51:24.702 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+447 20:51:24.703 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+448 20:51:24.753 <http-bio-8181-exec-4>: [153] Created connection
+449 20:51:24.757 <http-bio-8181-exec-4>: [153] prepareStatement("select * from quoteejb q where q.symbol=?") -> [153][154] (215us)
+450 20:51:24.758 <http-bio-8181-exec-4>: [153][154] setString(1, "s:35171") (61us)
+451 20:51:24.761 <http-bio-8181-exec-4>: [153][154] executeQuery()  <unfinished(271) ...>
+452 20:51:24.772 <http-bio-8181-exec-4>: [153][154] getMetaData() -> [153][154][156] (332us)
+453 20:51:24.761 <http-bio-8181-exec-4>: <... finished(271) >[153][154] executeQuery() -> [153][154][155] (14911us)
+454 20:51:24.785 <http-bio-8181-exec-4>: [153][154] close() (86us)
+455 20:51:24.787 <http-bio-8181-exec-4>: [153] commit() (2433us)
+456 20:51:24.791 <http-bio-8181-exec-4>: [153] close() (453us)
+457 20:51:24.792 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+458 20:51:24.793 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+459 20:51:24.793 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+460 20:51:24.841 <http-bio-8181-exec-4>: [157] Created connection
+461 20:51:24.844 <http-bio-8181-exec-4>: [157] prepareStatement("select * from quoteejb q where q.symbol=?") -> [157][158] (206us)
+462 20:51:24.845 <http-bio-8181-exec-4>: [157][158] setString(1, "s:36092") (55us)
+463 20:51:24.850 <http-bio-8181-exec-4>: [157][158] executeQuery()  <unfinished(278) ...>
+464 20:51:24.857 <http-bio-8181-exec-4>: [157][158] getMetaData() -> [157][158][160] (262us)
+465 20:51:24.850 <http-bio-8181-exec-4>: <... finished(278) >[157][158] executeQuery() -> [157][158][159] (9921us)
+466 20:51:24.868 <http-bio-8181-exec-4>: [157][158] close() (79us)
+467 20:51:24.870 <http-bio-8181-exec-4>: [157] commit() (2740us)
+468 20:51:24.874 <http-bio-8181-exec-4>: [157] close() (1172us)
+469 20:51:24.876 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+470 20:51:24.877 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+471 20:51:24.877 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+472 20:51:24.965 <http-bio-8181-exec-4>: [161] Created connection
+473 20:51:24.968 <http-bio-8181-exec-4>: [161] prepareStatement("select * from quoteejb q where q.symbol=?") -> [161][162] (213us)
+474 20:51:24.971 <http-bio-8181-exec-4>: [161][162] setString(1, "s:7479") (46us)
+475 20:51:24.976 <http-bio-8181-exec-4>: [161][162] executeQuery()  <unfinished(285) ...>
+476 20:51:24.985 <http-bio-8181-exec-4>: [161][162] getMetaData() -> [161][162][164] (233us)
+477 20:51:24.976 <http-bio-8181-exec-4>: <... finished(285) >[161][162] executeQuery() -> [161][162][163] (12148us)
+478 20:51:24.995 <http-bio-8181-exec-4>: [161][162] close() (55us)
+479 20:51:24.996 <http-bio-8181-exec-4>: [161] commit() (2725us)
+480 20:51:25.000 <http-bio-8181-exec-4>: [161] close() (673us)
+481 20:51:25.002 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+482 20:51:25.003 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+483 20:51:25.003 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+484 20:51:25.056 <http-bio-8181-exec-4>: [165] Created connection
+485 20:51:25.060 <http-bio-8181-exec-4>: [165] prepareStatement("select * from quoteejb q where q.symbol=?") -> [165][166] (295us)
+486 20:51:25.063 <http-bio-8181-exec-4>: [165][166] setString(1, "s:22874") (66us)
+487 20:51:25.066 <http-bio-8181-exec-4>: [165][166] executeQuery()  <unfinished(292) ...>
+488 20:51:25.074 <http-bio-8181-exec-4>: [165][166] getMetaData() -> [165][166][168] (335us)
+489 20:51:25.066 <http-bio-8181-exec-4>: <... finished(292) >[165][166] executeQuery() -> [165][166][167] (11148us)
+490 20:51:25.086 <http-bio-8181-exec-4>: [165][166] close() (76us)
+491 20:51:25.087 <http-bio-8181-exec-4>: [165] commit() (3224us)
+492 20:51:25.092 <http-bio-8181-exec-4>: [165] close() (455us)
+493 20:51:25.095 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+494 20:51:25.096 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+495 20:51:25.096 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+496 20:51:26.057 <http-bio-8181-exec-4>: [169] Created connection
+497 20:51:26.059 <http-bio-8181-exec-4>: [169] prepareStatement("select * from quoteejb q where q.symbol=?") -> [169][170] (197us)
+498 20:51:26.061 <http-bio-8181-exec-4>: [169][170] setString(1, "s:33672") (38us)
+499 20:51:26.064 <http-bio-8181-exec-4>: [169][170] executeQuery()  <unfinished(299) ...>
+500 20:51:26.069 <http-bio-8181-exec-4>: [169][170] getMetaData() -> [169][170][172] (237us)
+501 20:51:26.064 <http-bio-8181-exec-4>: <... finished(299) >[169][170] executeQuery() -> [169][170][171] (8144us)
+502 20:51:26.078 <http-bio-8181-exec-4>: [169][170] close() (105us)
+503 20:51:26.079 <http-bio-8181-exec-4>: [169] commit() (2293us)
+504 20:51:26.082 <http-bio-8181-exec-4>: [169] close() (310us)
+505 20:51:26.083 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+506 20:51:26.083 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+507 20:51:26.084 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+508 20:51:26.115 <http-bio-8181-exec-4>: [173] Created connection
+509 20:51:26.118 <http-bio-8181-exec-4>: [173] prepareStatement("select * from quoteejb q where q.symbol=?") -> [173][174] (187us)
+510 20:51:26.119 <http-bio-8181-exec-4>: [173][174] setString(1, "s:21065") (41us)
+511 20:51:26.122 <http-bio-8181-exec-4>: [173][174] executeQuery()  <unfinished(306) ...>
+512 20:51:26.128 <http-bio-8181-exec-4>: [173][174] getMetaData() -> [173][174][176] (320us)
+513 20:51:26.122 <http-bio-8181-exec-4>: <... finished(306) >[173][174] executeQuery() -> [173][174][175] (9206us)
+514 20:51:26.138 <http-bio-8181-exec-4>: [173][174] close() (53us)
+515 20:51:26.139 <http-bio-8181-exec-4>: [173] commit() (2285us)
+516 20:51:26.142 <http-bio-8181-exec-4>: [173] close() (339us)
+517 20:51:26.143 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+518 20:51:26.144 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+519 20:51:26.144 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+520 20:51:26.178 <http-bio-8181-exec-4>: [177] Created connection
+521 20:51:26.181 <http-bio-8181-exec-4>: [177] prepareStatement("select * from quoteejb q where q.symbol=?") -> [177][178] (199us)
+522 20:51:26.183 <http-bio-8181-exec-4>: [177][178] setString(1, "s:0") (48us)
+523 20:51:26.186 <http-bio-8181-exec-4>: [177][178] executeQuery()  <unfinished(313) ...>
+524 20:51:26.193 <http-bio-8181-exec-4>: [177][178] getMetaData() -> [177][178][180] (262us)
+525 20:51:26.186 <http-bio-8181-exec-4>: <... finished(313) >[177][178] executeQuery() -> [177][178][179] (9745us)
+526 20:51:26.203 <http-bio-8181-exec-4>: [177][178] close() (66us)
+527 20:51:26.203 <http-bio-8181-exec-4>: [177] commit() (4616us)
+528 20:51:26.210 <http-bio-8181-exec-4>: [177] close() (496us)
+529 20:51:26.213 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+530 20:51:26.214 <http-bio-8181-exec-4>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+531 20:51:26.215 <http-bio-8181-exec-4>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+532 20:51:26.248 <http-bio-8181-exec-4>: [181] Created connection
+533 20:51:26.298 <http-bio-8181-exec-4>: [181] prepareStatement("select * from quoteejb q where q.symbol=?") -> [181][182] (304us)
+534 20:51:26.301 <http-bio-8181-exec-4>: [181][182] setString(1, "s:0") (68us)
+535 20:51:26.304 <http-bio-8181-exec-4>: [181][182] executeQuery()  <unfinished(320) ...>
+536 20:51:26.313 <http-bio-8181-exec-4>: [181][182] getMetaData() -> [181][182][184] (334us)
+537 20:51:26.304 <http-bio-8181-exec-4>: <... finished(320) >[181][182] executeQuery() -> [181][182][183] (11153us)
+538 20:51:26.322 <http-bio-8181-exec-4>: [181][182] close() (65us)
+539 20:51:26.323 <http-bio-8181-exec-4>: [181] commit() (2298us)
+540 20:51:26.327 <http-bio-8181-exec-4>: [181] close() (339us)
+541 20:51:33.527 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+542 20:51:33.528 <http-bio-8181-exec-3>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+543 20:51:33.529 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+544 20:51:37.775 <http-bio-8181-exec-3>: [185] Created connection
+545 20:51:37.780 <http-bio-8181-exec-3>: [185] prepareStatement("select * from orderejb o where o.orderstatus = 'closed' AND o.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [185][186] (407us)
+546 20:51:37.783 <http-bio-8181-exec-3>: [185][186] setString(1, "uid:0") (54us)
+547 20:51:37.786 <http-bio-8181-exec-3>: [185][186] executeQuery()  <unfinished(327) ...>
+548 20:51:37.793 <http-bio-8181-exec-3>: [185][186] getMetaData() -> [185][186][188] (267us)
+549 20:51:37.786 <http-bio-8181-exec-3>: <... finished(327) >[185][186] executeQuery() -> [185][186][187] (10015us)
+550 20:51:37.803 <http-bio-8181-exec-3>: [185][186] close() (57us)
+551 20:51:37.804 <http-bio-8181-exec-3>: [185] commit() (2326us)
+552 20:51:37.808 <http-bio-8181-exec-3>: [185] close() (351us)
+553 20:51:41.617 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+554 20:51:41.617 <http-bio-8181-exec-3>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+555 20:51:41.617 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+556 20:51:45.738 <http-bio-8181-exec-3>: [189] Created connection
+557 20:51:45.742 <http-bio-8181-exec-3>: [189] prepareStatement("select * from quoteejb q where q.symbol=?") -> [189][190] (279us)
+558 20:51:45.746 <http-bio-8181-exec-3>: [189][190] setString(1, "s:0") (52us)
+559 20:51:45.749 <http-bio-8181-exec-3>: [189][190] executeQuery()  <unfinished(334) ...>
+560 20:51:45.755 <http-bio-8181-exec-3>: [189][190] getMetaData() -> [189][190][192] (239us)
+561 20:51:45.749 <http-bio-8181-exec-3>: <... finished(334) >[189][190] executeQuery() -> [189][190][191] (9583us)
+562 20:51:45.767 <http-bio-8181-exec-3>: [189][190] close() (64us)
+563 20:51:45.769 <http-bio-8181-exec-3>: [189] commit() (2464us)
+564 20:51:45.773 <http-bio-8181-exec-3>: [189] close() (508us)
+565 20:51:45.781 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+566 20:51:45.782 <http-bio-8181-exec-3>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+567 20:51:45.783 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+568 20:51:45.822 <http-bio-8181-exec-3>: [193] Created connection
+569 20:51:45.826 <http-bio-8181-exec-3>: [193] prepareStatement("select * from quoteejb q where q.symbol=?") -> [193][194] (272us)
+570 20:51:45.829 <http-bio-8181-exec-3>: [193][194] setString(1, "s:1") (47us)
+571 20:51:45.832 <http-bio-8181-exec-3>: [193][194] executeQuery()  <unfinished(341) ...>
+572 20:51:45.840 <http-bio-8181-exec-3>: [193][194] getMetaData() -> [193][194][196] (510us)
+573 20:51:45.832 <http-bio-8181-exec-3>: <... finished(341) >[193][194] executeQuery() -> [193][194][195] (11594us)
+574 20:51:45.852 <http-bio-8181-exec-3>: [193][194] close() (61us)
+575 20:51:45.853 <http-bio-8181-exec-3>: [193] commit() (2628us)
+576 20:51:45.857 <http-bio-8181-exec-3>: [193] close() (372us)
+577 20:51:45.863 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+578 20:51:45.864 <http-bio-8181-exec-3>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+579 20:51:45.864 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+580 20:51:45.900 <http-bio-8181-exec-3>: [197] Created connection
+581 20:51:45.904 <http-bio-8181-exec-3>: [197] prepareStatement("select * from quoteejb q where q.symbol=?") -> [197][198] (268us)
+582 20:51:45.908 <http-bio-8181-exec-3>: [197][198] setString(1, "s:2") (57us)
+583 20:51:45.911 <http-bio-8181-exec-3>: [197][198] executeQuery()  <unfinished(348) ...>
+584 20:51:45.917 <http-bio-8181-exec-3>: [197][198] getMetaData() -> [197][198][200] (280us)
+585 20:51:45.911 <http-bio-8181-exec-3>: <... finished(348) >[197][198] executeQuery() -> [197][198][199] (9013us)
+586 20:51:45.930 <http-bio-8181-exec-3>: [197][198] close() (68us)
+587 20:51:45.944 <http-bio-8181-exec-3>: [197] commit() (4579us)
+588 20:51:45.950 <http-bio-8181-exec-3>: [197] close() (490us)
+589 20:51:45.956 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+590 20:51:45.957 <http-bio-8181-exec-3>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+591 20:51:45.957 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+592 20:51:45.994 <http-bio-8181-exec-3>: [201] Created connection
+593 20:51:45.999 <http-bio-8181-exec-3>: [201] prepareStatement("select * from quoteejb q where q.symbol=?") -> [201][202] (266us)
+594 20:51:46.002 <http-bio-8181-exec-3>: [201][202] setString(1, "s:3") (45us)
+595 20:51:46.005 <http-bio-8181-exec-3>: [201][202] executeQuery()  <unfinished(355) ...>
+596 20:51:46.012 <http-bio-8181-exec-3>: [201][202] getMetaData() -> [201][202][204] (297us)
+597 20:51:46.005 <http-bio-8181-exec-3>: <... finished(355) >[201][202] executeQuery() -> [201][202][203] (11502us)
+598 20:51:46.025 <http-bio-8181-exec-3>: [201][202] close() (68us)
+599 20:51:46.026 <http-bio-8181-exec-3>: [201] commit() (2528us)
+600 20:51:46.030 <http-bio-8181-exec-3>: [201] close() (369us)
+601 20:51:46.036 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+602 20:51:46.037 <http-bio-8181-exec-3>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+603 20:51:46.037 <http-bio-8181-exec-3>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+604 20:51:46.070 <http-bio-8181-exec-3>: [205] Created connection
+605 20:51:46.075 <http-bio-8181-exec-3>: [205] prepareStatement("select * from quoteejb q where q.symbol=?") -> [205][206] (271us)
+606 20:51:46.077 <http-bio-8181-exec-3>: [205][206] setString(1, "s:4") (178us)
+607 20:51:46.109 <http-bio-8181-exec-3>: [205][206] executeQuery()  <unfinished(362) ...>
+608 20:51:46.116 <http-bio-8181-exec-3>: [205][206] getMetaData() -> [205][206][208] (298us)
+609 20:51:46.109 <http-bio-8181-exec-3>: <... finished(362) >[205][206] executeQuery() -> [205][206][207] (11664us)
+610 20:51:46.130 <http-bio-8181-exec-3>: [205][206] close() (76us)
+611 20:51:46.132 <http-bio-8181-exec-3>: [205] commit() (2441us)
+612 20:51:46.136 <http-bio-8181-exec-3>: [205] close() (494us)
+613 20:53:04.720 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+614 20:53:04.721 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+615 20:53:04.722 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+616 20:53:07.757 <http-bio-8181-exec-9>: [209] Created connection
+617 20:53:07.761 <http-bio-8181-exec-9>: [209] prepareStatement("select * from orderejb o where o.orderstatus = 'closed' AND o.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [209][210] (378us)
+618 20:53:07.764 <http-bio-8181-exec-9>: [209][210] setString(1, "uid:0") (48us)
+619 20:53:07.767 <http-bio-8181-exec-9>: [209][210] executeQuery()  <unfinished(369) ...>
+620 20:53:07.777 <http-bio-8181-exec-9>: [209][210] getMetaData() -> [209][210][212] (299us)
+621 20:53:07.767 <http-bio-8181-exec-9>: <... finished(369) >[209][210] executeQuery() -> [209][210][211] (12747us)
+622 20:53:07.786 <http-bio-8181-exec-9>: [209][210] close() (51us)
+623 20:53:07.788 <http-bio-8181-exec-9>: [209] commit() (2418us)
+624 20:53:07.791 <http-bio-8181-exec-9>: [209] close() (430us)
+625 20:53:08.500 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+626 20:53:08.501 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+627 20:53:08.501 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+628 20:53:23.507 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+629 20:53:23.509 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+630 20:53:23.509 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+631 20:53:24.423 <http-bio-8181-exec-9>: [213] Created connection
+632 20:53:24.429 <http-bio-8181-exec-9>: [213] prepareStatement("select * from holdingejb h where h.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [213][214] (378us)
+633 20:53:24.431 <http-bio-8181-exec-9>: [213][214] setString(1, "uid:0") (35us)
+634 20:53:24.434 <http-bio-8181-exec-9>: [213][214] executeQuery()  <unfinished(376) ...>
+635 20:53:24.443 <http-bio-8181-exec-9>: [213][214] getMetaData() -> [213][214][216] (263us)
+636 20:53:24.434 <http-bio-8181-exec-9>: <... finished(376) >[213][214] executeQuery() -> [213][214][215] (12248us)
+637 20:53:24.477 <http-bio-8181-exec-9>: [213][214] close() (54us)
+638 20:53:24.478 <http-bio-8181-exec-9>: [213] commit() (4731us)
+639 20:53:24.484 <http-bio-8181-exec-9>: [213] close() (340us)
+640 20:53:24.485 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+641 20:53:24.486 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+642 20:53:24.486 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+643 20:53:24.523 <http-bio-8181-exec-9>: [217] Created connection
+644 20:53:24.526 <http-bio-8181-exec-9>: [217] prepareStatement("select * from quoteejb q where q.symbol=?") -> [217][218] (181us)
+645 20:53:24.527 <http-bio-8181-exec-9>: [217][218] setString(1, "s:36234") (26us)
+646 20:53:24.530 <http-bio-8181-exec-9>: [217][218] executeQuery()  <unfinished(383) ...>
+647 20:53:24.530 <http-bio-8181-exec-9>: [217][218] getMetaData() -> [217][218][220] (175us)
+648 20:53:24.530 <http-bio-8181-exec-9>: <... finished(383) >[217][218] executeQuery() -> [217][218][219] (7788us)
+649 20:53:24.540 <http-bio-8181-exec-9>: [217][218] close() (34us)
+650 20:53:24.540 <http-bio-8181-exec-9>: [217] commit() (2196us)
+651 20:53:24.540 <http-bio-8181-exec-9>: [217] close() (216us)
+652 20:53:24.540 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+653 20:53:24.540 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+654 20:53:24.540 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+655 20:53:24.604 <http-bio-8181-exec-9>: [221] Created connection
+656 20:53:24.607 <http-bio-8181-exec-9>: [221] prepareStatement("select * from quoteejb q where q.symbol=?") -> [221][222] (208us)
+657 20:53:24.608 <http-bio-8181-exec-9>: [221][222] setString(1, "s:31277") (28us)
+658 20:53:24.612 <http-bio-8181-exec-9>: [221][222] executeQuery()  <unfinished(390) ...>
+659 20:53:24.618 <http-bio-8181-exec-9>: [221][222] getMetaData() -> [221][222][224] (180us)
+660 20:53:24.612 <http-bio-8181-exec-9>: <... finished(390) >[221][222] executeQuery() -> [221][222][223] (8703us)
+661 20:53:24.626 <http-bio-8181-exec-9>: [221][222] close() (44us)
+662 20:53:24.627 <http-bio-8181-exec-9>: [221] commit() (2615us)
+663 20:53:24.631 <http-bio-8181-exec-9>: [221] close() (308us)
+664 20:53:24.632 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+665 20:53:24.632 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+666 20:53:24.632 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+667 20:53:24.662 <http-bio-8181-exec-9>: [225] Created connection
+668 20:53:24.665 <http-bio-8181-exec-9>: [225] prepareStatement("select * from quoteejb q where q.symbol=?") -> [225][226] (177us)
+669 20:53:24.666 <http-bio-8181-exec-9>: [225][226] setString(1, "s:15528") (29us)
+670 20:53:24.669 <http-bio-8181-exec-9>: [225][226] executeQuery()  <unfinished(397) ...>
+671 20:53:24.675 <http-bio-8181-exec-9>: [225][226] getMetaData() -> [225][226][228] (204us)
+672 20:53:24.669 <http-bio-8181-exec-9>: <... finished(397) >[225][226] executeQuery() -> [225][226][227] (9321us)
+673 20:53:24.685 <http-bio-8181-exec-9>: [225][226] close() (34us)
+674 20:53:24.686 <http-bio-8181-exec-9>: [225] commit() (2424us)
+675 20:53:24.689 <http-bio-8181-exec-9>: [225] close() (252us)
+676 20:53:24.690 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+677 20:53:24.690 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+678 20:53:24.690 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+679 20:53:24.721 <http-bio-8181-exec-9>: [229] Created connection
+680 20:53:24.724 <http-bio-8181-exec-9>: [229] prepareStatement("select * from quoteejb q where q.symbol=?") -> [229][230] (178us)
+681 20:53:24.725 <http-bio-8181-exec-9>: [229][230] setString(1, "s:31199") (31us)
+682 20:53:24.728 <http-bio-8181-exec-9>: [229][230] executeQuery()  <unfinished(404) ...>
+683 20:53:24.734 <http-bio-8181-exec-9>: [229][230] getMetaData() -> [229][230][232] (197us)
+684 20:53:24.728 <http-bio-8181-exec-9>: <... finished(404) >[229][230] executeQuery() -> [229][230][231] (8706us)
+685 20:53:24.744 <http-bio-8181-exec-9>: [229][230] close() (61us)
+686 20:53:24.745 <http-bio-8181-exec-9>: [229] commit() (2292us)
+687 20:53:24.748 <http-bio-8181-exec-9>: [229] close() (262us)
+688 20:53:24.749 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+689 20:53:24.749 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+690 20:53:24.749 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+691 20:53:24.784 <http-bio-8181-exec-9>: [233] Created connection
+692 20:53:24.786 <http-bio-8181-exec-9>: [233] prepareStatement("select * from quoteejb q where q.symbol=?") -> [233][234] (162us)
+693 20:53:24.786 <http-bio-8181-exec-9>: [233][234] setString(1, "s:35171") (28us)
+694 20:53:24.786 <http-bio-8181-exec-9>: [233][234] executeQuery()  <unfinished(411) ...>
+695 20:53:24.786 <http-bio-8181-exec-9>: [233][234] getMetaData() -> [233][234][236] (118us)
+696 20:53:24.786 <http-bio-8181-exec-9>: <... finished(411) >[233][234] executeQuery() -> [233][234][235] (8256us)
+697 20:53:24.796 <http-bio-8181-exec-9>: [233][234] close() (43us)
+698 20:53:24.796 <http-bio-8181-exec-9>: [233] commit() (3391us)
+699 20:53:24.806 <http-bio-8181-exec-9>: [233] close() (290us)
+700 20:53:24.806 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+701 20:53:24.806 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+702 20:53:24.806 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+703 20:53:24.846 <http-bio-8181-exec-9>: [237] Created connection
+704 20:53:24.856 <http-bio-8181-exec-9>: [237] prepareStatement("select * from quoteejb q where q.symbol=?") -> [237][238] (177us)
+705 20:53:24.856 <http-bio-8181-exec-9>: [237][238] setString(1, "s:36092") (28us)
+706 20:53:25.168 <http-bio-8181-exec-9>: [237][238] executeQuery()  <unfinished(418) ...>
+707 20:53:25.174 <http-bio-8181-exec-9>: [237][238] getMetaData() -> [237][238][240] (267us)
+708 20:53:25.168 <http-bio-8181-exec-9>: <... finished(418) >[237][238] executeQuery() -> [237][238][239] (8777us)
+709 20:53:25.185 <http-bio-8181-exec-9>: [237][238] close() (53us)
+710 20:53:25.186 <http-bio-8181-exec-9>: [237] commit() (2347us)
+711 20:53:25.189 <http-bio-8181-exec-9>: [237] close() (351us)
+712 20:53:25.190 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+713 20:53:25.191 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+714 20:53:25.191 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+715 20:53:25.231 <http-bio-8181-exec-9>: [241] Created connection
+716 20:53:25.233 <http-bio-8181-exec-9>: [241] prepareStatement("select * from quoteejb q where q.symbol=?") -> [241][242] (176us)
+717 20:53:25.235 <http-bio-8181-exec-9>: [241][242] setString(1, "s:7479") (102us)
+718 20:53:25.239 <http-bio-8181-exec-9>: [241][242] executeQuery()  <unfinished(425) ...>
+719 20:53:25.244 <http-bio-8181-exec-9>: [241][242] getMetaData() -> [241][242][244] (210us)
+720 20:53:25.239 <http-bio-8181-exec-9>: <... finished(425) >[241][242] executeQuery() -> [241][242][243] (8678us)
+721 20:53:25.255 <http-bio-8181-exec-9>: [241][242] close() (41us)
+722 20:53:25.256 <http-bio-8181-exec-9>: [241] commit() (2934us)
+723 20:53:25.260 <http-bio-8181-exec-9>: [241] close() (346us)
+724 20:53:25.260 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+725 20:53:25.261 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+726 20:53:25.261 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+727 20:53:25.297 <http-bio-8181-exec-9>: [245] Created connection
+728 20:53:25.300 <http-bio-8181-exec-9>: [245] prepareStatement("select * from quoteejb q where q.symbol=?") -> [245][246] (177us)
+729 20:53:25.301 <http-bio-8181-exec-9>: [245][246] setString(1, "s:22874") (33us)
+730 20:53:25.305 <http-bio-8181-exec-9>: [245][246] executeQuery()  <unfinished(432) ...>
+731 20:53:25.306 <http-bio-8181-exec-9>: [245][246] getMetaData() -> [245][246][248] (196us)
+732 20:53:25.305 <http-bio-8181-exec-9>: <... finished(432) >[245][246] executeQuery() -> [245][246][247] (8810us)
+733 20:53:25.316 <http-bio-8181-exec-9>: [245][246] close() (45us)
+734 20:53:25.316 <http-bio-8181-exec-9>: [245] commit() (1718us)
+735 20:53:25.326 <http-bio-8181-exec-9>: [245] close() (268us)
+736 20:53:25.326 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+737 20:53:25.326 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+738 20:53:25.326 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+739 20:53:25.356 <http-bio-8181-exec-9>: [249] Created connection
+740 20:53:25.356 <http-bio-8181-exec-9>: [249] prepareStatement("select * from quoteejb q where q.symbol=?") -> [249][250] (151us)
+741 20:53:25.356 <http-bio-8181-exec-9>: [249][250] setString(1, "s:33672") (23us)
+742 20:53:25.366 <http-bio-8181-exec-9>: [249][250] executeQuery()  <unfinished(439) ...>
+743 20:53:25.366 <http-bio-8181-exec-9>: [249][250] getMetaData() -> [249][250][252] (263us)
+744 20:53:25.366 <http-bio-8181-exec-9>: <... finished(439) >[249][250] executeQuery() -> [249][250][251] (9025us)
+745 20:53:25.388 <http-bio-8181-exec-9>: [249][250] close() (74us)
+746 20:53:25.390 <http-bio-8181-exec-9>: [249] commit() (2412us)
+747 20:53:25.394 <http-bio-8181-exec-9>: [249] close() (327us)
+748 20:53:25.395 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+749 20:53:25.396 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+750 20:53:25.396 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+751 20:53:25.431 <http-bio-8181-exec-9>: [253] Created connection
+752 20:53:25.436 <http-bio-8181-exec-9>: [253] prepareStatement("select * from quoteejb q where q.symbol=?") -> [253][254] (305us)
+753 20:53:25.439 <http-bio-8181-exec-9>: [253][254] setString(1, "s:21065") (52us)
+754 20:53:25.442 <http-bio-8181-exec-9>: [253][254] executeQuery()  <unfinished(446) ...>
+755 20:53:25.450 <http-bio-8181-exec-9>: [253][254] getMetaData() -> [253][254][256] (242us)
+756 20:53:25.442 <http-bio-8181-exec-9>: <... finished(446) >[253][254] executeQuery() -> [253][254][255] (10878us)
+757 20:53:25.462 <http-bio-8181-exec-9>: [253][254] close() (68us)
+758 20:53:25.463 <http-bio-8181-exec-9>: [253] commit() (2374us)
+759 20:53:25.468 <http-bio-8181-exec-9>: [253] close() (535us)
+760 20:53:25.469 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+761 20:53:25.470 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+762 20:53:25.470 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+763 20:53:25.497 <http-bio-8181-exec-9>: [257] Created connection
+764 20:53:25.497 <http-bio-8181-exec-9>: [257] prepareStatement("select * from quoteejb q where q.symbol=?") -> [257][258] (153us)
+765 20:53:25.497 <http-bio-8181-exec-9>: [257][258] setString(1, "s:0") (23us)
+766 20:53:25.507 <http-bio-8181-exec-9>: [257][258] executeQuery()  <unfinished(453) ...>
+767 20:53:25.507 <http-bio-8181-exec-9>: [257][258] getMetaData() -> [257][258][260] (133us)
+768 20:53:25.507 <http-bio-8181-exec-9>: <... finished(453) >[257][258] executeQuery() -> [257][258][259] (9473us)
+769 20:53:25.524 <http-bio-8181-exec-9>: [257][258] close() (38us)
+770 20:53:25.525 <http-bio-8181-exec-9>: [257] commit() (3063us)
+771 20:53:25.529 <http-bio-8181-exec-9>: [257] close() (228us)
+772 20:53:25.529 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+773 20:53:25.530 <http-bio-8181-exec-9>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+774 20:53:25.530 <http-bio-8181-exec-9>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+775 20:53:25.566 <http-bio-8181-exec-9>: [261] Created connection
+776 20:53:25.569 <http-bio-8181-exec-9>: [261] prepareStatement("select * from quoteejb q where q.symbol=?") -> [261][262] (215us)
+777 20:53:25.571 <http-bio-8181-exec-9>: [261][262] setString(1, "s:0") (31us)
+778 20:53:25.573 <http-bio-8181-exec-9>: [261][262] executeQuery()  <unfinished(460) ...>
+779 20:53:25.579 <http-bio-8181-exec-9>: [261][262] getMetaData() -> [261][262][264] (142us)
+780 20:53:25.573 <http-bio-8181-exec-9>: <... finished(460) >[261][262] executeQuery() -> [261][262][263] (26019us)
+781 20:53:25.611 <http-bio-8181-exec-9>: [261][262] close() (72us)
+782 20:53:25.612 <http-bio-8181-exec-9>: [261] commit() (2434us)
+783 20:53:25.617 <http-bio-8181-exec-9>: [261] close() (538us)
+784 20:53:26.540 <http-bio-8181-exec-8>: [265] Created connection
+785 20:53:26.547 <http-bio-8181-exec-8>: [265] prepareStatement("select * from orderejb o where o.orderstatus = 'closed' AND o.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [265][266] (427us)
+786 20:53:26.550 <http-bio-8181-exec-8>: [265][266] setString(1, "uid:0") (97us)
+787 20:53:26.554 <http-bio-8181-exec-8>: [265][266] executeQuery()  <unfinished(467) ...>
+788 20:53:26.560 <http-bio-8181-exec-8>: [265][266] getMetaData() -> [265][266][268] (402us)
+789 20:53:26.554 <http-bio-8181-exec-8>: <... finished(467) >[265][266] executeQuery() -> [265][266][267] (11012us)
+790 20:53:26.569 <http-bio-8181-exec-8>: [265][266] close() (77us)
+791 20:53:26.571 <http-bio-8181-exec-8>: [265] commit() (2400us)
+792 20:53:26.575 <http-bio-8181-exec-8>: [265] close() (533us)
+793 20:53:26.669 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+794 20:53:26.670 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+795 20:53:26.670 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+796 20:53:26.705 <http-bio-8181-exec-8>: [269] Created connection
+797 20:53:26.707 <http-bio-8181-exec-8>: [269] prepareStatement("select * from holdingejb h where h.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?)") -> [269][270] (194us)
+798 20:53:26.709 <http-bio-8181-exec-8>: [269][270] setString(1, "uid:0") (25us)
+799 20:53:26.714 <http-bio-8181-exec-8>: [269][270] executeQuery()  <unfinished(474) ...>
+800 20:53:26.724 <http-bio-8181-exec-8>: [269][270] getMetaData() -> [269][270][272] (278us)
+801 20:53:26.714 <http-bio-8181-exec-8>: <... finished(474) >[269][270] executeQuery() -> [269][270][271] (13485us)
+802 20:53:26.754 <http-bio-8181-exec-8>: [269][270] close() (44us)
+803 20:53:26.755 <http-bio-8181-exec-8>: [269] commit() (2807us)
+804 20:53:26.759 <http-bio-8181-exec-8>: [269] close() (250us)
+805 20:53:26.759 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+806 20:53:26.760 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+807 20:53:26.760 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+808 20:53:26.795 <http-bio-8181-exec-8>: [273] Created connection
+809 20:53:26.797 <http-bio-8181-exec-8>: [273] prepareStatement("select * from quoteejb q where q.symbol=?") -> [273][274] (212us)
+810 20:53:26.799 <http-bio-8181-exec-8>: [273][274] setString(1, "s:36234") (24us)
+811 20:53:26.805 <http-bio-8181-exec-8>: [273][274] executeQuery()  <unfinished(481) ...>
+812 20:53:26.811 <http-bio-8181-exec-8>: [273][274] getMetaData() -> [273][274][276] (119us)
+813 20:53:26.805 <http-bio-8181-exec-8>: <... finished(481) >[273][274] executeQuery() -> [273][274][275] (8830us)
+814 20:53:26.820 <http-bio-8181-exec-8>: [273][274] close() (37us)
+815 20:53:26.821 <http-bio-8181-exec-8>: [273] commit() (2339us)
+816 20:53:26.824 <http-bio-8181-exec-8>: [273] close() (229us)
+817 20:53:26.824 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+818 20:53:26.825 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+819 20:53:26.825 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+820 20:53:26.855 <http-bio-8181-exec-8>: [277] Created connection
+821 20:53:26.857 <http-bio-8181-exec-8>: [277] prepareStatement("select * from quoteejb q where q.symbol=?") -> [277][278] (160us)
+822 20:53:26.859 <http-bio-8181-exec-8>: [277][278] setString(1, "s:31277") (24us)
+823 20:53:26.862 <http-bio-8181-exec-8>: [277][278] executeQuery()  <unfinished(488) ...>
+824 20:53:26.867 <http-bio-8181-exec-8>: [277][278] getMetaData() -> [277][278][280] (182us)
+825 20:53:26.862 <http-bio-8181-exec-8>: <... finished(488) >[277][278] executeQuery() -> [277][278][279] (8161us)
+826 20:53:26.876 <http-bio-8181-exec-8>: [277][278] close() (34us)
+827 20:53:26.877 <http-bio-8181-exec-8>: [277] commit() (2178us)
+828 20:53:26.880 <http-bio-8181-exec-8>: [277] close() (328us)
+829 20:53:26.881 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+830 20:53:26.882 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+831 20:53:26.882 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+832 20:53:26.914 <http-bio-8181-exec-8>: [281] Created connection
+833 20:53:26.916 <http-bio-8181-exec-8>: [281] prepareStatement("select * from quoteejb q where q.symbol=?") -> [281][282] (152us)
+834 20:53:26.917 <http-bio-8181-exec-8>: [281][282] setString(1, "s:15528") (24us)
+835 20:53:26.923 <http-bio-8181-exec-8>: [281][282] executeQuery()  <unfinished(495) ...>
+836 20:53:26.928 <http-bio-8181-exec-8>: [281][282] getMetaData() -> [281][282][284] (153us)
+837 20:53:26.923 <http-bio-8181-exec-8>: <... finished(495) >[281][282] executeQuery() -> [281][282][283] (8411us)
+838 20:53:26.936 <http-bio-8181-exec-8>: [281][282] close() (46us)
+839 20:53:26.937 <http-bio-8181-exec-8>: [281] commit() (2287us)
+840 20:53:26.940 <http-bio-8181-exec-8>: [281] close() (272us)
+841 20:53:26.941 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+842 20:53:26.942 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+843 20:53:26.942 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+844 20:53:26.971 <http-bio-8181-exec-8>: [285] Created connection
+845 20:53:26.973 <http-bio-8181-exec-8>: [285] prepareStatement("select * from quoteejb q where q.symbol=?") -> [285][286] (167us)
+846 20:53:26.975 <http-bio-8181-exec-8>: [285][286] setString(1, "s:31199") (25us)
+847 20:53:26.978 <http-bio-8181-exec-8>: [285][286] executeQuery()  <unfinished(502) ...>
+848 20:53:26.985 <http-bio-8181-exec-8>: [285][286] getMetaData() -> [285][286][288] (151us)
+849 20:53:26.978 <http-bio-8181-exec-8>: <... finished(502) >[285][286] executeQuery() -> [285][286][287] (11906us)
+850 20:53:26.996 <http-bio-8181-exec-8>: [285][286] close() (42us)
+851 20:53:26.997 <http-bio-8181-exec-8>: [285] commit() (5260us)
+852 20:53:27.003 <http-bio-8181-exec-8>: [285] close() (234us)
+853 20:53:27.004 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+854 20:53:27.004 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+855 20:53:27.004 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+856 20:53:27.038 <http-bio-8181-exec-8>: [289] Created connection
+857 20:53:27.040 <http-bio-8181-exec-8>: [289] prepareStatement("select * from quoteejb q where q.symbol=?") -> [289][290] (157us)
+858 20:53:27.041 <http-bio-8181-exec-8>: [289][290] setString(1, "s:35171") (117us)
+859 20:53:27.044 <http-bio-8181-exec-8>: [289][290] executeQuery()  <unfinished(509) ...>
+860 20:53:27.051 <http-bio-8181-exec-8>: [289][290] getMetaData() -> [289][290][292] (207us)
+861 20:53:27.044 <http-bio-8181-exec-8>: <... finished(509) >[289][290] executeQuery() -> [289][290][291] (9054us)
+862 20:53:27.060 <http-bio-8181-exec-8>: [289][290] close() (56us)
+863 20:53:27.062 <http-bio-8181-exec-8>: [289] commit() (2456us)
+864 20:53:27.066 <http-bio-8181-exec-8>: [289] close() (346us)
+865 20:53:27.066 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+866 20:53:27.067 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+867 20:53:27.067 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+868 20:53:27.098 <http-bio-8181-exec-8>: [293] Created connection
+869 20:53:27.102 <http-bio-8181-exec-8>: [293] prepareStatement("select * from quoteejb q where q.symbol=?") -> [293][294] (342us)
+870 20:53:27.106 <http-bio-8181-exec-8>: [293][294] setString(1, "s:36092") (52us)
+871 20:53:27.110 <http-bio-8181-exec-8>: [293][294] executeQuery()  <unfinished(516) ...>
+872 20:53:27.116 <http-bio-8181-exec-8>: [293][294] getMetaData() -> [293][294][296] (239us)
+873 20:53:27.110 <http-bio-8181-exec-8>: <... finished(516) >[293][294] executeQuery() -> [293][294][295] (8700us)
+874 20:53:27.128 <http-bio-8181-exec-8>: [293][294] close() (71us)
+875 20:53:27.130 <http-bio-8181-exec-8>: [293] commit() (21812us)
+876 20:53:27.153 <http-bio-8181-exec-8>: [293] close() (420us)
+877 20:53:27.154 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+878 20:53:27.155 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+879 20:53:27.155 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+880 20:53:27.185 <http-bio-8181-exec-8>: [297] Created connection
+881 20:53:27.189 <http-bio-8181-exec-8>: [297] prepareStatement("select * from quoteejb q where q.symbol=?") -> [297][298] (257us)
+882 20:53:27.192 <http-bio-8181-exec-8>: [297][298] setString(1, "s:7479") (44us)
+883 20:53:27.195 <http-bio-8181-exec-8>: [297][298] executeQuery()  <unfinished(523) ...>
+884 20:53:27.201 <http-bio-8181-exec-8>: [297][298] getMetaData() -> [297][298][300] (241us)
+885 20:53:27.195 <http-bio-8181-exec-8>: <... finished(523) >[297][298] executeQuery() -> [297][298][299] (9295us)
+886 20:53:27.213 <http-bio-8181-exec-8>: [297][298] close() (66us)
+887 20:53:27.214 <http-bio-8181-exec-8>: [297] commit() (2457us)
+888 20:53:27.218 <http-bio-8181-exec-8>: [297] close() (323us)
+889 20:53:27.219 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+890 20:53:27.220 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+891 20:53:27.221 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+892 20:53:27.253 <http-bio-8181-exec-8>: [301] Created connection
+893 20:53:27.257 <http-bio-8181-exec-8>: [301] prepareStatement("select * from quoteejb q where q.symbol=?") -> [301][302] (336us)
+894 20:53:27.261 <http-bio-8181-exec-8>: [301][302] setString(1, "s:22874") (56us)
+895 20:53:27.265 <http-bio-8181-exec-8>: [301][302] executeQuery()  <unfinished(530) ...>
+896 20:53:27.271 <http-bio-8181-exec-8>: [301][302] getMetaData() -> [301][302][304] (368us)
+897 20:53:27.265 <http-bio-8181-exec-8>: <... finished(530) >[301][302] executeQuery() -> [301][302][303] (9371us)
+898 20:53:27.285 <http-bio-8181-exec-8>: [301][302] close() (75us)
+899 20:53:27.286 <http-bio-8181-exec-8>: [301] commit() (2938us)
+900 20:53:27.291 <http-bio-8181-exec-8>: [301] close() (675us)
+901 20:53:27.293 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+902 20:53:27.294 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+903 20:53:27.294 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+904 20:53:27.331 <http-bio-8181-exec-8>: [305] Created connection
+905 20:53:27.335 <http-bio-8181-exec-8>: [305] prepareStatement("select * from quoteejb q where q.symbol=?") -> [305][306] (282us)
+906 20:53:27.338 <http-bio-8181-exec-8>: [305][306] setString(1, "s:33672") (45us)
+907 20:53:27.341 <http-bio-8181-exec-8>: [305][306] executeQuery()  <unfinished(537) ...>
+908 20:53:27.348 <http-bio-8181-exec-8>: [305][306] getMetaData() -> [305][306][308] (259us)
+909 20:53:27.341 <http-bio-8181-exec-8>: <... finished(537) >[305][306] executeQuery() -> [305][306][307] (9758us)
+910 20:53:27.360 <http-bio-8181-exec-8>: [305][306] close() (82us)
+911 20:53:27.361 <http-bio-8181-exec-8>: [305] commit() (2578us)
+912 20:53:27.365 <http-bio-8181-exec-8>: [305] close() (398us)
+913 20:53:27.366 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+914 20:53:27.367 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+915 20:53:27.367 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+916 20:53:27.402 <http-bio-8181-exec-8>: [309] Created connection
+917 20:53:27.406 <http-bio-8181-exec-8>: [309] prepareStatement("select * from quoteejb q where q.symbol=?") -> [309][310] (246us)
+918 20:53:27.409 <http-bio-8181-exec-8>: [309][310] setString(1, "s:21065") (70us)
+919 20:53:27.412 <http-bio-8181-exec-8>: [309][310] executeQuery()  <unfinished(544) ...>
+920 20:53:27.418 <http-bio-8181-exec-8>: [309][310] getMetaData() -> [309][310][312] (305us)
+921 20:53:27.412 <http-bio-8181-exec-8>: <... finished(544) >[309][310] executeQuery() -> [309][310][311] (9472us)
+922 20:53:27.431 <http-bio-8181-exec-8>: [309][310] close() (62us)
+923 20:53:27.432 <http-bio-8181-exec-8>: [309] commit() (2453us)
+924 20:53:27.436 <http-bio-8181-exec-8>: [309] close() (321us)
+925 20:53:27.437 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+926 20:53:27.438 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+927 20:53:27.438 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+928 20:53:27.474 <http-bio-8181-exec-8>: [313] Created connection
+929 20:53:27.478 <http-bio-8181-exec-8>: [313] prepareStatement("select * from quoteejb q where q.symbol=?") -> [313][314] (257us)
+930 20:53:27.481 <http-bio-8181-exec-8>: [313][314] setString(1, "s:0") (44us)
+931 20:53:27.484 <http-bio-8181-exec-8>: [313][314] executeQuery()  <unfinished(551) ...>
+932 20:53:27.491 <http-bio-8181-exec-8>: [313][314] getMetaData() -> [313][314][316] (238us)
+933 20:53:27.484 <http-bio-8181-exec-8>: <... finished(551) >[313][314] executeQuery() -> [313][314][315] (10326us)
+934 20:53:27.502 <http-bio-8181-exec-8>: [313][314] close() (60us)
+935 20:53:27.504 <http-bio-8181-exec-8>: [313] commit() (2454us)
+936 20:53:27.508 <http-bio-8181-exec-8>: [313] close() (324us)
+937 20:53:27.509 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:wrapper:class=com.mysql.jdbc.Driver;trace=4;tracefile=C:\Users\dillesca\Desktop\AriesWeb\logs\jdbc-trace{yyyy-MM-dd}.log;items=5;printLength=50;report=3600000;url=jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+938 20:53:27.510 <http-bio-8181-exec-8>: WrapperDriver: Connecting to "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+939 20:53:27.510 <http-bio-8181-exec-8>: WrapperDriver: url is "jdbc:mysql://corona.magic.ubc.ca:3306/tradedb?relaxAutoCommit=true"
+940 20:53:30.555 <http-bio-8181-exec-8>: [317] Created connection
+941 20:53:30.559 <http-bio-8181-exec-8>: [317] prepareStatement("select * from quoteejb q where q.symbol=?") -> [317][318] (318us)
+942 20:53:30.561 <http-bio-8181-exec-8>: [317][318] setString(1, "s:0") (54us)
+943 20:53:30.561 <http-bio-8181-exec-8>: [317][318] executeQuery()  <unfinished(558) ...>
+944 20:53:30.561 <http-bio-8181-exec-8>: [317][318] getMetaData() -> [317][318][320] (211us)
+945 20:53:30.561 <http-bio-8181-exec-8>: <... finished(558) >[317][318] executeQuery() -> [317][318][319] (9532us)
+946 20:53:30.585 <http-bio-8181-exec-8>: [317][318] close() (78us)
+947 20:53:30.587 <http-bio-8181-exec-8>: [317] commit() (9494us)
+948 20:53:30.598 <http-bio-8181-exec-8>: [317] close() (443us)
+949 select * from orderejb o where o.orderstatus = 'closed' AND o.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?): 
+950   Executions: 7, duration -18548861145844 ms;  Fetches: 7, duration 0 ms;  Columns: 0, duration 0
+951 select * from accountprofileejb ap where ap.userid = (select profile_userid from accountejb a where a.profile_userid=?): 
+952   Executions: 3, duration -7669798847924 ms;  Fetches: 3, duration 0 ms;  Columns: 3, duration 0
+953 update accountejb set lastLogin=?, logincount=logincount+1 where profile_userid=?: 
+954   Executions: 3, duration 23 ms;  Fetches: 0, duration 0 ms;  Columns: 0, duration 0
+955 select * from accountejb a where a.profile_userid = ( select userid from accountprofileejb ap where ap.userid = ?): 
+956   Executions: 6, duration -15340680697554 ms;  Fetches: 6, duration 0 ms;  Columns: 48, duration 6
+957 select * from holdingejb h where h.account_accountid = (select a.accountid from accountejb a where a.profile_userid = ?): 
+958   Executions: 7, duration -18552298937169 ms;  Fetches: 91, duration 2 ms;  Columns: 420, duration 8
+959 select * from quoteejb q where q.symbol like 's:1__' order by q.change1: 
+960   Executions: 1, duration -2598057411498 ms;  Fetches: 6, duration 0 ms;  Columns: 40, duration 1
+961 select * from quoteejb q where q.symbol like 's:1__' order by q.change1 DESC: 
+962   Executions: 1, duration -2598160018165 ms;  Fetches: 6, duration 0 ms;  Columns: 40, duration 1
+963 select SUM(price)/count(*) as TSIA from quoteejb q where q.symbol like 's:1__': 
+964   Executions: 1, duration -2598217186485 ms;  Fetches: 1, duration 0 ms;  Columns: 1, duration 0
+965 select SUM(open1)/count(*) as openTSIA from quoteejb q where q.symbol like 's:1__': 
+966   Executions: 1, duration -2598256345007 ms;  Fetches: 1, duration 0 ms;  Columns: 1, duration 0
+967 select SUM(volume) as totalVolume from quoteejb q where q.symbol like 's:1__': 
+968   Executions: 1, duration -2598303749674 ms;  Fetches: 1, duration 0 ms;  Columns: 1, duration 1
+969 select * from quoteejb q where q.symbol=?: 
+970   Executions: 53, duration -144020702705025 ms;  Fetches: 53, duration 2 ms;  Columns: 424, duration 10
+971 -------------------------------------------------------------------------------

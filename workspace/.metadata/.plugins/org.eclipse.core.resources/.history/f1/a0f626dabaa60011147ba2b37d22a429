@@ -1,0 +1,29 @@
+package com.jchapman.jipsnapman.events;
+
+import java.util.HashMap;
+
+public class 
+EventLogManager 
+{
+	HashMap<String, IEventLogAction> actions;
+	
+	public
+	EventLogManager()
+	{
+		this.actions = new HashMap<String, IEventLogAction>();
+	}
+	
+	public void
+	addAction
+	(String key, IEventLogAction action)
+	{
+		this.actions.put(key, action);
+	}
+	
+	public IEventLogAction
+	getAction
+	( String key, IEventLogAction action)
+	{
+		return this.actions.get(key);
+	}
+}

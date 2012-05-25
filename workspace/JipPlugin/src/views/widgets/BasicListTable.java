@@ -13,6 +13,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.jchapman.jipsnapman.models.ILogsModel;
+
+import views.JIPView;
+
 public class 
 BasicListTable 
 {
