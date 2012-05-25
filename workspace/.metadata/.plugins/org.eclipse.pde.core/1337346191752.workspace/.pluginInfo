@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="979" class="de.spiritlink.mvc.Activator" localization="plugin" name="MVC Plug-in" project="de.spiritlink.mvc" provider="Tom Seidel - Spiritlink GmbH"/>
+	<bundle bundleID="980" class="jipplugin.Activator" localization="OSGI-INF/l10n/bundle" name="JipPlugin" project="JipPlugin"/>
+	<bundle bundleID="981" class="tableviewer.Activator" localization="OSGI-INF/l10n/bundle" name="TableViewer" project="TableViewer"/>
+</map>
