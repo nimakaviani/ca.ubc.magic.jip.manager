@@ -1,0 +1,46 @@
+JIP_0=Null name odd
+JIP_About_Tooltip=Learn about the JIP Manager
+JIP_About_Label=About
+JIP_Active_Configure_Path=icons/configure.gif
+JIP_Active_Disconnect_Path=icons/disconnect_co_active.gif
+JIP_Active_Start_Path=icons/run_exc_active.gif
+JIP_Active_Visualize_Path=icons/image_obj.gif
+JIP_Browse_Button=Browse
+JIP_Configure_Tooltip=Set the path, name, port, and host to work with.
+JIP_Default_Path=C:/
+JIP_Default_URL_Label=Hello World
+JIP_File_Success_Message=The message "file" was a success.
+JIP_Finish_Tooltip=Disconnect from application to produce snapshot.
+JIP_Host_Label=Host: 
+JIP_Host_Property_Method=HostProperty
+JIP_Inactive_Configure_Path=icons/configure_inactive.gif
+JIP_Inactive_Disconnect_Path=icons/disconnect_co2.gif
+JIP_Inactive_Start_Path=icons/run_exc.gif
+JIP_Inactive_Visualize_Path=icons/disconnect_co.gif
+JIP_Launch_Tooltip=Launch JIP Viewer in order to....
+JIP_Name_Label=Name: 
+JIP_Name_Property_Method=NameProperty
+JIP_Path_Label=Path: 
+JIP_Path_Property_Method=PathProperty
+JIP_Pathfile_Error=A folder in which to store the snapshot much be specified.
+JIP_Port_Label=Port: 
+JIP_Port_Property_Method=PortProperty
+JIP_Select_Label=Select File
+JIP_Snapshot_Table_Title=Snapshots
+JIP_Start_Success_Message=The message "start" was a success.
+JIP_Start_Tooltip=Connect and profile to produce snapshot.
+JIPUnexpected_Exception=Unexpected Exception
+JIPView_0=C
+JIPView_1=C++
+JIPView_2=Java
+JIPView_3=smalltalk
+JIPView_4=edit
+JIPView_5=\ \ \ ( Port: 
+JIPView_6=, Host: 
+JIPView_7=, Path: 
+JIPView_8=\ )
+Snapshot_0=.xml
+Snapshot_1=path=
+Snapshot_2=\ name=
+Snapshot_3=\ port=
+Snapshot_4=\ host=

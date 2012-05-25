@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.eclipse.swt.widgets.TableColumn"/>
-<fullyQualifiedTypeName name="org.eclipse.swt.graphics.Rectangle"/>
 <fullyQualifiedTypeName name="org.eclipse.ui.ISizeProvider"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.events.ControlEvent"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.events.ControlAdapter"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="com.mentorgen.tools.util.profile.Start"/>
 <fullyQualifiedTypeName name="java.net.ConnectException"/>
+<fullyQualifiedTypeName name="org.eclipse.jface.resource.ResourceManager"/>
+<fullyQualifiedTypeName name="views.Messages"/>
 </qualifiedTypeNameHistroy>

@@ -75,6 +75,16 @@ extends NLS
 	public static String JIPView_7;
 
 	public static String JIPView_8;
+
+	public static String Snapshot_0;
+
+	public static String Snapshot_1;
+
+	public static String Snapshot_2;
+
+	public static String Snapshot_3;
+
+	public static String Snapshot_4;
 	
 	static {
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

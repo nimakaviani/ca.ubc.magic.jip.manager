@@ -137,7 +137,9 @@ implements ISnapshotEventListener
 	    	// this doesn't appear to work correctly;
 	    	// ask about this
 	    	ActivatorLog.logMessage(
-	    		"The folder " + pathFile.getPath() + " must have both read and write access."
+	    		"The folder " 
+	    		+ pathFile.getPath() 
+	    		+ " must have both read and write access."
 	    	);
 	      return null;
 	    }

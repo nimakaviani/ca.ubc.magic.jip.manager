@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 <contributor name="org.eclipse.pde.ui"/>
+<contributor name="org.eclipse.rap.ui.intro"/>
 <contributor name="com.instantiations.assist.eclipse"/>
 <contributor name="org.eclipse.ui.intro"/>
 <contributor name="org.eclipse.ui.intro.universal"/>

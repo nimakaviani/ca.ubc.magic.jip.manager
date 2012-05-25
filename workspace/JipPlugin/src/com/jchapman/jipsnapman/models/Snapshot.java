@@ -32,6 +32,8 @@ package com.jchapman.jipsnapman.models;
 
 import java.io.File;
 
+import jipplugin.resources.Messages;
+
 /**
  *
  * @author not attributable
@@ -86,17 +88,17 @@ Snapshot
     public String getPathAndNameForXML() {
         StringBuffer buf = new StringBuffer();
         buf.append(name.substring(0,name.length()-4));
-        buf.append(".xml");
+        buf.append(com.jchapman.jipsnapman.models.Messages.Snapshot_0);
         File pathAndName = new File(path, buf.toString());
         return pathAndName.getPath();
     }
 
     public String toString() {
         StringBuffer buf = new StringBuffer();
-        buf.append("path=").append(path);
-        buf.append(" name=").append(name);
-        buf.append(" port=").append(port);
-        buf.append(" host=").append(host);
+        buf.append(com.jchapman.jipsnapman.models.Messages.Snapshot_1).append(path);
+        buf.append(com.jchapman.jipsnapman.models.Messages.Snapshot_2).append(name);
+        buf.append(com.jchapman.jipsnapman.models.Messages.Snapshot_3).append(port);
+        buf.append(com.jchapman.jipsnapman.models.Messages.Snapshot_4).append(host);
         return buf.toString();
     }
 }

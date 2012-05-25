@@ -644,3 +644,1667 @@ Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dille
 
 !ENTRY JipPlugin 1 0 2012-05-22 22:56:12.982
 !MESSAGE A folder in which to store the snapshot much be specified.
+!SESSION 2012-05-23 19:37:30.854 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_About_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_About_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Active_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Active_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Active_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Active_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Browse_Button in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Configure_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Default_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Default_URL_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_File_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Finish_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Host_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Host_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Inactive_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Inactive_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Inactive_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Inactive_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Launch_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.754
+!MESSAGE NLS missing message: JIP_Name_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.770
+!MESSAGE NLS missing message: JIP_Name_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.770
+!MESSAGE NLS missing message: JIP_Path_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.770
+!MESSAGE NLS missing message: JIP_Path_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.770
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.770
+!MESSAGE NLS missing message: JIP_Port_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.770
+!MESSAGE NLS missing message: JIP_Port_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIP_Select_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIP_Snapshot_Table_Title in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIP_Start_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIP_Start_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPUnexpected_Exception in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_4 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_5 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_6 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_7 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIPView_8 in: resources.messages
+
+!ENTRY JipPlugin 1 0 2012-05-23 19:37:34.785
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+!SESSION 2012-05-25 12:46:37.623 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.740
+!MESSAGE NLS missing message: JIP_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_About_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_About_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_Active_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_Active_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_Active_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_Active_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_Browse_Button in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_Configure_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_Default_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.756
+!MESSAGE NLS missing message: JIP_Default_URL_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_File_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Finish_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Host_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Host_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Inactive_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Inactive_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Inactive_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Inactive_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Launch_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Name_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Name_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Path_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Path_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Port_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.771
+!MESSAGE NLS missing message: JIP_Port_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIP_Select_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIP_Snapshot_Table_Title in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIP_Start_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIP_Start_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPUnexpected_Exception in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_4 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_5 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_6 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_7 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIPView_8 in: resources.messages
+
+!ENTRY JipPlugin 1 0 2012-05-25 12:47:12.787
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 12:47:15.502
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:47:15.502
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:47:15.502
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:47:15.502
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:47:15.502
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 12:48:13.292 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.512
+!MESSAGE NLS missing message: JIP_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_About_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_About_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Active_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Active_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Active_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Active_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Browse_Button in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Configure_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Default_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Default_URL_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_File_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Finish_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Host_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Host_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Inactive_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Inactive_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Inactive_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Inactive_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Launch_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Name_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Name_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Path_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Path_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Port_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Port_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Select_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Snapshot_Table_Title in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Start_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIP_Start_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIPUnexpected_Exception in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIPView_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIPView_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIPView_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIPView_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIPView_4 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIPView_5 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.527
+!MESSAGE NLS missing message: JIPView_6 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.543
+!MESSAGE NLS missing message: JIPView_7 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:48:16.543
+!MESSAGE NLS missing message: JIPView_8 in: resources.messages
+
+!ENTRY JipPlugin 1 0 2012-05-25 12:48:16.544
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 12:48:18.619
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:48:18.619
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:48:18.619
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:48:18.619
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:48:18.619
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 12:51:45.823 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_About_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_About_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Active_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Active_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Active_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Active_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Browse_Button in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Configure_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Default_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Default_URL_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_File_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Finish_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Host_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Host_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Inactive_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Inactive_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Inactive_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Inactive_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Launch_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.027
+!MESSAGE NLS missing message: JIP_Name_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Name_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Path_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Path_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Port_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Port_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Select_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Snapshot_Table_Title in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Start_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Start_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPUnexpected_Exception in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_4 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_5 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_6 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_7 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIPView_8 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: Snapshot_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: Snapshot_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: Snapshot_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: Snapshot_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: Snapshot_4 in: resources.messages
+
+!ENTRY JipPlugin 1 0 2012-05-25 12:51:49.043
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 12:51:51.134
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:51:51.134
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:51:51.134
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:51:51.134
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:51:51.134
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 12:53:07.922 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.338
+!MESSAGE NLS missing message: JIP_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.338
+!MESSAGE NLS missing message: JIP_About_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.338
+!MESSAGE NLS missing message: JIP_About_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.338
+!MESSAGE NLS missing message: JIP_Active_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.338
+!MESSAGE NLS missing message: JIP_Active_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.338
+!MESSAGE NLS missing message: JIP_Active_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.338
+!MESSAGE NLS missing message: JIP_Active_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Browse_Button in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Configure_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Default_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Default_URL_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_File_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Finish_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Host_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Host_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Inactive_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Inactive_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Inactive_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Inactive_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Launch_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Name_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Name_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Path_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Path_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Port_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Port_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Select_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Snapshot_Table_Title in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Start_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIP_Start_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPUnexpected_Exception in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_4 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_5 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_6 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_7 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: JIPView_8 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: Snapshot_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: Snapshot_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: Snapshot_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: Snapshot_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 12:53:11.354
+!MESSAGE NLS missing message: Snapshot_4 in: resources.messages
+
+!ENTRY JipPlugin 1 0 2012-05-25 12:53:11.371
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 12:53:13.679
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:53:13.679
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:53:13.679
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:53:13.679
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 12:53:13.679
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 13:00:42.005 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_About_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_About_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Active_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Active_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Active_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Active_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Browse_Button in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Configure_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Default_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Default_URL_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_File_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Finish_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Host_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Host_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Inactive_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Inactive_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Inactive_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Inactive_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Launch_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Name_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Name_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Path_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Path_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Port_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.500
+!MESSAGE NLS missing message: JIP_Port_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIP_Select_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIP_Snapshot_Table_Title in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIP_Start_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIP_Start_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPUnexpected_Exception in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_4 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_5 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_6 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_7 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIPView_8 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: Snapshot_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: Snapshot_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: Snapshot_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: Snapshot_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: Snapshot_4 in: resources.messages
+
+!ENTRY JipPlugin 1 0 2012-05-25 13:00:45.515
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 13:00:47.872
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:00:47.872
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:00:47.872
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:00:47.872
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:00:47.872
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 13:01:09.351 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_About_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_About_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Active_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Active_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Active_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Active_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Browse_Button in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Configure_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Default_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Default_URL_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_File_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Finish_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Host_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Host_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Inactive_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Inactive_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Inactive_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Inactive_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Launch_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Name_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Name_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Path_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Path_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.750
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIP_Port_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIP_Port_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIP_Select_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIP_Snapshot_Table_Title in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIP_Start_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIP_Start_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPUnexpected_Exception in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_4 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_5 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_6 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_7 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIPView_8 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: Snapshot_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: Snapshot_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: Snapshot_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: Snapshot_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: Snapshot_4 in: resources.messages
+
+!ENTRY JipPlugin 1 0 2012-05-25 13:01:12.765
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 13:01:15.200
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:01:15.200
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:01:15.200
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:01:15.200
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:01:15.200
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2012-05-25 13:01:57.054 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.sdk.ide
+Command-line arguments:  -product org.eclipse.sdk.ide -data C:\cygwin\home\dillesca\ca.ubc.magic.jip.manager\workspace/../runtime-EclipseApplication -dev file:C:/cygwin/home/dillesca/ca.ubc.magic.jip.manager/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_About_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_About_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_Active_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_Active_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_Active_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_Active_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_Browse_Button in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_Configure_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.704
+!MESSAGE NLS missing message: JIP_Default_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Default_URL_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_File_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Finish_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Host_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Host_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Inactive_Configure_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Inactive_Disconnect_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Inactive_Start_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Inactive_Visualize_Path in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Launch_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Name_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Name_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Path_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Path_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Port_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.720
+!MESSAGE NLS missing message: JIP_Port_Property_Method in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIP_Select_Label in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIP_Snapshot_Table_Title in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIP_Start_Success_Message in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIP_Start_Tooltip in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPUnexpected_Exception in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_4 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_5 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_6 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_7 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: JIPView_8 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: Snapshot_0 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: Snapshot_1 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: Snapshot_2 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: Snapshot_3 in: resources.messages
+
+!ENTRY org.eclipse.osgi 2 1 2012-05-25 13:02:00.736
+!MESSAGE NLS missing message: Snapshot_4 in: resources.messages
+
+!ENTRY JipPlugin 1 0 2012-05-25 13:02:00.752
+!MESSAGE NLS missing message: JIP_Pathfile_Error in: resources.messages
+
+!ENTRY org.eclipse.jface 2 0 2012-05-25 13:02:03.513
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:02:03.513
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.debug,Debug RAP Application,
+		Debug RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:02:03.513
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.ui.launch.RAPLaunchShortcut.run,Run RAP Application,
+		Run RAP Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:02:03.513
+!MESSAGE A conflict occurred for CTRL+SHIFT+I:
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.jdt.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+SHIFT+I,
+	ParameterizedCommand(Command(org.eclipse.php.debug.ui.commands.Inspect,Inspect,
+		Inspect result of evaluating selected text,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-05-25 13:02:03.513
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeInstance,Remove Result,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
