@@ -1,0 +1,13 @@
+package jipplugin;
+
+public class 
+ActionHandler
+{
+	HashMap<String, IAction> actions_map
+		= new HashMap<String, IAction>();
+	public void 
+	performActionByKey
+	(String key, EventLogEvent event){
+		
+	}
+}

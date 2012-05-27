@@ -15,7 +15,8 @@ extends AbstractUIPlugin
 
 	private static Activator plugin;
 	
-	Model model;
+	Model 					model;
+	EventLogActionHandler 	action_handler;
 	
 	public 
 	Activator() 
@@ -58,5 +59,11 @@ extends AbstractUIPlugin
 	getModel() 
 	{
 		return this.model;
+	}
+	
+	public EventLogActionHandler
+	getActionHandler()
+	{
+		return this.action_handler;
 	}
 }

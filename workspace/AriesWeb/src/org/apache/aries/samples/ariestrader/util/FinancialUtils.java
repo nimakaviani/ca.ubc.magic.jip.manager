@@ -19,8 +19,6 @@ package org.apache.aries.samples.ariestrader.util;
 import java.math.BigDecimal;
 
 public class FinancialUtils {
-    //TODO -- FinancialUtils should have parts reimplemented as JSPTaglibs 
-
     public final static int ROUND = BigDecimal.ROUND_HALF_UP;
     public final static int SCALE = 2;  
     public final static BigDecimal ZERO = (new BigDecimal(0.00)).setScale(SCALE);

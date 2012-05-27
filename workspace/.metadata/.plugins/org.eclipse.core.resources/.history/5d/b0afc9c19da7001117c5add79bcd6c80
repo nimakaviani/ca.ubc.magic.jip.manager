@@ -1,0 +1,7 @@
+package views.widgets;
+
+import org.eclipse.jface.viewers.LabelProvider;
+
+public class SnapshotsLabelProvier extends LabelProvider {
+
+}

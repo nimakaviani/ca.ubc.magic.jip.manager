@@ -1,0 +1,16 @@
+package jipplugin;
+
+import java.awt.event.ActionEvent;
+
+@SuppressWarnings("serial")
+public class 
+EventLogEvent
+extends ActionEvent
+{
+
+	public EventLogEvent(Object source, int id, String command) {
+		super(source, id, command);
+		// TODO Auto-generated constructor stub
+	}
+
+}

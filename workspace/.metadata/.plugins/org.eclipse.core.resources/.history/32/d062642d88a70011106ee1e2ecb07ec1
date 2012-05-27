@@ -1,0 +1,105 @@
+26 May 2012:
+
+JipSnapmanFrame.java -- ported
+BrowsePathAction.java -- ported
+
+// used for event and error logging
+// cannot straight port: will need to be rethought
+BaseSnapshotAction.java
+ErrorDisplayAction.java
+LogAction.java
+
+StartSnapshotAction.java -- ported minus event logging
+FinishSnapshotAction.java -- ported minus event logging
+ViewSnapshotAction.java -- don't need to port
+
+SnapshotEvent.java -- ported
+SnapshotEventListener.java -- ported
+SnapshotEventManager.java -- ported
+
+JipSMHyperlinkListener.java -- not essential ( for about help ); port later
+
+LogsModel.java
+NumbersOnlyDocument.java
+Snapshot.java -- ported
+SnapshotInfoModel.java -- ported
+SnapshotListModel.java
+SnapshotPathModel.java -- ported
+SnapshotsTakenModel.java
+
+Let's do this!!
+
+1) Changed type of Dialog inside the DetailsDialog to DirectoryDialog
+(previously was FileDialog).
+2) Added a title to the ConfigureSnaphotDialog
+3) 
+
+25 May 2012:
+
+TODO: Implement the system for displaying messages to the log console (maybe a view later).
+
+1) Start by directly calling the logs model and getting it to display (initial port).
+2) Continue by setting up the event handling and notification system. I may be able
+to reuse the snapshot manager code.
+
+The three main tasks remaining to be done are:
+	1) the event logging subsystem; most of this has been ported: I need to do the 
+	component setup and connection (building) at startup; also, I'm still not clear
+	on how exceptions are given to the event log
+	2) test the start functionality
+	3) test the finish functionality
+
+22 May 2012:
+
+So today I got a rough draft of a working SWT MVC set up. The example centers
+around the ConfigureAction as the Controller. I am doing what I can to
+decouple the controller/model from the view; I am getting there, but decoupling
+the controller from the model appears to be a little bit more difficult.
+
+The next thing to do, now that the messages are being passed around, is
+perform input validation on the snapshot entries, and add the message passing
+which deactivates certain toolbar buttons based on the state of the system
+( I believe this code is present in the reference implementation, and forms the
+last part of the browse action).
+
+After that I will more or less know enough to study the rest of the code and
+port the functionality over. I should have enough time to read more into the
+eclipse plugin book and see if there aren't better ways to do what I am doing.
+
+21 May 2012:
+
+I have completed almost all of the GUI elements. Now I need to port over the system
+functionality. I have copied over the models, because those I should be able to work
+with wholesale. The next part is to add the connection between the GUI and the
+model itself, with as little new code as possible.
+
+Once the port is done perhaps I can refactor.
+
+Stay calm and carry on: I will start by porting the BrowsePathAction class.
+
+Miniature MVC for starters: setting the snapshot data:
+	1) controller gets a reference to a view; this is used whenever the
+	controller is notified of a change in a model
+	2) controller obtains a reference to a model; this is used to change
+	something when the view indicates
+	3) controller registers itself as a listener on the model's state
+	
+In the case of the ConfigurationDialog, we have the dialog as the view;
+the action as the controller, and some model as the model. I know this is
+different from the design of the original implementation, but it should be
+straightforward and can be carried out. Later on I will need to change to the
+"command" approach.
+
+20 May 2012:
+
+I want to both get things done and learn new techniques. Once I have figured out
+how to do something, I need to immediately look up how to do it better.
+
+Later on I may try out the SWTXML project on Google code.
+
+Today, since I have laid out the primary design of the user interface, I will now
+refactor. I may need to refactor once more once the MVC is decided on.
+
+One of the things I will need to learn is how to use resources, so that the 
+contents and the layout of the GUI can be separated. 
+

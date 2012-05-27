@@ -1,0 +1,18 @@
+package views.widgets;
+
+import org.eclipse.jface.viewers.LabelProvider;
+
+public class 
+SnapshotsLabelProvier 
+extends LabelProvider 
+{
+	@Override
+	public String
+	getText
+	( Object element )
+	{
+		Snapshot snapshot 
+		 	= (Snapshot) element;
+		
+	}
+}

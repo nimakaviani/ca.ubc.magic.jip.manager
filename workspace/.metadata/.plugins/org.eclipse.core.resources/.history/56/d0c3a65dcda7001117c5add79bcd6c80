@@ -1,0 +1,22 @@
+package jipplugin;
+
+import java.awt.event.ActionEvent;
+
+@SuppressWarnings("serial")
+public class 
+EventLogEvent
+extends ActionEvent
+{
+
+	public 
+	EventLogEvent
+	(Object source, int id, String command)
+	{
+		super(source, id, command);
+	}
+
+	public String getProperty(String keyErrDlgtitle) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -1,0 +1,21 @@
+package views.widgets;
+
+import org.eclipse.jface.viewers.LabelProvider;
+
+import com.jchapman.jipsnapman.models.Snapshot;
+
+public class 
+SnapshotsLabelProvider 
+extends LabelProvider 
+{
+	@Override
+	public String
+	getText
+	( Object element )
+	{
+		Snapshot snapshot 
+		 	= (Snapshot) element;
+		
+		return snapshot.getPath();
+	}
+}

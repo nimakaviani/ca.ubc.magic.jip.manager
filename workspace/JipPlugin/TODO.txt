@@ -1,3 +1,54 @@
+26 May 2012:
+
+JipSnapmanFrame.java -- ported
+BrowsePathAction.java -- ported
+
+// used for event and error logging
+// cannot straight port: will need to be rethought
+BaseSnapshotAction.java
+ErrorDisplayAction.java
+LogAction.java
+
+StartSnapshotAction.java -- ported minus event logging
+FinishSnapshotAction.java -- ported minus event logging
+ViewSnapshotAction.java -- don't need to port
+
+SnapshotEvent.java -- ported
+SnapshotEventListener.java -- ported
+SnapshotEventManager.java -- ported
+
+JipSMHyperlinkListener.java -- not essential ( for about help ); port later
+
+LogsModel.java 				-- ported as ILogsModel
+NumbersOnlyDocument.java	-- do not need to port
+Snapshot.java 				-- ported
+SnapshotInfoModel.java 		-- ported
+SnapshotListModel.java		-- ported
+SnapshotPathModel.java 		-- ported
+SnapshotsTakenModel.java	
+
+Some of the above are "ported" but not used.
+
+Let's do this!!
+
+-----1) Changed type of Dialog inside the DetailsDialog to DirectoryDialog
+(previously was FileDialog).
+-----2) Added a title to the ConfigureSnaphotDialog
+-----3) Ported FinishSnapshotAction
+-----4) Display snapshots
+-----5) Cleaned up port to not include unnecessary classes from original
+-----6) Add default values to configurationDialog
+-----7) Add an MVC connection for the snapshots table.
+
+-----8) Make snapshots available for selection.
+
+9) Add color to text output
+
+10) Add event logging
+11) Add about panel
+
+12) Add jip visualization link
+
 25 May 2012:
 
 TODO: Implement the system for displaying messages to the log console (maybe a view later).

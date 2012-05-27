@@ -44,21 +44,23 @@ SnapshotEvent
     public static final int ID_SNAPSHOT_CAPTURED = 2;
     public static final int ID_SNAPSHOT_CAPTURE_FAILED = 3;
 
-    private final int eventId; // in ctor
-    private final Snapshot snapshot; // in ctor
+    private final int 		eventId; 
+    private final Snapshot 	snapshot;
 
     public 
     SnapshotEvent
     (int id, Snapshot snapshot) {
-        eventId = id;
+        this.eventId = id;
         this.snapshot = snapshot;
     }
 
-    public Snapshot getSnapshot() {
-        return snapshot;
+    public Snapshot 
+    getSnapshot() {
+        return this.snapshot;
     }
 
-    public int getId() {
-        return eventId;
+    public int 
+    getId() {
+        return this.eventId;
     }
 }

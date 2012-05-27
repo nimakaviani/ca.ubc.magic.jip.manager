@@ -2,10 +2,14 @@ package models;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-
+import java.util.LinkedList;
+import java.util.List;
 
 import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
+import com.jchapman.jipsnapman.models.Snapshot;
 
+// if I put too much data in this object too many messages
+// will get passed around
 public class
 Model 
 implements ISnapshotInfoModel
@@ -14,6 +18,9 @@ implements ISnapshotInfoModel
 	private String name = new String("");
 	private String port = new String("");
 	private String host = new String("");
+	
+	private List<Object> snapshots_list 
+		= new LinkedList<Object>();
 	
 	protected transient PropertyChangeSupport listeners 
  		= new PropertyChangeSupport(this);
@@ -25,7 +32,7 @@ implements ISnapshotInfoModel
      */
     public void 
     addPropertyChangeListener
-    (PropertyChangeListener l)
+    ( PropertyChangeListener l )
     {
         if (l == null) {
             throw new IllegalArgumentException();
@@ -72,6 +79,7 @@ implements ISnapshotInfoModel
 		String old_path = this.path;
 		this.path = path;
 		
+		System.out.println(this.path);
 		this.firePropertyChange(Constants.PATH_PROPERTY, old_path, this.path);
 	}
 	
@@ -129,4 +137,31 @@ implements ISnapshotInfoModel
 		this.firePropertyChange(Constants.HOST_PROPERTY, old_host, this.host);
 	}
 
+	public void 
+	setAdditionalSnapshot
+	(Snapshot snapshot) 
+	{
+		boolean should_add 
+			= this.snapshots_list.isEmpty() 
+			|| this.snapshots_list.get(this.snapshots_list.size() - 1) != snapshot;
+		
+		if(should_add){
+			this.snapshots_list.add(snapshot);
+			this.firePropertyChange(Constants.SNAPSHOT_PROPERTY, null, this.snapshots_list);
+			System.out.println("setAdditionalSnapshot(): snapshots_list length: " + this.snapshots_list.size());
+		}
+	}
+
+	public List<Object> 
+	getSnapshotsList() 
+	{
+		return this.snapshots_list;
+	}
+
+
+	public void 
+	updateLog
+	(String property) 
+	{
+	}
 }

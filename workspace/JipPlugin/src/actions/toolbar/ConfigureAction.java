@@ -11,20 +11,21 @@ import com.jchapman.jipsnapman.events.ISnapshotEventListener;
 import com.jchapman.jipsnapman.events.SnapshotEvent;
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
 
-import views.DetailsDialog;
-import views.IView;
+import controllers.ControllerDelegate;
 
-import actions.ControllerDelegate;
+import views.IView;
+import views.SnapshotConfigurationDialog;
+
 
 public class 
 ConfigureAction 
 extends Action 
 implements ISnapshotEventListener
 {
-	private ControllerDelegate 	controller;
-	private DetailsDialog 		dialog;
+	private ControllerDelegate 			controller;
+	private SnapshotConfigurationDialog dialog;
 	
-	private SnapshotEventManager snapshot_event_manager;
+	private SnapshotEventManager 		snapshot_event_manager;
 	
 	public 
 	ConfigureAction
@@ -43,7 +44,7 @@ implements ISnapshotEventListener
 		Shell shell
 			= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		this.dialog 
-			= new DetailsDialog(shell, this.controller);
+			= new SnapshotConfigurationDialog(shell, this.controller);
 		
 		this.controller.addModel(Activator.getDefault().getModel());
 		this.controller.addView(main_view);

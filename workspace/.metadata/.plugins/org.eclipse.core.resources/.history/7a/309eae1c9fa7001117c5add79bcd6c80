@@ -1,0 +1,26 @@
+package views.widgets;
+
+import org.eclipse.jface.viewers.LabelProvider;
+
+import com.jchapman.jipsnapman.models.Snapshot;
+
+public class 
+SnapshotsLabelProvider 
+extends LabelProvider 
+{
+	@Override
+	public String
+	getText
+	( Object element )
+	{
+		Snapshot snapshot 
+		 	= (Snapshot) element;
+		
+		String[] path_tokens 
+			= snapshot.getPath().split("\\");
+		String file_name 
+			= path_tokens[path_tokens.length - 1];
+		
+		return file_name + "(" + snapshot.getHost() + ":" + snapshot.getPort() + ")";
+	}
+}

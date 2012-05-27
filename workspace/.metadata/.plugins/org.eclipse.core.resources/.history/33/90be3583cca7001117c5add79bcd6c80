@@ -1,0 +1,20 @@
+package jipplugin;
+
+import java.util.HashMap;
+
+public class 
+EventLogActionHandler
+{
+	HashMap<String, IEventLogAction> actions_map
+		= new HashMap<String, IEventLogAction>();
+	
+	// once I have this working I should be able to merge this with 
+	// the snapshothandler class
+	public void 
+	performActionByKey
+	(String key, EventLogEvent event){
+		IEventLogAction action 
+			= this.actions_map.get(key);
+		action.performAction(event);
+	}
+}

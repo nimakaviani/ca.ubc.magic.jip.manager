@@ -1,16 +1,20 @@
 package actions.toolbar;
 
+import java.io.IOException;
+
 import jipplugin.Activator;
 
+import models.Constants;
+
 import org.eclipse.jface.action.Action;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
 
 import com.jchapman.jipsnapman.events.ISnapshotEventListener;
 import com.jchapman.jipsnapman.events.SnapshotEvent;
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
 import com.jchapman.jipsnapman.models.Snapshot;
+import com.mentorgen.tools.util.profile.Finish;
+
+import controllers.IController;
 
 public class 
 FinishAction 
@@ -19,11 +23,15 @@ implements ISnapshotEventListener
 {
 	private final SnapshotEventManager 	snapshot_event_manager;
 	private Snapshot 					current_snapshot;
+	private IController					controller;
 	
 	public
 	FinishAction
-	( SnapshotEventManager snapshot_event_manager )
+	( SnapshotEventManager snapshot_event_manager, IController controller )
 	{
+		this.controller = controller;
+		this.controller.addModel(Activator.getDefault().getModel());
+		
 		// we'll see if something else needs a reference to this
 		this.snapshot_event_manager
 			= snapshot_event_manager;
@@ -51,22 +59,38 @@ implements ISnapshotEventListener
 		this.setImageDescriptor
 		(Activator.getImageDescriptor(image_path));
 	}
+	
 	@Override
 	public void run()
 	{
-		Shell shell
-			= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-		MessageDialog.openInformation
-		( shell, "First plug-in", "Finish!" );
+		boolean got_exception = false;
 		
-		this.snapshot_event_manager.fireSnapshotEvent( 
-			new SnapshotEvent(
+		try {
+			Finish.doFinish(
+				this.current_snapshot.getHost(), 
+				this.current_snapshot.getPort()
+			);
+		}
+		catch(IOException ioex){
+			got_exception = true;
+			// TODO Add event log information
+		}
+		
+		if (!got_exception) {
+			// TODO Add event log information
+			snapshot_event_manager.fireSnapshotEvent(new SnapshotEvent(
 				SnapshotEvent.ID_SNAPSHOT_CAPTURED,
-				current_snapshot
-			)
-		);
-		
-		this.setEnabled(false);
+				this.current_snapshot)
+			);
+	    }
+	    else {
+	    	snapshot_event_manager.fireSnapshotEvent(new SnapshotEvent(
+	          SnapshotEvent.ID_SNAPSHOT_CAPTURE_FAILED,
+	          this.current_snapshot));
+	    }
+		this.controller.setModelProperty(Constants.NAME_PROPERTY, "");
+		this.controller.setModelProperty(Constants.SNAPSHOT_PROPERTY, this.current_snapshot);
+	    this.setEnabled(false);
 	}
 
 	 /* ---------------- from SnapshotEventListener --------------- */
@@ -78,7 +102,8 @@ implements ISnapshotEventListener
 	{
 		if (event.getId() == SnapshotEvent.ID_SNAPSHOT_STARTED) {
 		      this.setEnabled(true);
-		      this.current_snapshot = event.getSnapshot();
+		      this.current_snapshot 
+		      	= event.getSnapshot();
 		    }
 	}
 }

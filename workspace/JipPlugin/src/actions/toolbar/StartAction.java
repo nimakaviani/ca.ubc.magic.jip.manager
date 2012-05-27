@@ -6,7 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import jipplugin.Activator;
-import jipplugin.ActivatorLog;
+
+import models.Constants;
 
 import org.eclipse.jface.action.Action;
 
@@ -17,23 +18,27 @@ import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
 import com.jchapman.jipsnapman.models.Snapshot;
 import com.mentorgen.tools.util.profile.Start;
 
+import controllers.IController;
+
 // I think I finally need to introduce a model for the toolbar...
 public class 
 StartAction 
 extends Action 
 implements ISnapshotEventListener
 {
-	// this may need to be the same manager as the one used by
-	// finish
 	private final SnapshotEventManager snapshot_event_manager;
+	private IController controller;
 	
 	public 
 	StartAction
-	(SnapshotEventManager snapshot_event_manager)
+	(SnapshotEventManager snapshot_event_manager, IController controller)
 	{
-		ActivatorLog.logMessage(
-	    		"A folder in which to store the snapshot much be specified."
-	    	);
+		this.controller
+			= controller;
+		
+		// set the model to notify; caller will have set the view
+		this.controller.addModel(Activator.getDefault().getModel());
+		
 		this.snapshot_event_manager 
 			= snapshot_event_manager;
 		this.snapshot_event_manager.addSnapshotEventListener(this);
@@ -62,10 +67,10 @@ implements ISnapshotEventListener
 	public void 
 	run()
 	{
-	    Snapshot snapshot = getSnapshot();
+	    Snapshot snapshot = this.getSnapshot();
 	    
 	    if (snapshot != null) {
-	      boolean gotException = false;
+	    	boolean gotException = false;
 	      try {
 	        com.mentorgen.tools.util.profile.File.doFile(
 	            snapshot.getHost(),
@@ -74,33 +79,36 @@ implements ISnapshotEventListener
 	      }
 	      catch (IOException ioex) {
 	        gotException = true;
-	        ActivatorLog.logError(ioex.getMessage(), ioex);
+	        // TODO Add event logging
 	      }
 	      
 	      // if no exception, ie the above succeeded, then go to start
 	      // command and report file success
 	      if (!gotException) {
-	    	  ActivatorLog.logMessage("The message \"file\" was a success.");
-	        try {
-	          Start.doStart(snapshot.getHost(),
-	                        snapshot.getPort());
-	        }
-	        catch (IOException ioex) {
-	          gotException = true;
-	          ActivatorLog.logError(ioex.getMessage(), ioex);
-	        }
+	    	  	// TODO Add event logging
+				try {
+				  Start.doStart(snapshot.getHost(),
+				                snapshot.getPort());
+				}
+				catch (IOException ioex) {
+				  gotException = true;
+				  // TODO Add event logging
+				}
 	      }
 	      // if no exception, ie the above succeeded, then report
 	      // start success and send event
 	      if (!gotException) {
-	    	ActivatorLog.logMessage("The message \"start\" was a success.");
-	        this.snapshot_event_manager.fireSnapshotEvent(
-	    			new SnapshotEvent(
-	    	            SnapshotEvent.ID_SNAPSHOT_STARTED, 
-	    	            null
-	    	        )
-	    		);
-	        this.setEnabled(false);
+	    	  	// TODO Add event logging
+				this.snapshot_event_manager.fireSnapshotEvent(
+						new SnapshotEvent(
+				            SnapshotEvent.ID_SNAPSHOT_STARTED, 
+				            snapshot
+				        )
+					);
+				this.controller.setModelProperty(
+						Constants.NAME_PROPERTY, snapshot.getName()
+					);
+				this.setEnabled(false);
 	      }
 	    } 
 	}
@@ -112,36 +120,32 @@ implements ISnapshotEventListener
 			= Activator.getDefault().getModel();
 		
 	    // check path specified
-	    String path = info_model.getSnapshotPath();
-	    
+	    String path = info_model.getSnapshotPath();	    
 	    if (path == null || path.trim().length() == 0) {
-	    	ActivatorLog.logMessage(
-	    		"A folder in which to store the snapshot much be specified."
-	    	);
-	      return null; 
+	    	// TODO add event logging
+	    	return null; 
 	    }
 	    
 	    File pathFile = new File(path);
 	    if (!pathFile.exists() || !pathFile.isDirectory()) {
-	    	ActivatorLog.logMessage(
-	    		"The folder " + pathFile.getPath() + " does not exist."
-	    	);
-	      return null; 
+	    	// TODO add event logging
+	    	return null; 
 	    }
 	    
 	    if (!pathFile.canWrite() || !pathFile.canRead()) {
-	    	// this doesn't appear to work correctly;
-	    	// ask about this
-	    	ActivatorLog.logMessage(
-	    		"The folder " + pathFile.getPath() + " must have both read and write access."
-	    	);
-	      return null;
+	    	// TODO add event logging
+	    	return null;
 	    }
 	    
-	    String 			port 		= info_model.getSnapshotPort();
-	    String 			host 		= info_model.getSnapshotHost();
-	    final String 	origName 	= info_model.getSnapshotName();
-	    String newName 				=  this.setNewName(origName, pathFile);
+	    String port 		
+	    	= info_model.getSnapshotPort();
+	    String host 		
+	    	= info_model.getSnapshotHost();
+	    final String origName 	
+	    	= info_model.getSnapshotName();
+	    
+	    String newName 				
+	    	=  this.setNewName(origName, pathFile);
 	   
 	    return new Snapshot(
 	        pathFile.getPath(),
@@ -151,8 +155,6 @@ implements ISnapshotEventListener
 	        host
 	    );
 	  }
-	
-	 /* ---------------- from SnapshotEventListener --------------- */
 	
 	private String 
 	setNewName
@@ -192,6 +194,8 @@ implements ISnapshotEventListener
 	    }
 	    return newName;
 	}
+	
+	 /* ---------------- from SnapshotEventListener --------------- */
 
 	@Override
 	public void

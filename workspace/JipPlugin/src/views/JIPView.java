@@ -1,13 +1,12 @@
 package views;
 
 import java.beans.PropertyChangeEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
+
+import jipplugin.Activator;
 
 
 import models.Constants;
 
-import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -20,9 +19,9 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.ViewPart;
 
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
-import com.jchapman.jipsnapman.models.ILogsModel;
 
-import views.widgets.BasicListTable;
+import controllers.ControllerDelegate;
+import controllers.IController;
 
 import actions.menu.*;
 import actions.toolbar.*;
@@ -33,8 +32,7 @@ import actions.toolbar.*;
 public class 
 JIPView 
 extends ViewPart 
-implements IView,
-	ILogsModel
+implements IView
 {
 	String 			path;
 	String 			name;
@@ -59,20 +57,21 @@ implements IView,
 		
 		IActionBars actionBars 	
 			= super.getViewSite().getActionBars();
-		initializeToolbar(actionBars.getToolBarManager());
-		initializeDropDownMenu(actionBars.getMenuManager());
+		SnapshotEventManager snapshot_event_manager
+			= new SnapshotEventManager();
+		this.initializeToolbar(actionBars.getToolBarManager(), snapshot_event_manager);
+		
+		this.initializeDropDownMenu(actionBars.getMenuManager());
 		
 		this.snapshots_table 
-			= new BasicListTable(parent, "Snapshots");
-		this.snapshots_table.setContents(
-			new ArrayList<String>(Arrays.asList( 
-				new String[]{ 
-					"C", "C++", "Java", "smalltalk"
-				})
-			));
+			= new BasicListTable(parent, "Snapshots", new SnapshotsLabelProvider());
 		
+		this.snapshots_table.setContents(
+			Activator.getDefault().getModel().getSnapshotsList()
+		);
+
 		this.log_console_table
-			= new BasicListTable(parent, "Event Log");
+			= new BasicListTable(parent, "Event Log", null);
 	}
 
 	private void 
@@ -102,28 +101,21 @@ implements IView,
 
 	private void 
 	initializeToolbar
-	(IToolBarManager toolBar) 
-	{
-		// the snapshot manager only needs to be seen
-		// by the toolbar buttons; it basically handles toolbar
-		// events
-		SnapshotEventManager snapshot_event_manager
-			= new SnapshotEventManager();
+	(IToolBarManager toolBar, SnapshotEventManager snapshot_event_manager) 
+	{		
+		IController controller = new ControllerDelegate();
+		controller.addView(this);
 		
 		IAction details	
 			= new ConfigureAction(this, snapshot_event_manager);
 		IAction finish	
-			= new FinishAction(snapshot_event_manager);
+			= new FinishAction(snapshot_event_manager, controller);
 		IAction start	
-			= new StartAction(snapshot_event_manager);
-		IAction launch	
-			= new LaunchViewerAction();
-		
+			= new StartAction(snapshot_event_manager, controller);
+				
 		toolBar.add(details);
 		toolBar.add(start);
 		toolBar.add(finish);
-		toolBar.add(launch);
-
 	}
 	
 	private void 
@@ -143,12 +135,17 @@ implements IView,
 	public void
 	refresh()
 	{
+		String display_name 
+			= this.name == null || this.name.equals("") 
+			? "Name not set"
+			: this.name;
+		
 		label.setText(
-			this.name 
+			display_name 
 			+ "   ( Port: " 
 			+ this.port 
 			+ ", Host: " 
-			+ this.port
+			+ this.host
 			+ ", Path: "
 			+ this.path 
 			+ " )"
@@ -161,6 +158,7 @@ implements IView,
 	modelPropertyChange
 	(PropertyChangeEvent evt) 
 	{
+		System.out.println("modelPropertyChange(): Property changed");
 		switch(evt.getPropertyName()){
 		case Constants.PATH_PROPERTY:
 			this.path = (String) evt.getNewValue();
@@ -173,19 +171,13 @@ implements IView,
 			break;
 		case Constants.PORT_PROPERTY:
 			this.port = (String) evt.getNewValue();
+			System.out.println(this.port);
+			System.out.println(this.host);
+			break;
+		case Constants.SNAPSHOT_PROPERTY:
+			this.snapshots_table.refresh();
 			break;
 		}
 		this.refresh();
-	}
-
-	/////////////////////////////////////////////////////
-	///	From EventLogTable
-	/////////////////////////////////////////////////////
-	
-	@Override
-	public void updateLog
-	(String value)
-	{
-		this.log_console_table.addEntry(value);
 	}
 }

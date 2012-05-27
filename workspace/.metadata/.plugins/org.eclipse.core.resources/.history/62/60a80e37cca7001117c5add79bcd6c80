@@ -1,0 +1,12 @@
+package jipplugin;
+
+public class IEventLogAction {
+
+	public void 
+	performAction
+	(EventLogEvent event) 
+	{
+		
+	}
+
+}

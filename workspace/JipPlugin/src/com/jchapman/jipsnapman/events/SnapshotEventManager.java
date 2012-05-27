@@ -44,13 +44,15 @@ SnapshotEventManager
     private final Set listeners 
     	= new HashSet();
 
-    public SnapshotEventManager() {
+    public 
+    SnapshotEventManager()
+    {
         super();
     }
 
     public void 
     addSnapshotEventListener
-    (ISnapshotEventListener listener) 
+    ( ISnapshotEventListener listener ) 
     {
         if (listener != null) {
             synchronized (listeners) {
@@ -64,11 +66,16 @@ SnapshotEventManager
     (SnapshotEvent event) 
     {
         if (event != null) {
-            int listenerCnt = 0;
-            ISnapshotEventListener[] listenerArray = null;
+            int listenerCnt 
+            	= 0;
+            ISnapshotEventListener[] listenerArray 
+            	= null;
             synchronized (listeners) {
                 listenerCnt = listeners.size();
-                listenerArray = (ISnapshotEventListener[])listeners.toArray(new ISnapshotEventListener[listenerCnt]);
+                listenerArray 
+                	= (ISnapshotEventListener[])listeners.toArray(
+                		new ISnapshotEventListener[listenerCnt]
+                	);
             }
             for (int idx = 0; idx < listenerCnt; idx++) {
                 listenerArray[idx].handleSnapshotEvent(event);

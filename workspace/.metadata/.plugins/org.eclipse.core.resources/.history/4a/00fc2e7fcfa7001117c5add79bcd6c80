@@ -1,0 +1,14 @@
+package models;
+
+public class 
+Constants
+{
+	public static final String PATH_PROPERTY 		= "SnapshotPath";
+	public static final String NAME_PROPERTY 		= "SnapshotName";
+	public static final String HOST_PROPERTY 		= "SnapshotHost";
+	public static final String PORT_PROPERTY 		= "SnapshotPort";
+	public static final String SNAPSHOT_PROPERTY 	= "AdditionalSnapshot";
+	public static final String KEY_ERR_DLGTITLE = null;
+	public static final String KEY_ERR_MSSG = null;
+	public static final String KEY_ERR_VALUES = null;
+}
