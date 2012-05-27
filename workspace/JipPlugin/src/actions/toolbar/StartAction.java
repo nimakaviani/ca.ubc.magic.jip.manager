@@ -11,6 +11,9 @@ import models.Constants;
 
 import org.eclipse.jface.action.Action;
 
+import com.jchapman.jipsnapman.events.EventLogActionHandler;
+import com.jchapman.jipsnapman.events.EventLogEvent;
+import com.jchapman.jipsnapman.events.EventLogger;
 import com.jchapman.jipsnapman.events.ISnapshotEventListener;
 import com.jchapman.jipsnapman.events.SnapshotEvent;
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
@@ -26,8 +29,9 @@ StartAction
 extends Action 
 implements ISnapshotEventListener
 {
-	private final SnapshotEventManager snapshot_event_manager;
-	private IController controller;
+	private final SnapshotEventManager 	snapshot_event_manager;
+	private IController 				controller;
+	private EventLogger 				event_logger;
 	
 	public 
 	StartAction
@@ -35,6 +39,8 @@ implements ISnapshotEventListener
 	{
 		this.controller
 			= controller;
+		this.event_logger
+			= new EventLogger();
 		
 		// set the model to notify; caller will have set the view
 		this.controller.addModel(Activator.getDefault().getModel());
@@ -69,6 +75,19 @@ implements ISnapshotEventListener
 	{
 	    Snapshot snapshot = this.getSnapshot();
 	    
+	    try{
+	    	this.inner_run(snapshot);
+	    }
+	    catch(IOException ex){
+        	ex.printStackTrace();
+        }
+	}
+
+	private void 
+	inner_run
+	(Snapshot snapshot) 
+	throws IOException 
+	{
 	    if (snapshot != null) {
 	    	boolean gotException = false;
 	      try {
@@ -76,29 +95,34 @@ implements ISnapshotEventListener
 	            snapshot.getHost(),
 	            snapshot.getPort(),
 	            snapshot.getPathAndName());
+	        //throw new IOException();
 	      }
 	      catch (IOException ioex) {
 	        gotException = true;
-	        // TODO Add event logging
+	        // problem: the run method is not allowed to declare a checked exception
+	        
+	        	System.out.println("Exception thrown: logging 1");
+	        	this.event_logger.updateConsoleLog(ioex);
 	      }
-	      
-	      // if no exception, ie the above succeeded, then go to start
-	      // command and report file success
-	      if (!gotException) {
-	    	  	// TODO Add event logging
-				try {
-				  Start.doStart(snapshot.getHost(),
-				                snapshot.getPort());
-				}
-				catch (IOException ioex) {
-				  gotException = true;
-				  // TODO Add event logging
-				}
-	      }
+			      
+		// if no exception, ie the above succeeded, then go to start
+		// command and report file success
+		if (!gotException) {
+		    this.event_logger.updateForSuccessfulCall("file");
+			try {
+				Start.doStart(snapshot.getHost(),
+				snapshot.getPort());
+			}
+			catch (IOException ioex) {
+				gotException = true;
+	        	System.out.println("Exception thrown: logging 2");
+				this.event_logger.updateConsoleLog(ioex);
+			}
+		}
 	      // if no exception, ie the above succeeded, then report
 	      // start success and send event
 	      if (!gotException) {
-	    	  	// TODO Add event logging
+	    	  	this.event_logger.updateForSuccessfulCall("start");
 				this.snapshot_event_manager.fireSnapshotEvent(
 						new SnapshotEvent(
 				            SnapshotEvent.ID_SNAPSHOT_STARTED, 
@@ -122,18 +146,61 @@ implements ISnapshotEventListener
 	    // check path specified
 	    String path = info_model.getSnapshotPath();	    
 	    if (path == null || path.trim().length() == 0) {
-	    	// TODO add event logging
+	    	EventLogEvent event
+	    		= this.event_logger.getErrorEvent();
+	    	event.addProperty(
+	    		Constants.KEY_ERR_MSSG, 
+	    		"A folder in which to store the snapshot must be specified."
+	    	);
+	    	EventLogActionHandler action_handler
+	    		= Activator.getDefault().getActionHandler();
+	    	action_handler.performActionByKey(
+	    		Constants.ACTKEY_ERROR_DISPLAY, 
+	    		event
+	    	);
 	    	return null; 
 	    }
 	    
 	    File pathFile = new File(path);
 	    if (!pathFile.exists() || !pathFile.isDirectory()) {
-	    	// TODO add event logging
+	    	EventLogEvent event
+	    		= this.event_logger.getErrorEvent();
+	    	event.addProperty(
+	    		Constants.KEY_ERR_MSSG,
+	    		"The folder ({0}) does not exist."
+	    	);
+	    	event.addProperty(
+	    		Constants.KEY_ERR_VALUES,
+	    		new Object[]{ pathFile.getPath() }
+	    	);
+	    	EventLogActionHandler action_handler
+	    		= Activator.getDefault().getActionHandler();
+	    	action_handler.performActionByKey(
+	    		Constants.ACTKEY_ERROR_DISPLAY,
+	    		event
+	    	);
+	    	
 	    	return null; 
 	    }
 	    
 	    if (!pathFile.canWrite() || !pathFile.canRead()) {
-	    	// TODO add event logging
+	    	EventLogEvent event
+	    		= this.event_logger.getErrorEvent();
+	    	event.addProperty(
+	    		Constants.KEY_ERR_MSSG, 
+	    		"The folder ({0}) must have both read and write access.)"
+	    	);
+	    	event.addProperty(
+	    		Constants.KEY_ERR_VALUES, 
+	    		new Object[]{pathFile.getPath()}
+	    	);
+	    	EventLogActionHandler event_handler
+	    		= Activator.getDefault().getActionHandler();
+	    	event_handler.performActionByKey(
+	    		Constants.ACTKEY_ERROR_DISPLAY,
+	    		event
+	    	);
+	    	
 	    	return null;
 	    }
 	    

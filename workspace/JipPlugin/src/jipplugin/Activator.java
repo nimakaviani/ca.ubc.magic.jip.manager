@@ -6,6 +6,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import com.jchapman.jipsnapman.events.EventLogActionHandler;
+
 public class 
 Activator 
 extends AbstractUIPlugin
@@ -29,7 +31,10 @@ extends AbstractUIPlugin
 	{
 		super.start(context);
 		plugin = this;
-		this.model = new Model();
+		this.model 
+			= new Model();
+		this.action_handler 
+			= new EventLogActionHandler();
 	}
 
 	public void 

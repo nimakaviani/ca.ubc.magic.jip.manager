@@ -171,6 +171,8 @@ implements IView
 		prevPath = Activator.getDefault().getModel().getSnapshotPath();
 		if(prevPath == null || prevPath.equals("")){
 			prevPath = "C:\\Users\\dillesca\\Desktop\\tmp";
+			//prevPath = "";
+			//prevPath = "KLH";
 		}
 		
 		System.out.println("Previous Path " + prevPath);
@@ -283,10 +285,11 @@ implements IView
 			this.displayErrorDialog(shell, "The host name cannot be empty");
 			valid_inputs = false;
 		}
+		/*
 		if(this.path_text.getText() == ""){
 			this.displayErrorDialog(shell, "The directory path cannot be empty");
 			valid_inputs = false;
-		}
+		}*/
 		
 		return valid_inputs;
 	}

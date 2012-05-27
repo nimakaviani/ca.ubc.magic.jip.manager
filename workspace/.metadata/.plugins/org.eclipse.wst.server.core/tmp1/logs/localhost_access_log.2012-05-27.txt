@@ -1,0 +1,16 @@
+127.0.0.1 - - [27/May/2012:15:00:34 -0700] "GET / HTTP/1.1" 404 955
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:34 -0700] "GET /AriesWeb/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:34 -0700] "GET /AriesWeb/header.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:34 -0700] "GET /AriesWeb/contentHome.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:34 -0700] "GET /AriesWeb/images/spacer.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:34 -0700] "GET /AriesWeb/footer.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:34 -0700] "GET /AriesWeb/images/home.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:34 -0700] "GET /AriesWeb/images/ariesTraderLogo.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:34 -0700] "GET /AriesWeb/images/configuration.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:35 -0700] "GET /AriesWeb/images/primitives.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:35 -0700] "GET /AriesWeb/images/topRedBar.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:35 -0700] "GET /AriesWeb/images/faq.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:35 -0700] "GET /AriesWeb/images/tradingAndPortfolios.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:35 -0700] "GET /AriesWeb/images/ariesTraderOverview.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:35 -0700] "GET /AriesWeb/images/bottomRedBar.gif HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/May/2012:15:00:35 -0700] "GET /AriesWeb/images/aries_copyRight.gif HTTP/1.1" 304 -

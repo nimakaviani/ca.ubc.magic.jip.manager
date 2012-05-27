@@ -21,6 +21,8 @@ implements ISnapshotInfoModel
 	
 	private List<Object> snapshots_list 
 		= new LinkedList<Object>();
+	private List<Object> event_log_list
+		= new LinkedList<Object>();
 	
 	protected transient PropertyChangeSupport listeners 
  		= new PropertyChangeSupport(this);
@@ -163,5 +165,14 @@ implements ISnapshotInfoModel
 	updateLog
 	(String property) 
 	{
+		this.event_log_list.add(property);
+		
+		this.firePropertyChange(Constants.EVENT_LIST_PROPERTY, null, this.event_log_list);
+	}
+	
+	public List<Object>
+	getEventLogList()
+	{
+		return this.event_log_list;
 	}
 }

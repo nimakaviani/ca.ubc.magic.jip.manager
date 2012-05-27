@@ -40,10 +40,12 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import com.jchapman.jipsnapman.events.EventLogEvent;
+import com.jchapman.jipsnapman.events.IEventLogAction;
+
 import models.Constants;
 
 import jipplugin.Activator;
-import jipplugin.EventLogEvent;
 
 /**
  *
@@ -52,12 +54,12 @@ import jipplugin.EventLogEvent;
  */
 public class 
 ErrorDisplayAction 
+implements IEventLogAction
 {
-
+	@Override
     public void 
     performAction
-    (ActionEvent actionEvent)
-    throws Exception 
+    (ActionEvent actionEvent) 
     {
         EventLogEvent event_log_event 
         	= (EventLogEvent)actionEvent;

@@ -8,6 +8,7 @@ import models.Constants;
 
 import org.eclipse.jface.action.Action;
 
+import com.jchapman.jipsnapman.events.EventLogger;
 import com.jchapman.jipsnapman.events.ISnapshotEventListener;
 import com.jchapman.jipsnapman.events.SnapshotEvent;
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
@@ -24,12 +25,16 @@ implements ISnapshotEventListener
 	private final SnapshotEventManager 	snapshot_event_manager;
 	private Snapshot 					current_snapshot;
 	private IController					controller;
+	private EventLogger					event_logger;
 	
 	public
 	FinishAction
 	( SnapshotEventManager snapshot_event_manager, IController controller )
 	{
-		this.controller = controller;
+		this.event_logger 
+			= new EventLogger();
+		this.controller
+			= controller;
 		this.controller.addModel(Activator.getDefault().getModel());
 		
 		// we'll see if something else needs a reference to this
@@ -41,7 +46,6 @@ implements ISnapshotEventListener
 		("Disconnect from application to produce snapshot.");
 		
 		this.setEnabled(false);
-		
 	}
 	
 	@Override
@@ -63,8 +67,19 @@ implements ISnapshotEventListener
 	@Override
 	public void run()
 	{
+		try{
+			inner_run();
+		}
+		catch( IOException ex ){
+			ex.printStackTrace();
+		}
+	}
+	
+	private void 
+	inner_run()
+	throws IOException 
+	{
 		boolean got_exception = false;
-		
 		try {
 			Finish.doFinish(
 				this.current_snapshot.getHost(), 
@@ -73,11 +88,11 @@ implements ISnapshotEventListener
 		}
 		catch(IOException ioex){
 			got_exception = true;
-			// TODO Add event log information
+			this.event_logger.updateConsoleLog(ioex);
 		}
 		
 		if (!got_exception) {
-			// TODO Add event log information
+			this.event_logger.updateForSuccessfulCall("finish");
 			snapshot_event_manager.fireSnapshotEvent(new SnapshotEvent(
 				SnapshotEvent.ID_SNAPSHOT_CAPTURED,
 				this.current_snapshot)
@@ -94,7 +109,7 @@ implements ISnapshotEventListener
 	}
 
 	 /* ---------------- from SnapshotEventListener --------------- */
-	
+
 	@Override
 	public void 
 	handleSnapshotEvent

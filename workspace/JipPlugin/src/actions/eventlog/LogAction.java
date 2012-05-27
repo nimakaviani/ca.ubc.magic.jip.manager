@@ -32,11 +32,12 @@ package actions.eventlog;
 
 import java.awt.event.ActionEvent;
 
+import com.jchapman.jipsnapman.events.EventLogEvent;
+import com.jchapman.jipsnapman.events.IEventLogAction;
+
 import models.Constants;
 
 import jipplugin.Activator;
-import jipplugin.EventLogEvent;
-import jipplugin.IEventLogAction;
 
 /**
  *
@@ -52,7 +53,10 @@ implements IEventLogAction
 	performAction
 	(ActionEvent event) 
 	{
-		EventLogEvent event_log_event = (EventLogEvent) event;
+		System.out.println("log action called");
+		
+		EventLogEvent event_log_event 
+			= (EventLogEvent) event;
 		Activator.getDefault().getModel().updateLog(
 			(String) event_log_event.getProperty( Constants.KEY_LOGS_DATA)
 		);

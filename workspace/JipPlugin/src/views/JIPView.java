@@ -18,11 +18,14 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.ViewPart;
 
+import com.jchapman.jipsnapman.events.EventLogActionHandler;
 import com.jchapman.jipsnapman.events.SnapshotEventManager;
 
 import controllers.ControllerDelegate;
 import controllers.IController;
 
+import actions.eventlog.ErrorDisplayAction;
+import actions.eventlog.LogAction;
 import actions.menu.*;
 import actions.toolbar.*;
 
@@ -72,6 +75,27 @@ implements IView
 
 		this.log_console_table
 			= new BasicListTable(parent, "Event Log", null);
+		this.log_console_table.setContents(
+			Activator.getDefault().getModel().getEventLogList()
+		);
+		
+		this.initializeEventLogActionHandler();
+	}
+
+	private void 
+	initializeEventLogActionHandler() 
+	{
+		EventLogActionHandler action_handler
+			= Activator.getDefault().getActionHandler();
+		
+		action_handler.registerAction(
+			Constants.ACTKEY_ERROR_DISPLAY,
+			new ErrorDisplayAction()
+		);
+		action_handler.registerAction(
+			Constants.ACTKEY_LOG_DISPLAY, 
+			new LogAction()
+		);
 	}
 
 	private void 
@@ -176,6 +200,9 @@ implements IView
 			break;
 		case Constants.SNAPSHOT_PROPERTY:
 			this.snapshots_table.refresh();
+			break;
+		case Constants.EVENT_LIST_PROPERTY:
+			this.log_console_table.refresh();
 			break;
 		}
 		this.refresh();
