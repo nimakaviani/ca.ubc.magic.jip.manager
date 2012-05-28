@@ -2,7 +2,7 @@ package views;
 
 import java.util.List;
 
-import models.Snapshot;
+import model_controllers.Snapshot;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;

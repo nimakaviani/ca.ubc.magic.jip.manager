@@ -30,7 +30,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // $Id: SnapshotEvent.java,v 1.1 2008/09/23 04:48:16 jchapman0 Exp $
 package events.snapshots;
 
-import models.Snapshot;
+import model_controllers.Snapshot;
 
 /**
  *

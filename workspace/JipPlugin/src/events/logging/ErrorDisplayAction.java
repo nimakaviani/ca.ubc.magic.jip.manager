@@ -34,7 +34,7 @@ import java.text.MessageFormat;
 
 import java.awt.event.ActionEvent;
 
-import models.Constants;
+import model_controllers.Constants;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;

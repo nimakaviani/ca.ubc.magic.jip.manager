@@ -32,7 +32,7 @@ package events.logging;
 
 import java.awt.event.ActionEvent;
 
-import models.Constants;
+import model_controllers.Constants;
 
 
 
@@ -57,7 +57,7 @@ implements IEventLogAction
 		
 		EventLogEvent event_log_event 
 			= (EventLogEvent) event;
-		Activator.getDefault().getActiveSnapshotModel().updateLog(
+		Activator.getDefault().getEventLogListModel().updateLog(
 			(String) event_log_event.getProperty( Constants.KEY_LOGS_DATA)
 		);
 		

@@ -5,7 +5,8 @@ import java.beans.PropertyChangeEvent;
 import jipplugin.Activator;
 
 
-import models.Constants;
+import model_controllers.Constants;
+import model_controllers.IController;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -26,7 +27,6 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 
 
-import controllers.IController;
 
 
 
@@ -47,6 +47,7 @@ implements IView
 	{
 		super( parentShell );
 		this.controller = controller;
+		this.controller.addView(this);
 	}
 	
 	// set the title of the dialog by overriding configureShell

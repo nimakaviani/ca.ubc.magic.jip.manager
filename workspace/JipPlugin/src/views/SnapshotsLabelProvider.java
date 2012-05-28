@@ -1,6 +1,6 @@
 package views;
 
-import models.Snapshot;
+import model_controllers.Snapshot;
 
 import org.eclipse.jface.viewers.LabelProvider;
 

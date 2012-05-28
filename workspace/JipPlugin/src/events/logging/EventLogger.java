@@ -1,12 +1,12 @@
 package events.logging;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.text.MessageFormat;
 
-import models.Constants;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 
+import model_controllers.Constants;
 
 import jipplugin.Activator;
 
@@ -20,12 +20,17 @@ EventLogger
 	(Exception ex)
 	throws IOException 
 	{
-		StringWriter swriter
-			= new StringWriter();
-		ex.printStackTrace(new PrintWriter(swriter));
-		swriter.flush();
-		swriter.close();
-		updateConsoleLog(swriter.toString());
+		Activator.getDefault().getLog().log(
+			new Status( 
+				IStatus.ERROR, 
+				Activator.PLUGIN_ID, 
+				IStatus.OK, 
+				"Unexpected Exception", ex
+			)
+		);
+		String output 
+			= "Exception thrown (see Error Log View for details): " + ex.getMessage();
+		updateConsoleLog(output);
 	}
 		
 	// log missing data dialog window errors

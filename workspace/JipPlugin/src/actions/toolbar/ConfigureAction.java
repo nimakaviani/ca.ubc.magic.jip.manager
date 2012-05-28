@@ -7,8 +7,6 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
-
-import controllers.ControllerDelegate;
 import events.snapshots.ISnapshotEventListener;
 import events.snapshots.SnapshotEvent;
 import events.snapshots.SnapshotEventManager;
@@ -22,7 +20,6 @@ ConfigureAction
 extends Action 
 implements ISnapshotEventListener
 {
-	private ControllerDelegate 			controller;
 	private SnapshotConfigurationDialog dialog;
 	
 	private SnapshotEventManager 		snapshot_event_manager;
@@ -32,8 +29,6 @@ implements ISnapshotEventListener
 	( 	IView main_view, 
 		SnapshotEventManager snapshot_event_manager )
 	{
-		this.controller 
-			= new ControllerDelegate();
 		this.snapshot_event_manager
 		 	= snapshot_event_manager;
 		this.snapshot_event_manager.addSnapshotEventListener(
@@ -49,14 +44,9 @@ implements ISnapshotEventListener
 				getActiveWorkbenchWindow().getShell();
 		this.dialog 
 			= new SnapshotConfigurationDialog(
-				shell, this.controller
+				shell, 
+				Activator.getDefault().getActiveSnapshotModel().getController()
 			);
-		
-		this.controller.addModel(
-			Activator.getDefault().getActiveSnapshotModel()
-		);
-		this.controller.addView(main_view);
-		this.controller.addView(this.dialog);
 	}
 	
 	@Override

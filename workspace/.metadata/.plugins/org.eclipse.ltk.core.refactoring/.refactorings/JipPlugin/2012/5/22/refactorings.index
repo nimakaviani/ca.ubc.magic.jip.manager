@@ -25,3 +25,11 @@
 1338162974063	Rename method 'getModel'
 1338163127268	Delete element
 1338163133433	Move compilation unit
+1338168261545	Rename type 'IModel'
+1338168278407	Move compilation units
+1338168280568	Delete element
+1338168293439	Rename package 'models'
+1338168320063	Rename type 'ActiveSnapshotModel'
+1338168328529	Rename type 'EventLogListModel'
+1338168339824	Rename type 'SnapshotsListModel'
+1338168369784	Rename package 'models_controllers'

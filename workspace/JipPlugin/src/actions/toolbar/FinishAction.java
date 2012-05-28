@@ -5,14 +5,14 @@ import java.io.IOException;
 import jipplugin.Activator;
 
 
-import models.Constants;
-import models.Snapshot;
+import model_controllers.Constants;
+import model_controllers.IController;
+import model_controllers.Snapshot;
 
 import org.eclipse.jface.action.Action;
 
 import com.mentorgen.tools.util.profile.Finish;
 
-import controllers.IController;
 import events.logging.EventLogger;
 import events.snapshots.ISnapshotEventListener;
 import events.snapshots.SnapshotEvent;
@@ -25,24 +25,22 @@ implements ISnapshotEventListener
 {
 	private final SnapshotEventManager 	snapshot_event_manager;
 	private Snapshot 					current_snapshot;
-	private IController					controller;
 	private EventLogger					event_logger;
+	private IController 				active_snapshot_controller;
+	private IController 				snapshot_list_controller;
 	
 	public
 	FinishAction
 	( 	SnapshotEventManager snapshot_event_manager, 
-		IController controller )
+		IController active_snapshot_controller,
+		IController snapshot_list_controller )
 	{
 		this.event_logger 
 			= new EventLogger();
-		this.controller
-			= controller;
-		this.controller.addModel(
-			Activator.getDefault().getSnapshotsListModel()
-		);
-		this.controller.addModel(
-			Activator.getDefault().getActiveSnapshotModel()
-		);
+		this.active_snapshot_controller
+			= active_snapshot_controller;
+		this.snapshot_list_controller
+			= snapshot_list_controller;
 		
 		// we'll see if something else needs a reference to this
 		this.snapshot_event_manager
@@ -119,10 +117,10 @@ implements ISnapshotEventListener
 	    		)
 	    	);
 	    }
-		this.controller.setModelProperty(
+		this.active_snapshot_controller.setModelProperty(
 			Constants.NAME_PROPERTY, ""
 		);
-		this.controller.setModelProperty(
+		this.snapshot_list_controller.setModelProperty(
 			Constants.SNAPSHOT_PROPERTY, this.current_snapshot
 		);
 	    this.setEnabled(false);

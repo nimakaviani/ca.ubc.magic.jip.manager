@@ -1,0 +1,34 @@
+package models;
+
+import java.beans.PropertyChangeListener;
+
+import controllers.IController;
+
+public class 
+EventLogListModel
+implements IModel
+{
+	IController controller 
+		= new ControllerDelegate();
+	
+	@Override
+	public IController getController() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addPropertyChangeListener(
+			PropertyChangeListener controllerDelegate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removePropertyChangeListener(
+			PropertyChangeListener controllerDelegate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

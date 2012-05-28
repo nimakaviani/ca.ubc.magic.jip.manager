@@ -4,9 +4,8 @@ import java.beans.PropertyChangeEvent;
 
 import jipplugin.Activator;
 
-
-
-import models.Constants;
+import model_controllers.Constants;
+import model_controllers.IController;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -20,9 +19,6 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.ViewPart;
 
 
-
-import controllers.ControllerDelegate;
-import controllers.IController;
 import events.logging.ErrorDisplayAction;
 import events.logging.EventLogActionHandler;
 import events.logging.LogAction;
@@ -31,9 +27,6 @@ import events.snapshots.SnapshotEventManager;
 import actions.menu.*;
 import actions.toolbar.*;
 
-// this will need to be refactored into a proper MVC later
-// chances are that will happen automatically as I attempt to mold
-// the architecture of the original implementation into the plugin
 public class 
 JIPView 
 extends ViewPart 
@@ -64,12 +57,17 @@ implements IView
 			= super.getViewSite().getActionBars();
 		SnapshotEventManager snapshot_event_manager
 			= new SnapshotEventManager();
-		this.initializeToolbar(actionBars.getToolBarManager(), snapshot_event_manager);
+		this.initializeToolbar(
+			actionBars.getToolBarManager(), 
+			snapshot_event_manager
+		);
 		
 		this.initializeDropDownMenu(actionBars.getMenuManager());
 		
 		this.snapshots_table 
-			= new BasicListTable(parent, "Snapshots", new SnapshotsLabelProvider());
+			= new BasicListTable(
+				parent, "Snapshots", new SnapshotsLabelProvider()
+			);
 		
 		this.snapshots_table.setContents(
 			Activator.getDefault().getSnapshotsListModel().getSnapshotsList()
@@ -78,9 +76,9 @@ implements IView
 		this.log_console_table
 			= new BasicListTable(parent, "Event Log", null);
 		this.log_console_table.setContents(
-			Activator.getDefault().getActiveSnapshotModel().getEventLogList()
+			Activator.getDefault().getEventLogListModel().getEventLogList()
 		);
-		
+		Activator.getDefault().getEventLogListModel().getController().addView(this);
 		this.initializeEventLogActionHandler();
 	}
 
@@ -129,16 +127,27 @@ implements IView
 	initializeToolbar
 	(IToolBarManager toolBar, SnapshotEventManager snapshot_event_manager) 
 	{		
-		IController controller 
-			= new ControllerDelegate();
-		controller.addView(this);
+		IController snapshots_list_model 
+			= Activator.getDefault().getSnapshotsListModel().getController();
+		IController active_snapshot_model
+			= Activator.getDefault().getActiveSnapshotModel().getController();
+				
+		snapshots_list_model.addView(this);		
+		active_snapshot_model.addView(this);
 		
 		IAction details	
 			= new ConfigureAction(this, snapshot_event_manager);
 		IAction finish	
-			= new FinishAction(snapshot_event_manager, controller);
+			= new FinishAction(
+				snapshot_event_manager,
+				active_snapshot_model,
+				snapshots_list_model
+			);
 		IAction start	
-			= new StartAction(snapshot_event_manager, controller);
+			= new StartAction(
+				snapshot_event_manager,
+				active_snapshot_model			
+			);
 				
 		toolBar.add(details);
 		toolBar.add(start);
