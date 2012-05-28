@@ -1,0 +1,10 @@
+package views;
+
+import org.eclipse.jface.action.Action;
+
+public class 
+PartitionerViewer 
+extends Action
+{
+
+}

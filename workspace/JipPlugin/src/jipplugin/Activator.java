@@ -22,10 +22,10 @@ extends AbstractUIPlugin
 	private static Activator plugin;
 	
 	ActiveSnapshotModelController 		active_snapshot_model;
-	SnapshotsListModelController			snapshots_list_model;
-	EventLogActionHandler 		action_handler;
+	SnapshotsListModelController		snapshots_list_model;
+	EventLogActionHandler 				action_handler;
 
-	private EventLogListModelController 	event_log_list_model;
+	private EventLogListModelController event_log_list_model;
 	
 	public 
 	Activator() 

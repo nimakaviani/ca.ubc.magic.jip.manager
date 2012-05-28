@@ -1,0 +1,17 @@
+package views;
+
+import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.swt.widgets.Composite;
+
+public class 
+EventLogTable 
+extends BasicListTable 
+{
+
+	public EventLogTable(Composite parent, String header,
+			ILabelProvider label_provider) {
+		super(parent, header, label_provider);
+		// TODO Auto-generated constructor stub
+	}
+
+}

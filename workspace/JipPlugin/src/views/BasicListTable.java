@@ -4,7 +4,6 @@ import java.util.List;
 
 import model_controllers.Snapshot;
 
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -12,24 +11,19 @@ import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.ui.PlatformUI;
-
 
 public class 
 BasicListTable 
 {
-	Table 			table;
-	TableViewer 	table_viewer;
-	List<Object> 	contents;
+	private Table 			table;
+	private TableViewer 	table_viewer;
+	private List<Object> 	contents;
+	private Menu			menu;
 
 	public BasicListTable
 	( final Composite parent, String header, ILabelProvider label_provider )
@@ -46,51 +40,23 @@ BasicListTable
 		}
 	}
 	
-	private void 
-	initializeContextMenu() 
+	protected Menu
+	getMenu()
 	{
-		final Menu menu 
-			= new Menu(table);
-		table.setMenu(menu);
+		if(this.menu == null){
+			this.menu = new Menu(table);
+			table.setMenu(menu);
+		}
 		
-		final MenuItem jip_viewer 
-			= new MenuItem(menu, SWT.NONE); 
-		jip_viewer.addSelectionListener(
-			new SelectionAdapter() { 
-				public void 
-				widgetSelected
-				(final SelectionEvent e) 
-				{ 
-					Snapshot snapshot 
-						= getSelectedSnapshot();
-					
-					Shell shell
-						= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-					MessageDialog.openInformation( shell, snapshot.getPath(), "Launch!" );
-					
-					// TODO Launch JIP Viewer based on snapshot
-				} 
-			}); 
-		jip_viewer.setText("Launch selection in JIP Viewer"); 
-		
-		final MenuItem partitioner
-			= new MenuItem(menu, SWT.NONE);
-		partitioner.addSelectionListener(
-			new SelectionAdapter() { 
-				public void 
-				widgetSelected
-				(final SelectionEvent e) 
-				{ 
-					//Snapshot snapshot 
-					//	= getSelectedSnapshot();
-					
-					// TODO launch partitioner based on that entry
-				} 
-			}); 
-		partitioner.setText("Launch selection in Partitioning Analyzer"); 
+		return this.menu;
 	}
+	
+	// meant to be overriden by subclasses
+	protected void 
+	initializeContextMenu()
+	{}
 
-	private Snapshot 
+	protected Snapshot 
 	getSelectedSnapshot() 
 	{
 		Snapshot snapshot 

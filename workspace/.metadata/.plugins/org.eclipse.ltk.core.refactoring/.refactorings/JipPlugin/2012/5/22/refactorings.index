@@ -33,3 +33,6 @@
 1338168328529	Rename type 'EventLogListModel'
 1338168339824	Rename type 'SnapshotsListModel'
 1338168369784	Rename package 'models_controllers'
+1338181028611	Move compilation unit
+1338181034571	Move compilation unit
+1338181046754	Rename type 'PartitionerViewer'

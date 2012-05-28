@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="jipplugin.ActivatorLog"/>
-<fullyQualifiedTypeName name="com.jchapman.jipsnapman.utils.JIPSnapManConstants"/>
-<fullyQualifiedTypeName name="com.mentorgen.tools.util.profile.Start"/>
-<fullyQualifiedTypeName name="java.net.ConnectException"/>
-<fullyQualifiedTypeName name="org.eclipse.swt.graphics.Rectangle"/>
-<fullyQualifiedTypeName name="views.widgets.EventLogTable"/>
-<fullyQualifiedTypeName name="org.eclipse.jface.action.Action"/>
 <fullyQualifiedTypeName name="jip.eventlog.events.EventLogEvent"/>
 <fullyQualifiedTypeName name="com.jchapman.jipsnapman.models.ILogsModel"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.DirectoryDialog"/>
@@ -27,7 +20,6 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.eclipse.jface.dialogs.ErrorDialog"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.events.SelectionListener"/>
-<fullyQualifiedTypeName name="org.eclipse.swt.widgets.Menu"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.MenuItem"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.events.SelectionAdapter"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.TableItem"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="java.util.concurrent.CopyOnWriteArrayList"/>
 <fullyQualifiedTypeName name="org.eclipse.core.runtime.IStatus"/>
 <fullyQualifiedTypeName name="org.eclipse.core.runtime.Status"/>
+<fullyQualifiedTypeName name="javax.swing.Action"/>
+<fullyQualifiedTypeName name="org.eclipse.jface.action.Action"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.widgets.FileDialog"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.actions.SimpleWildcardTester"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.SWT"/>
+<fullyQualifiedTypeName name="java.awt.Menu"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.widgets.Menu"/>
+<fullyQualifiedTypeName name="java.beans.ExceptionListener"/>
 </qualifiedTypeNameHistroy>

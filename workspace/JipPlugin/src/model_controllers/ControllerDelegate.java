@@ -14,7 +14,7 @@ ControllerDelegate
 implements IController
 {
 	private Set<IModelController>	registered_models;
-	private List<IView> registered_views;
+	private List<IView> 			registered_views;
 		
 	public 
 	ControllerDelegate()

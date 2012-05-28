@@ -32,14 +32,14 @@ JIPView
 extends ViewPart 
 implements IView
 {
-	String 			path;
-	String 			name;
-	String 			port;
-	String 			host;
+	String 				path;
+	String 				name;
+	String 				port;
+	String 				host;
 	
-	Label 			label;
-	BasicListTable 	snapshots_table;
-	BasicListTable	log_console_table;
+	Label 				label;
+	SnapshotListTable 	snapshots_table;
+	EventLogTable		log_console_table;
 	
 	public 
 	JIPView() 
@@ -65,8 +65,9 @@ implements IView
 		this.initializeDropDownMenu(actionBars.getMenuManager());
 		
 		this.snapshots_table 
-			= new BasicListTable(
-				parent, "Snapshots", new SnapshotsLabelProvider()
+			= new SnapshotListTable(
+				parent, "Session Snapshots", 
+				new SnapshotsLabelProvider()
 			);
 		
 		this.snapshots_table.setContents(
@@ -74,7 +75,7 @@ implements IView
 		);
 
 		this.log_console_table
-			= new BasicListTable(parent, "Event Log", null);
+			= new EventLogTable(parent, "Event Log", null);
 		this.log_console_table.setContents(
 			Activator.getDefault().getEventLogListModel().getEventLogList()
 		);
@@ -160,7 +161,14 @@ implements IView
 	{
 		IAction about		
 			= new AboutAction();
+		IAction jip_viewer
+			= new JIPViewerAction();
+		IAction partitioner_viewer
+			= new PartitionerViewerAction();
+		
 		dropDownMenu.add(about);
+		dropDownMenu.add(jip_viewer);
+		dropDownMenu.add(partitioner_viewer);
 	}
 	
 	@Override

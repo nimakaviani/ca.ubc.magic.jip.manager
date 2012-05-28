@@ -17,8 +17,8 @@ extends LabelProvider
 		Snapshot snapshot 
 		 	= (Snapshot) element;
 		
-		return snapshot.getName() 
-			+ "(" + snapshot.getHost()
+		return snapshot.getPathAndName() 
+			+ "   (" + snapshot.getHost()
 			+ ":" + snapshot.getPort() 
 			+ ")";
 	}

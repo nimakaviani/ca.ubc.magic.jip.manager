@@ -171,11 +171,11 @@ implements IView
 	{
 		String prevPath = null;
 		
-		prevPath = Activator.getDefault().getActiveSnapshotModel().getSnapshotPath();
+		prevPath 
+			= Activator.getDefault().getActiveSnapshotModel().
+				getSnapshotPath();
 		if(prevPath == null || prevPath.equals("")){
 			prevPath = "C:\\Users\\dillesca\\Desktop\\tmp";
-			//prevPath = "";
-			//prevPath = "KLH";
 		}
 		
 		System.out.println("Previous Path " + prevPath);

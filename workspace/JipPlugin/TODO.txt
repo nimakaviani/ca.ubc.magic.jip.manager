@@ -1,3 +1,27 @@
+27 May 2012:
+
+So I have finished porting over what exists in the original JIP interface,
+and am now ready to brainstorm and tackle any potential UI problems. I list
+the following:
+	1) Suppose we want to know where a session snapshot is stored (my solution
+	right now is to list the entire path, but there must be a better way that does
+	not introduce a million widgets (perhaps adding it to the context menu?)
+	2) Suppose we want to persist snapshots across sessions. If we do that we would
+	need to add clear all functionality. We should probably do that anyway.
+	3) Suppose every time we select a snapshot to run from the file system we add it
+	to the session snapshots. Do we want to add and remove individual snapshots from
+	the list?
+	4) Suppose somebody deletes the file corresponding to the snapshot while we are
+	working in eclipse. What is our policy regarding how the session snapshots should
+	be updated. Should we have a refresh button?
+	-----5) I need to fix the fact that the same context menu appears on both tables.
+	6) I need to make it so that certain options in the context menu are faded out when
+	nothing is selected in that table.
+
+Easiest way to get two views to communicate is to attach them to the same model-controller pair.
+Later on I can optimize this so that certain model controller pairs only pretend to send a message
+to the model.
+
 26 May 2012:
 
 JipSnapmanFrame.java -- ported
