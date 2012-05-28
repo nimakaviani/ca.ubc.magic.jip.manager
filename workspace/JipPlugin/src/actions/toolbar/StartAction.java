@@ -7,23 +7,23 @@ import java.util.Date;
 
 import jipplugin.Activator;
 
+
 import models.Constants;
+import models.ISnapshotInfoModel;
+import models.Snapshot;
 
 import org.eclipse.jface.action.Action;
 
-import com.jchapman.jipsnapman.events.EventLogActionHandler;
-import com.jchapman.jipsnapman.events.EventLogEvent;
-import com.jchapman.jipsnapman.events.EventLogger;
-import com.jchapman.jipsnapman.events.ISnapshotEventListener;
-import com.jchapman.jipsnapman.events.SnapshotEvent;
-import com.jchapman.jipsnapman.events.SnapshotEventManager;
-import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
-import com.jchapman.jipsnapman.models.Snapshot;
 import com.mentorgen.tools.util.profile.Start;
 
 import controllers.IController;
+import events.logging.EventLogActionHandler;
+import events.logging.EventLogEvent;
+import events.logging.EventLogger;
+import events.snapshots.ISnapshotEventListener;
+import events.snapshots.SnapshotEvent;
+import events.snapshots.SnapshotEventManager;
 
-// I think I finally need to introduce a model for the toolbar...
 public class 
 StartAction 
 extends Action 
@@ -35,19 +35,23 @@ implements ISnapshotEventListener
 	
 	public 
 	StartAction
-	(SnapshotEventManager snapshot_event_manager, IController controller)
+	(	SnapshotEventManager snapshot_event_manager, 
+		IController controller)
 	{
 		this.controller
 			= controller;
 		this.event_logger
 			= new EventLogger();
 		
-		// set the model to notify; caller will have set the view
-		this.controller.addModel(Activator.getDefault().getModel());
+		this.controller.addModel(
+			Activator.getDefault().getActiveSnapshotModel()
+		);
 		
 		this.snapshot_event_manager 
 			= snapshot_event_manager;
-		this.snapshot_event_manager.addSnapshotEventListener(this);
+		this.snapshot_event_manager.addSnapshotEventListener(
+			this
+		);
 		this.setToolTipText
 		("Connect and profile to produce snapshot.");
 		this.setEnabled(true);
@@ -73,7 +77,8 @@ implements ISnapshotEventListener
 	public void 
 	run()
 	{
-	    Snapshot snapshot = this.getSnapshot();
+	    Snapshot snapshot 
+	    	= this.getSnapshot();
 	    
 	    try{
 	    	this.inner_run(snapshot);
@@ -90,39 +95,38 @@ implements ISnapshotEventListener
 	{
 	    if (snapshot != null) {
 	    	boolean gotException = false;
-	      try {
-	        com.mentorgen.tools.util.profile.File.doFile(
-	            snapshot.getHost(),
-	            snapshot.getPort(),
-	            snapshot.getPathAndName());
-	        //throw new IOException();
-	      }
-	      catch (IOException ioex) {
-	        gotException = true;
-	        // problem: the run method is not allowed to declare a checked exception
-	        
-	        	System.out.println("Exception thrown: logging 1");
+	    	try {
+	    		com.mentorgen.tools.util.profile.File.doFile(
+	    			snapshot.getHost(),
+	    			snapshot.getPort(),
+	    			snapshot.getPathAndName());
+	    	}
+	    	catch (IOException ioex) {
+	    		gotException = true;
 	        	this.event_logger.updateConsoleLog(ioex);
-	      }
+	    	}
 			      
-		// if no exception, ie the above succeeded, then go to start
-		// command and report file success
-		if (!gotException) {
-		    this.event_logger.updateForSuccessfulCall("file");
-			try {
-				Start.doStart(snapshot.getHost(),
-				snapshot.getPort());
-			}
-			catch (IOException ioex) {
-				gotException = true;
-	        	System.out.println("Exception thrown: logging 2");
-				this.event_logger.updateConsoleLog(ioex);
-			}
-		}
-	      // if no exception, ie the above succeeded, then report
-	      // start success and send event
-	      if (!gotException) {
-	    	  	this.event_logger.updateForSuccessfulCall("start");
+	    	// if no exception, ie the above succeeded, then go to start
+	    	// command and report file success
+	    	if (!gotException) {
+	    		this.event_logger.updateForSuccessfulCall(
+	    			"file"
+	    		);
+	    		try {
+	    			Start.doStart(snapshot.getHost(),
+	    					snapshot.getPort());
+	    		}
+	    		catch (IOException ioex) {
+	    			gotException = true;
+	    			this.event_logger.updateConsoleLog(ioex);
+	    		}
+	    	}
+	    	// if no exception, ie the above succeeded, then
+	    	//report start success and send event
+	    	if (!gotException) {
+	    	  	this.event_logger.updateForSuccessfulCall(
+	    	  		"start"
+	    	  	);
 				this.snapshot_event_manager.fireSnapshotEvent(
 						new SnapshotEvent(
 				            SnapshotEvent.ID_SNAPSHOT_STARTED, 
@@ -130,10 +134,11 @@ implements ISnapshotEventListener
 				        )
 					);
 				this.controller.setModelProperty(
-						Constants.NAME_PROPERTY, snapshot.getName()
+						Constants.NAME_PROPERTY, 
+						snapshot.getName()
 					);
 				this.setEnabled(false);
-	      }
+	    	}
 	    } 
 	}
 
@@ -141,7 +146,7 @@ implements ISnapshotEventListener
 	getSnapshot() 
 	{
 		ISnapshotInfoModel info_model
-			= Activator.getDefault().getModel();
+			= Activator.getDefault().getActiveSnapshotModel();
 		
 	    // check path specified
 	    String path = info_model.getSnapshotPath();	    
@@ -150,7 +155,8 @@ implements ISnapshotEventListener
 	    		= this.event_logger.getErrorEvent();
 	    	event.addProperty(
 	    		Constants.KEY_ERR_MSSG, 
-	    		"A folder in which to store the snapshot must be specified."
+	    		"A folder in which to store the snapshot " 
+	    		+ "must be specified."
 	    	);
 	    	EventLogActionHandler action_handler
 	    		= Activator.getDefault().getActionHandler();
@@ -188,7 +194,8 @@ implements ISnapshotEventListener
 	    		= this.event_logger.getErrorEvent();
 	    	event.addProperty(
 	    		Constants.KEY_ERR_MSSG, 
-	    		"The folder ({0}) must have both read and write access.)"
+	    		"The folder ({0}) must have both read and "
+	    		+ "write access."
 	    	);
 	    	event.addProperty(
 	    		Constants.KEY_ERR_VALUES, 
@@ -234,9 +241,13 @@ implements ISnapshotEventListener
 	      boolean nameExists = true;
 	      String tempName = origName;
 	      String nameSuffix = ".txt";
-	      if (origName.endsWith(".txt") || origName.endsWith(".xml")) {
-	        tempName = origName.substring(0, origName.length() - 4);
-	        nameSuffix = origName.substring(origName.length() - 4);
+	      if (	origName.endsWith(".txt") 
+	    		|| origName.endsWith(".xml")) 
+	      {
+	        tempName 
+	        	= origName.substring(0, origName.length() - 4);
+	        nameSuffix 
+	        	= origName.substring(origName.length() - 4);
 	      }
 	      StringBuilder buf = new StringBuilder(tempName);
 	      int baseLength = buf.length();
@@ -255,14 +266,18 @@ implements ISnapshotEventListener
 	    // but leave origName empty
 	    else {
 	      StringBuilder buf = new StringBuilder();
-	      buf.append(new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()));
+	      buf.append(
+	    	new SimpleDateFormat("yyyyMMdd-HHmmss").format(
+	    		new Date()
+	    	)
+	    	);
 	      buf.append(".txt");
 	      newName = buf.toString();
 	    }
 	    return newName;
 	}
 	
-	 /* ---------------- from SnapshotEventListener --------------- */
+	 /* ---------------- from SnapshotEventListener -------- */
 
 	@Override
 	public void

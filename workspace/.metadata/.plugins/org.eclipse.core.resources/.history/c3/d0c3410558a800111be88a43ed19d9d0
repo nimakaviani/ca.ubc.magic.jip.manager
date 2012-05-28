@@ -1,0 +1,15 @@
+package models;
+
+import java.beans.PropertyChangeSupport;
+import java.util.LinkedList;
+import java.util.List;
+
+public class
+SnapshotsListModel 
+{
+	private List<Object> snapshots_list 
+		= new LinkedList<Object>();
+	
+	protected transient PropertyChangeSupport listeners 
+		= new PropertyChangeSupport(this);
+}

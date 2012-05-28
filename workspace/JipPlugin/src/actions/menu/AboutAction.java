@@ -11,7 +11,9 @@ extends Action
 	public
 	AboutAction()
 	{
-		this.setToolTipText("Disconnect from application to produce snapshot.");
+		this.setToolTipText(
+			"Disconnect from application to produce snapshot."
+		);
 		this.setText("About");
 	}
 	
@@ -20,7 +22,13 @@ extends Action
 	run()
 	{
 		Shell shell
-			= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-		MessageDialog.openInformation( shell, "First plug-in", "About!" );
+			= PlatformUI.getWorkbench().
+				getActiveWorkbenchWindow().getShell();
+		
+		MessageDialog.openInformation( 
+			shell, 
+			"First plug-in", 
+			"About!" 
+		);
 	}
 }

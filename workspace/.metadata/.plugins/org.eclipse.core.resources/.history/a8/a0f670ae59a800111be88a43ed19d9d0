@@ -1,0 +1,11 @@
+package models;
+
+import java.beans.PropertyChangeListener;
+
+import controllers.ControllerDelegate;
+
+public interface 
+IModel 
+{
+	void addPropertyChangeListener(PropertyChangeListener controllerDelegate);
+}

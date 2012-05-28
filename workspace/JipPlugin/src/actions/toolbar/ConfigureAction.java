@@ -7,11 +7,11 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
-import com.jchapman.jipsnapman.events.ISnapshotEventListener;
-import com.jchapman.jipsnapman.events.SnapshotEvent;
-import com.jchapman.jipsnapman.events.SnapshotEventManager;
 
 import controllers.ControllerDelegate;
+import events.snapshots.ISnapshotEventListener;
+import events.snapshots.SnapshotEvent;
+import events.snapshots.SnapshotEventManager;
 
 import views.IView;
 import views.SnapshotConfigurationDialog;
@@ -29,24 +29,32 @@ implements ISnapshotEventListener
 	
 	public 
 	ConfigureAction
-	( IView main_view, SnapshotEventManager snapshot_event_manager )
+	( 	IView main_view, 
+		SnapshotEventManager snapshot_event_manager )
 	{
 		this.controller 
 			= new ControllerDelegate();
 		this.snapshot_event_manager
 		 	= snapshot_event_manager;
-		this.snapshot_event_manager.addSnapshotEventListener(this);
+		this.snapshot_event_manager.addSnapshotEventListener(
+			this
+		);
 		
 		this.setToolTipText
 		( "Set the path, name, port, and host to work with." );
 		this.setEnabled(true);
 		
 		Shell shell
-			= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+			= PlatformUI.getWorkbench().
+				getActiveWorkbenchWindow().getShell();
 		this.dialog 
-			= new SnapshotConfigurationDialog(shell, this.controller);
+			= new SnapshotConfigurationDialog(
+				shell, this.controller
+			);
 		
-		this.controller.addModel(Activator.getDefault().getModel());
+		this.controller.addModel(
+			Activator.getDefault().getActiveSnapshotModel()
+		);
 		this.controller.addView(main_view);
 		this.controller.addView(this.dialog);
 	}
@@ -76,7 +84,7 @@ implements ISnapshotEventListener
 		}
 	}
 	
-	// --------------- from SnapshotEventListener --------------- 
+	// --------------- from SnapshotEventListener ----------- 
 
     public void 
     handleSnapshotEvent

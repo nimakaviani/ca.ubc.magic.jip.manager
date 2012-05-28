@@ -11,3 +11,17 @@
 1338086614778	Delete element
 1338151833136	Move compilation units
 1338153051875	Rename method 'setProperty'
+1338161626589	Move compilation units
+1338161629346	Delete element
+1338161664812	Rename package 'com.jchapman.jipsnapman.events'
+1338161685877	Move compilation units
+1338161730380	Move compilation unit
+1338161733890	Move compilation unit
+1338161746383	Move compilation units
+1338161752464	Delete element
+1338162807412	Rename type 'Model'
+1338162853492	Rename type 'ActiveViewModel'
+1338162898244	Rename field 'active_view_model'
+1338162974063	Rename method 'getModel'
+1338163127268	Delete element
+1338163133433	Move compilation unit

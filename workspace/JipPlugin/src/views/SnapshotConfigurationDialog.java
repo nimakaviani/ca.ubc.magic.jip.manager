@@ -4,6 +4,7 @@ import java.beans.PropertyChangeEvent;
 
 import jipplugin.Activator;
 
+
 import models.Constants;
 
 import org.eclipse.core.runtime.IStatus;
@@ -23,6 +24,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
+
 
 import controllers.IController;
 
@@ -168,7 +170,7 @@ implements IView
 	{
 		String prevPath = null;
 		
-		prevPath = Activator.getDefault().getModel().getSnapshotPath();
+		prevPath = Activator.getDefault().getActiveSnapshotModel().getSnapshotPath();
 		if(prevPath == null || prevPath.equals("")){
 			prevPath = "C:\\Users\\dillesca\\Desktop\\tmp";
 			//prevPath = "";
@@ -183,7 +185,7 @@ implements IView
 	getPreviousName()
 	{
 		String prevName = null;
-		prevName = Activator.getDefault().getModel().getSnapshotName();
+		prevName = Activator.getDefault().getActiveSnapshotModel().getSnapshotName();
 		
 		if(prevName == null){
 			prevName = "";
@@ -197,7 +199,7 @@ implements IView
 	{
 		String prevPort = null;
 		
-		prevPort = Activator.getDefault().getModel().getSnapshotPort();
+		prevPort = Activator.getDefault().getActiveSnapshotModel().getSnapshotPort();
 		if(prevPort == null || prevPort.equals("") ){
 			prevPort = "15599";
 		}
@@ -210,7 +212,7 @@ implements IView
 	{
 		String prevHost = null;
 		
-		prevHost = Activator.getDefault().getModel().getSnapshotHost();
+		prevHost = Activator.getDefault().getActiveSnapshotModel().getSnapshotHost();
 		
 		if(prevHost == null || prevHost.equals("") ){
 			prevHost = "localhost";

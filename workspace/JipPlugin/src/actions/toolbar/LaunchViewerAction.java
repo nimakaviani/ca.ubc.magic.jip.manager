@@ -15,15 +15,25 @@ extends Action
 	LaunchViewerAction()
 	{
 		this.setToolTipText("Launch JIP Viewer in order to....");
-		this.setImageDescriptor(Activator.getImageDescriptor("icons/image_obj.gif"));
+		this.setImageDescriptor(
+			Activator.getImageDescriptor("icons/image_obj.gif")
+		);
 	}
 	
 	@Override
-	public void run()
+	public void 
+	run()
 	{
 		Shell shell
-			= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-		MessageDialog.openInformation( shell, "First plug-in", "Launch!" );
-		this.setImageDescriptor(Activator.getImageDescriptor("icons/disconnect_co.gif"));
+			= PlatformUI.getWorkbench().
+				getActiveWorkbenchWindow().getShell();
+		MessageDialog.openInformation( 
+			shell, "First plug-in", "Launch!" 
+		);
+		this.setImageDescriptor(
+			Activator.getImageDescriptor(
+				"icons/disconnect_co.gif"
+			)
+		);
 	}
 }

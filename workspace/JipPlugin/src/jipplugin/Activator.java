@@ -1,12 +1,15 @@
 package jipplugin;
 
-import models.Model;
+
+import models.ActiveSnapshotModel;
+import models.SnapshotsListModel;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import com.jchapman.jipsnapman.events.EventLogActionHandler;
+
+import events.logging.EventLogActionHandler;
 
 public class 
 Activator 
@@ -17,7 +20,8 @@ extends AbstractUIPlugin
 
 	private static Activator plugin;
 	
-	Model 					model;
+	ActiveSnapshotModel 	active_snapshot_model;
+	SnapshotsListModel		snapshots_list_model;
 	EventLogActionHandler 	action_handler;
 	
 	public 
@@ -31,8 +35,11 @@ extends AbstractUIPlugin
 	{
 		super.start(context);
 		plugin = this;
-		this.model 
-			= new Model();
+		
+		this.active_snapshot_model 
+			= new ActiveSnapshotModel();
+		this.snapshots_list_model
+			= new SnapshotsListModel();
 		this.action_handler 
 			= new EventLogActionHandler();
 	}
@@ -60,10 +67,16 @@ extends AbstractUIPlugin
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
 
-	public Model 
-	getModel() 
+	public ActiveSnapshotModel 
+	getActiveSnapshotModel() 
 	{
-		return this.model;
+		return this.active_snapshot_model;
+	}
+	
+	public SnapshotsListModel
+	getSnapshotsListModel()
+	{
+		return this.snapshots_list_model;
 	}
 	
 	public EventLogActionHandler

@@ -2,6 +2,8 @@ package views;
 
 import java.util.List;
 
+import models.Snapshot;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -21,7 +23,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.PlatformUI;
 
-import com.jchapman.jipsnapman.models.Snapshot;
 
 public class 
 BasicListTable 

@@ -1,8 +1,9 @@
 package views;
 
+import models.Snapshot;
+
 import org.eclipse.jface.viewers.LabelProvider;
 
-import com.jchapman.jipsnapman.models.Snapshot;
 
 public class 
 SnapshotsLabelProvider 

@@ -1,0 +1,20 @@
+package controllers;
+
+import java.beans.PropertyChangeListener;
+
+import models.ISnapshotInfoModel;
+
+import views.IView;
+
+
+
+public interface
+IController
+extends PropertyChangeListener 
+{
+	public void addModel(ISnapshotInfoModel model);
+	public void removeModel(ISnapshotInfoModel model);
+	public void addView(IView view);
+	public void removeView(IView view);
+	public void setModelProperty(String property_name, Object new_value);
+}

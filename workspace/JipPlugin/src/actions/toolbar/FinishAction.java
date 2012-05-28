@@ -4,18 +4,19 @@ import java.io.IOException;
 
 import jipplugin.Activator;
 
+
 import models.Constants;
+import models.Snapshot;
 
 import org.eclipse.jface.action.Action;
 
-import com.jchapman.jipsnapman.events.EventLogger;
-import com.jchapman.jipsnapman.events.ISnapshotEventListener;
-import com.jchapman.jipsnapman.events.SnapshotEvent;
-import com.jchapman.jipsnapman.events.SnapshotEventManager;
-import com.jchapman.jipsnapman.models.Snapshot;
 import com.mentorgen.tools.util.profile.Finish;
 
 import controllers.IController;
+import events.logging.EventLogger;
+import events.snapshots.ISnapshotEventListener;
+import events.snapshots.SnapshotEvent;
+import events.snapshots.SnapshotEventManager;
 
 public class 
 FinishAction 
@@ -29,18 +30,26 @@ implements ISnapshotEventListener
 	
 	public
 	FinishAction
-	( SnapshotEventManager snapshot_event_manager, IController controller )
+	( 	SnapshotEventManager snapshot_event_manager, 
+		IController controller )
 	{
 		this.event_logger 
 			= new EventLogger();
 		this.controller
 			= controller;
-		this.controller.addModel(Activator.getDefault().getModel());
+		this.controller.addModel(
+			Activator.getDefault().getSnapshotsListModel()
+		);
+		this.controller.addModel(
+			Activator.getDefault().getActiveSnapshotModel()
+		);
 		
 		// we'll see if something else needs a reference to this
 		this.snapshot_event_manager
 			= snapshot_event_manager;
-		this.snapshot_event_manager.addSnapshotEventListener(this);
+		this.snapshot_event_manager.addSnapshotEventListener(
+			this
+		);
 		
 		this.setToolTipText
 		("Disconnect from application to produce snapshot.");
@@ -92,23 +101,34 @@ implements ISnapshotEventListener
 		}
 		
 		if (!got_exception) {
-			this.event_logger.updateForSuccessfulCall("finish");
-			snapshot_event_manager.fireSnapshotEvent(new SnapshotEvent(
-				SnapshotEvent.ID_SNAPSHOT_CAPTURED,
-				this.current_snapshot)
+			this.event_logger.updateForSuccessfulCall(
+				"finish"
+			);
+			snapshot_event_manager.fireSnapshotEvent(
+				new SnapshotEvent(
+					SnapshotEvent.ID_SNAPSHOT_CAPTURED,
+					this.current_snapshot
+				)
 			);
 	    }
 	    else {
-	    	snapshot_event_manager.fireSnapshotEvent(new SnapshotEvent(
-	          SnapshotEvent.ID_SNAPSHOT_CAPTURE_FAILED,
-	          this.current_snapshot));
+	    	snapshot_event_manager.fireSnapshotEvent(
+	    		new SnapshotEvent(
+	    			SnapshotEvent.ID_SNAPSHOT_CAPTURE_FAILED,
+	    			this.current_snapshot
+	    		)
+	    	);
 	    }
-		this.controller.setModelProperty(Constants.NAME_PROPERTY, "");
-		this.controller.setModelProperty(Constants.SNAPSHOT_PROPERTY, this.current_snapshot);
+		this.controller.setModelProperty(
+			Constants.NAME_PROPERTY, ""
+		);
+		this.controller.setModelProperty(
+			Constants.SNAPSHOT_PROPERTY, this.current_snapshot
+		);
 	    this.setEnabled(false);
 	}
 
-	 /* ---------------- from SnapshotEventListener --------------- */
+	 /* ---------------- from SnapshotEventListener ------ */
 
 	@Override
 	public void 

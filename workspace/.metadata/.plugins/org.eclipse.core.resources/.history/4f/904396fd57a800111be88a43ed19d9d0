@@ -1,0 +1,13 @@
+package models;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class
+SnapshotsListModel 
+{
+	private List<Object> snapshots_list 
+		= new LinkedList<Object>();
+	
+	
+}

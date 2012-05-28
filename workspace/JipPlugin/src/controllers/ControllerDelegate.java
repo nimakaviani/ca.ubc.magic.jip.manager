@@ -2,28 +2,28 @@ package controllers;
 
 import java.beans.PropertyChangeEvent;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 
+import models.IModel;
 import views.IView;
-
-
-import com.jchapman.jipsnapman.models.ISnapshotInfoModel;
 
 public class 
 ControllerDelegate 
 implements IController
 {
-	private List<ISnapshotInfoModel>	registered_models;
-	private List<IView> 				registered_views;
+	private Set<IModel>	registered_models;
+	private List<IView> registered_views;
 		
 	public 
 	ControllerDelegate()
 	{
 		registered_models
-			= new ArrayList<ISnapshotInfoModel>();
+			= new CopyOnWriteArraySet<IModel>();
 		registered_views
-			= new ArrayList<IView>();
+			= new CopyOnWriteArrayList<IView>();
 	}
 	
 	@Override
@@ -31,7 +31,6 @@ implements IController
 	propertyChange
 	( PropertyChangeEvent evt ) 
 	{
-		System.out.println("Property changed in model");
 		for(IView view : registered_views){
 			view.modelPropertyChange(evt);
 		}
@@ -40,19 +39,21 @@ implements IController
 	@Override
 	public void 
 	addModel
-	(ISnapshotInfoModel model) 
+	(IModel model) 
 	{
-		registered_models.add(model);
-		model.addPropertyChangeListener(this);
+		if(registered_models.add(model)){
+			model.addPropertyChangeListener(this);
+		}
 	}
 
 	@Override
 	public void 
 	removeModel
-	(ISnapshotInfoModel model) 
+	(IModel model) 
 	{
-		registered_models.remove(model);
-		model.removePropertyChangeListener(this);
+		if( registered_models.remove(model) ){
+			model.removePropertyChangeListener(this);
+		}
 	}
 
 	@Override
@@ -76,7 +77,7 @@ implements IController
 	setModelProperty
 	(String property_name, Object new_value) 
 	{
-		for ( ISnapshotInfoModel model: registered_models ) {
+		for ( IModel model: registered_models ) {
             try {
                 Method method 
                 	= model.getClass().getMethod( 
@@ -84,6 +85,9 @@ implements IController
                 		new Class[] { new_value.getClass() }
                 	);
                 method.invoke(model, new_value);
+                System.out.printf("Calling method set%s() in class %s\n",
+                	property_name, model.getClass()
+                );
             } catch (NoSuchMethodException ex) {
             	System.err.printf( 
             		"No method set%s() in class %s\n", 
